@@ -5,6 +5,7 @@ from typing import Optional, Union
 import torch
 from transformers import Trainer, TrainingArguments
 from datasets import load_dataset, load_metric
+
 model_name = "gpt2-large"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 # tokenizer.pad_token = tokenizer.eos_token
@@ -27,7 +28,7 @@ def process_data(examples):
 encoded_datasets = datasets.map(process_data, batched=True, remove_columns=['concept_set_idx', 'concepts', 'target'])
 
 
-def group_texts(examples):
+def group_texts(examples): # This function is copied directly from the tutorial given by Hugging Face: https://github.com/huggingface/notebooks/blob/main/examples/language_modeling.ipynb
     block_size = 256
     # Concatenate all texts.
     concatenated_examples = {k: sum(examples[k], []) for k in examples.keys()}
@@ -52,13 +53,15 @@ lm_datasets = encoded_datasets.map(
 training_args = TrainingArguments(
     f"{model_name}-finetuned-commongen",
     evaluation_strategy="epoch",
-    learning_rate=5e-5,
+    learning_rate=2.5e-5,
     weight_decay=0.01,
     push_to_hub=False,
     load_best_model_at_end=True,
     save_strategy="epoch",
     hub_token="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",
-    num_train_epochs=5.0
+    num_train_epochs=5.0,
+    per_device_train_batch_size=4,
+    per_device_eval_batch_size=4,
 )
 trainer = Trainer(
     model=model,
