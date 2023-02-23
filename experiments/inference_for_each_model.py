@@ -25,15 +25,15 @@ tokenizers = {
 
 
 def generate_without_choice_content_words(model: str, set_name):
-    new_ds = datasets.load_from_disk(
-        "C:\\Users\\Jingqian\\PycharmProjects\\huggingface-playground\\experiments\\commonsenseqa_with_content_words")
+    new_ds = datasets.load_dataset("liujqian/commonsenseqa_with_content_words")
     examples = new_ds[set_name]
     tokenizer = AutoTokenizer.from_pretrained(tokenizers[model])
     model = AutoModelForCausalLM.from_pretrained(language_models[model])
     results = {}
     for i in range(len(examples["id"])):
         if i % 20 == 0:
-            print(str(datetime.datetime.now()) + " making the " + str(i) + "th generation.")
+            print(
+                str(datetime.datetime.now()) + " making the " + str(i) + "th generation for the " + set_name + " set.")
         question_content_words = examples["question_content_words"][i]
         prompt = "<|endoftext|>" + ", ".join(question_content_words) + "="
         tokenized_input = tokenizer(prompt, return_tensors="pt")
@@ -58,13 +58,15 @@ def generate_without_choice_content_words(model: str, set_name):
     return results
 
 
-generations = generate_without_choice_content_words("gpt2", "train")
-print("Trying to dump the generations to a file!")
-file = open(
-    'C:\\Users\\Jingqian\\PycharmProjects\\huggingface-playground\\experiments\\generated_sentences\\gpt2-train-withoutchoicewords-noquestionwordlimit.pickle',
-    'wb')
-# dump information to that file
-pickle.dump(generations, file)
-# close the file
-file.close()
-print("Finished dumping the generations to a file!")
+target_model_name = "gpt2-xl"
+for subset_name in ["train", "validation"]:
+    generations = generate_without_choice_content_words(target_model_name, subset_name)
+    print(f"Trying to dump the generations to a file!")
+    file = open(
+        f'{target_model_name}-{subset_name}-withoutchoicewords-noquestionwordlimit.pickle',
+        'wb')
+    # dump information to that file
+    pickle.dump(generations, file)
+    # close the file
+    file.close()
+    print("Finished dumping the generations to a file!")
