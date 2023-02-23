@@ -28,7 +28,8 @@ def process_data(examples):
 encoded_datasets = datasets.map(process_data, batched=True, remove_columns=['concept_set_idx', 'concepts', 'target'])
 
 
-def group_texts(examples): # This function is copied directly from the tutorial given by Hugging Face: https://github.com/huggingface/notebooks/blob/main/examples/language_modeling.ipynb
+def group_texts(
+        examples):  # This function is copied directly from the tutorial given by Hugging Face: https://github.com/huggingface/notebooks/blob/main/examples/language_modeling.ipynb
     block_size = 256
     # Concatenate all texts.
     concatenated_examples = {k: sum(examples[k], []) for k in examples.keys()}
@@ -49,7 +50,18 @@ lm_datasets = encoded_datasets.map(
     group_texts,
     batched=True,
 )
-
+# =A wall mounted urinal in a checker tiled rest room.<|endoftext|>lake shore canoe=canoe on a shore of
+# lake.<|endoftext|>lake shore canoe=canoe on shore with rainbow across the lake<|endoftext|>lake shore canoe=Several
+# canoes parked in the grass on the shore of a lake <|endoftext|>mountain skier way=A skier on his way to the
+# mountain.<|endoftext|>mountain skier way=skiers make their way down the mountain<|endoftext|>mountain skier way=A
+# skier making her way down a snowy mountain.<|endoftext|>boat lake drive=driving boat on a lake<|endoftext|>boat
+# lake drive=a boat is being driven through a lake<|endoftext|>boat lake drive=A fisherman drives his boat on the
+# lake<|endoftext|>grass horse eat=A horse is eating grass.<|endoftext|>grass horse eat=The horses are eating
+# grass.<|endoftext|>grass horse eat=The old horse ate grass all day.<|endoftext|>train come track=train coming down
+# the track<|endoftext|>train come track=A train is coming along on a track.<|endoftext|>train come track=a long
+# train in coming down some tracks<|endoftext|>train track move=train moving on the tracks<|endoftext|>train track
+# move=A red train is moving down a track<|endoftext|>train track move=A train moves slowly on some empty
+# tracks<|endoftext|>
 training_args = TrainingArguments(
     f"{model_name}-finetuned-commongen",
     evaluation_strategy="epoch",
