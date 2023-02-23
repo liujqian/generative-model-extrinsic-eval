@@ -6,8 +6,8 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 
 language_models = {
     "gpt2-xl": "liujqian/gpt2-xl-finetuned-commongen",
-    "gpt2-l": "C:\\Users\\Jingqian\\PycharmProjects\\huggingface-playground\\fine-tune\\gpt2-large-finetuned-commongen",
-    "gpt2-m": "C:\\Users\\Jingqian\\PycharmProjects\\huggingface-playground\\fine-tune\\gpt2-medium-finetuned-commongen",
+    "gpt2-l": "liujqian/gpt2-large-finetuned-commongen",
+    "gpt2-m": "liujqian/gpt2-medium-finetuned-commongen",
     "gpt2": "C:\\Users\\Jingqian\\PycharmProjects\\huggingface-playground\\fine-tune\\gpt2-finetuned-commongen",
     "t5": "mrm8488/t5-base-finetuned-common_gen",
     "bloom": "mrm8488/bloom-560m-finetuned-common_gen"
@@ -15,8 +15,8 @@ language_models = {
 
 tokenizers = {
     "gpt2-xl": "gpt2-xl",
-    "gpt2-l": "gpt2-l",
-    "gpt2-m": "gpt2-m",
+    "gpt2-l": "gpt2-large",
+    "gpt2-m": "gpt2-medium",
     "gpt2": "gpt2",
     "t5": "mrm8488/t5-base-finetuned-common_gen",
     "bloom": "mrm8488/bloom-560m-finetuned-common_gen"
