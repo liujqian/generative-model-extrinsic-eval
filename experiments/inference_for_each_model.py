@@ -3,7 +3,6 @@ import pickle
 
 import datasets
 from transformers import AutoTokenizer, AutoModelForCausalLM
-from wordfreq import word_frequency
 
 language_models = {
     "gpt2-xl": "liujqian/gpt2-xl-finetuned-commongen",
