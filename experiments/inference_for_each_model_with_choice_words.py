@@ -69,7 +69,7 @@ def generate_with_choice_content_words(model_name: str, set_name: str, examples)
 target_model_name = "gpt2"
 for subset_name in ["train", "validation"]:
     new_ds = datasets.load_dataset("liujqian/commonsenseqa_with_content_words")
-    generations = generate_with_choice_content_words(target_model_name, subset_name, new_ds[subset_name][10:12])
+    generations = generate_with_choice_content_words(target_model_name, subset_name, new_ds[subset_name])
     print(f"Trying to dump the generations to a file!")
     file = open(
         f'{target_model_name}-{subset_name}-withchoicewords-noquestionwordlimit.pickle',
