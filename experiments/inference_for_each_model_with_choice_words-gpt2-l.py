@@ -39,7 +39,7 @@ def generate_with_choice_content_words(model_name: str, set_name: str, examples)
         for choice_idx in range(0, 5):
             choice_content_words = examples[f"choice_{choice_idx}_content_words"][i]
             all_content_words = choice_content_words + question_content_words
-            prompt = "<|endoftext|>" + ", ".join(all_content_words) + "="
+            prompt = "<|endoftext|>" + " ".join(all_content_words) + "="
             prompts_for_this_question.append(prompt)
         tokenized_input = tokenizer(prompts_for_this_question, return_tensors="pt", padding=True)
         outputs = model.generate(
@@ -49,7 +49,7 @@ def generate_with_choice_content_words(model_name: str, set_name: str, examples)
             num_return_sequences=4,
             diversity_penalty=100.0,
             remove_invalid_values=True,
-            temperature=10.0,
+            temperature=1.0,
             max_new_tokens=256,
             return_dict_in_generate=True,
             output_scores=True,
@@ -72,7 +72,7 @@ for subset_name in ["train", "validation"]:
     generations = generate_with_choice_content_words(target_model_name, subset_name, new_ds[subset_name])
     print(f"Trying to dump the generations to a file!")
     file = open(
-        f'{target_model_name}-{subset_name}-withchoicewords-noquestionwordlimit.pickle',
+        f'{target_model_name}-{subset_name}-withchoicewords-noquestionwordlimit-promptfixed.pickle',
         'wb')
     # dump information to that file
     pickle.dump(generations, file)

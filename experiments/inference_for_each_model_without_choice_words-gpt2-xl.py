@@ -32,7 +32,7 @@ def generate_without_choice_content_words(model: str, set_name: str, examples):
             print(
                 str(datetime.datetime.now()) + " making the " + str(i) + "th generation for the " + set_name + " set.")
         question_content_words = examples["question_content_words"][i]
-        prompt = "<|endoftext|>" + ", ".join(question_content_words) + "="
+        prompt = "<|endoftext|>" + " ".join(question_content_words) + "="
         tokenized_input = tokenizer(prompt, return_tensors="pt")
         outputs = model.generate(
             **tokenized_input,
@@ -42,7 +42,7 @@ def generate_without_choice_content_words(model: str, set_name: str, examples):
             diversity_penalty=100.0,
             length_penalty=0.1,
             remove_invalid_values=True,
-            temperature=10.0,
+            temperature=1.0,
             max_new_tokens=256,
             return_dict_in_generate=True,
             output_scores=True,
@@ -55,13 +55,13 @@ def generate_without_choice_content_words(model: str, set_name: str, examples):
     return results
 
 
-target_model_name = "gpt2-l"
+target_model_name = "gpt2-xl"
 for subset_name in ["train", "validation"]:
     new_ds = datasets.load_dataset("liujqian/commonsenseqa_with_content_words")
     generations = generate_without_choice_content_words(target_model_name, subset_name, new_ds[subset_name])
     print(f"Trying to dump the generations to a file!")
     file = open(
-        f'{target_model_name}-{subset_name}-withoutchoicewords-noquestionwordlimit.pickle',
+        f'{target_model_name}-{subset_name}-WITHOUTchoicewords-noquestionwordlimit-promptfixed.pickle',
         'wb')
     # dump information to that file
     pickle.dump(generations, file)

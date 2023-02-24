@@ -99,7 +99,7 @@ if __name__ == '__main__':
         tokenizer = AutoTokenizer.from_pretrained(tokenizers[model_name], padding_side='left')
         tokenizer.pad_token = tokenizer.eos_token
         model = AutoModelForCausalLM.from_pretrained(language_models[model_name])
-        for subset_name in [ "test"]:
+        for subset_name in [ "validation"]:
             subset = commongen_full[subset_name]
             if subset_name == "validation":
                 results = generate_for_commongen_validation(model, tokenizer, subset, model_name=model_name,

@@ -23,31 +23,24 @@ tokenizers = {
 }
 
 
-def generate_with_choice_content_words(model_name: str, set_name: str, examples):
-    tokenizer = AutoTokenizer.from_pretrained(tokenizers[model_name], padding_side='left')
-    tokenizer.pad_token = tokenizer.eos_token
-    model = AutoModelForCausalLM.from_pretrained(language_models[model_name])
+def generate_without_choice_content_words(model: str, set_name: str, examples):
+    tokenizer = AutoTokenizer.from_pretrained(tokenizers[model])
+    model = AutoModelForCausalLM.from_pretrained(language_models[model])
     results = {}
     for i in range(len(examples["id"])):
         if i % 20 == 0:
             print(
-                str(datetime.datetime.now()) + " making the " + str(
-                    i) + "th generation for the " + set_name + " set using the " + model_name + " model. There are " + str(
-                    len(examples['id'])) + " examples in total!")
+                str(datetime.datetime.now()) + " making the " + str(i) + "th generation for the " + set_name + " set.")
         question_content_words = examples["question_content_words"][i]
-        prompts_for_this_question = []
-        for choice_idx in range(0, 5):
-            choice_content_words = examples[f"choice_{choice_idx}_content_words"][i]
-            all_content_words = choice_content_words + question_content_words
-            prompt = "<|endoftext|>" + " ".join(all_content_words) + "="
-            prompts_for_this_question.append(prompt)
-        tokenized_input = tokenizer(prompts_for_this_question, return_tensors="pt", padding=True)
+        prompt = "<|endoftext|>" + " ".join(question_content_words) + "="
+        tokenized_input = tokenizer(prompt, return_tensors="pt")
         outputs = model.generate(
             **tokenized_input,
-            num_beams=4,
-            num_beam_groups=4,
-            num_return_sequences=4,
+            num_beams=20,
+            num_beam_groups=20,
+            num_return_sequences=20,
             diversity_penalty=100.0,
+            length_penalty=0.1,
             remove_invalid_values=True,
             temperature=1.0,
             max_new_tokens=256,
@@ -56,23 +49,19 @@ def generate_with_choice_content_words(model_name: str, set_name: str, examples)
         )
         sentences = []
         for output in outputs.sequences:
-            sentence = tokenizer.decode(output, skip_special_tokens=True)
+            sentence = tokenizer.decode(output, skip_special_tokens=True).split("=")[-1]
             sentences.append(sentence)
-        results[i] = {
-            "id": examples["id"][i],
-            "sentences": sentences,
-            "sequences_scores": outputs.sequences_scores.detach().cpu().numpy(),
-        }
+        results[i] = {"id": examples["id"][i], "sentences": sentences}
     return results
 
 
-target_model_name = "gpt2-m"
+target_model_name = "gpt2"
 for subset_name in ["train", "validation"]:
     new_ds = datasets.load_dataset("liujqian/commonsenseqa_with_content_words")
-    generations = generate_with_choice_content_words(target_model_name, subset_name, new_ds[subset_name])
+    generations = generate_without_choice_content_words(target_model_name, subset_name, new_ds[subset_name])
     print(f"Trying to dump the generations to a file!")
     file = open(
-        f'{target_model_name}-{subset_name}-withchoicewords-noquestionwordlimit-promptfixed.pickle',
+        f'{target_model_name}-{subset_name}-WITHOUTchoicewords-noquestionwordlimit-promptfixed.pickle',
         'wb')
     # dump information to that file
     pickle.dump(generations, file)
