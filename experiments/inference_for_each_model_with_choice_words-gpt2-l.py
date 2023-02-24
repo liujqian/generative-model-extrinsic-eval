@@ -61,7 +61,7 @@ def generate_with_choice_content_words(model_name: str, set_name: str, examples)
         results[i] = {
             "id": examples["id"][i],
             "sentences": sentences,
-            "original_model_output": outputs
+            "sequences_scores": outputs.sequences_scores.detach().cpu().numpy(),
         }
     return results
 
