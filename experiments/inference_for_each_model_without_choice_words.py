@@ -55,49 +55,6 @@ def generate_without_choice_content_words(model: str, set_name: str, examples):
     return results
 
 
-def generate_with_choice_content_words(model: str, set_name: str, examples):
-    tokenizer = AutoTokenizer.from_pretrained(tokenizers[model])
-    model = AutoModelForCausalLM.from_pretrained(language_models[model])
-    results = {}
-    for i in range(len(examples["id"])):
-        if i % 20 == 0:
-            print(
-                str(datetime.datetime.now()) + " making the " + str(
-                    i) + "th generation for the " + set_name + " set using the " + model + " model.")
-        question_content_words = examples["question_content_words"][i]
-        cur_question_results = []
-        for choice_idx in range(0, 5):
-            choice_content_words = examples[f"choice_{choice_idx}_content_words"][i]
-            all_content_words = question_content_words + choice_content_words
-            prompt = "<|endoftext|>" + ", ".join(all_content_words) + "="
-            tokenized_input = tokenizer(prompt, return_tensors="pt")
-            outputs = model.generate(
-                **tokenized_input,
-                num_beams=5,
-                num_beam_groups=5,
-                num_return_sequences=5,
-                diversity_penalty=100.0,
-                remove_invalid_values=True,
-                temperature=10.0,
-                max_new_tokens=256,
-                return_dict_in_generate=True,
-                output_scores=True,
-            )
-            sentences = []
-            for output in outputs.sequences:
-                sentence = tokenizer.decode(output, skip_special_tokens=True).split("=")[-1]
-                sentences.append(sentence)
-            cur_question_results.append(
-                {
-                    "id": examples["id"][i],
-                    "sentences": sentences,
-                    "choice_idx": choice_idx,
-                    "original_model_outputs": outputs,
-                }
-            )
-    return results
-
-
 target_model_name = "gpt2-l"
 for subset_name in ["train", "validation"]:
     new_ds = datasets.load_dataset("liujqian/commonsenseqa_with_content_words")

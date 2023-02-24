@@ -18,15 +18,17 @@ tokenizers = {
     "bloom": "mrm8488/bloom-560m-finetuned-common_gen"
 }
 
-tokenizer = AutoTokenizer.from_pretrained(tokenizers["gpt2-xl"])
+tokenizer = AutoTokenizer.from_pretrained(tokenizers["gpt2-xl"],padding_side='left')
+tokenizer.pad_token = tokenizer.eos_token
 model = AutoModelForCausalLM.from_pretrained(language_models["gpt2-xl"])
-encoder_input_str = "<|endoftext|>feel, after, doing, housework, hours="
-tokenized_input = tokenizer(encoder_input_str, return_tensors="pt")
+encoder_input_str0 = "<|endoftext|>mountain, snow, trap="
+encoder_input_str1 = "<|endoftext|>see, pick, hat="
+tokenized_input = tokenizer( [encoder_input_str1,encoder_input_str0], return_tensors="pt", padding=True)
 outputs = model.generate(
     **tokenized_input,
-    num_beams=20,
-    num_beam_groups=20,
-    num_return_sequences=20,
+    num_beams=4,
+    num_beam_groups=4,
+    num_return_sequences=4,
     diversity_penalty=100.0,
     length_penalty=0.1,
     remove_invalid_values=True,
