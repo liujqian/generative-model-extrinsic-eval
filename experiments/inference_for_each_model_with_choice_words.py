@@ -43,9 +43,9 @@ def generate_with_choice_content_words(model_name: str, set_name: str, examples)
         tokenized_input = tokenizer(prompts_for_this_question, return_tensors="pt", padding=True)
         outputs = model.generate(
             **tokenized_input,
-            num_beams=5,
-            num_beam_groups=5,
-            num_return_sequences=5,
+            num_beams=4,
+            num_beam_groups=4,
+            num_return_sequences=4,
             diversity_penalty=100.0,
             remove_invalid_values=True,
             temperature=10.0,
