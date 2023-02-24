@@ -66,7 +66,7 @@ def generate_with_choice_content_words(model_name: str, set_name: str, examples)
     return results
 
 
-target_model_name = "gpt2"
+target_model_name = "gpt2-m"
 for subset_name in ["train", "validation"]:
     new_ds = datasets.load_dataset("liujqian/commonsenseqa_with_content_words")
     generations = generate_with_choice_content_words(target_model_name, subset_name, new_ds[subset_name])
