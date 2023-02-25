@@ -49,7 +49,7 @@ def generate_without_choice_content_words(model: str, set_name: str, examples):
         )
         sentences = []
         for output in outputs.sequences:
-            sentence = tokenizer.decode(output, skip_special_tokens=True).split("=")[-1]
+            sentence = tokenizer.decode(output, skip_special_tokens=True)
             sentences.append(sentence)
         results[i] = {"id": examples["id"][i], "sentences": sentences}
     return results
