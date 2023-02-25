@@ -51,7 +51,16 @@ def extract_commonsenseqa_terms():
     return new_ds
 
 
-huggingface_hub.login("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")
-new_ds = extract_commonsenseqa_terms()
-new_ds.save_to_disk("./commonsenseqa_with_content_words")
-new_ds.push_to_hub("liujqian/commonsenseqa_with_content_words")
+def extract_and_upload():
+    huggingface_hub.login("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")
+    new_ds = extract_commonsenseqa_terms()
+    new_ds.save_to_disk("./commonsenseqa_with_content_words")
+    new_ds.push_to_hub("liujqian/commonsenseqa_with_content_words")
+
+
+if __name__ == '__main__':
+    ds = datasets.load_dataset("commonsense_qa")["train"][2]
+    a = extract_content_words(ds["question"])
+    for i in range(5):
+        a += extract_content_words(ds["choices"]["text"][i])
+    print(a)
