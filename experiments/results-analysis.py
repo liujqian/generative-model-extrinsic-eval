@@ -108,7 +108,7 @@ def analyze_with_choice_generations(model_name: str):
                                                                                                      "total_examined"] + 1)
             stats["total_examined"] += 1
         all_results[subset_name] = stats
-    with open(f"analysis-results/{model_name}-analysis-results-NO-choice.json", "w") as file:
+    with open(f"analysis-results/{model_name}-analysis-results-WITH-choice.json", "w") as file:
         json.dump(all_results, file)
 
 
@@ -165,4 +165,4 @@ def analyze_without_choice_generations(model_name: str):
 
 if __name__ == '__main__':
     for model_name in ["gpt2", "gpt2-m", "gpt2-l"]:
-        analyze_without_choice_generations(model_name)
+        analyze_with_choice_generations(model_name)
