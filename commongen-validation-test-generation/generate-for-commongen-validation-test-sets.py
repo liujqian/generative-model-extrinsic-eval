@@ -15,7 +15,8 @@ def generate_for_commongen_test(model, tokenizer, dataset, model_name, ds_name):
         "generated_sentences": []
     }
     for batch_idx in range(0, num_batch):
-        print(f"Generating for the {model_name} model, {ds_name} set! This is the {batch_idx}th batch. There are {num_batch} items in total.")
+        print(
+            f"Generating for the {model_name} model, {ds_name} set! This is the {batch_idx}th batch. There are {num_batch} batches in total.")
         indices = [batch_idx * batch_size + idx for idx in [0, 1, 2, 3] if
                    batch_idx * batch_size + idx < dataset_length]
         concepts_batch = commongen[indices]["concepts"]
@@ -99,7 +100,7 @@ if __name__ == '__main__':
         tokenizer = AutoTokenizer.from_pretrained(tokenizers[model_name], padding_side='left')
         tokenizer.pad_token = tokenizer.eos_token
         model = AutoModelForCausalLM.from_pretrained(language_models[model_name])
-        for subset_name in [ "validation"]:
+        for subset_name in ["test", "validation"]:
             subset = commongen_full[subset_name]
             if subset_name == "validation":
                 results = generate_for_commongen_validation(model, tokenizer, subset, model_name=model_name,

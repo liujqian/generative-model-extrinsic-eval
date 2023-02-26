@@ -79,6 +79,7 @@ def analyze_with_choice_generations(model_name: str):
             for choice_idx in range(0, 5):
                 cur_choice_content_words = question[f"choice_{choice_idx}_content_words"]
                 all_generations_for_cur_choice = all_generated_sentences[choice_idx * 4:choice_idx * 4 + 4]
+                all_generations_for_cur_choice = [*map(lambda x: x.split("=")[-1], all_generations_for_cur_choice)]
                 all_scores_for_cur_choice = all_sequences_scores[choice_idx * 4:choice_idx * 4 + 4]
                 inclusion_count = count_occurences(all_generations_for_cur_choice, cur_choice_content_words)
                 cur_question_choices_stats["inclusion_count"].append(inclusion_count)
