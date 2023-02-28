@@ -2,9 +2,11 @@ import datetime
 import json
 import pickle
 import numpy
+import spacy
 
 from datasets import load_dataset
 
+nlp = spacy.load("en_core_web_lg")
 language_models = {
     "gpt2-xl": "liujqian/gpt2-xl-finetuned-commongen",
     "gpt2-l": "liujqian/gpt2-large-finetuned-commongen",
@@ -40,11 +42,17 @@ def log(cur_idx, total, set_name, model_name, interval):
 
 
 def count_occurences(sentences: list[str], targets: list[str]) -> int:
+    def lemmatize(s: str):
+        doc = nlp(s)
+        return " ".join([x.lemma_ for x in nlp(s)])
+
     cnt = 0
     for target in targets:
+        lemmatized_target = lemmatize(target)
         for sentence in sentences:
             truncated = sentence.split("=")[-1]
-            if target in truncated:
+            lemmatized_sentence = lemmatize(truncated)
+            if lemmatized_target in lemmatized_sentence:
                 cnt += 1
     return cnt
 
@@ -79,7 +87,6 @@ def analyze_with_choice_generations(model_name: str):
             for choice_idx in range(0, 5):
                 cur_choice_content_words = question[f"choice_{choice_idx}_content_words"]
                 all_generations_for_cur_choice = all_generated_sentences[choice_idx * 4:choice_idx * 4 + 4]
-                all_generations_for_cur_choice = [*map(lambda x: x.split("=")[-1], all_generations_for_cur_choice)]
                 all_scores_for_cur_choice = all_sequences_scores[choice_idx * 4:choice_idx * 4 + 4]
                 inclusion_count = count_occurences(all_generations_for_cur_choice, cur_choice_content_words)
                 cur_question_choices_stats["inclusion_count"].append(inclusion_count)
@@ -166,9 +173,9 @@ def analyze_without_choice_generations(model_name: str):
 
 if __name__ == '__main__':
     for model_name in [
-        # "gpt2",
-        # "gpt2-m",
-        # "gpt2-l",
+        "gpt2",
+        "gpt2-m",
+        "gpt2-l",
         "gpt2-xl"
     ]:
         analyze_with_choice_generations(model_name)

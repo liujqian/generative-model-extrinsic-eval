@@ -3,17 +3,17 @@
     "total_examined": 9741,
     "correct_prediction_by_inclusion_count": 2029,
     "correct_prediction_by_sequences_score": 2122,
-    "avg_correct_prediction_inclusion": 3.8876912021353043,
-    "avg_wrong_prediction_inclusion": 3.726824761318143,
+    "avg_correct_prediction_inclusion": 4.008418026896614,
+    "avg_wrong_prediction_inclusion": 3.841084077610102,
     "avg_correct_prediction_sequence_score": -0.6326623987660813,
     "avg_wrong_prediction_sequence_score": -0.6391083905051737
   },
   "validation": {
     "total_examined": 1221,
-    "correct_prediction_by_inclusion_count": 285,
+    "correct_prediction_by_inclusion_count": 284,
     "correct_prediction_by_sequences_score": 296,
-    "avg_correct_prediction_inclusion": 3.913185913185913,
-    "avg_wrong_prediction_inclusion": 3.7383292383292384,
+    "avg_correct_prediction_inclusion": 4.003276003276007,
+    "avg_wrong_prediction_inclusion": 3.8513513513513513,
     "avg_correct_prediction_sequence_score": -0.6294030903744755,
     "avg_wrong_prediction_sequence_score": -0.6385666236928206
   }
