@@ -1,5 +1,6 @@
 import datetime
 import pickle
+import sys
 
 import datasets
 from transformers import AutoTokenizer, AutoModelForCausalLM
@@ -55,16 +56,20 @@ def generate_without_choice_content_words(model: str, set_name: str, examples):
     return results
 
 
-target_model_name = "gpt2-xl"
-for subset_name in ["train", "validation"]:
-    new_ds = datasets.load_dataset("liujqian/commonsenseqa_with_content_words")
-    generations = generate_without_choice_content_words(target_model_name, subset_name, new_ds[subset_name])
-    print(f"Trying to dump the generations to a file!")
-    file = open(
-        f'{target_model_name}-{subset_name}-WITHOUTchoicewords-noquestionwordlimit-promptfixed.pickle',
-        'wb')
-    # dump information to that file
-    pickle.dump(generations, file)
-    # close the file
-    file.close()
-    print("Finished dumping the generations to a file!")
+if __name__ == '__main__':
+    args = sys.argv
+    assert len(args) == 2, "Need two arguments."
+    assert args[-1] in ["gpt2", "gpt2-m", "gpt2-l", "gpt2-xl"]
+    target_model_name = args[-1]
+    for subset_name in ["train", "validation"]:
+        new_ds = datasets.load_dataset("liujqian/commonsenseqa_with_content_words")
+        generations = generate_without_choice_content_words(target_model_name, subset_name, new_ds[subset_name])
+        print(f"Trying to dump the generations to a file!")
+        file = open(
+            f'{target_model_name}-{subset_name}-WITHOUTchoicewords-noquestionwordlimit-promptfixed.pickle',
+            'wb')
+        # dump information to that file
+        pickle.dump(generations, file)
+        # close the file
+        file.close()
+        print("Finished dumping the generations to a file!")
