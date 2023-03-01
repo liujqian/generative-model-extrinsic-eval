@@ -1,6 +1,8 @@
+import json
 import pickle
 import random
 import re
+import sys
 
 n = 100
 
@@ -37,6 +39,7 @@ def manual_rank(generation_dict):
         "gpt2-xl": []
     }
     for i in range(sample_cnt):
+        print(f"Ranking the {i + 1}th sample now. There are {sample_cnt} total samples to be ranked.")
         ith_samples = [
             {
                 "model_name": "gpt2",
@@ -56,36 +59,62 @@ def manual_rank(generation_dict):
             },
         ]
         random.shuffle(ith_samples)
-        # prompt user and read a line
-        print(f"This is the {i+1}th comparision. There are {sample_cnt} comparisions to be done in total!")
-        print(f"The following sentences are generated using the concepts: {generation_dict['concepts'][i]}")
-        for sample_idx, sample in enumerate(ith_samples):
-            print(f"{sample_idx + 1}) {sample['generation']}")
-            print()
-        print(
-            "Please rank the generations from the worst quality to "
-            "the best quality by typing in the indices of the generations, "
-            "separated by a white space. "
-            "Do not hit enter until you typed out all the four indices.",
-        )
-        valid_input = False
-        while not valid_input:
-            nums_in = input()
-            match = re.search("(\d)\s*(\d)\s*(\d)\s*(\d)", nums_in)
-            if len(match.groups()) != 4:
-                print(
-                    "You need to enter exactly four values, which corresponds to the sentences' indices."
-                    " Please try again!"
-                )
-                continue
-            ranking = [int(y) for y in match.groups()]
-            if valid_nums(ranking):
-                valid_input = True
-        # Here, quality is better with index higher. Ranked models in the asending order.
-        for ranking_idx, sample_idx in enumerate(ranking):
-            cur_model = ith_samples[sample_idx - 1]["model_name"]
-            rankings_each_sample[cur_model].append(ranking_idx)
+        ranking = pair_wise_ranking(shuffled_samples=ith_samples)
+        ranking.reverse()
+        rank = 4
+        for level in ranking:
+            for generation in level:
+                rankings_each_sample[generation["model_name"]].append(rank)
+            rank -= len(level)
     return rankings_each_sample
+
+
+def pair_wise_ranking(shuffled_samples):
+    assert len(shuffled_samples) >= 2, f"pair_wise_ranking receives a list with {len(shuffled_samples)} data points."
+    less = []
+    equal = [shuffled_samples[0]]
+    greater = []
+    pivot = shuffled_samples[0]
+    for i in range(1, len(shuffled_samples)):
+        res = compare(pivot, shuffled_samples[i])
+        if res == ">":
+            less.append(shuffled_samples[i])
+        elif res == "<":
+            greater.append(shuffled_samples[i])
+        else:
+            equal.append(shuffled_samples[i])
+    result = []
+    if len(less) != 0:
+        if len(less) >= 2:
+            result.extend(pair_wise_ranking(less))
+        else:
+            result.append(less)
+    result.append(equal)
+    if len(greater) != 0:
+        if len(greater) >= 2:
+            result.extend(pair_wise_ranking(greater))
+        else:
+            result.append(greater)
+    return result
+
+
+def compare(sample_a, sample_b):
+    concepts = sample_a["generation"].split("=")[0]
+    assert sample_a["generation"].split("=")[0] == sample_b["generation"].split("=")[
+        0], "The concepts of the two samples being compared are not the same."
+    print("The concepts used for these generations are: " + str(concepts))
+    print("Which do you think is a better generation?")
+    print("1) " + sample_a["generation"].split("=")[1])
+    print("or")
+    print("2) " + sample_b["generation"].split("=")[1])
+    res = input(
+        "Enter > if you think 1) is better, < if you think 2) is better, = if the two generations are the same!")
+    while res.strip() not in [">", "<", "="]:
+        print("Invalid input. Please only enter one of <, >, =.")
+        res = input(
+            "Enter > if you think 1) is better, < if you think 2) is better, = if the two generations are the same!")
+    print("\n" * 10)
+    return res
 
 
 def valid_nums(vec):
@@ -98,14 +127,8 @@ def valid_nums(vec):
 
 if __name__ == '__main__':
     n = 100
-    print("Hi, thank you for taking your time to complete this survey for me."
-          "Here, I need to rank the generations from four language models over 100 questions."
-          "For each question, the model is asked to generate a sentence using a few words."
-          "You need help me rank the models' generations based on if they are fluent, coherent, sensible and covering many concepts prompted."
-          "There is no gold standard for weighing all the apsects. You can subjective rank."
-          "When you are shown four generations, just type in the indices of the generations separated by a white space in one line. "
-          "The order you type indices should be of ascending quality. That is the first index you type in should be one of a sentence you think is the worst."
-          "If you see exactly same generations, please give them the same ranking.")
     packed_generations = pack_first_100_generations_in_test_set()
     stats = manual_rank(packed_generations)
     print(stats)
+    with open(f"analysis-results/manual-analysis-on-commongen-test-set-generations.json", "w") as file:
+        json.dump(stats, file)
