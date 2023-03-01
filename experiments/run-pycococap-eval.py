@@ -4,10 +4,13 @@ from pycocotools.coco import COCO
 from pycocoevalcap.eval import COCOEvalCap
 
 for model_name in ["gpt2", "gpt2-m", "gpt2-l", "gpt2-xl"]:
-    for subset_name in ["validation", "test"]:
+    for subset_name in [
+        # "validation",
+        "test",
+    ]:
         print(f"Evalutating {model_name} on the performance of {subset_name}")
         results_file = f'C:\\Users\\Jingqian\\PycharmProjects\\huggingface-playground\\experiments\\coco-annotations\\commongen-{model_name}-{subset_name}-model-generations.json'
-        annotation_file = 'coco-annotations/commongen-validation-gold-references.json' if subset_name == "validation" else "coco-annotations/commongen-test-bronze-references.json"
+        annotation_file = 'coco-annotations/commongen-validation-gold-references.json' if subset_name == "validation" else "coco-annotations/commongen-test-silver-references.json"
 
         # create coco object and coco_result object
         coco = COCO(annotation_file)
@@ -28,5 +31,5 @@ for model_name in ["gpt2", "gpt2-m", "gpt2-l", "gpt2-xl"]:
         # print output evaluation scores
         # for metric, score in coco_eval.eval.items():
         #     print(f'{metric}: {score:.3f}')
-        with open(f"pycocoevalcap-results/{model_name}-commongen-{subset_name}-autoeval.json", "w") as file:
+        with open(f"pycocoevalcap-results/{model_name}-commongen-{subset_name}-chatgpt-autoeval.json", "w") as file:
             json.dump(coco_eval.eval, file)
