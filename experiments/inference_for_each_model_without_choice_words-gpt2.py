@@ -9,7 +9,7 @@ language_models = {
     "gpt2-xl": "liujqian/gpt2-xl-finetuned-commongen",
     "gpt2-l": "liujqian/gpt2-large-finetuned-commongen",
     "gpt2-m": "liujqian/gpt2-medium-finetuned-commongen",
-    "gpt2": "C:\\Users\\Jingqian\\PycharmProjects\\huggingface-playground\\fine-tune\\gpt2-finetuned-commongen",
+    "gpt2": "liujqian/gpt2-finetuned-commongen",
     "t5": "mrm8488/t5-base-finetuned-common_gen",
     "bloom": "mrm8488/bloom-560m-finetuned-common_gen"
 }
@@ -57,19 +57,20 @@ def generate_without_choice_content_words(model: str, set_name: str, examples):
 
 
 if __name__ == '__main__':
-    args = sys.argv
-    assert len(args) == 2, "Need two arguments."
-    assert args[-1] in ["gpt2", "gpt2-m", "gpt2-l", "gpt2-xl"]
-    target_model_name = args[-1]
-    for subset_name in ["train", "validation"]:
-        new_ds = datasets.load_dataset("liujqian/commonsenseqa_with_content_words")
-        generations = generate_without_choice_content_words(target_model_name, subset_name, new_ds[subset_name])
-        print(f"Trying to dump the generations to a file!")
-        file = open(
-            f'{target_model_name}-{subset_name}-WITHOUTchoicewords-noquestionwordlimit-promptfixed.pickle',
-            'wb')
-        # dump information to that file
-        pickle.dump(generations, file)
-        # close the file
-        file.close()
-        print("Finished dumping the generations to a file!")
+    # args = sys.argv
+    # assert len(args) == 2, "Need two arguments."
+    # assert args[-1] in ["gpt2", "gpt2-m", "gpt2-l", "gpt2-xl"]
+    # target_model_name = args[-1]
+    for target_model_name in ["gpt2", "gpt2-m", ]:
+        for subset_name in ["train", "validation"]:
+            new_ds = datasets.load_dataset("liujqian/commonsenseqa_with_content_words")
+            generations = generate_without_choice_content_words(target_model_name, subset_name, new_ds[subset_name])
+            print(f"Trying to dump the generations to a file!")
+            file = open(
+                f'{target_model_name}-{subset_name}-WITHOUTchoicewords-noquestionwordlimit-promptfixed.pickle',
+                'wb')
+            # dump information to that file
+            pickle.dump(generations, file)
+            # close the file
+            file.close()
+            print("Finished dumping the generations to a file!")
