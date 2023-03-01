@@ -9,7 +9,7 @@ language_models = {
     "gpt2-xl": "liujqian/gpt2-xl-finetuned-commongen",
     "gpt2-l": "liujqian/gpt2-large-finetuned-commongen",
     "gpt2-m": "liujqian/gpt2-medium-finetuned-commongen",
-    "gpt2": "C:\\Users\\Jingqian\\PycharmProjects\\huggingface-playground\\fine-tune\\gpt2-finetuned-commongen",
+    "gpt2": "liujqian/gpt2-finetuned-commongen",
     "t5": "mrm8488/t5-base-finetuned-common_gen",
     "bloom": "mrm8488/bloom-560m-finetuned-common_gen"
 }
