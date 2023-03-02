@@ -44,7 +44,7 @@ def log(cur_idx, total, set_name, model_name, interval):
 def count_occurences(sentences: list[str], targets: list[str]) -> int:
     def lemmatize(s: str):
         doc = nlp(s)
-        return " ".join([x.lemma_ for x in nlp(s)])
+        return " ".join([x.lemma_ for x in doc])
 
     cnt = 0
     for target in targets:
@@ -95,7 +95,8 @@ def analyze_with_choice_generations(model_name: str):
 
             letter_correct_choice = question["answerKey"]
             idx_correct_choice = choice_idx_map[letter_correct_choice]
-            stats["correct_prediction_by_inclusion_count"] += idx_correct_choice == argmax(
+            stats["correct_prediction_by_inclusion_count"] += cur_question_choices_stats["inclusion_count"][
+                                                                  idx_correct_choice] == max(
                 cur_question_choices_stats["inclusion_count"])
             stats["correct_prediction_by_sequences_score"] += idx_correct_choice == argmax(
                 cur_question_choices_stats["avg_sequences_scores"])
@@ -181,4 +182,4 @@ if __name__ == '__main__':
         "gpt2-xl"
     ]:
         analyze_with_choice_generations(model_name)
-        analyze_without_choice_generations(model_name)
+        # analyze_without_choice_generations(model_name)
