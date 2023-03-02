@@ -107,7 +107,7 @@ def generate_test_reference_coco(subset_name: str):
     }
     included_concept_set_idx = {391895}
     df = pandas.read_csv(
-        "C:\\Users\\Jingqian\\PycharmProjects\\huggingface-playground\\gpt-3\\commongen-test-generations-chatgpt.csv")
+        "/gpt-3/commongen-test-generations-chatgpt.csv")
     for i in range(len(df)):
         if df["id"][i] not in included_concept_set_idx:
             included_concept_set_idx.add(df["id"][i])
@@ -129,7 +129,7 @@ def generate_test_reference_coco(subset_name: str):
                 "caption": df["sentence"][i]
             }
         )
-    with open(f"coco-annotations/commongen-test-silver-references.json", "w") as file:
+    with open(f"../experiments/coco-annotations/commongen-test-silver-references.json", "w") as file:
         json.dump(m, file)
 
 

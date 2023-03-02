@@ -17,13 +17,13 @@ language_models = {
 }
 
 pickle_file_postfix_without_choice = {
-    "train": "-train-withoutchoicewords-noquestionwordlimit.pickle",
-    "validation": "-validation-withoutchoicewords-noquestionwordlimit.pickle"
+    "train": "-train-withoutchoicewords-noquestionwordlimit-promptfixed.pickle",
+    "validation": "-validation-withoutchoicewords-noquestionwordlimit-promptfixed.pickle"
 }
 
 pickle_file_postfix_with_choice = {
-    "train": "-train-withchoicewords-noquestionwordlimit.pickle",
-    "validation": "-validation-withchoicewords-noquestionwordlimit.pickle"
+    "train": "-train-withchoicewords-noquestionwordlimit-promptfixed.pickle",
+    "validation": "-validation-withchoicewords-noquestionwordlimit-promptfixed.pickle"
 }
 
 
@@ -62,7 +62,8 @@ def analyze_with_choice_generations(model_name: str):
     choice_idx_map = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4}
     all_results = {}
     for subset_name in pickle_file_postfix_without_choice:
-        with open(f"generated_sentences/{model_name}{pickle_file_postfix_with_choice[subset_name]}", "rb") as file:
+        with open(f"generated_sentences/prompt-fixed/{model_name}{pickle_file_postfix_with_choice[subset_name]}",
+                  "rb") as file:
             model_generations = pickle.load(file)
         subset = dataset[subset_name]
         stats = {
@@ -116,7 +117,7 @@ def analyze_with_choice_generations(model_name: str):
                                                                                                      "total_examined"] + 1)
             stats["total_examined"] += 1
         all_results[subset_name] = stats
-    with open(f"analysis-results/{model_name}-analysis-results-WITH-choice.json", "w") as file:
+    with open(f"analysis-results/prompt-fixed/{model_name}-analysis-results-WITH-choice.json", "w") as file:
         json.dump(all_results, file)
 
 
@@ -125,7 +126,8 @@ def analyze_without_choice_generations(model_name: str):
     choice_idx_map = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4}
     all_results = {}
     for subset_name in pickle_file_postfix_without_choice:
-        with open(f"generated_sentences/{model_name}{pickle_file_postfix_without_choice[subset_name]}", "rb") as file:
+        with open(f"generated_sentences/prompt-fixed/{model_name}{pickle_file_postfix_without_choice[subset_name]}",
+                  "rb") as file:
             model_generations = pickle.load(file)
         subset = dataset[subset_name]
         # what we need record:
@@ -167,7 +169,7 @@ def analyze_without_choice_generations(model_name: str):
                                                                           choice_idx_map[letter_correct_choice]] > 0
             stats["total_questions_any_choice_word_generated"] += sum(choice_mention_count) > 0
         all_results[subset_name] = stats
-    with open(f"analysis-results/{model_name}-analysis-results-NO-choice.json", "w") as file:
+    with open(f"analysis-results/prompt-fixed/{model_name}-analysis-results-NO-choice.json", "w") as file:
         json.dump(all_results, file)
 
 
@@ -179,3 +181,4 @@ if __name__ == '__main__':
         "gpt2-xl"
     ]:
         analyze_with_choice_generations(model_name)
+        analyze_without_choice_generations(model_name)

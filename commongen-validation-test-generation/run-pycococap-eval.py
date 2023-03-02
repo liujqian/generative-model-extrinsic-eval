@@ -9,7 +9,7 @@ for model_name in ["gpt2", "gpt2-m", "gpt2-l", "gpt2-xl"]:
         "test",
     ]:
         print(f"Evalutating {model_name} on the performance of {subset_name}")
-        results_file = f'C:\\Users\\Jingqian\\PycharmProjects\\huggingface-playground\\experiments\\coco-annotations\\commongen-{model_name}-{subset_name}-model-generations.json'
+        results_file = f'/commongen-validation-test-generation/coco-annotations\\commongen-{model_name}-{subset_name}-model-generations.json'
         annotation_file = 'coco-annotations/commongen-validation-gold-references.json' if subset_name == "validation" else "coco-annotations/commongen-test-silver-references.json"
 
         # create coco object and coco_result object

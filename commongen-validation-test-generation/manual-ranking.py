@@ -130,5 +130,5 @@ if __name__ == '__main__':
     packed_generations = pack_first_100_generations_in_test_set()
     stats = manual_rank(packed_generations)
     print(stats)
-    with open(f"analysis-results/manual-analysis-on-commongen-test-set-generations.json", "w") as file:
+    with open(f"../experiments/analysis-results/manual-analysis-on-commongen-test-set-generations.json", "w") as file:
         json.dump(stats, file)
