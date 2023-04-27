@@ -1,9 +1,13 @@
 import datetime
+import json
 import pickle
 import sys
+from typing import Callable
 
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+
+from utils import log_progress
 import datasets
-from transformers import AutoTokenizer, AutoModelForCausalLM
 
 language_models = {
     "gpt2-xl": "liujqian/gpt2-xl-finetuned-commongen",
@@ -24,24 +28,27 @@ tokenizers = {
 }
 
 
-def generate_without_choice_content_words(model: str, set_name: str, examples):
-    tokenizer = AutoTokenizer.from_pretrained(tokenizers[model])
-    model = AutoModelForCausalLM.from_pretrained(language_models[model])
+def generate_without_choice_content_words(
+        model,
+        tokenizer,
+        prompt_generator: Callable[[list[str]], str],
+        set_name: str,
+        examples: datasets.Dataset
+):
     results = {}
     for i in range(len(examples["id"])):
         if i % 20 == 0:
-            print(
-                str(datetime.datetime.now()) + " making the " + str(i) + "th generation for the " + set_name + " set.")
+            log_progress(i, len(examples["id"]),
+                         f"Generating inferences for the {set_name} set. Without choice content words.")
         question_content_words = examples["question_content_words"][i]
-        prompt = "<|endoftext|>" + " ".join(question_content_words) + "="
-        tokenized_input = tokenizer(prompt, return_tensors="pt")
+        prompt = prompt_generator(question_content_words)
+        tokenized_input = tokenizer(prompt, return_tensors="pt").to(0)
         outputs = model.generate(
             **tokenized_input,
             num_beams=20,
             num_beam_groups=20,
             num_return_sequences=20,
             diversity_penalty=100.0,
-            length_penalty=0.1,
             remove_invalid_values=True,
             temperature=1.0,
             max_new_tokens=256,
@@ -57,19 +64,24 @@ def generate_without_choice_content_words(model: str, set_name: str, examples):
 
 
 if __name__ == '__main__':
-    args = sys.argv
-    assert len(args) == 2, "Need two arguments."
-    assert args[-1] in ["gpt2", "gpt2-m", "gpt2-l", "gpt2-xl"]
-    target_model_name = args[-1]
+    tokenizer = AutoTokenizer.from_pretrained("allenai/tk-instruct-3b-def")
+    model = AutoModelForSeq2SeqLM.from_pretrained("allenai/tk-instruct-3b-def").to(0)
     for subset_name in ["train", "validation"]:
         new_ds = datasets.load_dataset("liujqian/commonsenseqa_with_content_words")
-        generations = generate_without_choice_content_words(target_model_name, subset_name, new_ds[subset_name])
+        generations = generate_without_choice_content_words(
+            model,
+            tokenizer,
+            lambda
+                l: f'Definition: Write a sentence with the given words. Now complete the following example - Input: {", ".join(l)}. Output:',
+            subset_name,
+            new_ds[subset_name]
+        )
         print(f"Trying to dump the generations to a file!")
         file = open(
-            f'{target_model_name}-{subset_name}-WITHOUTchoicewords-noquestionwordlimit-promptfixed.pickle',
-            'wb')
-        # dump information to that file
-        pickle.dump(generations, file)
+            f'tk_instruct_3b-{subset_name}-WITHOUT-choicewords-noquestionwordlimit.json',
+            'w'
+        )
+        json.dump(generations, file)
         # close the file
         file.close()
         print("Finished dumping the generations to a file!")
