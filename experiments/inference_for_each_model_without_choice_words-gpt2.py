@@ -4,7 +4,7 @@ import pickle
 import sys
 from typing import Callable
 
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, T5Tokenizer, T5ForConditionalGeneration
 
 from utils import log_progress
 import datasets
@@ -64,15 +64,16 @@ def generate_without_choice_content_words(
 
 
 if __name__ == '__main__':
-    tokenizer = AutoTokenizer.from_pretrained("allenai/tk-instruct-3b-def")
-    model = AutoModelForSeq2SeqLM.from_pretrained("allenai/tk-instruct-3b-def").to(0)
+    qualified_model_name = "google/flan-t5-xl"
+    tokenizer = T5Tokenizer.from_pretrained(qualified_model_name)
+    model = T5ForConditionalGeneration.from_pretrained(qualified_model_name, device_map="auto")
+    model_name = qualified_model_name.split("/")[-1]
     for subset_name in ["train", "validation"]:
         new_ds = datasets.load_dataset("liujqian/commonsenseqa_with_content_words")
         generations = generate_without_choice_content_words(
             model,
             tokenizer,
-            lambda
-                l: f'Definition: Write a sentence with the given words. Now complete the following example - Input: {", ".join(l)}. Output:',
+            lambda l: f'Write a sentence with the given words: {", ".join(l)}.',
             subset_name,
             new_ds[subset_name]
         )

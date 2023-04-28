@@ -1,9 +1,11 @@
 import datetime
+import json
 import pickle
 import sys
-
+from typing import Callable
+from utils import log_progress
 import datasets
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from transformers import AutoTokenizer, AutoModelForCausalLM, T5Tokenizer, T5ForConditionalGeneration
 
 language_models = {
     "gpt2-xl": "liujqian/gpt2-xl-finetuned-commongen",
@@ -24,25 +26,26 @@ tokenizers = {
 }
 
 
-def generate_with_choice_content_words(model_name: str, set_name: str, examples):
-    tokenizer = AutoTokenizer.from_pretrained(tokenizers[model_name], padding_side='left')
-    tokenizer.pad_token = tokenizer.eos_token
-    model = AutoModelForCausalLM.from_pretrained(language_models[model_name])
+def generate_with_choice_content_words(
+        model,
+        tokenizer,
+        prompt_generator: Callable[[list[str]], str],
+        set_name: str,
+        examples:datasets.Dataset
+):
     results = {}
     for i in range(len(examples["id"])):
         if i % 20 == 0:
-            print(
-                str(datetime.datetime.now()) + " making the " + str(
-                    i) + "th generation for the " + set_name + " set using the " + model_name + " model. There are " + str(
-                    len(examples['id'])) + " examples in total!")
+            log_progress(i, len(examples['id']),
+                         f"Generating inferences for the {set_name} set. WITH choice content words.")
         question_content_words = examples["question_content_words"][i]
         prompts_for_this_question = []
         for choice_idx in range(0, 5):
             choice_content_words = examples[f"choice_{choice_idx}_content_words"][i]
             all_content_words = choice_content_words + question_content_words
-            prompt = "<|endoftext|>" + " ".join(all_content_words) + "="
+            prompt = prompt_generator(all_content_words)
             prompts_for_this_question.append(prompt)
-        tokenized_input = tokenizer(prompts_for_this_question, return_tensors="pt", padding=True)
+        tokenized_input = tokenizer(prompts_for_this_question, return_tensors="pt", padding=True).to(0)
         outputs = model.generate(
             **tokenized_input,
             num_beams=4,
@@ -68,19 +71,26 @@ def generate_with_choice_content_words(model_name: str, set_name: str, examples)
 
 
 if __name__ == '__main__':
-    args = sys.argv
-    assert len(args) == 2, "Need two arguments."
-    assert args[-1] in ["gpt2", "gpt2-m", "gpt2-l", "gpt2-xl"]
-    target_model_name = args[-1]
+    qualified_model_name = "google/flan-t5-xl"
+    tokenizer = T5Tokenizer.from_pretrained(qualified_model_name)
+    model = T5ForConditionalGeneration.from_pretrained(qualified_model_name, device_map="auto")
+    model_name = qualified_model_name.split("/")[-1]
     for subset_name in ["train", "validation"]:
         new_ds = datasets.load_dataset("liujqian/commonsenseqa_with_content_words")
-        generations = generate_with_choice_content_words(target_model_name, subset_name, new_ds[subset_name])
+        generations = generate_with_choice_content_words(
+            model,
+            tokenizer,
+            lambda l: f'Write a sentence with the given words: {", ".join(l)}.',
+            subset_name,
+            new_ds[subset_name]
+        )
         print(f"Trying to dump the generations to a file!")
         file = open(
-            f'{target_model_name}-{subset_name}-withchoicewords-noquestionwordlimit-promptfixed.pickle',
-            'wb')
+            f'inference_results/{model_name}-{subset_name}-withchoicewords-noquestionwordlimit-promptfixed.json',
+            'w'
+        )
         # dump information to that file
-        pickle.dump(generations, file)
+        json.dump(generations, file)
         # close the file
         file.close()
         print("Finished dumping the generations to a file!")
