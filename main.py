@@ -18,21 +18,17 @@ tokenizers = {
     "bloom": "mrm8488/bloom-560m-finetuned-common_gen"
 }
 
-tokenizer = AutoTokenizer.from_pretrained(tokenizers["gpt2-xl"],padding_side='left')
+tokenizer = AutoTokenizer.from_pretrained(tokenizers["gpt2"],padding_side='left')
 tokenizer.pad_token = tokenizer.eos_token
-model = AutoModelForCausalLM.from_pretrained(language_models["gpt2-xl"])
-encoder_input_str0 = "<|endoftext|>mountain, snow, trap="
-encoder_input_str1 = "<|endoftext|>see, pick, hat="
-tokenized_input = tokenizer( [encoder_input_str1,encoder_input_str0], return_tensors="pt", padding=True)
+model = AutoModelForCausalLM.from_pretrained(language_models["gpt2"])
+encoder_input_str0 = "<|endoftext|>kid room dance="
+tokenized_input = tokenizer( [encoder_input_str0], return_tensors="pt", padding=True)
 outputs = model.generate(
     **tokenized_input,
-    num_beams=4,
-    num_beam_groups=4,
-    num_return_sequences=4,
-    diversity_penalty=100.0,
-    length_penalty=0.1,
+    num_beams=3,
+    num_return_sequences=1,
     remove_invalid_values=True,
-    temperature=10.0,
+    temperature=1,
     max_new_tokens=256,
     return_dict_in_generate=True,
     output_scores=True,

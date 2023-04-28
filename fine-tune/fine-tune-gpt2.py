@@ -6,7 +6,7 @@ import torch
 from transformers import Trainer, TrainingArguments
 from datasets import load_dataset, load_metric
 
-model_name = "gpt2-large"
+model_name = "liujqian/gpt2-finetuned-commongen"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 # tokenizer.pad_token = tokenizer.eos_token
 # tokenizer.padding_side = "left"
@@ -81,5 +81,5 @@ trainer = Trainer(
     train_dataset=lm_datasets["train"],
     eval_dataset=lm_datasets["validation"],
 )
-trainer.train()
-trainer.save_model()
+
+print(trainer.evaluate())

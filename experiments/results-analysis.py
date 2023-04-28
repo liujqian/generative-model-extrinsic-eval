@@ -41,11 +41,12 @@ def log(cur_idx, total, set_name, model_name, interval):
             total) + " examples in total!")
 
 
-def count_occurences(sentences: list[str], targets: list[str]) -> int:
-    def lemmatize(s: str):
-        doc = nlp(s)
-        return " ".join([x.lemma_ for x in doc])
+def lemmatize(s: str):
+    doc = nlp(s)
+    return " ".join([x.lemma_ for x in doc])
 
+
+def count_occurences(sentences: list[str], targets: list[str]) -> int:
     cnt = 0
     for target in targets:
         lemmatized_target = lemmatize(target)
@@ -158,7 +159,7 @@ def analyze_without_choice_generations(model_name: str):
             choice_mention_count = [0, 0, 0, 0, 0]
             for sentence in question_generations["sentences"]:
                 for choice_content_word in choice_content_words_stats:
-                    if choice_content_word in sentence:
+                    if choice_content_word in lemmatize(sentence):
                         for choice_idx in choice_content_words_stats[choice_content_word]:
                             choice_mention_count[choice_idx] += 1 / len(
                                 choice_content_words_stats[choice_content_word])
@@ -181,5 +182,5 @@ if __name__ == '__main__':
         "gpt2-l",
         "gpt2-xl"
     ]:
-        analyze_with_choice_generations(model_name)
+        analyze_without_choice_generations(model_name)
         # analyze_without_choice_generations(model_name)
