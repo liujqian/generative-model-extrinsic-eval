@@ -1,2 +1,0 @@
-batch-size = 4
-lr = 2.5e-5
