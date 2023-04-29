@@ -1,1 +1,14 @@
-{"train": {"total_examined": 9741, "correct_prediction": 2769, "total_questions_correct_choice_word_generated": 2615, "total_questions_any_choice_word_generated": 5392}, "validation": {"total_examined": 1221, "correct_prediction": 356, "total_questions_correct_choice_word_generated": 322, "total_questions_any_choice_word_generated": 657}}
+{
+  "train": {
+    "total_examined": 9741,
+    "correct_prediction": 2769,
+    "total_questions_correct_choice_word_generated": 2615,
+    "total_questions_any_choice_word_generated": 5392
+  },
+  "validation": {
+    "total_examined": 1221,
+    "correct_prediction": 356,
+    "total_questions_correct_choice_word_generated": 322,
+    "total_questions_any_choice_word_generated": 657
+  }
+}
