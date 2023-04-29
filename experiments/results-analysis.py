@@ -1,10 +1,11 @@
 import datetime
 import json
 import pickle
-import numpy
 import spacy
 
 from datasets import load_dataset
+
+from experiments.utils import log_progress
 
 nlp = spacy.load("en_core_web_lg")
 language_models = {
@@ -16,29 +17,20 @@ language_models = {
     # "bloom": "mrm8488/bloom-560m-finetuned-common_gen"
 }
 
-pickle_file_postfix_without_choice = {
-    "train": "-train-withoutchoicewords-noquestionwordlimit-promptfixed.pickle",
-    "validation": "-validation-withoutchoicewords-noquestionwordlimit-promptfixed.pickle"
+file_postfix_without_choice = {
+    "train": "-train-WITHOUT-choicewords-noquestionwordlimit.json",
+    "validation": "-validation-WITHOUT-choicewords-noquestionwordlimit.json"
 }
 
-pickle_file_postfix_with_choice = {
-    "train": "-train-withchoicewords-noquestionwordlimit-promptfixed.pickle",
-    "validation": "-validation-withchoicewords-noquestionwordlimit-promptfixed.pickle"
+file_postfix_with_choice = {
+    "train": "-train-WITH-choicewords-noquestionwordlimit.json",
+    "validation": "-validation-WITH-choicewords-noquestionwordlimit.json"
 }
 
 
 # This function is copied directly from this post: https://stackoverflow.com/a/26726185
 def argmax(iterable):
     return max(enumerate(iterable), key=lambda x: x[1])[0]
-
-
-def log(cur_idx, total, set_name, model_name, interval):
-    if cur_idx % 200 != 0:
-        return
-    print(
-        str(datetime.datetime.now()) + " making the " + str(
-            cur_idx) + "th generation for the " + set_name + " set using the " + model_name + " model. There are " + str(
-            total) + " examples in total!")
 
 
 def lemmatize(s: str):
@@ -62,10 +54,12 @@ def analyze_with_choice_generations(model_name: str):
     dataset = load_dataset("liujqian/commonsenseqa_with_content_words")
     choice_idx_map = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4}
     all_results = {}
-    for subset_name in pickle_file_postfix_without_choice:
-        with open(f"generated_sentences/prompt-fixed/{model_name}{pickle_file_postfix_with_choice[subset_name]}",
-                  "rb") as file:
-            model_generations = pickle.load(file)
+    for subset_name in file_postfix_without_choice:
+        with open(
+                f"generated_sentences/{model_name}{file_postfix_with_choice[subset_name]}",
+                "r",
+        ) as file:
+            model_generations = json.load(file)
         subset = dataset[subset_name]
         stats = {
             "total_examined": 0,
@@ -77,8 +71,10 @@ def analyze_with_choice_generations(model_name: str):
             "avg_wrong_prediction_sequence_score": 0,
         }
         for i in range(len(subset["id"])):
-            log(i, len(subset["id"]), model_name=model_name, set_name=subset_name, interval=200)
-            question_generations = model_generations[i]
+            if i % 200 == 0:
+                log_progress(i, len(subset["id"]),
+                             f"Analyzing the results of {model_name} on the {subset_name} set. This is WITH choices' content words.")
+            question_generations = model_generations[str(i)]
             question = subset[i]
             all_generated_sentences = question_generations["sentences"]
             all_sequences_scores = question_generations["sequences_scores"]
@@ -92,7 +88,7 @@ def analyze_with_choice_generations(model_name: str):
                 all_scores_for_cur_choice = all_sequences_scores[choice_idx * 4:choice_idx * 4 + 4]
                 inclusion_count = count_occurences(all_generations_for_cur_choice, cur_choice_content_words)
                 cur_question_choices_stats["inclusion_count"].append(inclusion_count)
-                cur_question_choices_stats["avg_sequences_scores"].append(all_scores_for_cur_choice.mean())
+                cur_question_choices_stats["avg_sequences_scores"].append(sum(all_scores_for_cur_choice)/len(all_scores_for_cur_choice))
 
             letter_correct_choice = question["answerKey"]
             idx_correct_choice = choice_idx_map[letter_correct_choice]
@@ -119,7 +115,7 @@ def analyze_with_choice_generations(model_name: str):
                                                                                                      "total_examined"] + 1)
             stats["total_examined"] += 1
         all_results[subset_name] = stats
-    with open(f"analysis-results/prompt-fixed/{model_name}-analysis-results-WITH-choice.json", "w") as file:
+    with open(f"analysis-results/{model_name}-analysis-results-WITH-choice.json", "w") as file:
         json.dump(all_results, file)
 
 
@@ -127,10 +123,12 @@ def analyze_without_choice_generations(model_name: str):
     dataset = load_dataset("liujqian/commonsenseqa_with_content_words")
     choice_idx_map = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4}
     all_results = {}
-    for subset_name in pickle_file_postfix_without_choice:
-        with open(f"generated_sentences/prompt-fixed/{model_name}{pickle_file_postfix_without_choice[subset_name]}",
-                  "rb") as file:
-            model_generations = pickle.load(file)
+    for subset_name in file_postfix_without_choice:
+        with open(
+                f"generated_sentences/{model_name}{file_postfix_without_choice[subset_name]}",
+                "r"
+        ) as file:
+            model_generations = json.load(file)
         subset = dataset[subset_name]
         # what we need record:
         # prediction accuracy, percentage of times the correct term is predicted at all,
@@ -144,8 +142,10 @@ def analyze_without_choice_generations(model_name: str):
         # rule: if a word is only appearing in one choice, then predicting the word is predicting the choice.
         #       if a word appear in multiple choices, then split the count
         for i in range(len(subset["id"])):
-            log(i, len(subset["id"]), model_name=model_name, set_name=subset_name, interval=200)
-            question_generations = model_generations[i]
+            if i % 200 == 0:
+                log_progress(i, len(subset["id"]),
+                             f"Analyzing the results of {model_name} on the {subset_name} set. This is WITHOUT choices' content words.")
+            question_generations = model_generations[str(i)]
             question = subset[i]
             # key are all choice content words, values are sets indicating which choices appeared in
             choice_content_words_stats = {}
@@ -171,16 +171,13 @@ def analyze_without_choice_generations(model_name: str):
                                                                           choice_idx_map[letter_correct_choice]] > 0
             stats["total_questions_any_choice_word_generated"] += sum(choice_mention_count) > 0
         all_results[subset_name] = stats
-    with open(f"analysis-results/prompt-fixed/{model_name}-analysis-results-NO-choice.json", "w") as file:
+    with open(f"analysis-results/{model_name}-analysis-results-NO-choice.json", "w") as file:
         json.dump(all_results, file)
 
 
 if __name__ == '__main__':
     for model_name in [
-        "gpt2",
-        "gpt2-m",
-        "gpt2-l",
-        "gpt2-xl"
+        "tk_instruct_3b_def", "flan-t5-xl"
     ]:
+        analyze_with_choice_generations(model_name)
         analyze_without_choice_generations(model_name)
-        # analyze_without_choice_generations(model_name)

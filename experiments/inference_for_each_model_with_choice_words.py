@@ -83,7 +83,7 @@ if __name__ == '__main__':
         )
         print(f"Trying to dump the generations to a file!")
         file = open(
-            f'generated_sentences/{model_name}-{subset_name}-withchoicewords-noquestionwordlimit-promptfixed.json',
+            f'generated_sentences/{model_name}-{subset_name}-WITH-choicewords-noquestionwordlimit.json',
             'w'
         )
         # dump information to that file
