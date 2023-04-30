@@ -19,36 +19,40 @@ tokenizers = {
     "t5": "mrm8488/t5-base-finetuned-common_gen",
     "bloom": "mrm8488/bloom-560m-finetuned-common_gen"
 }
+
+
+def result_separator(output: str, content_words: list[str]) -> str:
+    return output.split(sep=f'Create a sentence with the following words: {", ".join(content_words)}.')[-1].strip(' \t\n\r')
+
+
 if __name__ == '__main__':
+    tokenizer = AutoTokenizer.from_pretrained("databricks/dolly-v1-6b", padding_side="left")
+    model = AutoModelForCausalLM.from_pretrained(
+        "databricks/dolly-v1-6b", device_map="auto", trust_remote_code=True,
+        torch_dtype=torch.float16, )
+    PROMPT_FORMAT = """Below is an instruction that describes a task. Write a response that appropriately completes the request.
 
-    tokenizer = AutoTokenizer.from_pretrained("bigscience/mt0-xl")
-    model = AutoModelForSeq2SeqLM.from_pretrained("bigscience/mt0-xl").to("cuda")
+    ### Instruction:
+    {instruction}
 
-
-    class StopOnTokens(StoppingCriteria):
-        def __call__(self, input_ids: torch.LongTensor, scores: torch.FloatTensor, **kwargs) -> bool:
-            stop_ids = [50278, 50279, 50277, 1, 0]
-            for stop_id in stop_ids:
-                if input_ids[0][-1] == stop_id:
-                    return True
-            return False
-
-
-    system_prompt = """<|SYSTEM|># StableLM Tuned (Alpha version)
-    - StableLM is a helpful and harmless open-source AI language model developed by StabilityAI.
-    - StableLM is excited to be able to help the user, but will refuse to do anything that could be considered harmful to the user.
-    - StableLM is more than just an information source, StableLM is also able to write poetry, short stories, and make jokes.
-    - StableLM will refuse to participate in anything that could harm a human.
+    ### Response:
     """
-
-    prompt = f'Create a sentence with the following words: tree, dog, snow, run'
-
-    inputs = tokenizer(prompt, return_tensors="pt").to("cuda")
-    tokens = model.generate(
-        **inputs,
-        max_new_tokens=64,
-        temperature=1,
-        # stopping_criteria=StoppingCriteriaList([StopOnTokens()])
+    prompt_generator = PROMPT_FORMAT.format(
+        instruction=f'Create a sentence with the following words: {", ".join(["kid", "dance", "room"])}.'
     )
-
-    print(tokenizer.decode(tokens[0], skip_special_tokens=True))
+    input_ids = tokenizer(prompt_generator, return_tensors="pt").input_ids.to("cuda")
+    outputs = model.generate(
+        input_ids,
+        pad_token_id=tokenizer.pad_token_id,
+        eos_token_id=tokenizer.encode("### End")[0],
+        max_new_tokens=256,
+        return_dict_in_generate=True,
+        num_beams=20,
+        num_beam_groups=20,
+        num_return_sequences=20,
+        diversity_penalty=100.0,
+        output_scores=True,
+    )
+    for output in outputs.sequences:
+        sentence = tokenizer.decode(output, skip_special_tokens=True)
+        print(result_separator(sentence,["kid", "dance", "room"]))
