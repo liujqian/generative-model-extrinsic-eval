@@ -1,6 +1,6 @@
 import json
 from typing import Callable
-from models import tk_instruct_3b_def
+from models import tk_instruct_3b_def, t0_3b, dolly_v1_6b
 import datasets
 
 from utils import log_progress
@@ -28,6 +28,7 @@ def generate_without_choice_content_words(
         model,
         tokenizer,
         prompt_generator: Callable[[list[str]], str],
+        result_separator: Callable[[str, list[str]], str],
         set_name: str,
         examples: datasets.Dataset
 ):
@@ -54,26 +55,29 @@ def generate_without_choice_content_words(
         sentences = []
         for output in outputs.sequences:
             sentence = tokenizer.decode(output, skip_special_tokens=True)
+            if result_separator is not None:
+                sentence = result_separator(sentence, question_content_words)
             sentences.append(sentence)
         results[i] = {"id": examples["id"][i], "sentences": sentences}
     return results
 
 
 if __name__ == '__main__':
-    model, tokenizer, prompt_generator = tk_instruct_3b_def()
-    model_name = "tk_instruct_3b_def"
+    model, tokenizer, prompt_generator, result_separator = dolly_v1_6b()
+    model_name = "dolly_v1_6b"
     for subset_name in ["train", "validation"]:
         new_ds = datasets.load_dataset("liujqian/commonsenseqa_with_content_words")
         generations = generate_without_choice_content_words(
             model,
             tokenizer,
             prompt_generator,
+            result_separator,
             subset_name,
             new_ds[subset_name]
         )
         print(f"Trying to dump the generations to a file!")
         file = open(
-            f'{model_name}-{subset_name}-WITHOUT-choicewords-noquestionwordlimit.json',
+            f'generated_sentences/{model_name}-{subset_name}-WITHOUT-choicewords-noquestionwordlimit.json',
             'w'
         )
         json.dump(generations, file)
