@@ -1,0 +1,20 @@
+{
+  "train": {
+    "total_examined": 9741,
+    "correct_prediction_by_inclusion_count": 3485,
+    "correct_prediction_by_sequences_score": 2354,
+    "avg_correct_prediction_inclusion": 3.721383841494714,
+    "avg_wrong_prediction_inclusion": 3.442100400369577,
+    "avg_correct_prediction_sequence_score": -1.0290799464748617,
+    "avg_wrong_prediction_sequence_score": -1.0494172907406754
+  },
+  "validation": {
+    "total_examined": 1221,
+    "correct_prediction_by_inclusion_count": 475,
+    "correct_prediction_by_sequences_score": 298,
+    "avg_correct_prediction_inclusion": 3.7977067977067978,
+    "avg_wrong_prediction_inclusion": 3.408681408681409,
+    "avg_correct_prediction_sequence_score": -1.0208420738284925,
+    "avg_wrong_prediction_sequence_score": -1.0448766024241725
+  }
+}
