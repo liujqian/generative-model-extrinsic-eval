@@ -1,5 +1,6 @@
 import torch
-from transformers import AutoTokenizer, AutoModelForCausalLM, StoppingCriteria, StoppingCriteriaList
+from transformers import AutoTokenizer, AutoModelForCausalLM, StoppingCriteria, StoppingCriteriaList, \
+    AutoModelForSeq2SeqLM
 
 language_models = {
     "gpt2-xl": "liujqian/gpt2-xl-finetuned-commongen",
@@ -20,9 +21,8 @@ tokenizers = {
 }
 if __name__ == '__main__':
 
-    tokenizer = AutoTokenizer.from_pretrained("StabilityAI/stablelm-tuned-alpha-3b")
-    model = AutoModelForCausalLM.from_pretrained("StabilityAI/stablelm-tuned-alpha-3b")
-    model.half().cuda()
+    tokenizer = AutoTokenizer.from_pretrained("bigscience/mt0-xl")
+    model = AutoModelForSeq2SeqLM.from_pretrained("bigscience/mt0-xl").to("cuda")
 
 
     class StopOnTokens(StoppingCriteria):
@@ -41,14 +41,14 @@ if __name__ == '__main__':
     - StableLM will refuse to participate in anything that could harm a human.
     """
 
-    prompt = f'{system_prompt}<|USER|>Create a sentence with the following words: bike, sidewalk, wheel, ride<|ASSISTANT|>'
+    prompt = f'Create a sentence with the following words: tree, dog, snow, run'
 
     inputs = tokenizer(prompt, return_tensors="pt").to("cuda")
     tokens = model.generate(
         **inputs,
         max_new_tokens=64,
-        temperature=0.7,
-        do_sample=True,
-        stopping_criteria=StoppingCriteriaList([StopOnTokens()])
+        temperature=1,
+        # stopping_criteria=StoppingCriteriaList([StopOnTokens()])
     )
+
     print(tokenizer.decode(tokens[0], skip_special_tokens=True))

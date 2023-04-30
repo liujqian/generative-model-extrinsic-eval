@@ -15,3 +15,10 @@ def flan_t5_xl():
     model = T5ForConditionalGeneration.from_pretrained(qualified_model_name, device_map="auto")
     prompt_generator = lambda l: f'Write a sentence with the given words: {", ".join(l)}.'
     return model, tokenizer, prompt_generator
+
+
+def t0():
+    tokenizer = AutoTokenizer.from_pretrained("bigscience/T0_3B")
+    model = AutoModelForSeq2SeqLM.from_pretrained("bigscience/T0_3B").to("cuda")
+    prompt_generator = lambda l: f'Create a sentence with the following words: {", ".join(l)}.'
+    return model, tokenizer,prompt_generator
