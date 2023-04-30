@@ -27,8 +27,8 @@ tokenizers = {
 def generate_without_choice_content_words(
         model,
         tokenizer,
-        prompt_generator: Callable[[list[str]], str],
-        result_separator: Callable[[str, list[str]], str],
+        prompt_generator,
+        result_separator,
         set_name: str,
         examples: datasets.Dataset
 ):

@@ -27,9 +27,7 @@ def result_separator(output: str, content_words: list[str]) -> str:
 
 if __name__ == '__main__':
     tokenizer = AutoTokenizer.from_pretrained("databricks/dolly-v1-6b", padding_side="left")
-    model = AutoModelForCausalLM.from_pretrained(
-        "databricks/dolly-v1-6b", device_map="auto", trust_remote_code=True,
-        torch_dtype=torch.float16, )
+    model = AutoModelForCausalLM.from_pretrained("databricks/dolly-v1-6b", device_map="auto", trust_remote_code=True,torch_dtype=torch.float16, )
     PROMPT_FORMAT = """Below is an instruction that describes a task. Write a response that appropriately completes the request.
 
     ### Instruction:

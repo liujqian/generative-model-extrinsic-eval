@@ -35,7 +35,7 @@ def dolly_v1_6b(conten_words=None):
         "databricks/dolly-v1-6b",
         device_map="auto",
         trust_remote_code=True,
-        torch_dtype=torch.float16,
+        load_in_8bit=True,
     )
     PROMPT_FORMAT = """Below is an instruction that describes a task. Write a response that appropriately completes the request.
 
@@ -48,7 +48,7 @@ def dolly_v1_6b(conten_words=None):
         instruction=f'Create a sentence with the following words: {", ".join(l)}.'
     )
 
-    def result_separator(output: str, content_words: list[str]) -> str:
+    def result_separator(output: str, content_words) -> str:
         return output.split(sep=f'Create a sentence with the following words: {", ".join(content_words)}.')[-1].strip(
             ' \t\n\r')
 
