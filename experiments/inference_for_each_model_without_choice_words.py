@@ -1,6 +1,6 @@
 import json
 from typing import Callable
-from models import tk_instruct_3b_def, t0_3b, dolly_v1_6b
+from models import tk_instruct_3b_def, t0_3b, dolly_v1_6b, flan_t5_large
 import datasets
 
 from utils import log_progress
@@ -63,15 +63,15 @@ def generate_without_choice_content_words(
 
 
 if __name__ == '__main__':
-    model, tokenizer, prompt_generator, result_separator = dolly_v1_6b()
-    model_name = "dolly_v1_6b"
+    model, tokenizer, prompt_generator,  = flan_t5_large()
+    model_name = "flan_t5_large"
     for subset_name in ["train", "validation"]:
         new_ds = datasets.load_dataset("liujqian/commonsenseqa_with_content_words")
         generations = generate_without_choice_content_words(
             model,
             tokenizer,
             prompt_generator,
-            result_separator,
+            None,
             subset_name,
             new_ds[subset_name]
         )

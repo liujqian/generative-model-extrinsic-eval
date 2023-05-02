@@ -22,6 +22,15 @@ def flan_t5_xl():
 
 
 # Inferenced on RTX 3090
+def flan_t5_large():
+    qualified_model_name = "google/flan-t5-large"
+    tokenizer = T5Tokenizer.from_pretrained(qualified_model_name)
+    model = T5ForConditionalGeneration.from_pretrained(qualified_model_name, device_map="auto")
+    prompt_generator = lambda l: f'Write a sentence with the given words: {", ".join(l)}.'
+    return model, tokenizer, prompt_generator
+
+
+# Inferenced on RTX 3090
 def t0_3b():
     tokenizer = AutoTokenizer.from_pretrained("bigscience/T0_3B")
     model = AutoModelForSeq2SeqLM.from_pretrained("bigscience/T0_3B").to("cuda")
@@ -35,7 +44,7 @@ def dolly_v1_6b(conten_words=None):
         "databricks/dolly-v1-6b",
         device_map="auto",
         trust_remote_code=True,
-        load_in_8bit=True,
+        torch_dtype=torch.float16,
     )
     PROMPT_FORMAT = """Below is an instruction that describes a task. Write a response that appropriately completes the request.
 

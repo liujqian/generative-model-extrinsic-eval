@@ -177,7 +177,7 @@ def analyze_without_choice_generations(model_name: str):
 
 if __name__ == '__main__':
     for model_name in [
-        "t0_3b"
+        "flan_t5_large"
     ]:
         analyze_with_choice_generations(model_name)
         analyze_without_choice_generations(model_name)

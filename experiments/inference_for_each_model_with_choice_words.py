@@ -3,7 +3,7 @@ from typing import Callable
 
 import datasets
 
-from experiments.models import tk_instruct_3b_def, t0_3b
+from experiments.models import tk_instruct_3b_def, t0_3b, flan_t5_large
 from utils import log_progress
 
 language_models = {
@@ -70,8 +70,8 @@ def generate_with_choice_content_words(
 
 
 if __name__ == '__main__':
-    model, tokenizer, prompt_generator = t0_3b()
-    model_name = "t0_3b"
+    model, tokenizer, prompt_generator = flan_t5_large()
+    model_name = "flan_t5_large"
     for subset_name in ["train", "validation"]:
         new_ds = datasets.load_dataset("liujqian/commonsenseqa_with_content_words")
         generations = generate_with_choice_content_words(
