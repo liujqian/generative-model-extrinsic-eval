@@ -1,11 +1,9 @@
-import datetime
 import json
-import pickle
 import spacy
 
 from datasets import load_dataset
 
-from experiments.utils import log_progress
+from utils import log_progress
 
 nlp = spacy.load("en_core_web_lg")
 language_models = {
@@ -15,6 +13,7 @@ language_models = {
     "gpt2": "C:\\Users\\Jingqian\\PycharmProjects\\huggingface-playground\\fine-tune\\gpt2-finetuned-commongen",
     # "t5": "mrm8488/t5-base-finetuned-common_gen",
     # "bloom": "mrm8488/bloom-560m-finetuned-common_gen"
+    "mx0-large": "bigscience/mt0-large"
 }
 
 file_postfix_without_choice = {
@@ -51,7 +50,7 @@ def count_occurences(sentences: list[str], targets: list[str]) -> int:
 
 
 def analyze_with_choice_generations(model_name: str):
-    dataset = load_dataset("liujqian/commonsenseqa_with_content_words")
+    dataset = load_dataset("liujqian/commonsenseqa_with_content_words" , cache_dir="./datasets")
     choice_idx_map = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4}
     all_results = {}
     for subset_name in file_postfix_without_choice:
@@ -177,7 +176,7 @@ def analyze_without_choice_generations(model_name: str):
 
 if __name__ == '__main__':
     for model_name in [
-        "t0_3b"
+        "mt0_large"
     ]:
-        analyze_with_choice_generations(model_name)
+        #analyze_with_choice_generations(model_name)
         analyze_without_choice_generations(model_name)

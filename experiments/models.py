@@ -53,3 +53,12 @@ def dolly_v1_6b(conten_words=None):
             ' \t\n\r')
 
     return model, tokenizer, prompt_generator, result_separator
+
+
+def mt0_large():
+    checkpoint = "bigscience/mt0-large"
+    tokenizer = AutoTokenizer.from_pretrained(checkpoint)
+    model = AutoModelForSeq2SeqLM.from_pretrained(checkpoint, torch_dtype="auto", device_map="auto")
+    prompt_generator = lambda l: f'Create a sentence with the following words: {", ".join(l)}.'
+    return model, tokenizer, prompt_generator
+

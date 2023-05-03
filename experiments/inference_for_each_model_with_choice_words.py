@@ -3,8 +3,13 @@ from typing import Callable
 
 import datasets
 
-from experiments.models import tk_instruct_3b_def, t0_3b
+from models import mt0_large
 from utils import log_progress
+
+import torch
+import gc
+gc.collect()
+torch.cuda.empty_cache()
 
 language_models = {
     "gpt2-xl": "liujqian/gpt2-xl-finetuned-commongen",
@@ -12,8 +17,9 @@ language_models = {
     "gpt2-m": "liujqian/gpt2-medium-finetuned-commongen",
     "gpt2": "liujqian/gpt2-finetuned-commongen",
     "t5": "mrm8488/t5-base-finetuned-common_gen",
-    "bloom": "mrm8488/bloom-560m-finetuned-common_gen"
-}
+    "bloom": "mrm8488/bloom-560m-finetuned-common_gen",
+    "mt0-large": "bigscience/mt0-large",
+    }
 
 tokenizers = {
     "gpt2-xl": "gpt2-xl",
@@ -21,7 +27,8 @@ tokenizers = {
     "gpt2-m": "gpt2-medium",
     "gpt2": "gpt2",
     "t5": "mrm8488/t5-base-finetuned-common_gen",
-    "bloom": "mrm8488/bloom-560m-finetuned-common_gen"
+    "bloom": "mrm8488/bloom-560m-finetuned-common_gen",
+    "mt0-large": "bigscience/mt0-large",
 }
 
 
@@ -70,8 +77,8 @@ def generate_with_choice_content_words(
 
 
 if __name__ == '__main__':
-    model, tokenizer, prompt_generator = t0_3b()
-    model_name = "t0_3b"
+    model, tokenizer, prompt_generator = mt0_large()
+    model_name = "mt0-large"
     for subset_name in ["train", "validation"]:
         new_ds = datasets.load_dataset("liujqian/commonsenseqa_with_content_words")
         generations = generate_with_choice_content_words(

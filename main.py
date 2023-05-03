@@ -1,4 +1,4 @@
-import torch
+imeport torch
 from transformers import AutoTokenizer, AutoModelForCausalLM, StoppingCriteria, StoppingCriteriaList, \
     AutoModelForSeq2SeqLM
 
