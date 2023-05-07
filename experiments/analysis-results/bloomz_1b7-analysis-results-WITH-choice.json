@@ -1,1 +1,20 @@
-{"train": {"total_examined": 9741, "correct_prediction_by_inclusion_count": 3661, "correct_prediction_by_sequences_score": 2462, "avg_correct_prediction_inclusion": 4.187147110152992, "avg_wrong_prediction_inclusion": 3.8445488142901123, "avg_correct_prediction_sequence_score": -0.4871280654335922, "avg_wrong_prediction_sequence_score": -0.5012759769449362}, "validation": {"total_examined": 1221, "correct_prediction_by_inclusion_count": 468, "correct_prediction_by_sequences_score": 318, "avg_correct_prediction_inclusion": 4.230139230139233, "avg_wrong_prediction_inclusion": 3.8087633087633086, "avg_correct_prediction_sequence_score": -0.48695465175772085, "avg_wrong_prediction_sequence_score": -0.502490371924861}}
+{
+  "train": {
+    "total_examined": 9741,
+    "correct_prediction_by_inclusion_count": 3661,
+    "correct_prediction_by_sequences_score": 2462,
+    "avg_correct_prediction_inclusion": 4.187147110152992,
+    "avg_wrong_prediction_inclusion": 3.8445488142901123,
+    "avg_correct_prediction_sequence_score": -0.4871280654335922,
+    "avg_wrong_prediction_sequence_score": -0.5012759769449362
+  },
+  "validation": {
+    "total_examined": 1221,
+    "correct_prediction_by_inclusion_count": 468,
+    "correct_prediction_by_sequences_score": 318,
+    "avg_correct_prediction_inclusion": 4.230139230139233,
+    "avg_wrong_prediction_inclusion": 3.8087633087633086,
+    "avg_correct_prediction_sequence_score": -0.48695465175772085,
+    "avg_wrong_prediction_sequence_score": -0.502490371924861
+  }
+}
