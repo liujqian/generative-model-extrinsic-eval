@@ -88,7 +88,8 @@ def analyze_with_choice_generations(model_name: str):
                 all_scores_for_cur_choice = all_sequences_scores[choice_idx * 4:choice_idx * 4 + 4]
                 inclusion_count = count_occurences(all_generations_for_cur_choice, cur_choice_content_words)
                 cur_question_choices_stats["inclusion_count"].append(inclusion_count)
-                cur_question_choices_stats["avg_sequences_scores"].append(sum(all_scores_for_cur_choice)/len(all_scores_for_cur_choice))
+                cur_question_choices_stats["avg_sequences_scores"].append(
+                    sum(all_scores_for_cur_choice) / len(all_scores_for_cur_choice))
 
             letter_correct_choice = question["answerKey"]
             idx_correct_choice = choice_idx_map[letter_correct_choice]
@@ -177,7 +178,7 @@ def analyze_without_choice_generations(model_name: str):
 
 if __name__ == '__main__':
     for model_name in [
-        "flan_t5_large"
+        "bloomz_3b", "bloomz_1b7", "bloomz_1b1", "bloomz_560m"
     ]:
         analyze_with_choice_generations(model_name)
         analyze_without_choice_generations(model_name)

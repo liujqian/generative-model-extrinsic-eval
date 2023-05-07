@@ -1,6 +1,7 @@
 import torch
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, T5Tokenizer, T5ForConditionalGeneration, \
     AutoModelForCausalLM
+import re
 
 
 # Inferenced on RTX 3090
@@ -38,7 +39,22 @@ def t0_3b():
     return model, tokenizer, prompt_generator
 
 
-def dolly_v1_6b(conten_words=None):
+def bloomz(size: str):
+    assert size in ["3b", "1b7", "1b1", "560m"], "The given size is not expected."
+    checkpoint = f"bigscience/bloomz-{size}"
+
+    tokenizer = AutoTokenizer.from_pretrained(checkpoint, padding_side='left')
+    model = AutoModelForCausalLM.from_pretrained(checkpoint, torch_dtype="auto", device_map="auto")
+    prompt_generator = lambda l: f'Create a sentence with the following words: {", ".join(l)}.'
+
+    def result_separator(output: str) -> str:
+        r = r"Create a sentence with the following words: [^\.]*\."
+        return re.split(r, output)[-1].strip(' \t\n\r')
+
+    return model, tokenizer, prompt_generator, result_separator
+
+
+def dolly_v1_6b():
     tokenizer = AutoTokenizer.from_pretrained("databricks/dolly-v1-6b", padding_side="left")
     model = AutoModelForCausalLM.from_pretrained(
         "databricks/dolly-v1-6b",

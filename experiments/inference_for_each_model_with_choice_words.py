@@ -3,7 +3,7 @@ from typing import Callable
 
 import datasets
 
-from experiments.models import tk_instruct_3b_def, t0_3b, flan_t5_large
+from experiments.models import tk_instruct_3b_def, t0_3b, flan_t5_large, bloomz
 from utils import log_progress
 
 language_models = {
@@ -29,6 +29,7 @@ def generate_with_choice_content_words(
         model,
         tokenizer,
         prompt_generator: Callable[[list[str]], str],
+        result_separator,
         set_name: str,
         examples: datasets.Dataset
 ):
@@ -60,6 +61,8 @@ def generate_with_choice_content_words(
         sentences = []
         for output in outputs.sequences:
             sentence = tokenizer.decode(output, skip_special_tokens=True)
+            if result_separator is not None:
+                sentence = result_separator(sentence)
             sentences.append(sentence)
         results[i] = {
             "id": examples["id"][i],
@@ -70,14 +73,15 @@ def generate_with_choice_content_words(
 
 
 if __name__ == '__main__':
-    model, tokenizer, prompt_generator = flan_t5_large()
-    model_name = "flan_t5_large"
+    model, tokenizer, prompt_generator, result_separator = bloomz('560m')
+    model_name = "bloomz_560m"
     for subset_name in ["train", "validation"]:
         new_ds = datasets.load_dataset("liujqian/commonsenseqa_with_content_words")
         generations = generate_with_choice_content_words(
             model,
             tokenizer,
             prompt_generator,
+            result_separator,
             subset_name,
             new_ds[subset_name]
         )

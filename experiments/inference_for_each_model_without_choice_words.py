@@ -1,6 +1,6 @@
 import json
 from typing import Callable
-from models import tk_instruct_3b_def, t0_3b, dolly_v1_6b, flan_t5_large
+from models import tk_instruct_3b_def, t0_3b, dolly_v1_6b, flan_t5_large, bloomz
 import datasets
 
 from utils import log_progress
@@ -56,22 +56,22 @@ def generate_without_choice_content_words(
         for output in outputs.sequences:
             sentence = tokenizer.decode(output, skip_special_tokens=True)
             if result_separator is not None:
-                sentence = result_separator(sentence, question_content_words)
+                sentence = result_separator(sentence)
             sentences.append(sentence)
         results[i] = {"id": examples["id"][i], "sentences": sentences}
     return results
 
 
 if __name__ == '__main__':
-    model, tokenizer, prompt_generator,  = flan_t5_large()
-    model_name = "flan_t5_large"
+    model, tokenizer, prompt_generator, result_separator = bloomz("560m")
+    model_name = "bloomz_560m"
     for subset_name in ["train", "validation"]:
         new_ds = datasets.load_dataset("liujqian/commonsenseqa_with_content_words")
         generations = generate_without_choice_content_words(
             model,
             tokenizer,
             prompt_generator,
-            None,
+            result_separator,
             subset_name,
             new_ds[subset_name]
         )

@@ -22,35 +22,34 @@ tokenizers = {
 
 
 def result_separator(output: str, content_words: list[str]) -> str:
-    return output.split(sep=f'Create a sentence with the following words: {", ".join(content_words)}.')[-1].strip(' \t\n\r')
+    return output.split(sep=f'Create a sentence with the following words: {", ".join(content_words)}.')[-1].strip(
+        ' \t\n\r')
 
 
 if __name__ == '__main__':
-    tokenizer = AutoTokenizer.from_pretrained("databricks/dolly-v1-6b", padding_side="left")
-    model = AutoModelForCausalLM.from_pretrained("databricks/dolly-v1-6b", device_map="auto", trust_remote_code=True,torch_dtype=torch.float16, )
-    PROMPT_FORMAT = """Below is an instruction that describes a task. Write a response that appropriately completes the request.
 
-    ### Instruction:
-    {instruction}
+    checkpoint = "bigscience/bloomz-3b"
 
-    ### Response:
-    """
-    prompt_generator = PROMPT_FORMAT.format(
-        instruction=f'Create a sentence with the following words: {", ".join(["kid", "dance", "room"])}.'
-    )
-    input_ids = tokenizer(prompt_generator, return_tensors="pt").input_ids.to("cuda")
+    tokenizer = AutoTokenizer.from_pretrained(checkpoint)
+    model = AutoModelForCausalLM.from_pretrained(checkpoint, torch_dtype="auto", device_map="auto")
+
+    inputs = tokenizer(
+        "Create a sentence with the following words: ski, mountain, fall.",
+        return_tensors="pt"
+    ).to("cuda")
+    # def tokenizer_wrapper(*args, **kwargs)
     outputs = model.generate(
-        input_ids,
-        pad_token_id=tokenizer.pad_token_id,
-        eos_token_id=tokenizer.encode("### End")[0],
+        **inputs,
+        num_beams=4,
+        num_beam_groups=4,
+        num_return_sequences=4,
+        diversity_penalty=100.0,
+        remove_invalid_values=True,
+        temperature=1.0,
         max_new_tokens=256,
         return_dict_in_generate=True,
-        num_beams=20,
-        num_beam_groups=20,
-        num_return_sequences=20,
-        diversity_penalty=100.0,
         output_scores=True,
     )
     for output in outputs.sequences:
         sentence = tokenizer.decode(output, skip_special_tokens=True)
-        print(result_separator(sentence,["kid", "dance", "room"]))
+        print(result_separator(sentence, ["ski", "mountain", "fall"]))
