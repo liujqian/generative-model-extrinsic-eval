@@ -37,10 +37,12 @@ def flan_t5_xxl(cache_dir: str = ""):
     qualified_model_name = "google/flan-t5-xxl"
     if cache_dir == "":
         tokenizer = T5Tokenizer.from_pretrained(qualified_model_name)
-        model = T5ForConditionalGeneration.from_pretrained(qualified_model_name, device_map="auto")
+        model = T5ForConditionalGeneration.from_pretrained(qualified_model_name, device_map="auto",
+                                                           torch_dtype=torch.float16)
     else:
         tokenizer = T5Tokenizer.from_pretrained(qualified_model_name, cache_dir=cache_dir)
-        model = T5ForConditionalGeneration.from_pretrained(qualified_model_name, device_map="auto", cache_dir=cache_dir)
+        model = T5ForConditionalGeneration.from_pretrained(qualified_model_name, device_map="auto", cache_dir=cache_dir,
+                                                           torch_dtype=torch.float16)
     prompt_generator = lambda l: f'Write a sentence with the given words: {", ".join(l)}.'
     return model, tokenizer, prompt_generator
 
