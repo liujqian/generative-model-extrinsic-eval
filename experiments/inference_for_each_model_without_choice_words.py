@@ -1,8 +1,8 @@
 import json
-from typing import Callable
-from models import tk_instruct_3b_def, t0_3b, dolly_v1_6b, flan_t5_large, bloomz, flan_t5_xxl
+
 import datasets
 
+from models import flan_t5_xxl
 from utils import log_progress
 
 language_models = {

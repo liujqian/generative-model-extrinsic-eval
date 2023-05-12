@@ -33,16 +33,16 @@ def flan_t5_large():
     return model, tokenizer, prompt_generator
 
 
+# Inferenced on four RTX 3090 for the half precision model.
 def flan_t5_xxl(cache_dir: str = ""):
     qualified_model_name = "google/flan-t5-xxl"
     if cache_dir == "":
         tokenizer = T5Tokenizer.from_pretrained(qualified_model_name)
-        model = T5ForConditionalGeneration.from_pretrained(qualified_model_name, device_map="auto",
-                                                           torch_dtype=torch.float16)
+        model = T5ForConditionalGeneration.from_pretrained(qualified_model_name, device_map="auto")
     else:
         tokenizer = T5Tokenizer.from_pretrained(qualified_model_name, cache_dir=cache_dir)
-        model = T5ForConditionalGeneration.from_pretrained(qualified_model_name, device_map="auto", cache_dir=cache_dir,
-                                                           torch_dtype=torch.float16)
+        model = T5ForConditionalGeneration.from_pretrained(qualified_model_name, device_map="auto",
+                                                           cache_dir=cache_dir)
     prompt_generator = lambda l: f'Write a sentence with the given words: {", ".join(l)}.'
     return model, tokenizer, prompt_generator
 
@@ -69,6 +69,19 @@ def bloomz(size: str):
         return re.split(r, output)[-1].strip(' \t\n\r')
 
     return model, tokenizer, prompt_generator, result_separator
+
+
+def mt0(size: str):
+    assert size in ["mt0-small", "mt0-base", "mt0-large", "mt0-xl"], "The given size is not expected."
+    checkpoint = f"bigscience/{size}"
+    if size != "mt0-xl":
+        tokenizer = AutoTokenizer.from_pretrained(checkpoint)
+        model = AutoModelForSeq2SeqLM.from_pretrained(checkpoint, torch_dtype="auto", device_map="auto")
+    else:
+        tokenizer = AutoTokenizer.from_pretrained(checkpoint)
+        model = AutoModelForSeq2SeqLM.from_pretrained(checkpoint, device_map="auto", torch_dtype=torch.float16)
+    prompt_generator = lambda l: f'Create a sentence with the following words: {", ".join(l)}.'
+    return model, tokenizer, prompt_generator
 
 
 def dolly_v1_6b():
