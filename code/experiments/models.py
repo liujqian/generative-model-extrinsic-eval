@@ -3,10 +3,6 @@ from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, T5Tokenizer, T5Fo
     AutoModelForCausalLM
 
 
-models_map = {
-    "mt0": mt0,
-    "flan_t5": flan_t5,
-}
 
 
 # Inferenced on RTX 3090
@@ -72,7 +68,7 @@ def mt0(size: str):
     return model, tokenizer, prompt_generator
 
 
-def flan(size: str):
+def flan_t5(size: str):
     assert size in ["large", "xxl"], "The given size is not expected."
     checkpoint = f"google/flan-t5-{size}"
 

@@ -3,9 +3,8 @@ from typing import Callable
 
 import datasets
 
-from models import models_map
+import models
 from utils import log_progress
-
 import sys
 
 language_models = {
@@ -24,6 +23,12 @@ tokenizers = {
     "gpt2": "gpt2",
     "t5": "mrm8488/t5-base-finetuned-common_gen",
     "bloom": "mrm8488/bloom-560m-finetuned-common_gen"
+}
+
+
+models_map = {
+    "mt0": models.mt0,
+    "flan_t5": models.flan_t5,
 }
 
 

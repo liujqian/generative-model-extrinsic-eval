@@ -1,10 +1,10 @@
 import json
 from typing import Callable
-from models import models_map
 import datasets
 import sys
 
 from utils import log_progress
+import models
 
 language_models = {
     "gpt2-xl": "liujqian/gpt2-xl-finetuned-commongen",
@@ -22,6 +22,12 @@ tokenizers = {
     "gpt2": "gpt2",
     "t5": "mrm8488/t5-base-finetuned-common_gen",
     "bloom": "mrm8488/bloom-560m-finetuned-common_gen"
+}
+
+
+models_map = {
+    "mt0": models.mt0,
+    "flan_t5": models.flan_t5,
 }
 
 
