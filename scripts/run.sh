@@ -1,10 +1,11 @@
 #!/bin/bash
 #SBATCH --job-name=gmee
 #SBATCH --time=5-00:00:00
-#SBATCH --cpus-per-task=4
-#SBATCH --gpus-per-node=4
-#SBATCH --array=1-2
-#SBATCH --mem-per-cpu=25G
+#SBATCH --nodes=1
+#SBATCH --cpus-per-task=16
+#SBATCH --ntasks=2
+#SBATCH --gpus-per-node=v100l:4
+#SBATCH --mem=192000M
 
 echo "Starting run at: `date`"
 
@@ -32,15 +33,8 @@ pip install sentencepiece --no-index
 echo "running scripts"
 cd ../code/experiments
 
-# split each file into their own job
-if [ ${SLURM_ARRAY_TASK_ID} -eq 1 ]
-then
-	python *out*.py "flan_t5-xxl"
-fi
+# split each file into their own task 
+srun -c 16 python *out*.py "flan_t5-xxl"
+srun -c 16 python *with_*.py "flan_t5-xxl"
 
-if  [ ${SLURM_ARRAY_TASK_ID} -eq 2 ]
-then
-	python *with_*.py "flan_t5-xxl"
-fi
-
-echo "Job ${SLURM_ARRAY_TASK_ID} finished with exit code $? at: `date`"
+echo "Job finished with exit code $? at: `date`"

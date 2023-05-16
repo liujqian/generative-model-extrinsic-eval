@@ -32,6 +32,6 @@ pip install spacy
 python -m spacy download en_core_web_lg
 
 # run python scripts
-cd ../repo/experiments
+cd ../code/experiments
 
 python results-analysis.py "mt0-xl" 
