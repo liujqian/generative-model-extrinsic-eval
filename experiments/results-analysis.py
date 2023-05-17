@@ -178,7 +178,10 @@ def analyze_without_choice_generations(model_name: str):
 
 if __name__ == '__main__':
     for model_name in [
-        "flan_t5_xxl"
+        # "mt0-small",
+        # "mt0-base",
+        "mt0-large",
+        # "mt0-xl"
     ]:
-        analyze_with_choice_generations(model_name)
+        # analyze_with_choice_generations(model_name)
         analyze_without_choice_generations(model_name)

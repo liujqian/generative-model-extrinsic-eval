@@ -2,7 +2,7 @@ import json
 
 import datasets
 
-from models import flan_t5_xxl
+from models import mt0
 from utils import log_progress
 
 language_models = {
@@ -63,8 +63,8 @@ def generate_without_choice_content_words(
 
 
 if __name__ == '__main__':
-    model, tokenizer, prompt_generator = flan_t5_xxl()
-    model_name = "flan_t5_xxl"
+    model, tokenizer, prompt_generator = mt0("mt0-large")
+    model_name = "mt0-large"
     for subset_name in ["train", "validation"]:
         new_ds = datasets.load_dataset("liujqian/commonsenseqa_with_content_words")
         generations = generate_without_choice_content_words(
