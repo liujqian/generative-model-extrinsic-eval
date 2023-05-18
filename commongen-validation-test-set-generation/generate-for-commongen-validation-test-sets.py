@@ -85,17 +85,17 @@ def generate_for_commongen(model, tokenizer, prompt_generator, result_separator,
 
 
 language_models = {
-    "bloomz_1b1": lambda: bloomz("1b1"),
-    "bloomz_1b7": lambda: bloomz("1b7"),
-    "bloomz_3b": lambda: bloomz("3b"),
-    "bloomz_560m": lambda: bloomz("560m"),
-    "flan_t5_xl": flan_t5_xl,
-    "flan_t5_large": flan_t5_large,
-    "t0_3b": t0_3b,
-    "tk_instruct_3b_def": tk_instruct_3b_def,
-    "mt0_large": lambda: mt0("mt0-large"),
-    "mt0_base": lambda: mt0("mt0_base"),
-    "mt0_small": lambda: mt0("mt0_small"),
+    # "bloomz_1b1": lambda: bloomz("1b1"),
+    # "bloomz_1b7": lambda: bloomz("1b7"),
+    # "bloomz_3b": lambda: bloomz("3b"),
+    # "bloomz_560m": lambda: bloomz("560m"),
+    # "flan_t5_xl": flan_t5_xl,
+    # "flan_t5_large": flan_t5_large,
+    # "t0_3b": t0_3b,
+    # "tk_instruct_3b_def": tk_instruct_3b_def,
+    # "mt0_large": lambda: mt0("mt0-large"),
+    "mt0_base": lambda: mt0("mt0-base"),
+    "mt0_small": lambda: mt0("mt0-small"),
 }
 
 if __name__ == '__main__':
@@ -106,6 +106,7 @@ if __name__ == '__main__':
         if len(model_suite) == 3:
             model, tokenizer, prompt_generator = model_suite
             result_separator = None
+
         elif len(model_suite) == 4:
             model, tokenizer, prompt_generator, result_separator = model_suite
         else:
