@@ -1,11 +1,11 @@
 #!/bin/bash
 #SBATCH --job-name=gmee
-#SBATCH --time=5-00:00:00
+#SBATCH --time=2-00:00:00
 #SBATCH --nodes=1
-#SBATCH --cpus-per-task=16
+#SBATCH --cpus-per-task=12
 #SBATCH --ntasks=2
-#SBATCH --gpus-per-node=v100l:4
-#SBATCH --mem=192000M
+#SBATCH --gpus-per-node=p100:4
+#SBATCH --mem=64G
 
 echo "Starting run at: `date`"
 
@@ -34,7 +34,7 @@ echo "running scripts"
 cd ../code/experiments
 
 # split each file into their own task 
-srun -c 16 python *out*.py "flan_t5-xxl"
-srun -c 16 python *with_*.py "flan_t5-xxl"
+srun -c 12 python *out*.py "flan_t5-xxl"
+srun -c 12 python *with_*.py "flan_t5-xxl"
 
 echo "Job finished with exit code $? at: `date`"
