@@ -14,4 +14,5 @@ def get_language_models():
         "mt0_large": lambda: mt0("mt0-large"),
         "mt0_base": lambda: mt0("mt0-base"),
         "mt0_small": lambda: mt0("mt0-small"),
+        "mt0_xl": lambda: mt0("mt0-xl"),
     }
