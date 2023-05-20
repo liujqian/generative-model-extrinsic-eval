@@ -3,9 +3,7 @@ import json
 import datasets, transformers, pickle
 from math import ceil
 
-from transformers import AutoTokenizer, AutoModelForCausalLM
-
-from experiments.models import bloomz, flan_t5_xl, flan_t5_large, t0_3b, tk_instruct_3b_def, mt0
+from commongen_validation_test_set_generation.language_models import get_language_models
 from experiments.utils import log_progress
 
 
@@ -84,24 +82,10 @@ def generate_for_commongen(model, tokenizer, prompt_generator, result_separator,
     return results
 
 
-language_models = {
-    # "bloomz_1b1": lambda: bloomz("1b1"),
-    # "bloomz_1b7": lambda: bloomz("1b7"),
-    # "bloomz_3b": lambda: bloomz("3b"),
-    # "bloomz_560m": lambda: bloomz("560m"),
-    # "flan_t5_xl": flan_t5_xl,
-    # "flan_t5_large": flan_t5_large,
-    # "t0_3b": t0_3b,
-    # "tk_instruct_3b_def": tk_instruct_3b_def,
-    # "mt0_large": lambda: mt0("mt0-large"),
-    "mt0_base": lambda: mt0("mt0-base"),
-    "mt0_small": lambda: mt0("mt0-small"),
-}
-
 if __name__ == '__main__':
     commongen_full = datasets.load_dataset('common_gen')
-    for model_name in language_models:
-        model_func = language_models[model_name]
+    for model_name in get_language_models():
+        model_func = get_language_models()[model_name]
         model_suite = model_func()
         if len(model_suite) == 3:
             model, tokenizer, prompt_generator = model_suite
