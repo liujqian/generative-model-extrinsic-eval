@@ -1,22 +1,4 @@
-import torch
-from transformers import AutoTokenizer, AutoModelForCausalLM, StoppingCriteria, StoppingCriteriaList, \
-    AutoModelForSeq2SeqLM
-
-from experiments.models import bloomz, flan_t5_xl, flan_t5_large, t0_3b, tk_instruct_3b_def, mt0
-
-language_models = {
-    "bloomz_1b1": lambda: bloomz("1b1"),
-    "bloomz_1b7": lambda: bloomz("1b7"),
-    "bloomz_3b": lambda: bloomz("3b"),
-    "bloomz_560m": lambda: bloomz("560m"),
-    "flan_t5_xl": flan_t5_xl,
-    "flan_t5_large": flan_t5_large,
-    "t0_3b": t0_3b,
-    "tk_instruct_3b_def": tk_instruct_3b_def,
-    "mt0_large": lambda: mt0("mt0-large"),
-    "mt0_base": lambda: mt0("mt0-base"),
-    "mt0_small": lambda: mt0("mt0-small"),
-}
+from commongen_validation_test_set_generation import language_models
 
 
 def result_separator(output: str, content_words: list[str]) -> str:
@@ -83,7 +65,7 @@ if __name__ == '__main__':
                             </tr>
     '''
     result = ""
-    for language_model in language_models:
+    for language_model in language_models.get_language_models():
         filled_template = template.replace("LLM_NAME", language_model)
         result += filled_template
     print(result)
