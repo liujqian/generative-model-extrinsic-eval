@@ -31,7 +31,7 @@ def calculate_concept_coverage_and_update_json_files(model_name: str, subset_nam
                 found_concept_cnt += 1
         coverage = found_concept_cnt / len(concepts)
         cur_concept_set["coverage"] = coverage
-    with open(f"generated_sentences/{json_file_name}", "w") as handle:
+    with open(f"generated_sentences/generated_sentences_with_coverage/{json_file_name}", "w") as handle:
         json.dump(generation_dict, handle)
 
 
