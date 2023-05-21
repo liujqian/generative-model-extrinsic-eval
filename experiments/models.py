@@ -2,18 +2,24 @@ import torch
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, T5Tokenizer, T5ForConditionalGeneration, \
     AutoModelForCausalLM
 
-
-import os
-import torch.distributed as dist
-from torch.nn.parallel import DistributedDataParallel as DDP
+from accelerate import init_empty_weights, load_checkpoint_and_dispatch
 
 
-def init_process_group():
-    dist.init_process_group(backend="nccl", init_method="env://")
+def create_model(checkpoint):
+    config = AutoConfig.from_pretrained(checkpoint)
 
 
-def destroy_process_group():
-    dist.destroy_process_group()
+    tokenizer = AutoTokenizer.from_config(config)
+    with init_empty_weights():
+        model = AutoModelForSeq2SeqLM.from_config(config)
+
+    model = load_checkpoint_and_dispatch(
+        model, checkpoint, device_map="auto"
+    )
+
+    print(model.hf_device_map)
+
+    return model, tokenizer
 
 
 # Inferenced on RTX 3090
@@ -72,8 +78,8 @@ def mt0(size: str):
     assert size in ["small", "base", "large", "xl", "xxl"], "The given size is not expected."
     checkpoint = f"bigscience/mt0-{size}"
 
-    tokenizer = AutoTokenizer.from_pretrained(checkpoint)
-    model = AutoModelForSeq2SeqLM.from_pretrained(checkpoint, torch_dtype="auto", device_map="auto")
+    model, tokenizer = create_model(checkpoint)
+
     prompt_generator = lambda l: f'Create a sentence with the following words: {", ".join(l)}.'
 
     return model, tokenizer, prompt_generator
@@ -83,19 +89,7 @@ def flan_t5(size: str):
     assert size in ["large", "xxl"], "The given size is not expected."
     checkpoint = f"google/flan-t5-{size}"
 
-    tokenizer = AutoTokenizer.from_pretrained(checkpoint)
-
-    # Initialize the process group for multi-GPU training
-    init_process_group()
-
-    model = AutoModelForSeq2SeqLM.from_pretrained(checkpoint, torch_dtype="auto", device_map="auto")
-
-    # Move the model to the current device
-    device = torch.device(f'cuda:{dist.get_rank()}')
-    model = model.to(device)
-
-    # Wrap the model with DistributedDataParallel
-    model = DDP(model, device_ids=[device], output_device=device)
+    model, tokenizer = create_model(checkpoint)
 
     prompt_generator = lambda l: f'Write a sentence with the given words: {", ".join(l)}.'
 

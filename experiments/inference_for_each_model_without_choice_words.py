@@ -6,23 +6,9 @@ import sys
 from utils import log_progress
 import models
 
-language_models = {
-    "gpt2-xl": "liujqian/gpt2-xl-finetuned-commongen",
-    "gpt2-l": "liujqian/gpt2-large-finetuned-commongen",
-    "gpt2-m": "liujqian/gpt2-medium-finetuned-commongen",
-    "gpt2": "liujqian/gpt2-finetuned-commongen",
-    "t5": "mrm8488/t5-base-finetuned-common_gen",
-    "bloom": "mrm8488/bloom-560m-finetuned-common_gen"
-}
 
-tokenizers = {
-    "gpt2-xl": "gpt2-xl",
-    "gpt2-l": "gpt2-large",
-    "gpt2-m": "gpt2-medium",
-    "gpt2": "gpt2",
-    "t5": "mrm8488/t5-base-finetuned-common_gen",
-    "bloom": "mrm8488/bloom-560m-finetuned-common_gen"
-}
+from accelerate import Accelerator
+import torch
 
 
 models_map = {
@@ -39,19 +25,33 @@ def generate_without_choice_content_words(
         set_name: str,
         examples: datasets.Dataset
 ):
+    # Initialize the accelerator
+    accelerator = Accelerator(devices=range(torch.cuda.device_count()))
+
+    # Prepare the model and tokenizer using the accelerator
+    model, tokenizer = accelerator.prepare(model, tokenizer)
+    model.to(accelerator.device)
+            
     results = {}
     for i in range(len(examples["id"])):
         if i % 20 == 0:
-            log_progress(i, len(examples["id"]),
-                         f"Generating inferences for the {set_name} set. Without choice content words.")
+            log_progress(i, len(examples['id']),
+                f"Generating inferences for the {set_name} set. WITH choice content words.")
+
         question_content_words = examples["question_content_words"][i]
-        prompt = prompt_generator(question_content_words)
-        tokenized_input = tokenizer(prompt, return_tensors="pt").to(0)
-        outputs = model.generate(
+        prompts_for_this_question = []
+        for choice_idx in range(0, 5):
+            choice_content_words = examples[f"choice_{choice_idx}_content_words"][i]
+            all_content_words = choice_content_words + question_content_words
+            prompt = prompt_generator(all_content_words)
+            prompts_for_this_question.append(prompt)
+        tokenized_input = tokenizer(prompts_for_this_question, return_tensors="pt", padding=True).to(accelerator.device)
+
+        outputs = accelerator.unwrap(model).generate(
             **tokenized_input,
-            num_beams=20,
-            num_beam_groups=20,
-            num_return_sequences=20,
+            num_beams=4,
+            num_beam_groups=4,
+            num_return_sequences=4,
             diversity_penalty=100.0,
             remove_invalid_values=True,
             temperature=1.0,
@@ -59,13 +59,18 @@ def generate_without_choice_content_words(
             return_dict_in_generate=True,
             output_scores=True,
         )
+        
         sentences = []
         for output in outputs.sequences:
             sentence = tokenizer.decode(output, skip_special_tokens=True)
-            if result_separator is not None:
-                sentence = result_separator(sentence, question_content_words)
             sentences.append(sentence)
-        results[i] = {"id": examples["id"][i], "sentences": sentences}
+
+        results[i] = {
+            "id": examples["id"][i],
+            "sentences": sentences,
+            "sequences_scores": outputs.sequences_scores.detach().cpu().numpy().tolist(),
+        }
+
     return results
 
 
@@ -97,4 +102,3 @@ if __name__ == '__main__':
         # close the file
         file.close()
         print("Finished dumping the generations to a file!")
-    models.destroy_process_group()
