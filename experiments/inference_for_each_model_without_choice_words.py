@@ -6,7 +6,6 @@ import sys
 from utils import log_progress
 import models
 
-
 from accelerate import Accelerator
 import torch
 

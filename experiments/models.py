@@ -2,7 +2,7 @@ import torch
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, T5Tokenizer, T5ForConditionalGeneration, \
     AutoModelForCausalLM
 
-from accelerate import init_empty_weights, load_checkpoint_and_dispatch
+from accelerate import init_empty_weights, load_checkpoint_and_dispatch, infer_auto_device_map
 
 
 def create_model(checkpoint):
@@ -13,8 +13,9 @@ def create_model(checkpoint):
     with init_empty_weights():
         model = AutoModelForSeq2SeqLM.from_config(config)
 
+    device_map = infer_auto_device_map(model, max_memory={0: "30GiB", 1: "30GiB", 2: "30GiB", 3: "30GiB"})
     model = load_checkpoint_and_dispatch(
-        model, checkpoint, device_map="auto"
+        model, checkpoint, device_map=device_map
     )
 
     print(model.hf_device_map)
