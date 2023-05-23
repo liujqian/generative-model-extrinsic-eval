@@ -3,7 +3,7 @@ from typing import Callable
 
 import datasets
 
-from models import mt0_large
+from models import mt0_base
 from utils import log_progress
 
 import torch
@@ -19,7 +19,7 @@ language_models = {
     "t5": "mrm8488/t5-base-finetuned-common_gen",
     "bloom": "mrm8488/bloom-560m-finetuned-common_gen",
     "mt0-large": "bigscience/mt0-large",
-    }
+}
 
 tokenizers = {
     "gpt2-xl": "gpt2-xl",
@@ -51,7 +51,8 @@ def generate_with_choice_content_words(
             all_content_words = choice_content_words + question_content_words
             prompt = prompt_generator(all_content_words)
             prompts_for_this_question.append(prompt)
-        tokenized_input = tokenizer(prompts_for_this_question, return_tensors="pt", padding=True).to(0)
+        tokenized_input = tokenizer(
+            prompts_for_this_question, return_tensors="pt", padding=True).to(0)
         outputs = model.generate(
             **tokenized_input,
             num_beams=4,
@@ -77,10 +78,11 @@ def generate_with_choice_content_words(
 
 
 if __name__ == '__main__':
-    model, tokenizer, prompt_generator = mt0_large()
-    model_name = "mt0-large"
+    model, tokenizer, prompt_generator = mt0_base()
+    model_name = "mt0-base"
     for subset_name in ["train", "validation"]:
-        new_ds = datasets.load_dataset("liujqian/commonsenseqa_with_content_words")
+        new_ds = datasets.load_dataset(
+            "liujqian/commonsenseqa_with_content_words")
         generations = generate_with_choice_content_words(
             model,
             tokenizer,
