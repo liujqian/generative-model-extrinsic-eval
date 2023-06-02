@@ -35,8 +35,12 @@ def generate_without_choice_content_words(
     results = {}
     for i in range(len(examples["id"])):
         if i % 20 == 0:
-            log_progress(i, len(examples["id"]),
-                         f"Generating inferences for the {set_name} set. Without choice content words.")
+            log_progress(
+                i,
+                len(examples["id"]),
+                20,
+                f"Generating inferences for the {set_name} set. Without choice content words."
+            )
         question_content_words = examples["question_content_words"][i]
         prompt = prompt_generator(question_content_words)
         tokenized_input = tokenizer(prompt, return_tensors="pt").to(0)

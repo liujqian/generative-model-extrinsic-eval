@@ -36,8 +36,12 @@ def generate_with_choice_content_words(
     results = {}
     for i in range(len(examples["id"])):
         if i % 20 == 0:
-            log_progress(i, len(examples['id']),
-                         f"Generating inferences for the {set_name} set. WITH choice content words.")
+            log_progress(
+                i,
+                len(examples['id']),
+                20,
+                f"Generating inferences for the {set_name} set. WITH choice content words."
+            )
         question_content_words = examples["question_content_words"][i]
         prompts_for_this_question = []
         for choice_idx in range(0, 5):
