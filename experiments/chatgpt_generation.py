@@ -1,5 +1,7 @@
 import csv
 import json
+import time
+from typing import List, Any
 
 import datasets
 import openai
@@ -12,11 +14,23 @@ from experiments.utils import log_progress
 def chatgpt_generation(concepts: list, n: int) -> list:
     if openai.api_key is None:
         openai.api_key = read_openai_api_key()
+        openai.organization = "org-6BRBFea64gWenHyQWSmTfWcm"
     prompt = f"Create a sentence with the following words:{', '.join(concepts)}"
-    return make_request_get_all(prompt, n)
+    results = make_request_get_all(prompt, n)
+    failure_cnt = 0
+    while results is None:
+        failure_cnt += 1
+        if failure_cnt == 4:
+            raise Exception("OpenAI rejected the generation request for 4 times!")
+        print(
+            f"OpenAI rejected the generation request for {failure_cnt} times. Sleeping for {failure_cnt * 5} seconds."
+        )
+        time.sleep(failure_cnt * 5)
+        results = make_request_get_all(prompt, n)
+    return results
 
 
-def make_request_get_all(prompt: str, n_generation: int) -> list:
+def make_request_get_all(prompt: str, n_generation: int) -> list | None:
     try:
         completion = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
@@ -32,7 +46,7 @@ def make_request_get_all(prompt: str, n_generation: int) -> list:
             results.append(choice["message"]["content"].replace("\n", ""))
         return results
     except:
-        return []
+        return None
 
 
 # Generated for 50 commonsenseqa questions and cost 0.05 USD
@@ -86,9 +100,11 @@ def generate_with_choice_content_words_chatgpt(
 
 
 if __name__ == '__main__':
-    generations = generate_with_choice_content_words_chatgpt("train")
-    with open(
-            f'generated_sentences/chatgpt-train-WITH-choicewords-noquestionwordlimit.json',
-            'w'
-    ) as handle:
-        json.dump(generations, handle)
+    for subset_name in ["train", "validation"]:
+        generations = generate_with_choice_content_words_chatgpt(subset_name)
+        with open(
+                f'generated_sentences/chatgpt-{subset_name}-WITH-choicewords-noquestionwordlimit.json',
+                'w'
+        ) as handle:
+            json.dump(generations, handle)
+        print(f"Finished generating and dumping the chatgpt inferences for the commonsenseqa {subset_name} set.")
