@@ -14,7 +14,8 @@ from experiments.utils import log_progress
 def chatgpt_generation(concepts: list, n: int) -> list:
     if openai.api_key is None:
         openai.api_key = read_openai_api_key()
-        openai.organization = "org-6BRBFea64gWenHyQWSmTfWcm"
+        openai.organization = "org-Z6lli0WO1awNKqRJjTToCxj4" \
+                              ""
     prompt = f"Create a sentence with the following words:{', '.join(concepts)}"
     results = make_request_get_all(prompt, n)
     failure_cnt = 0
@@ -86,7 +87,7 @@ def generate_with_choice_content_words_chatgpt(
                 i,
                 total_item_cnt,
                 10,
-                f"Generating inferences for the {set_name} set. Without choice content words."
+                f"Generating inferences for the {set_name} set. With choice content words."
             )
         generations_cur_question = []
         question_content_words = examples["question_content_words"][i]
@@ -100,10 +101,20 @@ def generate_with_choice_content_words_chatgpt(
 
 
 if __name__ == '__main__':
-    for subset_name in ["train", "validation"]:
-        generations = generate_with_choice_content_words_chatgpt(subset_name)
+    cur_generation_type = "without"
+    generation_types = {
+        "with": (generate_with_choice_content_words_chatgpt, "WITH"),
+        "without": (generate_without_choice_content_words_chatgpt, "WITHOUT")
+    }
+
+    for subset_name in [
+        "train",
+        # "validation"
+    ]:
+        generations = generation_types[cur_generation_type][0](subset_name)
         with open(
-                f'generated_sentences/chatgpt-{subset_name}-WITH-choicewords-noquestionwordlimit.json',
+                f'generated_sentences/chatgpt-{subset_name}-{generation_types[cur_generation_type][1]}-choicewords'
+                f'-noquestionwordlimit.json',
                 'w'
         ) as handle:
             json.dump(generations, handle)
