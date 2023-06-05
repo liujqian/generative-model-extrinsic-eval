@@ -98,9 +98,10 @@ def analyze_with_choice_generations(model_name: str):
 
             letter_correct_choice = question["answerKey"]
             idx_correct_choice = choice_idx_map[letter_correct_choice]
-            stats["correct_prediction_by_inclusion_count"] += cur_question_choices_stats["inclusion_count"][
-                                                                  idx_correct_choice] == max(
-                cur_question_choices_stats["inclusion_count"])
+            stats["correct_prediction_by_inclusion_count"] += \
+                cur_question_choices_stats["inclusion_count"][idx_correct_choice] == max(
+                    cur_question_choices_stats["inclusion_count"]
+                )
             stats["correct_prediction_by_sequences_score"] += idx_correct_choice == argmax(
                 cur_question_choices_stats["avg_sequences_scores"])
             stats["avg_correct_prediction_inclusion"] = ((stats["avg_correct_prediction_inclusion"] * stats[
