@@ -1,0 +1,1295 @@
+{
+  "9": {
+    "sentences": "I watched in amazement as Tom successfully completed the daredevil jump down an entire flight of stairs.",
+    "concepts": [
+      "stair",
+      "jump",
+      "flight"
+    ],
+    "targets": ""
+  },
+  "12": {
+    "sentences": "When you look at something, your eye will naturally move to focus on it.",
+    "concepts": [
+      "eye",
+      "move",
+      "look"
+    ],
+    "targets": ""
+  },
+  "15": {
+    "sentences": "Before you walk, make sure to wear appropriate gear.",
+    "concepts": [
+      "walk",
+      "wear",
+      "gear"
+    ],
+    "targets": ""
+  },
+  "25": {
+    "sentences": "As I sit here gazing up at the endless expanse of space, I can't help but stare in wonder at the countless stars above me.",
+    "concepts": [
+      "space",
+      "stare",
+      "sit"
+    ],
+    "targets": ""
+  },
+  "34": {
+    "sentences": "It's time to bounce the ball!",
+    "concepts": [
+      "bounce",
+      "time",
+      "ball"
+    ],
+    "targets": ""
+  },
+  "35": {
+    "sentences": "I went to the salon this morning to have my hair cut and styled, and it looks amazing now.",
+    "concepts": [
+      "cut",
+      "style",
+      "hair"
+    ],
+    "targets": ""
+  },
+  "41": {
+    "sentences": "I can walk the dog with you, or we can ride bikes while the dog runs alongside us!",
+    "concepts": [
+      "walk",
+      "dog",
+      "ride"
+    ],
+    "targets": ""
+  },
+  "68": {
+    "sentences": "Please hold your breath and keep your mouth close while I apply the face mask on you.",
+    "concepts": [
+      "mouth",
+      "hold",
+      "close"
+    ],
+    "targets": ""
+  },
+  "86": {
+    "sentences": "She wore a beautiful dress to dance and perform at the ballet recital.",
+    "concepts": [
+      "dress",
+      "dance",
+      "perform"
+    ],
+    "targets": ""
+  },
+  "97": {
+    "sentences": "The dog loves to eat in the house.",
+    "concepts": [
+      "house",
+      "eat",
+      "dog"
+    ],
+    "targets": ""
+  },
+  "113": {
+    "sentences": "I love to cheer on my friends as they run in a race.",
+    "concepts": [
+      "run",
+      "race",
+      "cheer"
+    ],
+    "targets": ""
+  },
+  "118": {
+    "sentences": "She couldn't see his face clearly because his hair was moving in front of it.",
+    "concepts": [
+      "hair",
+      "face",
+      "move"
+    ],
+    "targets": ""
+  },
+  "129": {
+    "sentences": "After waking up, I always go to the bathroom to wash my face.",
+    "concepts": [
+      "face",
+      "wash",
+      "bathroom"
+    ],
+    "targets": ""
+  },
+  "144": {
+    "sentences": "As the sun set behind the hills, I could see a lone figure standing on the highest point of the slope.",
+    "concepts": [
+      "sle",
+      "stand",
+      "hill"
+    ],
+    "targets": ""
+  },
+  "151": {
+    "sentences": "The defendant had to hold his composure as he stood in court waiting for the judge's verdict.",
+    "concepts": [
+      "hold",
+      "stand",
+      "court"
+    ],
+    "targets": ""
+  },
+  "163": {
+    "sentences": "The dog loves to stand on its hind legs and stick out its tongue when it gets excited.",
+    "concepts": [
+      "stick",
+      "tongue",
+      "stand"
+    ],
+    "targets": ""
+  },
+  "175": {
+    "sentences": "The player's accurate shot helped the team win the game.",
+    "concepts": [
+      "shot",
+      "player",
+      "team"
+    ],
+    "targets": ""
+  },
+  "176": {
+    "sentences": "I love to jump into the cool water of the lake on a hot summer day.",
+    "concepts": [
+      "jump",
+      "water",
+      "lake"
+    ],
+    "targets": ""
+  },
+  "195": {
+    "sentences": "I like to hold onto the big branch of the tree while I sit on the nearby bench and enjoy the view.",
+    "concepts": [
+      "hold",
+      "sit",
+      "tree"
+    ],
+    "targets": ""
+  },
+  "196": {
+    "sentences": "Before you plant a tree, make sure to dig a hole that is deep enough for the roots.",
+    "concepts": [
+      "dig",
+      "plant",
+      "tree"
+    ],
+    "targets": ""
+  },
+  "197": {
+    "sentences": "I need to get a hair cut and decide on a new style.",
+    "concepts": [
+      "hair",
+      "cut",
+      "style"
+    ],
+    "targets": ""
+  },
+  "200": {
+    "sentences": "I watched the children run and jump over the pile of leaves in the park.",
+    "concepts": [
+      "run",
+      "jump",
+      "pile"
+    ],
+    "targets": ""
+  },
+  "228": {
+    "sentences": "The singer walked confidently onto the stage, wearing a sparkly outfit, ready to perform for her fans.",
+    "concepts": [
+      "stage",
+      "outfit",
+      "perform"
+    ],
+    "targets": ""
+  },
+  "251": {
+    "sentences": "Please make sure to wash your hands thoroughly then turn off the faucet.",
+    "concepts": [
+      "hand",
+      "wash",
+      "turn"
+    ],
+    "targets": ""
+  },
+  "263": {
+    "sentences": "I need to find a comfortable pair of short boots to wear to the concert tonight.",
+    "concepts": [
+      "short",
+      "wear",
+      "shoe"
+    ],
+    "targets": ""
+  },
+  "276": {
+    "sentences": "She asked him to hold her hand while they sit together and smile at the sunset.",
+    "concepts": [
+      "hold",
+      "smile",
+      "sit"
+    ],
+    "targets": ""
+  },
+  "284": {
+    "sentences": "The musician stepped onto the stage with their guitar and nervously scanned the audience before starting their performance.",
+    "concepts": [
+      "audience",
+      "stage",
+      "guitar"
+    ],
+    "targets": ""
+  },
+  "299": {
+    "sentences": "The player scored the winning goal to the roar of the excited crowd at the game.",
+    "concepts": [
+      "game",
+      "crowd",
+      "player"
+    ],
+    "targets": ""
+  },
+  "304": {
+    "sentences": "Please be careful when you are using the sharp knife to cut vegetables in the kitchen.",
+    "concepts": [
+      "cut",
+      "knife",
+      "kitchen"
+    ],
+    "targets": ""
+  },
+  "305": {
+    "sentences": "In order to teach the new employees the proper technique, I will demonstrate it and then talk through each step.",
+    "concepts": [
+      "talk",
+      "technique",
+      "demonstrate"
+    ],
+    "targets": ""
+  },
+  "307": {
+    "sentences": "Please fetch the ball so that I can throw it to you.",
+    "concepts": [
+      "fetch",
+      "ball",
+      "throw"
+    ],
+    "targets": ""
+  },
+  "311": {
+    "sentences": "I like to stand under the tree and watch the leaves rustling in the wind.",
+    "concepts": [
+      "stand",
+      "watch",
+      "tree"
+    ],
+    "targets": ""
+  },
+  "312": {
+    "sentences": "Please sit down and cover your face with this warm blanket to keep yourself cozy.",
+    "concepts": [
+      "sit",
+      "cover",
+      "face"
+    ],
+    "targets": ""
+  },
+  "314": {
+    "sentences": "The best way to show your love and affection is to give a warm hug and a sweet kiss.",
+    "concepts": [
+      "give",
+      "hug",
+      "kiss"
+    ],
+    "targets": ""
+  },
+  "324": {
+    "sentences": "I need to walk to the other end of the room and hold the door open for you.",
+    "concepts": [
+      "walk",
+      "room",
+      "hold"
+    ],
+    "targets": ""
+  },
+  "333": {
+    "sentences": "As the surfer stood on his board, he waved to his friends before catching a big wave and riding it all the way to the shore.",
+    "concepts": [
+      "stand",
+      "wave",
+      "ride"
+    ],
+    "targets": ""
+  },
+  "339": {
+    "sentences": "She was too tired to look for a chair so she decided to sit on the edge of the bed.",
+    "concepts": [
+      "bed",
+      "look",
+      "sit"
+    ],
+    "targets": ""
+  },
+  "357": {
+    "sentences": "I love to look at the tall tree and imagine how fun it would be to climb to the very top.",
+    "concepts": [
+      "tree",
+      "look",
+      "climb"
+    ],
+    "targets": ""
+  },
+  "359": {
+    "sentences": "It's polite to sit and listen when someone needs to talk.",
+    "concepts": [
+      "listen",
+      "talk",
+      "sit"
+    ],
+    "targets": ""
+  },
+  "365": {
+    "sentences": "When I fall off the board, it makes me reluctant to ride again.",
+    "concepts": [
+      "fall",
+      "ride",
+      "board"
+    ],
+    "targets": ""
+  },
+  "388": {
+    "sentences": "I'm going to the gym to play a game of basketball with my friends.",
+    "concepts": [
+      "game",
+      "gym",
+      "ball"
+    ],
+    "targets": ""
+  },
+  "392": {
+    "sentences": "I like to sit in the front of the restaurant, so I can eat my food while people-watching.",
+    "concepts": [
+      "food",
+      "front",
+      "eat"
+    ],
+    "targets": ""
+  },
+  "408": {
+    "sentences": "The baby will sit in the highchair while you feed him his lunch.",
+    "concepts": [
+      "highchair",
+      "feed",
+      "sit"
+    ],
+    "targets": ""
+  },
+  "416": {
+    "sentences": "Please hold this bottle while I take off my shirt.",
+    "concepts": [
+      "bottle",
+      "hold",
+      "shirt"
+    ],
+    "targets": ""
+  },
+  "417": {
+    "sentences": "It's important to wear proper gear while skating to ensure safety.",
+    "concepts": [
+      "skate",
+      "wear",
+      "gear"
+    ],
+    "targets": ""
+  },
+  "420": {
+    "sentences": "Last Halloween, I wore a spooky costume and danced along the street with my friends.",
+    "concepts": [
+      "costume",
+      "dance",
+      "street"
+    ],
+    "targets": ""
+  },
+  "438": {
+    "sentences": "I will hold your hand as we swim across the lake.",
+    "concepts": [
+      "swim",
+      "hand",
+      "hold"
+    ],
+    "targets": ""
+  },
+  "451": {
+    "sentences": "The skateboarder hit a small rock on the ground and fell off his board.",
+    "concepts": [
+      "ground",
+      "hit",
+      "fall"
+    ],
+    "targets": ""
+  },
+  "484": {
+    "sentences": "I love riding my bike on the scenic roads in this area.",
+    "concepts": [
+      "ride",
+      "road",
+      "area"
+    ],
+    "targets": ""
+  },
+  "488": {
+    "sentences": "I saw the ball coming towards me and tried to hit it with my racket.",
+    "concepts": [
+      "hit",
+      "ball",
+      "come"
+    ],
+    "targets": ""
+  },
+  "491": {
+    "sentences": "I will be present at the open house with my family.",
+    "concepts": [
+      "present",
+      "open",
+      "family"
+    ],
+    "targets": ""
+  },
+  "498": {
+    "sentences": "Please hold my hand while we stand in front of the stage.",
+    "concepts": [
+      "hold",
+      "stand",
+      "front",
+      "hand"
+    ],
+    "targets": ""
+  },
+  "507": {
+    "sentences": "The maintenance crew will suspend the worker on a harness to clean the window of the tall building.",
+    "concepts": [
+      "suspend",
+      "clean",
+      "building",
+      "window"
+    ],
+    "targets": ""
+  },
+  "510": {
+    "sentences": "I like to sit at the bar and drink beer.",
+    "concepts": [
+      "beer",
+      "bar",
+      "drink",
+      "sit"
+    ],
+    "targets": ""
+  },
+  "529": {
+    "sentences": "The player from our team decided to take a walk around the field to clear his head before the big game.",
+    "concepts": [
+      "team",
+      "field",
+      "player",
+      "walk"
+    ],
+    "targets": ""
+  },
+  "533": {
+    "sentences": "The team needs to score a goal by running down the field.",
+    "concepts": [
+      "score",
+      "field",
+      "goal",
+      "run"
+    ],
+    "targets": ""
+  },
+  "537": {
+    "sentences": "I wear a short-sleeved shirt and stand in front of the mirror.",
+    "concepts": [
+      "wear",
+      "shirt",
+      "short",
+      "stand"
+    ],
+    "targets": ""
+  },
+  "545": {
+    "sentences": "I visited the ranch today and saw a beautiful horse grazing near the fence in the designated riding area.",
+    "concepts": [
+      "horse",
+      "fence",
+      "area",
+      "ride"
+    ],
+    "targets": ""
+  },
+  "555": {
+    "sentences": "The crowd gathered around to watch the talented performers dance on stage.",
+    "concepts": [
+      "crowd",
+      "watch",
+      "dance",
+      "perform"
+    ],
+    "targets": ""
+  },
+  "560": {
+    "sentences": "It's easy to cheer for your favorite swimmer when you're sitting by the pool lane.",
+    "concepts": [
+      "lane",
+      "swim",
+      "cheer",
+      "pool"
+    ],
+    "targets": ""
+  },
+  "564": {
+    "sentences": "I like to jump off the cliff and into the water, but make sure to watch out for any rocks!",
+    "concepts": [
+      "jump",
+      "water",
+      "cliff",
+      "watch"
+    ],
+    "targets": ""
+  },
+  "583": {
+    "sentences": "I like to watch my dog run on the grass while he wears his favorite collar.",
+    "concepts": [
+      "grass",
+      "run",
+      "dog",
+      "wear"
+    ],
+    "targets": ""
+  },
+  "595": {
+    "sentences": "It's important to wear proper gear before you swim in the water.",
+    "concepts": [
+      "swim",
+      "gear",
+      "water",
+      "wear"
+    ],
+    "targets": ""
+  },
+  "596": {
+    "sentences": "The dancers will wear their new outfits when they perform on stage tonight.",
+    "concepts": [
+      "perform",
+      "outfit",
+      "stage",
+      "wear"
+    ],
+    "targets": ""
+  },
+  "601": {
+    "sentences": "I always love to watch my favorite team play in big games because their star player always adds something special to the game.",
+    "concepts": [
+      "player",
+      "team",
+      "game",
+      "watch"
+    ],
+    "targets": ""
+  },
+  "602": {
+    "sentences": "I like to watch runners as they run around the track, and then congratulate them when they cross the finish line and head to the pit.",
+    "concepts": [
+      "run",
+      "watch",
+      "track",
+      "pit"
+    ],
+    "targets": ""
+  },
+  "633": {
+    "sentences": "I slowly lowered the barbell to the ground after completing my final lift, feeling the weight on my head gradually dissipate.",
+    "concepts": [
+      "lift",
+      "barbell",
+      "head",
+      "ground"
+    ],
+    "targets": ""
+  },
+  "636": {
+    "sentences": "If you throw the ball too hard, you might accidentally knock over a pin.",
+    "concepts": [
+      "ball",
+      "throw",
+      "pin",
+      "knock"
+    ],
+    "targets": ""
+  },
+  "648": {
+    "sentences": "Please give me an instruction on how to tie a tie.",
+    "concepts": [
+      "instruction",
+      "give",
+      "tie",
+      "tie"
+    ],
+    "targets": ""
+  },
+  "677": {
+    "sentences": "The pitcher will throw the baseball, and the catcher will catch it with his mitt.",
+    "concepts": [
+      "throw",
+      "catch",
+      "baseball",
+      "mitt"
+    ],
+    "targets": ""
+  },
+  "688": {
+    "sentences": "He took a long look at the cigarette before taking a puff.",
+    "concepts": [
+      "take",
+      "cigarette",
+      "look",
+      "puff"
+    ],
+    "targets": ""
+  },
+  "694": {
+    "sentences": "To enjoy a great day at the lake, I plan to ski and ride across the water using my body as the guide.",
+    "concepts": [
+      "body",
+      "water",
+      "ski",
+      "ride"
+    ],
+    "targets": ""
+  },
+  "712": {
+    "sentences": "The crowd erupted in cheer as the team scored a crucial goal.",
+    "concepts": [
+      "cheer",
+      "crowd",
+      "goal",
+      "team"
+    ],
+    "targets": ""
+  },
+  "731": {
+    "sentences": "The team gathered together in a line and each person shook hands with the person next to them to strengthen their bond.",
+    "concepts": [
+      "shake",
+      "hand",
+      "line",
+      "team"
+    ],
+    "targets": ""
+  },
+  "737": {
+    "sentences": "I will wear my favorite shirt and kick the ball with all my might.",
+    "concepts": [
+      "wear",
+      "ball",
+      "shirt",
+      "kick"
+    ],
+    "targets": ""
+  },
+  "746": {
+    "sentences": "We can sit at the table and talk while we drink our beers.",
+    "concepts": [
+      "sit",
+      "talk",
+      "beer",
+      "drink",
+      "table"
+    ],
+    "targets": ""
+  },
+  "749": {
+    "sentences": "I like to wear my favorite shirt while I cook delicious meat on the grill.",
+    "concepts": [
+      "wear",
+      "cook",
+      "meat",
+      "shirt",
+      "grill"
+    ],
+    "targets": ""
+  },
+  "757": {
+    "sentences": "I like to pile sand on the track and run as fast as I can, jumping over the pile.",
+    "concepts": [
+      "pile",
+      "track",
+      "sand",
+      "run",
+      "jump"
+    ],
+    "targets": ""
+  },
+  "762": {
+    "sentences": "He had to drop the barbell on the ground after struggling to lift it overhead with his head up.",
+    "concepts": [
+      "head",
+      "drop",
+      "ground",
+      "lift",
+      "barbell"
+    ],
+    "targets": ""
+  },
+  "763": {
+    "sentences": "The individual chose to wear a stylish hat with their attire as they walked down the street.",
+    "concepts": [
+      "individual",
+      "wear",
+      "walk",
+      "hat",
+      "attire"
+    ],
+    "targets": ""
+  },
+  "766": {
+    "sentences": "When you climb a mountain, you should wear a suit that is comfortable and allows you to look and feel your best.",
+    "concepts": [
+      "wear",
+      "suit",
+      "mountain",
+      "climb",
+      "look"
+    ],
+    "targets": ""
+  },
+  "767": {
+    "sentences": "I like to walk through the park and admire the beautiful buildings on the street, but sometimes it's hard to find a good spot to park my car.",
+    "concepts": [
+      "walk",
+      "building",
+      "car",
+      "park",
+      "street"
+    ],
+    "targets": ""
+  },
+  "771": {
+    "sentences": "The bridesmaid will receive help to wear her dress for the wedding.",
+    "concepts": [
+      "bridesmaid",
+      "receive",
+      "help",
+      "wear",
+      "dress"
+    ],
+    "targets": ""
+  },
+  "775": {
+    "sentences": "While walking by the beach, we discussed the best way to protect our phone from getting wet with water.",
+    "concepts": [
+      "phone",
+      "discuss",
+      "water",
+      "way",
+      "protect"
+    ],
+    "targets": ""
+  },
+  "777": {
+    "sentences": "I need to pull down the weight at the gym to perform an arm workout.",
+    "concepts": [
+      "pull",
+      "down",
+      "gym",
+      "perform",
+      "arm"
+    ],
+    "targets": ""
+  },
+  "786": {
+    "sentences": "I saw the fearless biker ride up the ramp, jump in the air, but then fall down when attempting to land.",
+    "concepts": [
+      "bike",
+      "jump",
+      "fall",
+      "ride",
+      "ramp"
+    ],
+    "targets": ""
+  },
+  "787": {
+    "sentences": "When I accidentally stepped on the stick, I made a funny face, which made my friend laugh and say that I should watch where I'm putting my foot.",
+    "concepts": [
+      "face",
+      "stick",
+      "say",
+      "laugh",
+      "foot"
+    ],
+    "targets": ""
+  },
+  "791": {
+    "sentences": "I saw a group of teenagers wearing hoodies standing in front of a wall covered in graffiti.",
+    "concepts": [
+      "wall",
+      "wear",
+      "graffiti",
+      "stand",
+      "cover"
+    ],
+    "targets": ""
+  },
+  "794": {
+    "sentences": "On my friend's birthday, we sang \"Happy Birthday\" and watched her blow out the candle on her cake.",
+    "concepts": [
+      "sing",
+      "birthday",
+      "candle",
+      "blow",
+      "cake"
+    ],
+    "targets": ""
+  },
+  "801": {
+    "sentences": "After the run, I decided to rinse my hand with water from the tap.",
+    "concepts": [
+      "hand",
+      "run",
+      "rinse",
+      "water",
+      "tap"
+    ],
+    "targets": ""
+  },
+  "807": {
+    "sentences": "I saw Matt sit down on the floor and laugh at a funny joke while he accidentally managed to rip a piece of paper.",
+    "concepts": [
+      "laugh",
+      "sit",
+      "paper",
+      "rip",
+      "piece"
+    ],
+    "targets": ""
+  },
+  "814": {
+    "sentences": "The alligator opened its mouth wide to hold its prey, while the sit at the top of the food chain.",
+    "concepts": [
+      "alligator",
+      "mouth",
+      "hold",
+      "sit",
+      "top"
+    ],
+    "targets": ""
+  },
+  "817": {
+    "sentences": "To begin making the soup, stir the ingredients together and pour them into the pot.",
+    "concepts": [
+      "ingredient",
+      "stir",
+      "pour",
+      "pot",
+      "begin"
+    ],
+    "targets": ""
+  },
+  "829": {
+    "sentences": "The mom asked me to help her push the cart at the store while she held onto her energetic toddler.",
+    "concepts": [
+      "cart",
+      "store",
+      "push",
+      "help",
+      "toddler"
+    ],
+    "targets": ""
+  },
+  "836": {
+    "sentences": "The crowd began to cheer as they watched their favorite team take the place on the field for the game.",
+    "concepts": [
+      "take",
+      "crowd",
+      "place",
+      "cheer",
+      "game"
+    ],
+    "targets": ""
+  },
+  "838": {
+    "sentences": "I will give a talk on the podium after receiving my award, and I will stand confidently as I deliver my speech.",
+    "concepts": [
+      "award",
+      "stand",
+      "give",
+      "talk",
+      "podium"
+    ],
+    "targets": ""
+  },
+  "839": {
+    "sentences": "I will hold up a sign that reads \"Peace\" as I teach others how to promote tranquility and understanding.",
+    "concepts": [
+      "peace",
+      "hold",
+      "read",
+      "teach",
+      "sign"
+    ],
+    "targets": ""
+  },
+  "846": {
+    "sentences": "In the gym, you can perform tricep exercises by doing push downs on the cable machine.",
+    "concepts": [
+      "exercise",
+      "tricep",
+      "gym",
+      "push",
+      "perform"
+    ],
+    "targets": ""
+  },
+  "850": {
+    "sentences": "I can hold the animal still while the veterinarian pierces its ear to place the identification stuff.",
+    "concepts": [
+      "stuff",
+      "ear",
+      "hold",
+      "animal",
+      "pierce"
+    ],
+    "targets": ""
+  },
+  "865": {
+    "sentences": "Treating fruits with lemon juice can prevent oxidation.",
+    "concepts": [
+      "oxidation",
+      "treat",
+      "juice",
+      "prevent",
+      "fruit"
+    ],
+    "targets": ""
+  },
+  "867": {
+    "sentences": "I hope you don't vomit after you take a drink from that cup.",
+    "concepts": [
+      "vomit",
+      "cup",
+      "drink",
+      "take",
+      "drink"
+    ],
+    "targets": ""
+  },
+  "871": {
+    "sentences": "The ballet dancer could not continue the dance and had to end it abruptly, striking a final pose that she had to hold for several seconds.",
+    "concepts": [
+      "dance",
+      "continue",
+      "end",
+      "pose",
+      "hold"
+    ],
+    "targets": ""
+  },
+  "872": {
+    "sentences": "The catcher applied the tag to the player who tried to slide into home.",
+    "concepts": [
+      "catcher",
+      "home",
+      "tag",
+      "slide",
+      "player"
+    ],
+    "targets": ""
+  },
+  "877": {
+    "sentences": "I saw a bird jump over the fence while my dog was wagging its tail with its mouth open.",
+    "concepts": [
+      "fence",
+      "bird",
+      "jump",
+      "mouth",
+      "dog"
+    ],
+    "targets": ""
+  },
+  "880": {
+    "sentences": "I had to stand up and closely eye the cube to solve the puzzle.",
+    "concepts": [
+      "stand",
+      "solve",
+      "eye",
+      "close",
+      "cube"
+    ],
+    "targets": ""
+  },
+  "881": {
+    "sentences": "Hold the book steady and turn the page carefully before continuing to read.",
+    "concepts": [
+      "turn",
+      "book",
+      "page",
+      "hold",
+      "read"
+    ],
+    "targets": ""
+  },
+  "882": {
+    "sentences": "When boxing, it is important to wear gloves to protect your hands when you hit the bag or box.",
+    "concepts": [
+      "hit",
+      "glove",
+      "box",
+      "bag",
+      "wear"
+    ],
+    "targets": ""
+  },
+  "885": {
+    "sentences": "The athlete had to run and leap over the hurdle on the track.",
+    "concepts": [
+      "run",
+      "hurdle",
+      "track",
+      "leap",
+      "athlete"
+    ],
+    "targets": ""
+  },
+  "888": {
+    "sentences": "I like to sit and use my pen to write notes while I listen to the drum beat.",
+    "concepts": [
+      "sit",
+      "pen",
+      "use",
+      "drum",
+      "beat"
+    ],
+    "targets": ""
+  },
+  "892": {
+    "sentences": "Using his club, he hit the ball on the swing to start his round on the course.",
+    "concepts": [
+      "swing",
+      "hit",
+      "ball",
+      "course",
+      "club"
+    ],
+    "targets": ""
+  },
+  "894": {
+    "sentences": "Please have a seat at the table and wear your favorite dress with matching shoes.",
+    "concepts": [
+      "sit",
+      "dress",
+      "table",
+      "wear",
+      "shoe"
+    ],
+    "targets": ""
+  },
+  "895": {
+    "sentences": "I like to look in the mirror after I curl my hair with a hot iron.",
+    "concepts": [
+      "look",
+      "curl",
+      "iron",
+      "mirror",
+      "hair"
+    ],
+    "targets": ""
+  },
+  "899": {
+    "sentences": "He attempted to throw the knife over the fence with a stick.",
+    "concepts": [
+      "stick",
+      "knife",
+      "throw",
+      "fence",
+      "attempt"
+    ],
+    "targets": ""
+  },
+  "911": {
+    "sentences": "I had to hold my dog still while the veterinarian extracted a loose tooth from his mouth, and I could feel the tension in the air as she used a rope to keep him steady.",
+    "concepts": [
+      "hold",
+      "dog",
+      "tooth",
+      "air",
+      "rope"
+    ],
+    "targets": ""
+  },
+  "918": {
+    "sentences": "I accidentally got a piece of gum stuck in my hair and had to rub peanut butter on it to remove it, but it ended up getting all over my face and I had to stick out my tongue to clean it off.",
+    "concepts": [
+      "rub",
+      "tongue",
+      "stick",
+      "face",
+      "hair"
+    ],
+    "targets": ""
+  },
+  "920": {
+    "sentences": "She flashed a smile as she sat down at the piano, ready to hit each key perfectly.",
+    "concepts": [
+      "smile",
+      "piano",
+      "hit",
+      "key",
+      "sit"
+    ],
+    "targets": ""
+  },
+  "921": {
+    "sentences": "After playing a game with her dog, she took him for a walk and then they both rested by the fireplace, where she had set up a table with some treats for them to share.",
+    "concepts": [
+      "game",
+      "dog",
+      "walk",
+      "fireplace",
+      "table"
+    ],
+    "targets": ""
+  },
+  "933": {
+    "sentences": "I watched the gymnast gracefully jump and flip through the air, landing on the other side of the mat, determined to continue until the very end.",
+    "concepts": [
+      "side",
+      "jump",
+      "flip",
+      "end",
+      "continue"
+    ],
+    "targets": ""
+  },
+  "935": {
+    "sentences": "The responsible parent asked the kid to gather their things and put them in their bag before they leave the park.",
+    "concepts": [
+      "leave",
+      "kid",
+      "bag",
+      "put",
+      "gather"
+    ],
+    "targets": ""
+  },
+  "942": {
+    "sentences": "As I hold my hand out towards the ocean, I look at the crystal clear water of the beach.",
+    "concepts": [
+      "water",
+      "hold",
+      "look",
+      "hand",
+      "beach"
+    ],
+    "targets": ""
+  },
+  "944": {
+    "sentences": "The player held his stick tightly and stood proudly in his jersey.",
+    "concepts": [
+      "jersey",
+      "stick",
+      "player",
+      "stand",
+      "hold"
+    ],
+    "targets": ""
+  },
+  "971": {
+    "sentences": "The waves crashed against the rocky shore as I stood still and skipped stones across the water, feeling the coolness against my body.",
+    "concepts": [
+      "rock",
+      "stand",
+      "water",
+      "skip",
+      "body"
+    ],
+    "targets": ""
+  },
+  "972": {
+    "sentences": "The object on the stand by the arch-shaped window casts a shadow on the wall.",
+    "concepts": [
+      "object",
+      "wall",
+      "arch",
+      "window",
+      "stand"
+    ],
+    "targets": ""
+  },
+  "975": {
+    "sentences": "As he was running towards the ball, he stumbled and fell to the ground, but was still able to catch it before it hit the turf.",
+    "concepts": [
+      "ball",
+      "run",
+      "fall",
+      "catch",
+      "ground"
+    ],
+    "targets": ""
+  },
+  "977": {
+    "sentences": "Cain and his couple took a leisurely stroll in the park, making use of the beautiful weather.",
+    "concepts": [
+      "cain",
+      "stroll",
+      "use",
+      "couple",
+      "take"
+    ],
+    "targets": ""
+  },
+  "978": {
+    "sentences": "To make scrambled eggs, you should crack an egg into a pot, add butter, and cook it on low heat.",
+    "concepts": [
+      "pot",
+      "butter",
+      "add",
+      "egg",
+      "crack"
+    ],
+    "targets": ""
+  },
+  "980": {
+    "sentences": "The performer wore a stunning dress in front of the audience during the performance.",
+    "concepts": [
+      "perform",
+      "dress",
+      "audience",
+      "wear",
+      "front"
+    ],
+    "targets": ""
+  },
+  "984": {
+    "sentences": "I can teach your dog to sit if you give him a treat as a reward.",
+    "concepts": [
+      "sit",
+      "give",
+      "treat",
+      "teach",
+      "dog"
+    ],
+    "targets": ""
+  },
+  "985": {
+    "sentences": "I will wear an apron and cook sausage in a frying pan for breakfast.",
+    "concepts": [
+      "pan",
+      "wear",
+      "cook",
+      "sausage",
+      "fry"
+    ],
+    "targets": ""
+  }
+}

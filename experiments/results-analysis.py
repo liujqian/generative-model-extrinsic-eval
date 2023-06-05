@@ -72,12 +72,17 @@ def analyze_with_choice_generations(model_name: str):
         }
         for i in range(len(subset["id"])):
             if i % 200 == 0:
-                log_progress(i, len(subset["id"]),
-                             f"Analyzing the results of {model_name} on the {subset_name} set. This is WITH choices' content words.")
+                log_progress(
+                    i,
+                    len(subset["id"]),
+                    10,
+                    f"Analyzing the results of {model_name} on the {subset_name} set. This is WITH choices' content words."
+                )
             question_generations = model_generations[str(i)]
             question = subset[i]
             all_generated_sentences = question_generations["sentences"]
-            all_sequences_scores = question_generations["sequences_scores"]
+            all_sequences_scores = question_generations["sequences_scores"] \
+                if "sequences_scores" in question_generations else [0] * 20
             cur_question_choices_stats = {
                 "inclusion_count": [],
                 "avg_sequences_scores": []
@@ -144,8 +149,12 @@ def analyze_without_choice_generations(model_name: str):
         #       if a word appear in multiple choices, then split the count
         for i in range(len(subset["id"])):
             if i % 200 == 0:
-                log_progress(i, len(subset["id"]),
-                             f"Analyzing the results of {model_name} on the {subset_name} set. This is WITHOUT choices' content words.")
+                log_progress(
+                    i,
+                    len(subset["id"]),
+                    10,
+                    f"Analyzing the results of {model_name} on the {subset_name} set. This is WITHOUT choices' content words."
+                )
             question_generations = model_generations[str(i)]
             question = subset[i]
             # key are all choice content words, values are sets indicating which choices appeared in
@@ -178,10 +187,7 @@ def analyze_without_choice_generations(model_name: str):
 
 if __name__ == '__main__':
     for model_name in [
-        # "mt0-small",
-        # "mt0-base",
-        "mt0-large",
-        # "mt0-xl"
+        "chatgpt"
     ]:
-        # analyze_with_choice_generations(model_name)
+        analyze_with_choice_generations(model_name)
         analyze_without_choice_generations(model_name)
