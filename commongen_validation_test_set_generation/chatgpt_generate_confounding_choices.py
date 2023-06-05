@@ -78,19 +78,20 @@ if __name__ == '__main__':
             "concepts",
             "bloomz_1b1", "bloomz_1b7", "bloomz_3b", "bloomz_560m", "flan_t5_xl", "flan_t5_large", "t0_3b",
             "tk_instruct_3b_def", "mt0_large", "mt0_base", "mt0_small", "mt0_xl"
-        ] + (confounding_types)
+        ] + confounding_types
     ]
+
+    with open("generated_sentences/combined-generations.csv") as original:
+        heading = next(original)
+        csv_obj = csv.reader(original)
+        for i, row in enumerate(csv_obj):
+            log_progress(i, 500, 5, f"Making a new conbined generation CSV!")
+            concepts = row[2].split(", ")
+            for confounding_type in confounding_types:
+                confound = create_confounding_sentence(confounding_type, concepts)
+                row.append(confound)
+            new_csv.append(row)
     with open("generated_sentences/combined_generations_with_confound.csv", "w", newline='', encoding='utf-8') as new:
         writer = csv.writer(new)
-        with open("generated_sentences/combined-generations.csv") as original:
-            heading = next(original)
-            csv_obj = csv.reader(original)
-            for i, row in enumerate(csv_obj):
-                log_progress(i, 500, 5, f"Making a new conbined generation CSV!")
-                concepts = row[2].split(", ")
-                for confounding_type in confounding_types:
-                    confound = create_confounding_sentence(confounding_type, concepts)
-                    row.append(confound)
-                new_csv.append(row)
         for csv_row in new_csv:
             writer.writerow(csv_row)
