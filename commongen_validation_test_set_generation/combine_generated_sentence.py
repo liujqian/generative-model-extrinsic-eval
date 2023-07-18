@@ -48,7 +48,7 @@ def combine_generated_sentences(num_items: int = 500):
         all_row_count_tuples.sort(key=lambda t: len(t[2]), reverse=True)
         selected_row_tuples = all_row_count_tuples[:num_items]
         selected_concept_sets = {f"{t[0]}-{t[1]}" for t in selected_row_tuples}
-        with open('generated_sentences/combined-generations.csv', 'w', newline='', encoding='utf-8') as file:
+        with open('generated_sentences/old_combined_generations_based_on_generation_volcab.csv', 'w', newline='', encoding='utf-8') as file:
             writer = csv.writer(file)
             writer.writerow(csv_header)
             for csv_row in csv_rows:

@@ -68,7 +68,7 @@ if __name__ == '__main__':
         ] + confounding_types
     ]
 
-    with open("generated_sentences/combined-generations.csv") as original:
+    with open("generated_sentences/old_combined_generations_based_on_generation_volcab.csv") as original:
         heading = next(original)
         csv_obj = csv.reader(original)
         for i, row in enumerate(csv_obj):
@@ -78,7 +78,7 @@ if __name__ == '__main__':
                 confound = create_confounding_sentence(confounding_type, concepts)
                 row.append(confound)
             new_csv.append(row)
-    with open("generated_sentences/combined_generations_with_confound.csv", "w", newline='', encoding='utf-8') as new:
+    with open("generated_sentences/old_combined_generations_with_confound_based_on_generation_volcab.csv", "w", newline='', encoding='utf-8') as new:
         writer = csv.writer(new)
         for csv_row in new_csv:
             writer.writerow(csv_row)

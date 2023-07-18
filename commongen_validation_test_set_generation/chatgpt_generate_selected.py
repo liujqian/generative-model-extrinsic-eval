@@ -18,7 +18,7 @@ def chatgpt_generate_selected():
         'w'
     )
     test_json = {}
-    with open("generated_sentences/selected_commongen_tasks.json", 'r') as selected_commongen_file:
+    with open("generated_sentences/old_selected_commongen_tasks_based_on_generation_volcab.json", 'r') as selected_commongen_file:
         selected_commongens = json.load(selected_commongen_file)
         for i, item_id in enumerate(selected_commongens):
             log_progress(i, len(selected_commongens), 10,
