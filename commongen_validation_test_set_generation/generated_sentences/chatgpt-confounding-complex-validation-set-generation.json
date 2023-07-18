@@ -1,0 +1,1295 @@
+{
+  "9": {
+    "sentences": "After climbing up the stairs, he took a deep breath, then made a calculated jump onto the first flight of the staircase, determined to conquer the next few flights.",
+    "concepts": [
+      "stair",
+      "jump",
+      "flight"
+    ],
+    "targets": ""
+  },
+  "12": {
+    "sentences": "As she approached the dark alley, her heart began to race, and she could feel her eye darting left and right, trying to catch any movement that may be lurking in the shadows.",
+    "concepts": [
+      "eye",
+      "move",
+      "look"
+    ],
+    "targets": ""
+  },
+  "15": {
+    "sentences": "As I prepared to walk through the rocky terrain, I carefully selected and wore my sturdy hiking gear, which included a backpack, hiking boots, and a waterproof jacket.",
+    "concepts": [
+      "walk",
+      "wear",
+      "gear"
+    ],
+    "targets": ""
+  },
+  "25": {
+    "sentences": "While sitting in the spaceship, the astronaut couldn't help but stare out into the vast expanse of space, marveling at the infinite possibilities and unknown territories beyond.",
+    "concepts": [
+      "space",
+      "stare",
+      "sit"
+    ],
+    "targets": ""
+  },
+  "34": {
+    "sentences": "Since the ball had lost its bounce over time, the child was unable to play with it anymore and had to find a new one.",
+    "concepts": [
+      "bounce",
+      "time",
+      "ball"
+    ],
+    "targets": ""
+  },
+  "35": {
+    "sentences": "While I was at the salon, I asked my hair stylist, who is known for her impeccable ability to cut and style hair, to give me a chic and modern haircut that would complement my features.",
+    "concepts": [
+      "cut",
+      "style",
+      "hair"
+    ],
+    "targets": ""
+  },
+  "41": {
+    "sentences": "After I finish my morning walk with my dog, I will take him on a leisurely ride through the park in his brand new pet stroller, which I just bought yesterday.",
+    "concepts": [
+      "walk",
+      "dog",
+      "ride"
+    ],
+    "targets": ""
+  },
+  "68": {
+    "sentences": "As I held my breath and closed my mouth tightly, I tried to stifle the urge to sneeze, hoping that nobody would notice my discomfort.",
+    "concepts": [
+      "mouth",
+      "hold",
+      "close"
+    ],
+    "targets": ""
+  },
+  "86": {
+    "sentences": "While she was getting ready by putting on her favorite dress, she practiced her dance moves so she could perform flawlessly at the talent show tonight.",
+    "concepts": [
+      "dress",
+      "dance",
+      "perform"
+    ],
+    "targets": ""
+  },
+  "97": {
+    "sentences": "The house, where I lived for many years, is now a place where my neighbors' dog frequently visits and eats the treats I used to give to my own dog.",
+    "concepts": [
+      "house",
+      "eat",
+      "dog"
+    ],
+    "targets": ""
+  },
+  "113": {
+    "sentences": "While we were running the race, our friends cheered us on from the sidelines.",
+    "concepts": [
+      "run",
+      "race",
+      "cheer"
+    ],
+    "targets": ""
+  },
+  "118": {
+    "sentences": "As she was walking in the wind, her hair whipped across her face, forcing her to move her hand to push it aside.",
+    "concepts": [
+      "hair",
+      "face",
+      "move"
+    ],
+    "targets": ""
+  },
+  "129": {
+    "sentences": "After I finish washing my face in the bathroom, I like to dry it off gently with a soft towel so that it doesn't become irritated or dry.",
+    "concepts": [
+      "face",
+      "wash",
+      "bathroom"
+    ],
+    "targets": ""
+  },
+  "144": {
+    "sentences": "As she watched the sun set behind the hill, Sarah couldn't help but think about the exhausting hike she had just completed, during which she had to stand and catch her breath multiple times, making her realize how important a good night's sleep would be for her before she could sle-e-p soundly.",
+    "concepts": [
+      "sle",
+      "stand",
+      "hill"
+    ],
+    "targets": ""
+  },
+  "151": {
+    "sentences": "As the defendant was asked to hold their hand up and stand straight in court, they tried their best to maintain their composure while the prosecution presented their case.",
+    "concepts": [
+      "hold",
+      "stand",
+      "court"
+    ],
+    "targets": ""
+  },
+  "163": {
+    "sentences": "While trying to lick the last bit of ice cream off the cone, he accidentally stuck his tongue to the frozen treat and had to stand there waiting for it to melt.",
+    "concepts": [
+      "stick",
+      "tongue",
+      "stand"
+    ],
+    "targets": ""
+  },
+  "175": {
+    "sentences": "While the player shot the ball, his team held their breath, hoping it would land in the net.",
+    "concepts": [
+      "shot",
+      "player",
+      "team"
+    ],
+    "targets": ""
+  },
+  "176": {
+    "sentences": "Although he was hesitant at first, he eventually decided to jump into the cold water of the lake, which was surrounded by trees and created a peaceful and refreshing environment.",
+    "concepts": [
+      "jump",
+      "water",
+      "lake"
+    ],
+    "targets": ""
+  },
+  "195": {
+    "sentences": "While she tried to hold onto the branch of the tree, she realized she couldn't support herself and instead decided to sit on the ground beneath the tree.",
+    "concepts": [
+      "hold",
+      "sit",
+      "tree"
+    ],
+    "targets": ""
+  },
+  "196": {
+    "sentences": "Once you dig a hole in the ground, you can plant a tree in it, which will eventually grow into a beautiful addition to your landscaping.",
+    "concepts": [
+      "dig",
+      "plant",
+      "tree"
+    ],
+    "targets": ""
+  },
+  "197": {
+    "sentences": "After my hair was cut shorter than I anticipated, I decided to embrace the change and experiment with a new style that would better suit my personality.",
+    "concepts": [
+      "hair",
+      "cut",
+      "style"
+    ],
+    "targets": ""
+  },
+  "200": {
+    "sentences": "As I watched the schoolchildren, who had recently finished their lunch break, run and jump around the playground, I couldn't help but notice the growing pile of toys in the sandbox.",
+    "concepts": [
+      "run",
+      "jump",
+      "pile"
+    ],
+    "targets": ""
+  },
+  "228": {
+    "sentences": "After carefully selecting her outfit, she stepped onto the stage to perform for the audience who had been eagerly waiting for her since the beginning of the show.",
+    "concepts": [
+      "stage",
+      "outfit",
+      "perform"
+    ],
+    "targets": ""
+  },
+  "251": {
+    "sentences": "After she finishes washing her hands, she turns off the faucet with her clean hand.",
+    "concepts": [
+      "hand",
+      "wash",
+      "turn"
+    ],
+    "targets": ""
+  },
+  "263": {
+    "sentences": "Although my shoes are short, I can still wear them comfortably for short walks, but I wouldn't recommend wearing them for long periods of time.",
+    "concepts": [
+      "short",
+      "wear",
+      "shoe"
+    ],
+    "targets": ""
+  },
+  "276": {
+    "sentences": "As I sit in the crowded theater, holding onto the armrest with anticipation, I can't help but smile knowing that the movie is about to begin.",
+    "concepts": [
+      "hold",
+      "smile",
+      "sit"
+    ],
+    "targets": ""
+  },
+  "284": {
+    "sentences": "When the guitarist stepped onto the stage, the audience erupted into cheers that echoed off the walls, creating an electric atmosphere before he even strummed a chord on his shiny new guitar.",
+    "concepts": [
+      "audience",
+      "stage",
+      "guitar"
+    ],
+    "targets": ""
+  },
+  "299": {
+    "sentences": "As the player made his way onto the field, he was met with a deafening roar from the crowd, who were eagerly anticipating the start of the game.",
+    "concepts": [
+      "game",
+      "crowd",
+      "player"
+    ],
+    "targets": ""
+  },
+  "304": {
+    "sentences": "After the chef carefully sharpened the knife in the kitchen, he proceeded to cut the vegetables into small pieces, ensuring that each cut was precise and perfect.",
+    "concepts": [
+      "cut",
+      "knife",
+      "kitchen"
+    ],
+    "targets": ""
+  },
+  "305": {
+    "sentences": "Although I can talk extensively about the technique, it would be more helpful to demonstrate it so you can see it in action.",
+    "concepts": [
+      "talk",
+      "technique",
+      "demonstrate"
+    ],
+    "targets": ""
+  },
+  "307": {
+    "sentences": "After I fetch the ball that my dog enjoys chasing in the park, I will throw it again so he can continue running and having fun.",
+    "concepts": [
+      "fetch",
+      "ball",
+      "throw"
+    ],
+    "targets": ""
+  },
+  "311": {
+    "sentences": "As we stood under the tree, watching the sunset, we realized that this moment would be forever etched in our memories.",
+    "concepts": [
+      "stand",
+      "watch",
+      "tree"
+    ],
+    "targets": ""
+  },
+  "312": {
+    "sentences": "Though she tried to sit calmly, her nerves on edge as she watched the storm clouds moving in, eventually she had to cover her face with her hands as the first drops began to fall heavily.",
+    "concepts": [
+      "sit",
+      "cover",
+      "face"
+    ],
+    "targets": ""
+  },
+  "314": {
+    "sentences": "When he came home from work, she immediately ran to him and gave him a warm hug and a passionate kiss, which made him forget all the stress from his day.",
+    "concepts": [
+      "give",
+      "hug",
+      "kiss"
+    ],
+    "targets": ""
+  },
+  "324": {
+    "sentences": "As I was walking through the room that I had never been to before, I noticed a strange object that caught my attention and decided to hold it up closely to examine it.",
+    "concepts": [
+      "walk",
+      "room",
+      "hold"
+    ],
+    "targets": ""
+  },
+  "333": {
+    "sentences": "As the sun was setting, the crowd stood eagerly as the skilled surfers, who had spent all day waiting for the perfect wave, rode the towering swells and gracefully waved to the cheering audience.",
+    "concepts": [
+      "stand",
+      "wave",
+      "ride"
+    ],
+    "targets": ""
+  },
+  "339": {
+    "sentences": "While I sit on the bed, I can't help but look at the pile of laundry that needs folding.",
+    "concepts": [
+      "bed",
+      "look",
+      "sit"
+    ],
+    "targets": ""
+  },
+  "357": {
+    "sentences": "Looking up at the tall tree, I realized that it would be quite a challenge to climb to the top, but I was determined to make it all the way up anyway.",
+    "concepts": [
+      "tree",
+      "look",
+      "climb"
+    ],
+    "targets": ""
+  },
+  "359": {
+    "sentences": "While it is important to sit still and listen attentively, it is equally important to talk and express your thoughts and ideas in a clear and concise manner.",
+    "concepts": [
+      "listen",
+      "talk",
+      "sit"
+    ],
+    "targets": ""
+  },
+  "365": {
+    "sentences": "After I fall off my skateboard while trying to ride down the steep hill, I board the bus and contemplate my decision to take such a risky route.",
+    "concepts": [
+      "fall",
+      "ride",
+      "board"
+    ],
+    "targets": ""
+  },
+  "388": {
+    "sentences": "As soon as the game started in the gym, the players began to dribble the ball while their coach shouted out instructions.",
+    "concepts": [
+      "game",
+      "gym",
+      "ball"
+    ],
+    "targets": ""
+  },
+  "392": {
+    "sentences": "While waiting in the front of the restaurant, I could smell the delicious food cooking in the kitchen, which made me even more excited to eat.",
+    "concepts": [
+      "food",
+      "front",
+      "eat"
+    ],
+    "targets": ""
+  },
+  "408": {
+    "sentences": "When you feed your baby in the highchair that you have to assemble every time you want to sit your child down, you'll appreciate its convenience even more.",
+    "concepts": [
+      "highchair",
+      "feed",
+      "sit"
+    ],
+    "targets": ""
+  },
+  "416": {
+    "sentences": "After he finished drinking the water from the bottle that he held tightly, he realized there was a stain on his shirt caused by the droplets that escaped from the bottle's lid.",
+    "concepts": [
+      "bottle",
+      "hold",
+      "shirt"
+    ],
+    "targets": ""
+  },
+  "417": {
+    "sentences": "After she finished wearing her protective gear, Emily stepped onto the ice rink and began to skate, feeling confident that she was properly equipped for the activity.",
+    "concepts": [
+      "skate",
+      "wear",
+      "gear"
+    ],
+    "targets": ""
+  },
+  "420": {
+    "sentences": "As the sun set over the bustling streets, the dance troupe donned their vibrant costumes and took to the pavement, their fluid movements captivating pedestrians and turning the mundane street into a spellbinding stage.",
+    "concepts": [
+      "costume",
+      "dance",
+      "street"
+    ],
+    "targets": ""
+  },
+  "438": {
+    "sentences": "As I watched the expert swimmer hand off the baton, I admired the graceful way he held the baton while swimming towards the finish line.",
+    "concepts": [
+      "swim",
+      "hand",
+      "hold"
+    ],
+    "targets": ""
+  },
+  "451": {
+    "sentences": "As he was running towards the field, he tripped over a rock on the ground, causing him to hit his head on a nearby tree and fall unconscious to the forest floor.",
+    "concepts": [
+      "ground",
+      "hit",
+      "fall"
+    ],
+    "targets": ""
+  },
+  "484": {
+    "sentences": "When they decided to take a ride down the long and winding road that leads to the scenic area, they were amazed at the breathtaking views along the way.",
+    "concepts": [
+      "ride",
+      "road",
+      "area"
+    ],
+    "targets": ""
+  },
+  "488": {
+    "sentences": "After the pitcher hit the ball with all his might, it came hurtling towards the batter, who swung and missed.",
+    "concepts": [
+      "hit",
+      "ball",
+      "come"
+    ],
+    "targets": ""
+  },
+  "491": {
+    "sentences": "Although I am responsible for staying present during work hours, I must also make time to open up to my family and share my thoughts and experiences with them.",
+    "concepts": [
+      "present",
+      "open",
+      "family"
+    ],
+    "targets": ""
+  },
+  "498": {
+    "sentences": "While I hold onto the railing with one hand, I stand firmly at the front of the boat to get a better view of the sea ahead.",
+    "concepts": [
+      "hold",
+      "stand",
+      "front",
+      "hand"
+    ],
+    "targets": ""
+  },
+  "507": {
+    "sentences": "While the building management team was working to suspend the cleaning of the windows, the maintenance crew discovered some crucial damages that could potentially compromise the structural safety of the building.",
+    "concepts": [
+      "suspend",
+      "clean",
+      "building",
+      "window"
+    ],
+    "targets": ""
+  },
+  "510": {
+    "sentences": "While I was sitting in the bar, contemplating what drink to order, I noticed that the bartender had an impressive variety of beer on tap.",
+    "concepts": [
+      "beer",
+      "bar",
+      "drink",
+      "sit"
+    ],
+    "targets": ""
+  },
+  "529": {
+    "sentences": "Although the player wanted to take a walk on the field, the team insisted that he stay and practice with his fellow players.",
+    "concepts": [
+      "team",
+      "field",
+      "player",
+      "walk"
+    ],
+    "targets": ""
+  },
+  "533": {
+    "sentences": "While running across the field to score a goal, the athlete's mind was focused on the pressure to secure a victory run for their team.",
+    "concepts": [
+      "score",
+      "field",
+      "goal",
+      "run"
+    ],
+    "targets": ""
+  },
+  "537": {
+    "sentences": "Although it was hot outside, Sarah chose to wear a long-sleeved shirt because she wanted to look professional while standing in front of the class, whereas Eric opted for shorts to stay cool.",
+    "concepts": [
+      "wear",
+      "shirt",
+      "short",
+      "stand"
+    ],
+    "targets": ""
+  },
+  "545": {
+    "sentences": "After circling the area for a while, the rider dismounted from his horse, and leaned against the fence, contemplating the joyride he had just taken.",
+    "concepts": [
+      "horse",
+      "fence",
+      "area",
+      "ride"
+    ],
+    "targets": ""
+  },
+  "555": {
+    "sentences": "While a large crowd gathered to watch, the talented dancers began to perform an intricate dance routine that showcased their skills.",
+    "concepts": [
+      "crowd",
+      "watch",
+      "dance",
+      "perform"
+    ],
+    "targets": ""
+  },
+  "560": {
+    "sentences": "While Lane was swimming in the pool, the crowd couldn't help but cheer for her impressive strokes and graceful movements.",
+    "concepts": [
+      "lane",
+      "swim",
+      "cheer",
+      "pool"
+    ],
+    "targets": ""
+  },
+  "564": {
+    "sentences": "As I watched my brave friend jump off the cliff into the crystal-clear water, I felt both admiration for their fearlessness and concern for their safety in my heart.",
+    "concepts": [
+      "jump",
+      "water",
+      "cliff",
+      "watch"
+    ],
+    "targets": ""
+  },
+  "583": {
+    "sentences": "\"As the dog chased after the frisbee that was thrown into the lush green grass, its owner couldn't help but grin as he ran behind wearing his favorite pair of sneakers.\"",
+    "concepts": [
+      "grass",
+      "run",
+      "dog",
+      "wear"
+    ],
+    "targets": ""
+  },
+  "595": {
+    "sentences": "Even though I am an experienced swimmer who loves to plunge into the deep blue water, I always make sure to wear proper gear such as goggles and swim cap that not only enhances my swimming experience but also ensures my safety.",
+    "concepts": [
+      "swim",
+      "gear",
+      "water",
+      "wear"
+    ],
+    "targets": ""
+  },
+  "596": {
+    "sentences": "After deciding which songs to perform, the lead singer chose a glittering outfit to wear on stage, which complemented the extravagant stage lighting.",
+    "concepts": [
+      "perform",
+      "outfit",
+      "stage",
+      "wear"
+    ],
+    "targets": ""
+  },
+  "601": {
+    "sentences": "As the player stepped onto the field, the team's spirits were lifted, and the intensity of the game was palpable, making it impossible not to watch every move with bated breath.",
+    "concepts": [
+      "player",
+      "team",
+      "game",
+      "watch"
+    ],
+    "targets": ""
+  },
+  "602": {
+    "sentences": "While running around the track, I like to watch the other runners and make mental notes of the different strategies they use to navigate the turns and the straightaways, but when I start to feel tired, I head to the pit to catch my breath before continuing my workout.",
+    "concepts": [
+      "run",
+      "watch",
+      "track",
+      "pit"
+    ],
+    "targets": ""
+  },
+  "633": {
+    "sentences": "As soon as he lifted the barbell off the ground, he felt a sudden surge of energy that traveled all the way from his toes to his head, despite the weight of the barbell.",
+    "concepts": [
+      "lift",
+      "barbell",
+      "head",
+      "ground"
+    ],
+    "targets": ""
+  },
+  "636": {
+    "sentences": "After grabbing a bowling ball, he stepped up to the line and began his approach, he threw the ball with such force, causing it to knock down all ten pins.",
+    "concepts": [
+      "ball",
+      "throw",
+      "pin",
+      "knock"
+    ],
+    "targets": ""
+  },
+  "648": {
+    "sentences": "The teacher gave detailed instructions on how to tie the knot correctly before asking the students to tie it themselves, making sure that they understood the proper technique of tying the knot.",
+    "concepts": [
+      "instruction",
+      "give",
+      "tie",
+      "tie"
+    ],
+    "targets": ""
+  },
+  "677": {
+    "sentences": "After practicing for hours at the park, Sarah was finally able to throw the baseball hard enough that Tim had to rely on his trusty mitt to catch it before it hit the ground.",
+    "concepts": [
+      "throw",
+      "catch",
+      "baseball",
+      "mitt"
+    ],
+    "targets": ""
+  },
+  "688": {
+    "sentences": "As she took a long look at the cigarette, which has been freshly lit, she anticipated the puff of smoke that will follow.",
+    "concepts": [
+      "take",
+      "cigarette",
+      "look",
+      "puff"
+    ],
+    "targets": ""
+  },
+  "694": {
+    "sentences": "Even though his body was aching from a day of skiing, he still couldn't resist the urge to ride the waves on the water.",
+    "concepts": [
+      "body",
+      "water",
+      "ski",
+      "ride"
+    ],
+    "targets": ""
+  },
+  "712": {
+    "sentences": "As the team scored the winning goal, the crowd erupted in cheers of jubilation, overwhelming the stadium with energy.",
+    "concepts": [
+      "cheer",
+      "crowd",
+      "goal",
+      "team"
+    ],
+    "targets": ""
+  },
+  "731": {
+    "sentences": "After waiting in line for what seemed like an eternity, members of the winning team shook hands with their opponents and proudly held their trophy while the losing team watched with ennui.",
+    "concepts": [
+      "shake",
+      "hand",
+      "line",
+      "team"
+    ],
+    "targets": ""
+  },
+  "737": {
+    "sentences": "After putting on his favorite shirt, he went outside to kick the ball around, knowing that if he were to wear it while playing, he would undoubtedly ruin it.",
+    "concepts": [
+      "wear",
+      "ball",
+      "shirt",
+      "kick"
+    ],
+    "targets": ""
+  },
+  "746": {
+    "sentences": "While we sit at the table, we can drink our beers and talk about the day's events.",
+    "concepts": [
+      "sit",
+      "talk",
+      "beer",
+      "drink",
+      "table"
+    ],
+    "targets": ""
+  },
+  "749": {
+    "sentences": "When I wear my favorite shirt, I love to cook a juicy piece of meat on the grill, which always makes me feel accomplished.",
+    "concepts": [
+      "wear",
+      "cook",
+      "meat",
+      "shirt",
+      "grill"
+    ],
+    "targets": ""
+  },
+  "757": {
+    "sentences": "Despite the huge pile of sand blocking the track, the athlete managed to successfully run and jump over it with great ease.",
+    "concepts": [
+      "pile",
+      "track",
+      "sand",
+      "run",
+      "jump"
+    ],
+    "targets": ""
+  },
+  "762": {
+    "sentences": "As soon as he tried to lift the heavy barbell over his head, his arms shook and the weight began to drop towards the ground.",
+    "concepts": [
+      "head",
+      "drop",
+      "ground",
+      "lift",
+      "barbell"
+    ],
+    "targets": ""
+  },
+  "763": {
+    "sentences": "While every individual has their own taste in attire, one common piece of clothing that many people choose to wear when they walk outside is a hat.",
+    "concepts": [
+      "individual",
+      "wear",
+      "walk",
+      "hat",
+      "attire"
+    ],
+    "targets": ""
+  },
+  "766": {
+    "sentences": "While wearing a suit, which seemed like a strange choice for a mountain climb, he looked up at the towering mountain that he was about to conquer.",
+    "concepts": [
+      "wear",
+      "suit",
+      "mountain",
+      "climb",
+      "look"
+    ],
+    "targets": ""
+  },
+  "767": {
+    "sentences": "As I was walking down the street towards the park, I couldn't help but notice the impressive building on my left, which was beautifully illuminated in the sunlight that was reflecting off the car parked outside.",
+    "concepts": [
+      "walk",
+      "building",
+      "car",
+      "park",
+      "street"
+    ],
+    "targets": ""
+  },
+  "771": {
+    "sentences": "Even though she was asked to be a bridesmaid, she was overjoyed to receive an invitation to help with the wedding preparations, and now she's excited to wear her new dress for the ceremony.",
+    "concepts": [
+      "bridesmaid",
+      "receive",
+      "help",
+      "wear",
+      "dress"
+    ],
+    "targets": ""
+  },
+  "775": {
+    "sentences": "While discussing the best ways to protect our phones, we realized that keeping them away from water is an essential precaution to take.",
+    "concepts": [
+      "phone",
+      "discuss",
+      "water",
+      "way",
+      "protect"
+    ],
+    "targets": ""
+  },
+  "777": {
+    "sentences": "As he entered the gym, he planned to perform an intense workout that would pull all of his arm muscles, but once he began, he realized he had forgotten to tie his shoelaces and had to pause to pull them down tightly.",
+    "concepts": [
+      "pull",
+      "down",
+      "gym",
+      "perform",
+      "arm"
+    ],
+    "targets": ""
+  },
+  "786": {
+    "sentences": "While riding his bike, he approached the ramp with excitement, jumped off it, but unfortunately, he fell before he could land safely.",
+    "concepts": [
+      "bike",
+      "jump",
+      "fall",
+      "ride",
+      "ramp"
+    ],
+    "targets": ""
+  },
+  "787": {
+    "sentences": "While trying to keep a straight face, Jessica couldn't help but laugh when her coworker Dave accidentally stuck his foot in his mouth by saying the wrong thing during the important meeting.",
+    "concepts": [
+      "face",
+      "stick",
+      "say",
+      "laugh",
+      "foot"
+    ],
+    "targets": ""
+  },
+  "791": {
+    "sentences": "Despite the wall's worn appearance, I can still stand in awe of the vibrant graffiti that covers it, showcasing the ingenuity and creativity of the artists who transform otherwise ordinary surfaces into works of art.",
+    "concepts": [
+      "wall",
+      "wear",
+      "graffiti",
+      "stand",
+      "cover"
+    ],
+    "targets": ""
+  },
+  "794": {
+    "sentences": "After I finished singing \"Happy Birthday\" to my friend, who was sitting in front of a candle-lit cake, they closed their eyes and tried to blow out the flame, which flickered wildly in the breeze.",
+    "concepts": [
+      "sing",
+      "birthday",
+      "candle",
+      "blow",
+      "cake"
+    ],
+    "targets": ""
+  },
+  "801": {
+    "sentences": "After finishing her run on the hot summer day, she turned on the tap to rinse the sweat off her hand with cool water.",
+    "concepts": [
+      "hand",
+      "run",
+      "rinse",
+      "water",
+      "tap"
+    ],
+    "targets": ""
+  },
+  "807": {
+    "sentences": "While she was sitting at her desk trying to read the paper, she couldn't help but laugh at the silly joke, causing her hand to slip and accidentally rip a piece of the article.",
+    "concepts": [
+      "laugh",
+      "sit",
+      "paper",
+      "rip",
+      "piece"
+    ],
+    "targets": ""
+  },
+  "814": {
+    "sentences": "Sitting on top of the rock, the brave explorer watched as the alligator opened its massive mouth, which was large enough to hold an entire cow, and slowly moved closer to ensure his safety.",
+    "concepts": [
+      "alligator",
+      "mouth",
+      "hold",
+      "sit",
+      "top"
+    ],
+    "targets": ""
+  },
+  "817": {
+    "sentences": "As soon as you begin cooking, you should first gather and prepare all the necessary ingredients, then pour them into the pot and stir them gently while slowly heating them up.",
+    "concepts": [
+      "ingredient",
+      "stir",
+      "pour",
+      "pot",
+      "begin"
+    ],
+    "targets": ""
+  },
+  "829": {
+    "sentences": "While attempting to push her overloaded cart around the store, the mother of the toddler asked a kind stranger for help.",
+    "concepts": [
+      "cart",
+      "store",
+      "push",
+      "help",
+      "toddler"
+    ],
+    "targets": ""
+  },
+  "836": {
+    "sentences": "As the crowd gathered around the stadium, taking their place among the rows of seats, they cheered in anticipation of the game, hoping their team would take the victory.",
+    "concepts": [
+      "take",
+      "crowd",
+      "place",
+      "cheer",
+      "game"
+    ],
+    "targets": ""
+  },
+  "838": {
+    "sentences": "As she stood on the podium, receiving her well-deserved award, she gave an inspiring talk about the importance of perseverance and hard work, which left the audience in awe.",
+    "concepts": [
+      "award",
+      "stand",
+      "give",
+      "talk",
+      "podium"
+    ],
+    "targets": ""
+  },
+  "839": {
+    "sentences": "While holding an open book, I can teach and read about the importance of signing peace treaties.",
+    "concepts": [
+      "peace",
+      "hold",
+      "read",
+      "teach",
+      "sign"
+    ],
+    "targets": ""
+  },
+  "846": {
+    "sentences": "When going to the gym, it's important to perform exercises that target specific muscles, such as the triceps, which can be effectively trained by doing push exercises.",
+    "concepts": [
+      "exercise",
+      "tricep",
+      "gym",
+      "push",
+      "perform"
+    ],
+    "targets": ""
+  },
+  "850": {
+    "sentences": "While holding the stuff tightly, be careful not to pierce your ear with an animal's tooth.",
+    "concepts": [
+      "stuff",
+      "ear",
+      "hold",
+      "animal",
+      "pierce"
+    ],
+    "targets": ""
+  },
+  "865": {
+    "sentences": "Fruit, which contains antioxidants, can help prevent oxidation in the body and if someone wants to treat their body well, they should consume fruit juice regularly.",
+    "concepts": [
+      "oxidation",
+      "treat",
+      "juice",
+      "prevent",
+      "fruit"
+    ],
+    "targets": ""
+  },
+  "867": {
+    "sentences": "After taking a sip from the cup, he realized that the drink had gone bad and he began to feel sick, which eventually led to him vomiting uncontrollably.",
+    "concepts": [
+      "vomit",
+      "cup",
+      "drink",
+      "take",
+      "drink"
+    ],
+    "targets": ""
+  },
+  "871": {
+    "sentences": "As the music played on, the dancers continued to move gracefully across the stage, holding each pose for just the right amount of time, until the routine came to an end with one final, breathtaking dance.",
+    "concepts": [
+      "dance",
+      "continue",
+      "end",
+      "pose",
+      "hold"
+    ],
+    "targets": ""
+  },
+  "872": {
+    "sentences": "The catcher, who was positioned at home plate, waited patiently for the player to slide into the base, so that he could tag him out with a swift movement.",
+    "concepts": [
+      "catcher",
+      "home",
+      "tag",
+      "slide",
+      "player"
+    ],
+    "targets": ""
+  },
+  "877": {
+    "sentences": "As the bird flew over the fence, the dog jumped up and snapped its mouth, but thankfully missed, allowing the bird to continue its flight.",
+    "concepts": [
+      "fence",
+      "bird",
+      "jump",
+      "mouth",
+      "dog"
+    ],
+    "targets": ""
+  },
+  "880": {
+    "sentences": "As I watched him stand before the complex cube puzzle with a determined eye, I knew that he would eventually solve it, even if it took hours of tedious calculation and careful maneuvering to get each piece in its rightful place with a grace that required him to keep his eyes close to the cube.",
+    "concepts": [
+      "stand",
+      "solve",
+      "eye",
+      "close",
+      "cube"
+    ],
+    "targets": ""
+  },
+  "881": {
+    "sentences": "As I turned the page of the book that I was holding, I found myself completely engrossed in the story that I was reading.",
+    "concepts": [
+      "turn",
+      "book",
+      "page",
+      "hold",
+      "read"
+    ],
+    "targets": ""
+  },
+  "882": {
+    "sentences": "After putting on his gloves and making sure that he was properly geared up, he stepped into the ring and started hitting the bag with all his might, hoping that the hours of practice would pay off and he would emerge victorious from the box match.",
+    "concepts": [
+      "hit",
+      "glove",
+      "box",
+      "bag",
+      "wear"
+    ],
+    "targets": ""
+  },
+  "885": {
+    "sentences": "The athlete, who was determined to win the race, sprinted with all his strength towards the track, hurdled over the first obstacle, then skillfully leapt over the next set of hurdles before finally crossing the finish line, exhausted but triumphant.",
+    "concepts": [
+      "run",
+      "hurdle",
+      "track",
+      "leap",
+      "athlete"
+    ],
+    "targets": ""
+  },
+  "888": {
+    "sentences": "As I sit at my desk, trying to use the pen to write a letter, the rhythmic beat of the drum from the street creates a distraction that makes it difficult to concentrate.",
+    "concepts": [
+      "sit",
+      "pen",
+      "use",
+      "drum",
+      "beat"
+    ],
+    "targets": ""
+  },
+  "892": {
+    "sentences": "As I was swinging my club on the course, I hit the ball with such force that it soared through the air, but unfortunately, it ended up landing in the rough.",
+    "concepts": [
+      "swing",
+      "hit",
+      "ball",
+      "course",
+      "club"
+    ],
+    "targets": ""
+  },
+  "894": {
+    "sentences": "While she was getting dressed, she realized she forgot to wear her favorite shoes; so she had to sit down at the table to put them on.",
+    "concepts": [
+      "sit",
+      "dress",
+      "table",
+      "wear",
+      "shoe"
+    ],
+    "targets": ""
+  },
+  "895": {
+    "sentences": "While looking at herself in the mirror, she noticed a curl in her hair that she couldn't fix without an iron.",
+    "concepts": [
+      "look",
+      "curl",
+      "iron",
+      "mirror",
+      "hair"
+    ],
+    "targets": ""
+  },
+  "899": {
+    "sentences": "As he attempted to throw the knife over the fence, the stick that he was using slipped out of his hand, which made his attempt even more dangerous.",
+    "concepts": [
+      "stick",
+      "knife",
+      "throw",
+      "fence",
+      "attempt"
+    ],
+    "targets": ""
+  },
+  "911": {
+    "sentences": "As the dog bit down hard on the rope, the holder could feel the tooth digging into his flesh while he struggled to hold on to his breath in the thin air.",
+    "concepts": [
+      "hold",
+      "dog",
+      "tooth",
+      "air",
+      "rope"
+    ],
+    "targets": ""
+  },
+  "918": {
+    "sentences": "After she rubbed the stick against her face to remove the hair stuck on her skin, she licked her tongue to make sure all the loose strands were gone.",
+    "concepts": [
+      "rub",
+      "tongue",
+      "stick",
+      "face",
+      "hair"
+    ],
+    "targets": ""
+  },
+  "920": {
+    "sentences": "While sitting at the piano, she carefully hit each key and couldn't help but smile at the beautiful sound she created.",
+    "concepts": [
+      "smile",
+      "piano",
+      "hit",
+      "key",
+      "sit"
+    ],
+    "targets": ""
+  },
+  "921": {
+    "sentences": "While the dog napped cozily by the fireplace, the family finished their game and set the table for dinner, but after the meal was over, they took the dog for a walk in the cold evening air.",
+    "concepts": [
+      "game",
+      "dog",
+      "walk",
+      "fireplace",
+      "table"
+    ],
+    "targets": ""
+  },
+  "933": {
+    "sentences": "As I watched the acrobat perform his daring routine, I was amazed by the agility and precision with which he executed each move, jumping high into the air, flipping effortlessly from one side to the other, and gracefully landing at the end of each sequence, only to continue on with even greater boldness and skill.",
+    "concepts": [
+      "side",
+      "jump",
+      "flip",
+      "end",
+      "continue"
+    ],
+    "targets": ""
+  },
+  "935": {
+    "sentences": "After the kid finished gathering his toys, he put them in his bag, which he would leave at the door before he left.",
+    "concepts": [
+      "leave",
+      "kid",
+      "bag",
+      "put",
+      "gather"
+    ],
+    "targets": ""
+  },
+  "942": {
+    "sentences": "Looking out at the beach, she held a bottle of water tightly in her hand, fearing that the scorching heat might make her dehydrated.",
+    "concepts": [
+      "water",
+      "hold",
+      "look",
+      "hand",
+      "beach"
+    ],
+    "targets": ""
+  },
+  "944": {
+    "sentences": "While holding his stick, the determined player in the blue and white jersey stood firmly in front of the net, hoping to prevent the opposing team from scoring.",
+    "concepts": [
+      "jersey",
+      "stick",
+      "player",
+      "stand",
+      "hold"
+    ],
+    "targets": ""
+  },
+  "971": {
+    "sentences": "While standing on the rock by the water's edge, she watched her body skip across the surface, leaving behind little ripples in its wake.",
+    "concepts": [
+      "rock",
+      "stand",
+      "water",
+      "skip",
+      "body"
+    ],
+    "targets": ""
+  },
+  "972": {
+    "sentences": "While standing next to the wall with the arch-shaped window, I noticed an object on the other side of the room.",
+    "concepts": [
+      "object",
+      "wall",
+      "arch",
+      "window",
+      "stand"
+    ],
+    "targets": ""
+  },
+  "975": {
+    "sentences": "While attempting to catch the ball, he began to run at full speed, but as he reached out to grab it, he tripped on the uneven ground and fell hard.",
+    "concepts": [
+      "ball",
+      "run",
+      "fall",
+      "catch",
+      "ground"
+    ],
+    "targets": ""
+  },
+  "977": {
+    "sentences": "As Cain and his wife took a leisurely stroll through the park, they decided to use the opportunity to chat about a couple of important matters that had been weighing on their minds.",
+    "concepts": [
+      "cain",
+      "stroll",
+      "use",
+      "couple",
+      "take"
+    ],
+    "targets": ""
+  },
+  "978": {
+    "sentences": "After heating the pot, add a slab of butter and crack an egg into it, stirring continuously until the butter has melted and the egg is cooked to your liking.",
+    "concepts": [
+      "pot",
+      "butter",
+      "add",
+      "egg",
+      "crack"
+    ],
+    "targets": ""
+  },
+  "980": {
+    "sentences": "Although the performer had practiced for weeks, she was still nervous as she chose which dress to wear from her closet, considering how it would look in front of the audience sitting in the front rows.",
+    "concepts": [
+      "perform",
+      "dress",
+      "audience",
+      "wear",
+      "front"
+    ],
+    "targets": ""
+  },
+  "984": {
+    "sentences": "If you sit with your dog and give them a treat, you can teach them new tricks and improve their behavior.",
+    "concepts": [
+      "sit",
+      "give",
+      "treat",
+      "teach",
+      "dog"
+    ],
+    "targets": ""
+  },
+  "985": {
+    "sentences": "Before you cook the sausage, you need to heat up the pan and wear protective gloves, then fry the sausage in the pan until it is fully cooked.",
+    "concepts": [
+      "pan",
+      "wear",
+      "cook",
+      "sausage",
+      "fry"
+    ],
+    "targets": ""
+  }
+}

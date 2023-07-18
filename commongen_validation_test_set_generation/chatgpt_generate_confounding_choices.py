@@ -1,15 +1,8 @@
 import csv
+import json
 import time
-from typing import Any
-
-import openai
 
 from experiments.chatgpt_generation import make_request_get_all
-from experiments.utils import log_progress
-
-
-
-
 
 confounding_type_dict = {
     "complex": "Create a complex sentence with clauses using the following words: ",
@@ -19,6 +12,12 @@ confounding_type_dict = {
     "grammar_error": "Create a sentence with very bad grammar and multiple grammar errors using the following "
                      "words: "
 }
+confounding_types = [
+    "complex",
+    "simple",
+    "nonsense",
+    "grammar_error",
+]
 
 
 def make_request(prompt: str) -> str | None:
@@ -49,15 +48,45 @@ def create_confounding_sentence(confounding_type: str, concepts: list) -> str:
     return sentence
 
 
-if __name__ == '__main__':
-    openai.api_key = read_openai_api_key()
-    confounding_types = [
-        "complex",
-        "simple",
-        "nonsense",
-        "grammar_error",
-    ]
+def chatgpt_make_up_confounding_generations():
+    with open("generated_sentences/new_selected_commongen_tasks_greedy_diversity.json", "r") as handle:
+        newly_selected_questions = json.load(handle)
+    confounding_generation_jsons = {}
+    for confounding_type in confounding_types:
+        confounding_generation_jsons[confounding_type] = {}
+        for set_name in ["validation", "test"]:
+            with open(
+                    f"generated_sentences/chatgpt-confounding-{confounding_type}-{set_name}-set-generation.json",
+                    "r"
+            ) as handle:
+                confounding_generation_jsons[confounding_type][set_name] = json.load(handle)
 
+    for confounding_type in confounding_types:
+        for newly_selected_question in newly_selected_questions:
+            newly_selected_question_id = newly_selected_question["id"]
+            newly_selected_question_set_name = newly_selected_question_id.split("-")[0]
+            newly_selected_question_csid = newly_selected_question_id.split("-")[1]
+            if newly_selected_question_csid not in \
+                    confounding_generation_jsons[confounding_type][newly_selected_question_set_name]:
+                concepts = newly_selected_question["concepts"].split(", ")
+                new_confounding_sentence = create_confounding_sentence(confounding_type, concepts)
+                confounding_generation_jsons[confounding_type][newly_selected_question_set_name][
+                    newly_selected_question_csid] = {
+                    "sentences": new_confounding_sentence,
+                    "concepts": concepts,
+                    "targets": "",
+                }
+
+    for confounding_type in confounding_types:
+        for set_name in ["validation", "test"]:
+            with open(
+                    f"generated_sentences/chatgpt-confounding-{confounding_type}-{set_name}-set-generation.json",
+                    "r"
+            ) as handle:
+                confounding_generation_jsons[confounding_type][set_name] = json.load(handle)
+
+
+def extract_generated_confounding_sentences_from_combined_old_file():
     new_csv = [
         [
             "set_name",
@@ -65,20 +94,32 @@ if __name__ == '__main__':
             "concepts",
             "bloomz_1b1", "bloomz_1b7", "bloomz_3b", "bloomz_560m", "flan_t5_xl", "flan_t5_large", "t0_3b",
             "tk_instruct_3b_def", "mt0_large", "mt0_base", "mt0_small", "mt0_xl"
-        ] + confounding_types
+        ] + confounding_types + ["chatgpt"]
     ]
+    all_dict = {}
+    for confounding_type in confounding_types:
+        all_dict[confounding_type] = {"validation": {}, "test": {}}
+    all_idx = {}
+    for confounding_type in confounding_types:
+        all_idx[confounding_type] = new_csv[0].index(confounding_type)
 
-    with open("generated_sentences/old_combined_generations_based_on_generation_volcab.csv") as original:
+    with open("generated_sentences/old_combined_generations_with_confound_based_on_generation_volcab.csv") as original:
         heading = next(original)
         csv_obj = csv.reader(original)
         for i, row in enumerate(csv_obj):
-            log_progress(i, 500, 5, f"Making a new conbined generation CSV!")
-            concepts = row[2].split(", ")
+            set_name = row[0]
+            concept_set_id = row[1]
             for confounding_type in confounding_types:
-                confound = create_confounding_sentence(confounding_type, concepts)
-                row.append(confound)
-            new_csv.append(row)
-    with open("generated_sentences/old_combined_generations_with_confound_based_on_generation_volcab.csv", "w", newline='', encoding='utf-8') as new:
-        writer = csv.writer(new)
-        for csv_row in new_csv:
-            writer.writerow(csv_row)
+                all_dict[confounding_type][set_name][concept_set_id] = {
+                    "sentences": row[all_idx[confounding_type]],
+                    "concepts": row[2].split(", "),
+                    "targets": ""
+                }
+
+    for confounding_type in all_dict:
+        for set_name in all_dict[confounding_type]:
+            with open(
+                    f"generated_sentences/chatgpt-confounding-{confounding_type}-{set_name}-set-generation.json",
+                    "w"
+            ) as handle:
+                json.dump(all_dict[confounding_type][set_name], handle)

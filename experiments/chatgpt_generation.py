@@ -19,9 +19,6 @@ def read_openai_api_key() -> str:
 
 
 def chatgpt_generation(concepts: list, n: int) -> list:
-    if openai.api_key is None:
-        openai.api_key = read_openai_api_key()
-        openai.organization = "org-Z6lli0WO1awNKqRJjTToCxj4"
     prompt = f"Create a sentence with the following words:{', '.join(concepts)}"
     results = make_request_get_all(prompt, n)
     failure_cnt = 0
@@ -38,6 +35,9 @@ def chatgpt_generation(concepts: list, n: int) -> list:
 
 
 def make_request_get_all(prompt: str, n_generation: int) -> list | None:
+    if openai.api_key is None:
+        openai.api_key = read_openai_api_key()
+        openai.organization = "org-Z6lli0WO1awNKqRJjTToCxj4"
     try:
         completion = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
