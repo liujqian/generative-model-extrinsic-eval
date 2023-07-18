@@ -3965,5 +3965,450 @@
       "wave"
     ],
     "targets": ""
+  },
+  "122": {
+    "sentences": "The toddler likes to push the cart around the store.",
+    "concepts": "toddler, cart, store, push",
+    "targets": ""
+  },
+  "145": {
+    "sentences": "I used a drill to sharpen my pencil when the sharpener broke.",
+    "concepts": "pencil, sharpen, sharpener, drill",
+    "targets": ""
+  },
+  "251": {
+    "sentences": "Press the button on the scanner to place your card in the correct position.",
+    "concepts": "card, press, place, button, scanner",
+    "targets": ""
+  },
+  "576": {
+    "sentences": "She gently touched her eye and wrinkled her nose when she tried to cross the street.",
+    "concepts": "touch, eye, nose, cross",
+    "targets": ""
+  },
+  "666": {
+    "sentences": "I need to write down the number of balloons that popped at the party.",
+    "concepts": "balloon, pop, number, write",
+    "targets": ""
+  },
+  "870": {
+    "sentences": "I saw a dump truck picking up a can.",
+    "concepts": "dump, can, truck, pick",
+    "targets": ""
+  },
+  "883": {
+    "sentences": "The farmer used the clipper to shear the sheep and collect the wool.",
+    "concepts": "shear, wool, clipper, sheep",
+    "targets": ""
+  },
+  "916": {
+    "sentences": "Be careful not to drop the barbell when you lift it off the floor.",
+    "concepts": "lift, floor, barbell, drop",
+    "targets": ""
+  },
+  "920": {
+    "sentences": "At night, the highway worker diligently continues their work.",
+    "concepts": "highway, night, worker, work",
+    "targets": ""
+  },
+  "945": {
+    "sentences": "The company's logo will appear on the screen as soon as you type the word.",
+    "concepts": "logo, word, appear, screen",
+    "targets": ""
+  },
+  "1084": {
+    "sentences": "The snowboarder hung his jacket on the wire outside his cubicle before hitting the slopes.",
+    "concepts": "hang, wire, cubicle, snowboarder, slope",
+    "targets": ""
+  },
+  "1137": {
+    "sentences": "The knuckle crack produced a satisfying sound as I took action.",
+    "concepts": "sound, knuckle, crack, action, produce",
+    "targets": ""
+  },
+  "1212": {
+    "sentences": "As the darkness of night fell, the courageous diver prepared to leave the safety of the submersible and rise to the surface, unaware of the impending wreck lurking below.",
+    "concepts": "rise, darkness, wreck, leave, submersible",
+    "targets": ""
+  },
+  "1402": {
+    "sentences": "The soldier, a background member of the scene, watched as the government enact new policies.",
+    "concepts": "background, enact, member, scene, soldier",
+    "targets": ""
+  },
+  "1468": {
+    "sentences": "I like to sprinkle powdered sugar on top of my cake to give it a sweet finish.",
+    "concepts": "sprinkle, top, cake, powder, sugar",
+    "targets": ""
+  },
+  "11": {
+    "sentences": "Please remember to close the refrigerator door after you open it.",
+    "concepts": "door, refrigerator, close, open",
+    "targets": ""
+  },
+  "143": {
+    "sentences": "Please hold the sign and ask for money.",
+    "concepts": "hold, ask, money, sign",
+    "targets": ""
+  },
+  "241": {
+    "sentences": "I used a grinder to grind the meat into a bowl.",
+    "concepts": "meat, grind, bowl, grinder",
+    "targets": ""
+  },
+  "349": {
+    "sentences": "The blacksmith used a hammer to hit the metal piece on the anvil.",
+    "concepts": "piece, metal, hammer, hit, anvil",
+    "targets": ""
+  },
+  "514": {
+    "sentences": "I went to the salon to get a foot massage and a nail clip.",
+    "concepts": "clip, foot, massage, nail",
+    "targets": ""
+  },
+  "604": {
+    "sentences": "Please be careful when attempting to insert the lens into your eye.",
+    "concepts": "attempt, lens, insert, eye",
+    "targets": ""
+  },
+  "673": {
+    "sentences": "The scientist used a microscope in the lab to look at the specimen.",
+    "concepts": "scientist, microscope, lab, look",
+    "targets": ""
+  },
+  "712": {
+    "sentences": "I will give you the instructions to solve the cube.",
+    "concepts": "give, cube, solve, instruction",
+    "targets": ""
+  },
+  "817": {
+    "sentences": "The performer amazed the crowd as he effortlessly swallowed a sword.",
+    "concepts": "swallow, sword, crowd, performer",
+    "targets": ""
+  },
+  "826": {
+    "sentences": "The catcher made a fantastic tag at home plate to catch the runner trying to slide in.",
+    "concepts": "catcher, tag, slide, home",
+    "targets": ""
+  },
+  "879": {
+    "sentences": "I raised my hand to ask a question, but the teacher did not call on me for an answer.",
+    "concepts": "answer, question, hand, raise",
+    "targets": ""
+  },
+  "918": {
+    "sentences": "The farmer used a bottle to feed milk to the baby goat.",
+    "concepts": "goat, milk, feed, bottle",
+    "targets": ""
+  },
+  "963": {
+    "sentences": "I used a device to clean the gutters around my house.",
+    "concepts": "clean, house, device, gutter",
+    "targets": ""
+  },
+  "964": {
+    "sentences": "Make sure to use a tire pressure gauge to check the pressure of your tires.",
+    "concepts": "check, tire, pressure, gauge",
+    "targets": ""
+  },
+  "1148": {
+    "sentences": "The student hurriedly filled out the professor's list in the crowded hall.",
+    "concepts": "fill, student, list, professor, hall",
+    "targets": ""
+  },
+  "1486": {
+    "sentences": "I had to improvise and use a barrel as a makeshift tool for transporting supplies to work.",
+    "concepts": "tool, work, barrel, transport, improvise",
+    "targets": ""
+  },
+  "38": {
+    "sentences": "I will put the ornament on the tree and decorate it beautifully.",
+    "concepts": "tree, decorate, put, ornament",
+    "targets": ""
+  },
+  "175": {
+    "sentences": "I used the rolling pin to roll out the dough with flour.",
+    "concepts": "dough, flour, roll, pin",
+    "targets": ""
+  },
+  "222": {
+    "sentences": "To loosen the bolt, you can use a wrench.",
+    "concepts": "loosen, use, bolt, wrench",
+    "targets": ""
+  },
+  "427": {
+    "sentences": "To begin baking the cake, mix all the ingredients in a bowl on the counter.",
+    "concepts": "ingredient, begin, mix, counter, bowl",
+    "targets": ""
+  },
+  "443": {
+    "sentences": "The swimmer gracefully executed the backstroke as the spectators cheered, eager to see them compete.",
+    "concepts": "swimmer, cheer, spectator, compete, backstroke",
+    "targets": ""
+  },
+  "487": {
+    "sentences": "A colorful mural of a bird in flight decorates the side of the building as a flock of birds soar through the sky above.",
+    "concepts": "mural, fly, bird, building, flock",
+    "targets": ""
+  },
+  "536": {
+    "sentences": "The bulldozer used its immense power to push the dirt into a massive pile.",
+    "concepts": "push, bulldozer, dirt, pile",
+    "targets": ""
+  },
+  "1016": {
+    "sentences": "The toddler tried to carry a pillowcase that was too short while wearing only one sandal.",
+    "concepts": "toddler, carry, pillowcase, short, sandal",
+    "targets": ""
+  },
+  "1048": {
+    "sentences": "I will give you a tutorial on how to arrange flowers in a beautiful vase.",
+    "concepts": "vase, arrange, flower, give, tutorial",
+    "targets": ""
+  },
+  "1111": {
+    "sentences": "The dog loves to chase after the string, just like any other animal would do with interesting stuff.",
+    "concepts": "animal, stuff, dog, chase, string",
+    "targets": ""
+  },
+  "1420": {
+    "sentences": "I carefully pour the liquid from the jar into a cloth-covered container.",
+    "concepts": "jar, cover, liquid, pour, cloth",
+    "targets": ""
+  },
+  "1482": {
+    "sentences": "The player's powerful backhand helped them reach the finals of the shuttlecock competition.",
+    "concepts": "shuttlecock, reach, competition, player, backhand",
+    "targets": ""
+  },
+  "26": {
+    "sentences": "I carefully separate the yolk from the white using a spoon and pour it into a bottle.",
+    "concepts": "white, bottle, yolk, separate",
+    "targets": ""
+  },
+  "52": {
+    "sentences": "I love to read the newspaper while I drink my coffee.",
+    "concepts": "read, coffee, newspaper, drink",
+    "targets": ""
+  },
+  "91": {
+    "sentences": "The house needed a sander to sand the floor.",
+    "concepts": "house, sander, floor, sand",
+    "targets": ""
+  },
+  "195": {
+    "sentences": "The cowboy skillfully roped the calf at the rodeo.",
+    "concepts": "rodeo, calf, rope, cowboy",
+    "targets": ""
+  },
+  "264": {
+    "sentences": "I placed a sandwich on a plate and set it on the table alongside a spoon, knife, and fork.",
+    "concepts": "spoon, plate, knife, fork, sandwich",
+    "targets": ""
+  },
+  "313": {
+    "sentences": "The father planted a tree with his daughter and son.",
+    "concepts": "father, daughter, tree, plant, son",
+    "targets": ""
+  },
+  "421": {
+    "sentences": "The truck was used to attach the trailer and load it with brushes.",
+    "concepts": "truck, brush, trailer, load, attach",
+    "targets": ""
+  },
+  "466": {
+    "sentences": "To make a refreshing pasta salad, combine bow tie pasta, diced onion, and sliced cucumber in a large bowl.",
+    "concepts": "bowl, pasta, onion, cucumber, combine",
+    "targets": ""
+  },
+  "594": {
+    "sentences": "I will finish shopping and then wait for my wife.",
+    "concepts": "finish, shopping, wife, wait",
+    "targets": ""
+  },
+  "621": {
+    "sentences": "He spends a lot of time practicing how to dribble the basketball.",
+    "concepts": "time, dribble, practice, basketball",
+    "targets": ""
+  },
+  "641": {
+    "sentences": "My friend and I went to our favorite restaurant to celebrate her birthday.",
+    "concepts": "birthday, restaurant, friend, celebrate",
+    "targets": ""
+  },
+  "709": {
+    "sentences": "I love to go to the park and fly my kite against the beautiful blue sky.",
+    "concepts": "sky, park, kite, fly",
+    "targets": ""
+  },
+  "755": {
+    "sentences": "He skillfully threw the hatchet and hit the bullseye on the target.",
+    "concepts": "target, throw, bullseye, hatchet",
+    "targets": ""
+  },
+  "757": {
+    "sentences": "I watched as a man stomped his foot on a barrel filled with grapes.",
+    "concepts": "barrel, foot, grape, stomp",
+    "targets": ""
+  },
+  "880": {
+    "sentences": "During the party, the entertainer used a balloon to demonstrate how to twist and shape it into various animals.",
+    "concepts": "balloon, demonstrate, twist, shape",
+    "targets": ""
+  },
+  "903": {
+    "sentences": "I need to apply wax to my eyebrow and then strip it off.",
+    "concepts": "wax, apply, strip, eyebrow",
+    "targets": ""
+  },
+  "1116": {
+    "sentences": "The bus driver should not use their cellphone while driving the bus.",
+    "concepts": "driver, cellphone, bus, drive, talk",
+    "targets": ""
+  },
+  "1184": {
+    "sentences": "The tour guide led us to cross the river on the elephant's back.",
+    "concepts": "guide, cross, tour, river, elephant",
+    "targets": ""
+  },
+  "1493": {
+    "sentences": "The golfer wore a jacket over his polo shirt, completing his stylish look on the club's green.",
+    "concepts": "pant, wear, golfer, club, jacket",
+    "targets": ""
+  },
+  "13": {
+    "sentences": "Let's roast marshmallows over the fire using a stick.",
+    "concepts": "roast, stick, fire, marshmallow",
+    "targets": ""
+  },
+  "58": {
+    "sentences": "To make the delicious stir-fry, add the ingredient to the pan and fry it until it is perfectly cooked.",
+    "concepts": "ingredient, add, pan, fry",
+    "targets": ""
+  },
+  "121": {
+    "sentences": "I watched the bartender fill the glass with beer from the tap.",
+    "concepts": "glass, beer, tap, fill",
+    "targets": ""
+  },
+  "184": {
+    "sentences": "Please remember to turn off the faucet after you rinse your hand.",
+    "concepts": "faucet, turn, rinse, hand",
+    "targets": ""
+  },
+  "190": {
+    "sentences": "The marching band played their instruments while parading through the streets.",
+    "concepts": "instrument, parade, march, band",
+    "targets": ""
+  },
+  "431": {
+    "sentences": "I attached the snowblower to the tractor to remove the snow.",
+    "concepts": "snow, remove, tractor, snowblower, attach",
+    "targets": ""
+  },
+  "498": {
+    "sentences": "The tourist used their umbrella to shield themselves from the rain while taking a photo of a colorful bicycle.",
+    "concepts": "tourist, umbrella, take, photo, bicycle",
+    "targets": ""
+  },
+  "689": {
+    "sentences": "I used a calligraphy pen to write on a sheet of paper.",
+    "concepts": "paper, calligraphy, pen, write",
+    "targets": ""
+  },
+  "705": {
+    "sentences": "The owner should bring a toy for their dog to play with.",
+    "concepts": "bring, owner, toy, dog",
+    "targets": ""
+  },
+  "785": {
+    "sentences": "The skilled welder used a metal piece to create a strong weld.",
+    "concepts": "metal, welder, weld, piece",
+    "targets": ""
+  },
+  "824": {
+    "sentences": "The acrobat carefully balances on the tightrope as they walk across it with a long pole for stability.",
+    "concepts": "pole, tightrope, balance, walk",
+    "targets": ""
+  },
+  "1312": {
+    "sentences": "The worker carefully coiled the cable as they oversaw the work.",
+    "concepts": "oversee, cable, coil, work, worker",
+    "targets": ""
+  },
+  "18": {
+    "sentences": "I like to eat a donut while I hang a string from the ceiling.",
+    "concepts": "donut, string, eat, hang",
+    "targets": ""
+  },
+  "816": {
+    "sentences": "He took a step back to demonstrate how to tie the necktie properly.",
+    "concepts": "step, demonstrate, necktie, tie",
+    "targets": ""
+  },
+  "857": {
+    "sentences": "Please use a tissue to wipe your nose.",
+    "concepts": "wipe, nose, tissue, use",
+    "targets": ""
+  },
+  "1276": {
+    "sentences": "The rider wore protective gear as they navigated the corner on the challenging course.",
+    "concepts": "rider, gear, wear, corner, course",
+    "targets": ""
+  },
+  "1429": {
+    "sentences": "I will begin by turning on the vacuum to clean the floor.",
+    "concepts": "floor, vacuum, vacuum, begin, turn",
+    "targets": ""
+  },
+  "495": {
+    "sentences": "The congregation at the church gathered to dance and clap along to the lively music.",
+    "concepts": "church, congregation, dance, clap, music",
+    "targets": ""
+  },
+  "586": {
+    "sentences": "Please add ice to your glass of liquor.",
+    "concepts": "liquor, add, glass, ice",
+    "targets": ""
+  },
+  "640": {
+    "sentences": "The jockey skillfully guided the horse around the track during the exhilarating race.",
+    "concepts": "race, track, horse, jockey",
+    "targets": ""
+  },
+  "668": {
+    "sentences": "I saw a person pushing a cart filled with stuff and an animal inside.",
+    "concepts": "stuff, cart, animal, push",
+    "targets": ""
+  },
+  "731": {
+    "sentences": "The chef is in the kitchen, preparing a delicious meal.",
+    "concepts": "prepare, meal, kitchen, chef",
+    "targets": ""
+  },
+  "743": {
+    "sentences": "I found a small chip in the rock after using a tool to carve a piece.",
+    "concepts": "rock, tool, piece, chip",
+    "targets": ""
+  },
+  "747": {
+    "sentences": "I love to go to the park and cook sausage on the grill in a beautiful place.",
+    "concepts": "place, sausage, grill, cook",
+    "targets": ""
+  },
+  "965": {
+    "sentences": "The teacher asked the students to listen attentively as she read a captivating story.",
+    "concepts": "read, teacher, listen, story",
+    "targets": ""
+  },
+  "986": {
+    "sentences": "He walked confidently down the street in his tailored suit, briefcase in hand.",
+    "concepts": "walk, suit, briefcase, carry",
+    "targets": ""
+  },
+  "992": {
+    "sentences": "She used a clean cloth to wipe the bottom of her shoe.",
+    "concepts": "clean, cloth, shoe, bottom",
+    "targets": ""
   }
 }

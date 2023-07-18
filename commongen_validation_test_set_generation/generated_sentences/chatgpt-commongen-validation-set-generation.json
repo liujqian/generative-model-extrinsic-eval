@@ -1291,5 +1291,875 @@
       "fry"
     ],
     "targets": ""
+  },
+  "0": {
+    "sentences": "As we stood in the field, we couldn't help but look at the vast expanse of green.",
+    "concepts": "field, look, stand",
+    "targets": ""
+  },
+  "1": {
+    "sentences": "The kid turned their room into a dance studio.",
+    "concepts": "kid, room, dance",
+    "targets": ""
+  },
+  "2": {
+    "sentences": "The cat curled up on the couch, making it their favorite spot to relax as a pet.",
+    "concepts": "cat, pet, couch",
+    "targets": ""
+  },
+  "3": {
+    "sentences": "He managed to climb up the side of the towering building.",
+    "concepts": "climb, building, side",
+    "targets": ""
+  },
+  "5": {
+    "sentences": "I had to carefully drive my car in the snow to avoid any accidents.",
+    "concepts": "drive, snow, car",
+    "targets": ""
+  },
+  "6": {
+    "sentences": "She likes to talk on her phone while she is deciding what to wear.",
+    "concepts": "talk, wear, phone",
+    "targets": ""
+  },
+  "7": {
+    "sentences": "The hockey team practiced on the ice rink for their upcoming game.",
+    "concepts": "hockey, rink, team",
+    "targets": ""
+  },
+  "8": {
+    "sentences": "The surfer gracefully rode the waves in the vast ocean while practicing his surf moves.",
+    "concepts": "ocean, surfer, surf",
+    "targets": ""
+  },
+  "10": {
+    "sentences": "The band played lively music with each member skillfully playing their chosen instrument.",
+    "concepts": "band, music, instrument",
+    "targets": ""
+  },
+  "14": {
+    "sentences": "The athlete spent hours preparing to run the marathon.",
+    "concepts": "athlete, prepare, run",
+    "targets": ""
+  },
+  "16": {
+    "sentences": "I will give a speech on the stage tonight.",
+    "concepts": "stage, give, speech",
+    "targets": ""
+  },
+  "17": {
+    "sentences": "After applying soap to your hand, make sure to rub them together vigorously for at least 20 seconds to effectively remove germs.",
+    "concepts": "soap, rub, hand",
+    "targets": ""
+  },
+  "19": {
+    "sentences": "I need to mow the lawn in the yard.",
+    "concepts": "mow, yard, lawn",
+    "targets": ""
+  },
+  "20": {
+    "sentences": "I watched as the artist used a pottery wheel to create a beautiful vase.",
+    "concepts": "create, pottery, wheel",
+    "targets": ""
+  },
+  "21": {
+    "sentences": "Please hold on while I find a cozy sofa for you to sit on.",
+    "concepts": "hold, sofa, sit",
+    "targets": ""
+  },
+  "26": {
+    "sentences": "He used his head to kick the ball into the goal.",
+    "concepts": "head, ball, kick",
+    "targets": ""
+  },
+  "36": {
+    "sentences": "I took my dog for a walk down the street while holding onto his leash.",
+    "concepts": "walk, street, leash",
+    "targets": ""
+  },
+  "39": {
+    "sentences": "The vandal used a spray can to decorate the wall with graffiti.",
+    "concepts": "spray, wall, graffiti",
+    "targets": ""
+  },
+  "42": {
+    "sentences": "I love to ride my bike through the winding wood trail.",
+    "concepts": "ride, wood, trail",
+    "targets": ""
+  },
+  "45": {
+    "sentences": "The skilled swimmer glided through the water in their designated lane.",
+    "concepts": "swimmer, swim, lane",
+    "targets": ""
+  },
+  "46": {
+    "sentences": "Using the blower, I was able to blow away the pile of leaves in my yard.",
+    "concepts": "blow, blower, pile",
+    "targets": ""
+  },
+  "51": {
+    "sentences": "The gymnast performed a flip on the mat.",
+    "concepts": "flip, mat, gymnast",
+    "targets": ""
+  },
+  "58": {
+    "sentences": "In the kitchen, she began to roll out the dough for homemade cookies.",
+    "concepts": "kitchen, dough, roll",
+    "targets": ""
+  },
+  "60": {
+    "sentences": "The boat docked near the calm waters.",
+    "concepts": "water, boat, dock",
+    "targets": ""
+  },
+  "62": {
+    "sentences": "Stop right there and take a picture of that beautiful view.",
+    "concepts": "picture, stop, take",
+    "targets": ""
+  },
+  "65": {
+    "sentences": "The player's excellent performance led to a high score in the game.",
+    "concepts": "game, score, player",
+    "targets": ""
+  },
+  "71": {
+    "sentences": "The student forgot to bring their watch to class.",
+    "concepts": "watch, student, class",
+    "targets": ""
+  },
+  "73": {
+    "sentences": "I put my sock on my foot before slipping on my shoes.",
+    "concepts": "sock, put, foot",
+    "targets": ""
+  },
+  "74": {
+    "sentences": "I used a spoon to eat the cream.",
+    "concepts": "spoon, cream, eat",
+    "targets": ""
+  },
+  "81": {
+    "sentences": "The birdie was hit with the racket.",
+    "concepts": "birdie, racket, hit",
+    "targets": ""
+  },
+  "82": {
+    "sentences": "I need to fix the tire on my bike.",
+    "concepts": "tire, fix, bike",
+    "targets": ""
+  },
+  "83": {
+    "sentences": "The ear felt a sharp pain as the needle began to pierce through the flesh.",
+    "concepts": "ear, pierce, needle",
+    "targets": ""
+  },
+  "88": {
+    "sentences": "She neatly folded the shirt and placed it in the chest.",
+    "concepts": "chest, fold, arm",
+    "targets": ""
+  },
+  "92": {
+    "sentences": "I can help you wash the dishes.",
+    "concepts": "help, dish, wash",
+    "targets": ""
+  },
+  "104": {
+    "sentences": "The gymnast gracefully flipped over the vaulting pole and landed on the other side of the bar.",
+    "concepts": "pole, bar, vault",
+    "targets": ""
+  },
+  "107": {
+    "sentences": "The lady is skilled at applying makeup.",
+    "concepts": "makeup, apply, lady",
+    "targets": ""
+  },
+  "108": {
+    "sentences": "I will pour you a refreshing beverage into a tall glass.",
+    "concepts": "pour, glass, beverage",
+    "targets": ""
+  },
+  "121": {
+    "sentences": "The dog helped pull the sleigh through the snow.",
+    "concepts": "pull, sleigh, dog",
+    "targets": ""
+  },
+  "128": {
+    "sentences": "The crowd cheered as the basketball player made a slam dunk in front of them.",
+    "concepts": "basketball, crowd, front",
+    "targets": ""
+  },
+  "137": {
+    "sentences": "The artist began to draw a beautiful horse pulling a majestic carriage.",
+    "concepts": "draw, horse, carriage",
+    "targets": ""
+  },
+  "138": {
+    "sentences": "I used a brush to clean the window.",
+    "concepts": "clean, window, brush",
+    "targets": ""
+  },
+  "147": {
+    "sentences": "I love to float down the river in my tube on a sunny day.",
+    "concepts": "float, river, tube",
+    "targets": ""
+  },
+  "162": {
+    "sentences": "We built a sand castle on the beach.",
+    "concepts": "beach, castle, sand",
+    "targets": ""
+  },
+  "184": {
+    "sentences": "While waiting in line, I watched the children slide down the giant water slide with excitement.",
+    "concepts": "slide, wait, line",
+    "targets": ""
+  },
+  "186": {
+    "sentences": "The dedicated runner laced up their sneakers and headed out on the road for a morning jog.",
+    "concepts": "runner, road, jog",
+    "targets": ""
+  },
+  "202": {
+    "sentences": "She sat at the table and began to read the newspaper.",
+    "concepts": "read, table, paper",
+    "targets": ""
+  },
+  "232": {
+    "sentences": "I go to the gym regularly and always make sure to use every machine available.",
+    "concepts": "gym, machine, use",
+    "targets": ""
+  },
+  "256": {
+    "sentences": "I can teach you how to tie a shoe.",
+    "concepts": "shoe, teach, tie",
+    "targets": ""
+  },
+  "260": {
+    "sentences": "The singer confidently grabbed the microphone and belted out a beautiful song.",
+    "concepts": "song, microphone, sing",
+    "targets": ""
+  },
+  "267": {
+    "sentences": "I used a bowl to peel the potato.",
+    "concepts": "potato, bowl, peel",
+    "targets": ""
+  },
+  "282": {
+    "sentences": "She carefully draped the snake over her shoulder.",
+    "concepts": "snake, drape, shoulder",
+    "targets": ""
+  },
+  "296": {
+    "sentences": "I accidentally singed my shirt while playing the guitar.",
+    "concepts": "singe, shirt, guitar",
+    "targets": ""
+  },
+  "303": {
+    "sentences": "I laid the cozy blanket on the bed for extra comfort.",
+    "concepts": "bed, blanket, lay",
+    "targets": ""
+  },
+  "344": {
+    "sentences": "He made a perfect shot from the court and the ball swished through the hoop.",
+    "concepts": "shoot, court, hoop",
+    "targets": ""
+  },
+  "352": {
+    "sentences": "The cowboy used his lasso to wrangle the calf.",
+    "concepts": "calf, lasso, cowboy",
+    "targets": ""
+  },
+  "356": {
+    "sentences": "The policeman used hand signals to direct the traffic.",
+    "concepts": "policeman, traffic, direct",
+    "targets": ""
+  },
+  "371": {
+    "sentences": "The welder watched as sparks flew from the metal, illuminating the dark room.",
+    "concepts": "weld, fly, spark",
+    "targets": ""
+  },
+  "374": {
+    "sentences": "The skater will perform their routine with precision and grace.",
+    "concepts": "routine, perform, skater",
+    "targets": ""
+  },
+  "411": {
+    "sentences": "The ladder was used to trim the tall hedge.",
+    "concepts": "ladder, trim, hedge",
+    "targets": ""
+  },
+  "425": {
+    "sentences": "The artist used vibrant colors to paint a stunning portrait.",
+    "concepts": "paint, artist, portrait",
+    "targets": ""
+  },
+  "431": {
+    "sentences": "She took a long drag from her cigarette, releasing a cloud of smoke with a smile on her face.",
+    "concepts": "smile, cigarette, smoke",
+    "targets": ""
+  },
+  "432": {
+    "sentences": "I watched the skater perform a trick at the skatepark.",
+    "concepts": "park, trick, skateboard",
+    "targets": ""
+  },
+  "442": {
+    "sentences": "He cast his line into the water hoping to catch a fish in the hole.",
+    "concepts": "catch, fish, hole",
+    "targets": ""
+  },
+  "446": {
+    "sentences": "I threw a rock into the pond and watched as ripples spread across the water.",
+    "concepts": "rock, pond, throw",
+    "targets": ""
+  },
+  "606": {
+    "sentences": "I accidentally sucked the raw egg yolk through a bottle.",
+    "concepts": "suck, bottle, egg, yolk",
+    "targets": ""
+  },
+  "621": {
+    "sentences": "My friend always tells the best jokes that make us laugh.",
+    "concepts": "joke, friend, tell, laugh",
+    "targets": ""
+  },
+  "813": {
+    "sentences": "The goalie needs to practice his moves to better protect the goal.",
+    "concepts": "practice, goal, goalie, move, protect",
+    "targets": ""
+  },
+  "855": {
+    "sentences": "I used a spatula to stir the food in the frying pan.",
+    "concepts": "spatula, pan, stir, food, fry",
+    "targets": ""
+  },
+  "862": {
+    "sentences": "The vendor at the market sells a variety of fresh vegetables and fruits.",
+    "concepts": "sell, vegetable, fruit, market, vendor",
+    "targets": ""
+  },
+  "965": {
+    "sentences": "They decided to roast the pig on a stick over the fire, but had to turn it frequently to ensure it cooked evenly.",
+    "concepts": "roast, turn, stick, fire, pig",
+    "targets": ""
+  },
+  "24": {
+    "sentences": "We packed all our climbing equipment and started our journey up the tall mountain.",
+    "concepts": "mountain, climb, equipment",
+    "targets": ""
+  },
+  "27": {
+    "sentences": "The dancer glided gracefully across the stage in her stunning costume.",
+    "concepts": "stage, dancer, costume",
+    "targets": ""
+  },
+  "50": {
+    "sentences": "He decided to jump off the ground in the fall.",
+    "concepts": "fall, ground, jump",
+    "targets": ""
+  },
+  "52": {
+    "sentences": "The pitcher threw the ball with an incredible pitch.",
+    "concepts": "pitcher, ball, pitch",
+    "targets": ""
+  },
+  "59": {
+    "sentences": "He pointed the gun at his own head.",
+    "concepts": "gun, head, point",
+    "targets": ""
+  },
+  "75": {
+    "sentences": "We spent the day sailing on the boat.",
+    "concepts": "sail, day, boat",
+    "targets": ""
+  },
+  "90": {
+    "sentences": "I love to blow bubbles with my toy bubble wand.",
+    "concepts": "bubble, blow, toy",
+    "targets": ""
+  },
+  "98": {
+    "sentences": "The female and male dancers gracefully performed a captivating dance.",
+    "concepts": "female, male, dance",
+    "targets": ""
+  },
+  "119": {
+    "sentences": "After spending the day at the beach, I like to rub soothing lotion on my face to moisturize my skin.",
+    "concepts": "face, rub, lotion",
+    "targets": ""
+  },
+  "122": {
+    "sentences": "I had to shave my leg while watching the clock.",
+    "concepts": "leg, shave, watch",
+    "targets": ""
+  },
+  "155": {
+    "sentences": "Listening to music while exercising can help to boost motivation and make the workout more enjoyable.",
+    "concepts": "listen, music, exercise",
+    "targets": ""
+  },
+  "159": {
+    "sentences": "The child rode their tricycle up and down the driveway.",
+    "concepts": "driveway, tricycle, ride",
+    "targets": ""
+  },
+  "167": {
+    "sentences": "I carefully cut the tomato with a sharp knife.",
+    "concepts": "tomato, cut, knife",
+    "targets": ""
+  },
+  "174": {
+    "sentences": "After a long hike, I filled up the bathtub with warm water for my dog's much-needed bath.",
+    "concepts": "bathtub, bath, dog",
+    "targets": ""
+  },
+  "181": {
+    "sentences": "I entered the room and noticed a chilled beer waiting for me to enjoy as a refreshing drink.",
+    "concepts": "room, beer, drink",
+    "targets": ""
+  },
+  "190": {
+    "sentences": "The cook prepared a delicious meal on the stove in the kitchen.",
+    "concepts": "cook, stove, kitchen",
+    "targets": ""
+  },
+  "191": {
+    "sentences": "The body gracefully glided through the water in a canoe.",
+    "concepts": "canoe, body, water",
+    "targets": ""
+  },
+  "206": {
+    "sentences": "The group of friends played beach volleyball while wearing their bikinis.",
+    "concepts": "beach, volleyball, bikini",
+    "targets": ""
+  },
+  "219": {
+    "sentences": "The waiter set the silverware nicely on the table in the restaurant.",
+    "concepts": "set, table, restaurant",
+    "targets": ""
+  },
+  "241": {
+    "sentences": "The lumberjack used his trusted axe to chop the wood into small logs.",
+    "concepts": "log, chop, wood",
+    "targets": ""
+  },
+  "243": {
+    "sentences": "After the storm passed, the snow was cleared from the path.",
+    "concepts": "snow, clear, path",
+    "targets": ""
+  },
+  "245": {
+    "sentences": "We grabbed our paddles and hopped onto the raft to navigate down the winding river.",
+    "concepts": "river, paddle, raft",
+    "targets": ""
+  },
+  "255": {
+    "sentences": "I had a restful sleep in the car seat during the long road trip.",
+    "concepts": "sleep, car, seat",
+    "targets": ""
+  },
+  "258": {
+    "sentences": "On a cloudy day, she decided to wear her sunglass indoors for a cool and mysterious look.",
+    "concepts": "indoor, sunglass, wear",
+    "targets": ""
+  },
+  "348": {
+    "sentences": "The player made a skillful pass to send the puck towards the net.",
+    "concepts": "pass, puck, player",
+    "targets": ""
+  },
+  "403": {
+    "sentences": "I love to eat spaghetti straight from the plate.",
+    "concepts": "spaghetti, plate, eat",
+    "targets": ""
+  },
+  "414": {
+    "sentences": "The duck loves to swim in the serene lake.",
+    "concepts": "duck, lake, swim",
+    "targets": ""
+  },
+  "475": {
+    "sentences": "I sat on my favorite chair and placed the open book on my lap to read.",
+    "concepts": "lap, book, read",
+    "targets": ""
+  },
+  "485": {
+    "sentences": "The kid had a blast swinging on the swing at the playground.",
+    "concepts": "playground, swing, kid",
+    "targets": ""
+  },
+  "487": {
+    "sentences": "The sewing machine flawlessly stitches together each garment.",
+    "concepts": "machine, garment, sew",
+    "targets": ""
+  },
+  "494": {
+    "sentences": "The construction workers used mortar to build the brick wall.",
+    "concepts": "build, mortar, brick, wall",
+    "targets": ""
+  },
+  "634": {
+    "sentences": "He aimed his bow and shot the arrow at the target.",
+    "concepts": "target, shoot, bow, arrow",
+    "targets": ""
+  },
+  "695": {
+    "sentences": "As the parade passed by, people lined the street and waved their flags, gathering to celebrate.",
+    "concepts": "street, wave, flag, gather",
+    "targets": ""
+  },
+  "703": {
+    "sentences": "The doctor will perform surgery on the patient.",
+    "concepts": "perform, patient, doctor, surgery",
+    "targets": ""
+  },
+  "903": {
+    "sentences": "I used a colorful marker to color in the map of the country.",
+    "concepts": "country, map, marker, use, color",
+    "targets": ""
+  },
+  "63": {
+    "sentences": "She wore a stunning dress while playing the instrument in her elaborate costume.",
+    "concepts": "dress, instrument, costume",
+    "targets": ""
+  },
+  "76": {
+    "sentences": "I am excited to take part in the class project.",
+    "concepts": "class, take, part",
+    "targets": ""
+  },
+  "172": {
+    "sentences": "Please serve the tennis ball over the net.",
+    "concepts": "serve, ball, tennis",
+    "targets": ""
+  },
+  "182": {
+    "sentences": "The team worked together to engage the crowd during the intense game.",
+    "concepts": "team, game, engage",
+    "targets": ""
+  },
+  "220": {
+    "sentences": "I love the feeling of soaring through the air when I jump on the trampoline.",
+    "concepts": "trampoline, air, jump",
+    "targets": ""
+  },
+  "223": {
+    "sentences": "The lady effortlessly lifted the heavy weight in the gym.",
+    "concepts": "lady, lift, weight",
+    "targets": ""
+  },
+  "237": {
+    "sentences": "He leaned back in the chair and rubbed his beard while he contemplated his next move.",
+    "concepts": "beard, chair, sit",
+    "targets": ""
+  },
+  "275": {
+    "sentences": "She used a scrub brush to clean the dirt off her shoe.",
+    "concepts": "scrub, shoe, brush",
+    "targets": ""
+  },
+  "328": {
+    "sentences": "The talented singer belted out a beautiful song that would make any heart singe with emotion.",
+    "concepts": "singer, song, singe",
+    "targets": ""
+  },
+  "350": {
+    "sentences": "I need to fix my hair before looking in the mirror.",
+    "concepts": "hair, fix, mirror",
+    "targets": ""
+  },
+  "387": {
+    "sentences": "After making a wish, I blew out the candle on the cupcake.",
+    "concepts": "blow, candle, cupcake",
+    "targets": ""
+  },
+  "433": {
+    "sentences": "After a heavy snowfall, I had to use a shovel to clear a lot of snow from my driveway.",
+    "concepts": "snow, lot, shovel",
+    "targets": ""
+  },
+  "436": {
+    "sentences": "The couple had to wait patiently in the long line to buy tickets for the movie.",
+    "concepts": "couple, wait, line",
+    "targets": ""
+  },
+  "445": {
+    "sentences": "I saw a man confidently ride his unicycle on the sidewalk.",
+    "concepts": "unicycle, ride, sidewalk",
+    "targets": ""
+  },
+  "481": {
+    "sentences": "The cowboy expertly twirled his lasso, capturing the wild horse while avoiding the curious cow nearby.",
+    "concepts": "cow, horse, lasso",
+    "targets": ""
+  },
+  "526": {
+    "sentences": "Using the apple peeler, she efficiently peeled the apple, leaving only the drill to complete her DIY project.",
+    "concepts": "drill, apple, peeler, peel",
+    "targets": ""
+  },
+  "586": {
+    "sentences": "I will demonstrate how to apply mascara to your eyelash.",
+    "concepts": "mascara, demonstrate, eyelash, apply",
+    "targets": ""
+  },
+  "618": {
+    "sentences": "I need to use the iron and ironing board to press my shirt.",
+    "concepts": "iron, iron, shirt, board",
+    "targets": ""
+  },
+  "728": {
+    "sentences": "She used a pen to tap out a beat on the table.",
+    "concepts": "tap, table, beat, pen",
+    "targets": ""
+  },
+  "33": {
+    "sentences": "I will prepare a delicious meal for us to eat.",
+    "concepts": "eat, meal, prepare",
+    "targets": ""
+  },
+  "166": {
+    "sentences": "I will take a picture of the camel in the desert.",
+    "concepts": "picture, camel, take",
+    "targets": ""
+  },
+  "170": {
+    "sentences": "The student eagerly listened as the instructor began to teach the new lesson.",
+    "concepts": "student, instructor, teach",
+    "targets": ""
+  },
+  "180": {
+    "sentences": "I saw a boat by the shore and grabbed a paddle to explore the calm waters.",
+    "concepts": "shore, boat, paddle",
+    "targets": ""
+  },
+  "183": {
+    "sentences": "The kid used a flat rock to skip across the calm lake.",
+    "concepts": "rock, skip, kid",
+    "targets": ""
+  },
+  "210": {
+    "sentences": "I need to look for that item in the store.",
+    "concepts": "look, store, item",
+    "targets": ""
+  },
+  "225": {
+    "sentences": "He expertly maneuvered his skateboard through the bustling street in the middle of the city.",
+    "concepts": "skateboard, street, middle",
+    "targets": ""
+  },
+  "261": {
+    "sentences": "I learned how to shuffle a deck of cards while playing a challenging game.",
+    "concepts": "card, shuffle, game",
+    "targets": ""
+  },
+  "273": {
+    "sentences": "She carefully climbed the steep cliff until she reached the top.",
+    "concepts": "cliff, climb, top",
+    "targets": ""
+  },
+  "274": {
+    "sentences": "The striker's goal was to score a goal on the soccer field.",
+    "concepts": "goal, score, field",
+    "targets": ""
+  },
+  "384": {
+    "sentences": "I will wear my swimsuit to the pool and swim.",
+    "concepts": "pool, suit, swim",
+    "targets": ""
+  },
+  "394": {
+    "sentences": "The surfer glided smoothly across the water on their surfboard, expertly riding the powerful wave.",
+    "concepts": "water, surfboard, wave",
+    "targets": ""
+  },
+  "528": {
+    "sentences": "Using a hammer and chisel, he skillfully carved intricate designs into the smooth surface of the wood.",
+    "concepts": "wood, hammer, carve, chisel",
+    "targets": ""
+  },
+  "531": {
+    "sentences": "I couldn't help but laugh at how I completely ripped the piece of paper in half.",
+    "concepts": "rip, paper, piece, laugh",
+    "targets": ""
+  },
+  "541": {
+    "sentences": "The talented athlete will run and gracefully clear each hurdle on the track.",
+    "concepts": "athlete, run, hurdle, track",
+    "targets": ""
+  },
+  "626": {
+    "sentences": "The chainsaw was used to cut through the ice block.",
+    "concepts": "ice, cut, chainsaw, block",
+    "targets": ""
+  },
+  "734": {
+    "sentences": "He hit the bag inside the box with his gloved hand.",
+    "concepts": "hit, bag, box, glove",
+    "targets": ""
+  },
+  "859": {
+    "sentences": "The band consists of a drummer and guitarist who perform together on stage.",
+    "concepts": "perform, consist, band, drummer, guitarist",
+    "targets": ""
+  },
+  "966": {
+    "sentences": "As the world shook, a trembling hand traced the silhouette on the map.",
+    "concepts": "world, shake, map, silhouette, hand",
+    "targets": ""
+  },
+  "79": {
+    "sentences": "The swimmer dove into the pool and raced towards her assigned lane.",
+    "concepts": "race, swimmer, lane",
+    "targets": ""
+  },
+  "249": {
+    "sentences": "I need to press the weight at the gym to build my muscles.",
+    "concepts": "press, weight, gym",
+    "targets": ""
+  },
+  "283": {
+    "sentences": "The cheer performance electrified the crowd.",
+    "concepts": "cheer, performance, crowd",
+    "targets": ""
+  },
+  "325": {
+    "sentences": "She used a wand to blow a giant bubble.",
+    "concepts": "blow, bubble, wand",
+    "targets": ""
+  },
+  "396": {
+    "sentences": "The sparkling water flowed gracefully beneath the bridge as it reflected the sun's rays onto the bodies of countless swimmers.",
+    "concepts": "water, body, bridge",
+    "targets": ""
+  },
+  "407": {
+    "sentences": "I had to pull my sleigh up the hill.",
+    "concepts": "hill, sle, pull",
+    "targets": ""
+  },
+  "429": {
+    "sentences": "She loves to jump off the ski slope.",
+    "concepts": "jump, ski, slope",
+    "targets": ""
+  },
+  "430": {
+    "sentences": "I leaned against the window to get a better look outside.",
+    "concepts": "lean, look, window",
+    "targets": ""
+  },
+  "473": {
+    "sentences": "He loves to toss the ball in the air.",
+    "concepts": "toss, air, ball",
+    "targets": ""
+  },
+  "587": {
+    "sentences": "The lady used the hair dryer to dry her wet hair.",
+    "concepts": "hair, dry, lady, dryer",
+    "targets": ""
+  },
+  "53": {
+    "sentences": "During the bike race, he surprised everyone by doing a wheelie and popping a wheelie at the same time.",
+    "concepts": "ride, wheelie, pop",
+    "targets": ""
+  },
+  "64": {
+    "sentences": "I love to kick a soccer ball on the grass and run after it.",
+    "concepts": "kick, grass, run",
+    "targets": ""
+  },
+  "93": {
+    "sentences": "The speaker captivated the audience with their thought-provoking speech.",
+    "concepts": "audience, give, speech",
+    "targets": ""
+  },
+  "139": {
+    "sentences": "The barber gently shaved the customer's head.",
+    "concepts": "barber, head, shave",
+    "targets": ""
+  },
+  "156": {
+    "sentences": "I placed a stylish mirror on the front wall of my room.",
+    "concepts": "front, mirror, room",
+    "targets": ""
+  },
+  "244": {
+    "sentences": "The skilled diver enjoys exploring the vast ocean as they swim gracefully through the depths.",
+    "concepts": "swim, diver, ocean",
+    "targets": ""
+  },
+  "306": {
+    "sentences": "I used a sharp knife to cut a thin slice of cheese on the wooden board.",
+    "concepts": "slice, board, cut",
+    "targets": ""
+  },
+  "321": {
+    "sentences": "The kid hit a home run at the baseball field.",
+    "concepts": "kid, baseball, field",
+    "targets": ""
+  },
+  "346": {
+    "sentences": "The workers used a truck to pour concrete for the foundation of the building.",
+    "concepts": "truck, concrete, pour",
+    "targets": ""
+  },
+  "347": {
+    "sentences": "I saw a person drive their scooter down the busy street.",
+    "concepts": "drive, scooter, street",
+    "targets": ""
+  },
+  "397": {
+    "sentences": "She decided to hold on to her favorite pair of shoes.",
+    "concepts": "shoe, hold, pair",
+    "targets": ""
+  },
+  "455": {
+    "sentences": "The dealer shuffled the deck and laid out the cards on the table.",
+    "concepts": "card, dealer, table",
+    "targets": ""
+  },
+  "471": {
+    "sentences": "She loves to sit and play the flute in her favorite chair.",
+    "concepts": "flute, sit, chair",
+    "targets": ""
+  },
+  "672": {
+    "sentences": "The duck flapped its wing as it glided gracefully across the water.",
+    "concepts": "water, flap, duck, wing",
+    "targets": ""
+  },
+  "126": {
+    "sentences": "They decided to throw the football during the game.",
+    "concepts": "throw, football, game",
+    "targets": ""
+  },
+  "295": {
+    "sentences": "Make sure to apply a smooth layer of plaster on the wall to ensure a seamless finish.",
+    "concepts": "apply, wall, plaster",
+    "targets": ""
+  },
+  "331": {
+    "sentences": "My car is in the garage while I work.",
+    "concepts": "work, car, garage",
+    "targets": ""
+  },
+  "354": {
+    "sentences": "She used the paint to create a beautiful picture.",
+    "concepts": "paint, picture, paint",
+    "targets": ""
+  },
+  "362": {
+    "sentences": "The adventurous hikers used a rope to climb up the stunning waterfall.",
+    "concepts": "climb, waterfall, rope",
+    "targets": ""
+  },
+  "415": {
+    "sentences": "The cheer from the crowd filled the event with excitement.",
+    "concepts": "cheer, event, crowd",
+    "targets": ""
+  },
+  "441": {
+    "sentences": "The branch snapped off the tree, causing it to stand lopsided.",
+    "concepts": "branch, stand, tree",
+    "targets": ""
   }
 }

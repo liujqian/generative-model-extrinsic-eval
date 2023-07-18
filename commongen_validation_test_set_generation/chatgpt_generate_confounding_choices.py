@@ -1,20 +1,14 @@
 import csv
 import time
+from typing import Any
 
 import openai
 
+from experiments.chatgpt_generation import make_request_get_all
 from experiments.utils import log_progress
 
 
-def read_openai_api_key() -> str:
-    with open("../OPENAI_API_KEY.txt") as handle:
-        api_key = handle.readline()
-        if len(api_key) == 0:
-            raise ValueError(
-                "Found empty OpenAI API key. "
-                "Please Ensure that OPENAI_API_KEY.txt containing your API key is in the root folder of the repository."
-            )
-    return api_key
+
 
 
 confounding_type_dict = {
@@ -27,19 +21,12 @@ confounding_type_dict = {
 }
 
 
-def make_request(prompt: str) -> str:
-    try:
-        completion = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
-            messages=[
-                {"role": "system",
-                 "content": "You are a helpful assistant who can create sentences using sets of words."},
-                {"role": "user", "content": prompt},
-            ]
-        )
-        return completion["choices"][0]["message"]["content"].replace("\n", "")
-    except:
-        return "FAILED"
+def make_request(prompt: str) -> str | None:
+    res = make_request_get_all(prompt, 1)
+    if res is None:
+        return None
+    else:
+        return res[0]
 
 
 def create_confounding_sentence(confounding_type: str, concepts: list) -> str:
@@ -48,13 +35,13 @@ def create_confounding_sentence(confounding_type: str, concepts: list) -> str:
     prompt_prefix = confounding_type_dict[confounding_type]
     full_prompt = prompt_prefix + ", ".join(concepts) + "."
 
-    result = "FAILED"
+    result = None
     retry_cnt = 0
-    while result == "FAILED":
+    while result is None:
         if retry_cnt == 4:
             raise Exception("Cannot make OPENAI request.")
         result = make_request(full_prompt)
-        if result == "FAILED":
+        if result is None:
             retry_cnt += 1
             print("Failed to make OPENAI request once. Sleep for five seconds and try again.")
             time.sleep(5 * retry_cnt)

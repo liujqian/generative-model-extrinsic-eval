@@ -1,21 +1,27 @@
-import csv
 import json
 import time
-from typing import List, Any
 
 import datasets
 import openai
 
-from commongen_validation_test_set_generation.chatgpt_generate_confounding_choices import read_openai_api_key, \
-    make_request
 from experiments.utils import log_progress
+
+
+def read_openai_api_key() -> str:
+    with open("../OPENAI_API_KEY.txt") as handle:
+        api_key = handle.readline()
+        if len(api_key) == 0:
+            raise ValueError(
+                "Found empty OpenAI API key. "
+                "Please Ensure that OPENAI_API_KEY.txt containing your API key is in the root folder of the repository."
+            )
+    return api_key
 
 
 def chatgpt_generation(concepts: list, n: int) -> list:
     if openai.api_key is None:
         openai.api_key = read_openai_api_key()
-        openai.organization = "org-Z6lli0WO1awNKqRJjTToCxj4" \
-                              ""
+        openai.organization = "org-Z6lli0WO1awNKqRJjTToCxj4"
     prompt = f"Create a sentence with the following words:{', '.join(concepts)}"
     results = make_request_get_all(prompt, n)
     failure_cnt = 0
