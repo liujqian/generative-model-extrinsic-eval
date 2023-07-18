@@ -62,12 +62,14 @@ def chatgpt_make_up_confounding_generations():
                 confounding_generation_jsons[confounding_type][set_name] = json.load(handle)
 
     for confounding_type in confounding_types:
+        print(f"Checking the {confounding_type} confounding type for make up now.")
         for newly_selected_question in newly_selected_questions:
             newly_selected_question_id = newly_selected_question["id"]
             newly_selected_question_set_name = newly_selected_question_id.split("-")[0]
             newly_selected_question_csid = newly_selected_question_id.split("-")[1]
             if newly_selected_question_csid not in \
                     confounding_generation_jsons[confounding_type][newly_selected_question_set_name]:
+                print(f"For the {confounding_type} type, {newly_selected_question_id} is missing. Making up now.")
                 concepts = newly_selected_question["concepts"].split(", ")
                 new_confounding_sentence = create_confounding_sentence(confounding_type, concepts)
                 confounding_generation_jsons[confounding_type][newly_selected_question_set_name][
@@ -81,9 +83,9 @@ def chatgpt_make_up_confounding_generations():
         for set_name in ["validation", "test"]:
             with open(
                     f"generated_sentences/chatgpt-confounding-{confounding_type}-{set_name}-set-generation.json",
-                    "r"
+                    "w"
             ) as handle:
-                confounding_generation_jsons[confounding_type][set_name] = json.load(handle)
+                json.dump(confounding_generation_jsons[confounding_type][set_name], handle)
 
 
 def extract_generated_confounding_sentences_from_combined_old_file():
@@ -123,3 +125,7 @@ def extract_generated_confounding_sentences_from_combined_old_file():
                     "w"
             ) as handle:
                 json.dump(all_dict[confounding_type][set_name], handle)
+
+
+if __name__ == '__main__':
+    chatgpt_make_up_confounding_generations()
