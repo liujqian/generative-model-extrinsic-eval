@@ -19,6 +19,8 @@ confounding_types = [
     "grammar_error",
 ]
 
+def get_confounding_types():
+    return confounding_types
 
 def make_request(prompt: str) -> str | None:
     res = make_request_get_all(prompt, 1)
