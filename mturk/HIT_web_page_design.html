@@ -1,0 +1,1119 @@
+<!-- You must include this JavaScript file -->
+<script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link href="https://s3.amazonaws.com/mturk-public/bs30/css/bootstrap.min.css" rel="stylesheet"/>
+
+<script type="text/javascript">
+    function shuffle_order() {
+        var para_table = $("#para-table");
+        var paras = $("#para-table .para-row");
+        paras.remove();
+
+        for (var i = paras.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var temp = paras[i];
+            paras[i] = paras[j];
+            paras[j] = temp;
+        }
+
+        var seens = [];
+        paras.each(function (i) {
+            para_table.append(this);
+            para = $(this).find("p").text()
+            if (para === "") {
+                $(this).remove()
+            }
+
+            if (seens.indexOf(para) !== -1) {
+                $(this).remove()
+            } else {
+                seens.push(para);
+            }
+        });
+
+    }
+
+    $(document).ready(function () {
+        shuffle_order()
+    })
+</script>
+
+<!-- For the full list of available Crowd HTML Elements and their input/output documentation,
+      please refer to https://docs.aws.amazon.com/sagemaker/latest/dg/sms-ui-template-reference.html -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<section class="container" id="SET1"
+         style="padding: 10px; font-family: Verdana, Geneva, sans-serif; color:#333333; font-size:10pt;">
+    <!-- Instructions -->
+    <div class="row col-xs-12 col-md-12" style="margin-left: 1px">
+        <div class="panel panel-primary" style="border-color: #800080">
+            <div class="panel-heading" style="background-image: none;background-color:#800080;border-color: #800080">
+                <strong>Instructions</strong></div>
+
+            <div class="panel-body">
+                <p>
+                    CommonGen is a set of tasks for which AI models need to generate a sentence using a set of
+                    words provided, and it is allowed to use different tenses or forms of the given words.
+                    Sometimes the generated sentences from AI model may not cover all the
+                    given words. We would like you to assess <b>how fluent</b>, <b>how sensible</b> and <b>how
+                    complex</b> are the generations.
+                </p>
+                <ol>
+                    <li>
+                        <b>How fluent are the generated sentences?</b> Here, being fluent means that the generated
+                        sentence sounds <i>natural</i> to native speakers. Things that contribute to fluency include but
+                        not limited to
+                        <i>grammatical structure, word and phrase usage, and punctuations</i>. Note that the semantics
+                        of the sentence
+                        of the sentences is not <i>NOT</i> evaluated for fluency here! For example, you should
+                        <i>NOT</i> consider
+                        if a sentence is logical or plausible when scoring for fluency. Please rate the generated
+                        sentences on the scale from 1 to 5 with 1 being completely unreadable and 5 being sentences that
+                        native speakers may say in daily life.
+                    </li>
+                    <li>
+                        <b>How sensible are the generated sentences?</b> Being sensible means that the generated
+                        sentence makes sense to normal human beings living in modern society. Things that contribute to
+                        the level of sense making include but not limited to the <i>logics of the sentences, the
+                        plausibility of the sentences and the
+                        possibility of the event described by the sentence</i>. Please rate the generated sentences on
+                        the
+                        scale from 1 to 5 with 1 being sentences that are completely unfathomable or sentences
+                        describing impossible events and 5 being perfectly logical statements or possible daily events.
+                    </li>
+                    <li>
+                        <b>How complex are the generated sentences?</b> Being complex means that the sentence contains
+                        much information and sophisticated structure. Things that contribute to the level of complexity
+                        include but not limited to the number of modifiers and clauses used in the sentence. Please rate
+                        the generated sentences on the scale from 1 to 5 with 1 being sentences containing only simple
+                        subjects, verbs and objects and 5 being sentences containing sophisticated structures,
+                        modifiers, clauses and much information.
+                    </li>
+                </ol>
+                Please select the appropriate answer choice in the below task.
+            </div>
+        </div>
+    </div>
+    <!-- End Instructions -->
+</section>
+
+<!-- You must include crowd-form so that your task submits answers to MTurk -->
+<section class="container" id="full" style="font-family: Verdana, Geneva, sans-serif; color:#333333; font-size:10pt;">
+    <fieldset>
+        <!--Start Example-->
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title" style="font-weight: bold">Examples &nbsp; &nbsp; <a
+                            data-toggle="collapse" href="#collapse0"
+                            style="color:#0080ff;font-weight:normal;text-decoration: underline;">(Expand/Collapse)</a>
+                    </h4>
+                </div>
+
+                <div class="panel-collapse collapse" id="collapse0" style="margin:10px" aria-expanded="false"
+                     class="collapsed">
+                    <p> <h4>Example 1.</h4>
+                    <a data-toggle="collapse" href="#collapse1"
+                       style="color:#0080ff;font-weight:normal;text-decoration: underline;">(Expand/Collapse)</a>
+                    <div class="panel-collapse collapse in" id="collapse1" style="margin:10px">
+                        <p style="font-size:10pt" class="post_title"><b>Create a sentence with the following words:</b>
+                            kid, dance, room</p>
+
+                        <h4>Evaluate the quality of the generations:</h4>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th class="col-3"><b>Generated sentence</b></th>
+                                <th class="col-5"><b>How fluent is the generated sentence?<br>5 means the sentence is
+                                    perfectly fluent while 1 means the sentence is unreadable.</b></th>
+                                <th class="col-5"><b>How sensible is the generated sentence?<br>5 means the sentence is
+                                    perfectly logical and plausible while 1 means the sentence does not make any
+                                    sense.</b></th>
+                                <th class="col-5"><b>How complex is the generated sentence?<br>5 means the sentence is
+                                    very
+                                    informative and has clauses and modifiers. 1 means the sentence is in simple
+                                    subject-predicate form. </b></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><p>The kid is in a room which is dancing.</p></td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="ex0-fluency" value=1 disabled>1</label>
+                                        <label><input type="radio" name="ex0-fluency" value=2 disabled>2</label>
+                                        <label><input type="radio" name="ex0-fluency" value=3 disabled>3</label>
+                                        <label><input type="radio" name="ex0-fluency" value=4 disabled>4</label>
+                                        <label><input type="radio" name="ex0-fluency" value=5 checked>5</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="ex0-sensibility" value=1 disabled>1</label>
+                                        <label><input type="radio" name="ex0-sensibility" value=2 checked>2</label>
+                                        <label><input type="radio" name="ex0-sensibility" value=3 disabled>3</label>
+                                        <label><input type="radio" name="ex0-sensibility" value=4 disabled>4</label>
+                                        <label><input type="radio" name="ex0-sensibility" value=5 disabled>5</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="ex0-complexity" value=1 disabled>1</label>
+                                        <label><input type="radio" name="ex0-complexity" value=2 disabled>2</label>
+                                        <label><input type="radio" name="ex0-complexity" value=3 disabled>3</label>
+                                        <label><input type="radio" name="ex0-complexity" value=4 checked>4</label>
+                                        <label><input type="radio" name="ex0-complexity" value=5 disabled>5</label>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        Explanation:
+                        The sentence does not make much sense since rooms cannot take actions such as dancing. However,
+                        the sentence is grammatically correct and words used are also very common, so it is a very
+                        fluent sentence. The sentence uses a which clause to modify the noun "room." While it does not
+                        make much sense, the which clause does make the sentence more complex and contain more
+                        information.
+                    </div>
+                    </br>
+                    <p> <h4>Example 2.</h4>
+                    <a data-toggle="collapse" href="#collapse2"
+                       style="color:#0080ff;font-weight:normal;text-decoration: underline;">(Expand/Collapse)</a>
+                    <div class="panel-collapse collapse in" id="collapse2" style="margin:10px">
+                        <p style="font-size:10pt" class="post_title"><b>Create a sentence with the following words:</b>
+                            team, run, drill, field</p>
+
+                        <h4>Evaluate the quality of the generations:</h4>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th class="col-3"><b>Generated sentence</b></th>
+                                <th class="col-5"><b>How fluent is the generated sentence?<br>5 means the sentence is
+                                    perfectly fluent while 1 means the sentence is unreadable.</b></th>
+                                <th class="col-5"><b>How sensible is the generated sentence?<br>5 means the sentence is
+                                    perfectly logical and plausible while 1 means the sentence does not make any
+                                    sense.</b></th>
+                                <th class="col-5"><b>How complex is the generated sentence?<br>5 means the sentence is
+                                    very
+                                    informative and has clauses and modifiers. 1 means the sentence is in simple
+                                    subject-predicate form. </b></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><p>team drill running on field</p></td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="ex1-fluency" value=1 disabled>1</label>
+                                        <label><input type="radio" name="ex1-fluency" value=2 checked>2</label>
+                                        <label><input type="radio" name="ex1-fluency" value=3 disabled>3</label>
+                                        <label><input type="radio" name="ex1-fluency" value=4 disabled>4</label>
+                                        <label><input type="radio" name="ex1-fluency" value=5 disabled>5</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="ex1-sensibility" value=1 disabled>1</label>
+                                        <label><input type="radio" name="ex1-sensibility" value=2 disabled>2</label>
+                                        <label><input type="radio" name="ex1-sensibility" value=3 checked>3</label>
+                                        <label><input type="radio" name="ex1-sensibility" value=4 disabled>4</label>
+                                        <label><input type="radio" name="ex1-sensibility" value=5 disabled>5</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="ex1-complexity" value=1 disabled>1</label>
+                                        <label><input type="radio" name="ex1-complexity" value=2 checked>2</label>
+                                        <label><input type="radio" name="ex1-complexity" value=3 disabled>3</label>
+                                        <label><input type="radio" name="ex1-complexity" value=4 disabled>4</label>
+                                        <label><input type="radio" name="ex1-complexity" value=5 disabled>5</label>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        Explanation:
+                        The sentence is grammatically problematic. The first letter is not capitalized and there is no
+                        punctuation used to end the sentence. There is no verb in the sentence as the predicate. No
+                        article is used before nouns. Still, readers can more or less get the meaning of the sentence,
+                        which is the team's drill is being run on the field. This sentence somewhat makes sense as
+                        construction workers usually work in teams while running drills on fields. It is reasonable to
+                        give it a score of 3 or 4 for how much sense does the sentence make. The sentence would
+                        make more sense if what team and what field is specified. The sentence is not very complex as
+                        there is no fancy clause or modifier.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End Example-->
+
+
+        <div class="container-fluid">
+            <crowd-form answer-format="flatten-objects">
+                <div hidden>
+                    ${set_name}, ${concept_set_id}
+                </div>
+                <h3>Evaluate the quality of the generated sentences</h3>
+                <div class="story-excerpt">
+                    <p>
+                        <b>Task: Create a sentence using the following words: ${concepts}</b>
+                        <br/>
+                    </p>
+                </div>
+                <br/>
+                (There can be duplicate generations as different models may generate same sentences due to similar
+                training corpus, but please evaluate all regardless!)
+                <div class="row">
+                    <div class="col">
+                        <table class="table" id="para-table" cellpadding="0" cellspacing="0" width="100%" border="0">
+                            <!-- define everything with percentage width -->
+                            <colgroup>
+                                <col class="col-3"/>
+                                <col class="col-5"/>
+                                <col class="col-5"/>
+                                <col class="col-5"/>
+                            </colgroup>
+                            <thead>
+                            <tr>
+                                <th class="col-3"><b>Generated sentence</b></th>
+                                <th class="col-5"><b>How fluent is the generated sentence?<br>5 means the sentence is
+                                    perfectly fluent while 1 means the sentence is unreadable.</b></th>
+                                <th class="col-5"><b>How sensible is the generated sentence?<br>5 means the sentence is
+                                    perfectly logical and plausible while 1 means the sentence does not make any
+                                    sense.</b></th>
+                                <th class="col-5"><b>How complex is the generated sentence?<br>5 means the sentence is
+                                    very
+                                    informative and has clauses and modifiers. 1 means the sentence is in simple
+                                    subject-predicate form. </b></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="para-row">
+                                <td><p>${bloomz_1b1}</p></td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="bloomz_1b1-fluency" value=1>1</label>
+                                        <label><input type="radio" name="bloomz_1b1-fluency" value=2>2</label>
+                                        <label><input type="radio" name="bloomz_1b1-fluency" value=3>3</label>
+                                        <label><input type="radio" name="bloomz_1b1-fluency" value=4>4</label>
+                                        <label><input type="radio" name="bloomz_1b1-fluency" value=5>5</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="bloomz_1b1-sensibility" value=1>1</label>
+                                        <label><input type="radio" name="bloomz_1b1-sensibility" value=2>2</label>
+                                        <label><input type="radio" name="bloomz_1b1-sensibility" value=3>3</label>
+                                        <label><input type="radio" name="bloomz_1b1-sensibility" value=4>4</label>
+                                        <label><input type="radio" name="bloomz_1b1-sensibility" value=5>5</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="bloomz_1b1-complexity" value=1>1</label>
+                                        <label><input type="radio" name="bloomz_1b1-complexity" value=2>2</label>
+                                        <label><input type="radio" name="bloomz_1b1-complexity" value=3>3</label>
+                                        <label><input type="radio" name="bloomz_1b1-complexity" value=4>4</label>
+                                        <label><input type="radio" name="bloomz_1b1-complexity" value=5>5</label>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="para-row">
+                                <td><p>${bloomz_1b7}</p></td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="bloomz_1b7-fluency" value=1>1</label>
+                                        <label><input type="radio" name="bloomz_1b7-fluency" value=2>2</label>
+                                        <label><input type="radio" name="bloomz_1b7-fluency" value=3>3</label>
+                                        <label><input type="radio" name="bloomz_1b7-fluency" value=4>4</label>
+                                        <label><input type="radio" name="bloomz_1b7-fluency" value=5>5</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="bloomz_1b7-sensibility" value=1>1</label>
+                                        <label><input type="radio" name="bloomz_1b7-sensibility" value=2>2</label>
+                                        <label><input type="radio" name="bloomz_1b7-sensibility" value=3>3</label>
+                                        <label><input type="radio" name="bloomz_1b7-sensibility" value=4>4</label>
+                                        <label><input type="radio" name="bloomz_1b7-sensibility" value=5>5</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="bloomz_1b7-complexity" value=1>1</label>
+                                        <label><input type="radio" name="bloomz_1b7-complexity" value=2>2</label>
+                                        <label><input type="radio" name="bloomz_1b7-complexity" value=3>3</label>
+                                        <label><input type="radio" name="bloomz_1b7-complexity" value=4>4</label>
+                                        <label><input type="radio" name="bloomz_1b7-complexity" value=5>5</label>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="para-row">
+                                <td><p>${bloomz_3b}</p></td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="bloomz_3b-fluency" value=1>1</label>
+                                        <label><input type="radio" name="bloomz_3b-fluency" value=2>2</label>
+                                        <label><input type="radio" name="bloomz_3b-fluency" value=3>3</label>
+                                        <label><input type="radio" name="bloomz_3b-fluency" value=4>4</label>
+                                        <label><input type="radio" name="bloomz_3b-fluency" value=5>5</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="bloomz_3b-sensibility" value=1>1</label>
+                                        <label><input type="radio" name="bloomz_3b-sensibility" value=2>2</label>
+                                        <label><input type="radio" name="bloomz_3b-sensibility" value=3>3</label>
+                                        <label><input type="radio" name="bloomz_3b-sensibility" value=4>4</label>
+                                        <label><input type="radio" name="bloomz_3b-sensibility" value=5>5</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="bloomz_3b-complexity" value=1>1</label>
+                                        <label><input type="radio" name="bloomz_3b-complexity" value=2>2</label>
+                                        <label><input type="radio" name="bloomz_3b-complexity" value=3>3</label>
+                                        <label><input type="radio" name="bloomz_3b-complexity" value=4>4</label>
+                                        <label><input type="radio" name="bloomz_3b-complexity" value=5>5</label>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="para-row">
+                                <td><p>${bloomz_560m}</p></td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="bloomz_560m-fluency" value=1>1</label>
+                                        <label><input type="radio" name="bloomz_560m-fluency" value=2>2</label>
+                                        <label><input type="radio" name="bloomz_560m-fluency" value=3>3</label>
+                                        <label><input type="radio" name="bloomz_560m-fluency" value=4>4</label>
+                                        <label><input type="radio" name="bloomz_560m-fluency" value=5>5</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="bloomz_560m-sensibility" value=1>1</label>
+                                        <label><input type="radio" name="bloomz_560m-sensibility" value=2>2</label>
+                                        <label><input type="radio" name="bloomz_560m-sensibility" value=3>3</label>
+                                        <label><input type="radio" name="bloomz_560m-sensibility" value=4>4</label>
+                                        <label><input type="radio" name="bloomz_560m-sensibility" value=5>5</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="bloomz_560m-complexity" value=1>1</label>
+                                        <label><input type="radio" name="bloomz_560m-complexity" value=2>2</label>
+                                        <label><input type="radio" name="bloomz_560m-complexity" value=3>3</label>
+                                        <label><input type="radio" name="bloomz_560m-complexity" value=4>4</label>
+                                        <label><input type="radio" name="bloomz_560m-complexity" value=5>5</label>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="para-row">
+                                <td><p>${flan_t5_xl}</p></td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="flan_t5_xl-fluency" value=1>1</label>
+                                        <label><input type="radio" name="flan_t5_xl-fluency" value=2>2</label>
+                                        <label><input type="radio" name="flan_t5_xl-fluency" value=3>3</label>
+                                        <label><input type="radio" name="flan_t5_xl-fluency" value=4>4</label>
+                                        <label><input type="radio" name="flan_t5_xl-fluency" value=5>5</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="flan_t5_xl-sensibility" value=1>1</label>
+                                        <label><input type="radio" name="flan_t5_xl-sensibility" value=2>2</label>
+                                        <label><input type="radio" name="flan_t5_xl-sensibility" value=3>3</label>
+                                        <label><input type="radio" name="flan_t5_xl-sensibility" value=4>4</label>
+                                        <label><input type="radio" name="flan_t5_xl-sensibility" value=5>5</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="flan_t5_xl-complexity" value=1>1</label>
+                                        <label><input type="radio" name="flan_t5_xl-complexity" value=2>2</label>
+                                        <label><input type="radio" name="flan_t5_xl-complexity" value=3>3</label>
+                                        <label><input type="radio" name="flan_t5_xl-complexity" value=4>4</label>
+                                        <label><input type="radio" name="flan_t5_xl-complexity" value=5>5</label>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="para-row">
+                                <td><p>${flan_t5_large}</p></td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="flan_t5_large-fluency" value=1>1</label>
+                                        <label><input type="radio" name="flan_t5_large-fluency" value=2>2</label>
+                                        <label><input type="radio" name="flan_t5_large-fluency" value=3>3</label>
+                                        <label><input type="radio" name="flan_t5_large-fluency" value=4>4</label>
+                                        <label><input type="radio" name="flan_t5_large-fluency" value=5>5</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="flan_t5_large-sensibility" value=1>1</label>
+                                        <label><input type="radio" name="flan_t5_large-sensibility" value=2>2</label>
+                                        <label><input type="radio" name="flan_t5_large-sensibility" value=3>3</label>
+                                        <label><input type="radio" name="flan_t5_large-sensibility" value=4>4</label>
+                                        <label><input type="radio" name="flan_t5_large-sensibility" value=5>5</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="flan_t5_large-complexity" value=1>1</label>
+                                        <label><input type="radio" name="flan_t5_large-complexity" value=2>2</label>
+                                        <label><input type="radio" name="flan_t5_large-complexity" value=3>3</label>
+                                        <label><input type="radio" name="flan_t5_large-complexity" value=4>4</label>
+                                        <label><input type="radio" name="flan_t5_large-complexity" value=5>5</label>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="para-row">
+                                <td><p>${t0_3b}</p></td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="t0_3b-fluency" value=1>1</label>
+                                        <label><input type="radio" name="t0_3b-fluency" value=2>2</label>
+                                        <label><input type="radio" name="t0_3b-fluency" value=3>3</label>
+                                        <label><input type="radio" name="t0_3b-fluency" value=4>4</label>
+                                        <label><input type="radio" name="t0_3b-fluency" value=5>5</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="t0_3b-sensibility" value=1>1</label>
+                                        <label><input type="radio" name="t0_3b-sensibility" value=2>2</label>
+                                        <label><input type="radio" name="t0_3b-sensibility" value=3>3</label>
+                                        <label><input type="radio" name="t0_3b-sensibility" value=4>4</label>
+                                        <label><input type="radio" name="t0_3b-sensibility" value=5>5</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="t0_3b-complexity" value=1>1</label>
+                                        <label><input type="radio" name="t0_3b-complexity" value=2>2</label>
+                                        <label><input type="radio" name="t0_3b-complexity" value=3>3</label>
+                                        <label><input type="radio" name="t0_3b-complexity" value=4>4</label>
+                                        <label><input type="radio" name="t0_3b-complexity" value=5>5</label>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="para-row">
+                                <td><p>${tk_instruct_3b_def}</p></td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="tk_instruct_3b_def-fluency" value=1>1</label>
+                                        <label><input type="radio" name="tk_instruct_3b_def-fluency" value=2>2</label>
+                                        <label><input type="radio" name="tk_instruct_3b_def-fluency" value=3>3</label>
+                                        <label><input type="radio" name="tk_instruct_3b_def-fluency" value=4>4</label>
+                                        <label><input type="radio" name="tk_instruct_3b_def-fluency" value=5>5</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="tk_instruct_3b_def-sensibility"
+                                                      value=1>1</label>
+                                        <label><input type="radio" name="tk_instruct_3b_def-sensibility"
+                                                      value=2>2</label>
+                                        <label><input type="radio" name="tk_instruct_3b_def-sensibility"
+                                                      value=3>3</label>
+                                        <label><input type="radio" name="tk_instruct_3b_def-sensibility"
+                                                      value=4>4</label>
+                                        <label><input type="radio" name="tk_instruct_3b_def-sensibility"
+                                                      value=5>5</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="tk_instruct_3b_def-complexity"
+                                                      value=1>1</label>
+                                        <label><input type="radio" name="tk_instruct_3b_def-complexity"
+                                                      value=2>2</label>
+                                        <label><input type="radio" name="tk_instruct_3b_def-complexity"
+                                                      value=3>3</label>
+                                        <label><input type="radio" name="tk_instruct_3b_def-complexity"
+                                                      value=4>4</label>
+                                        <label><input type="radio" name="tk_instruct_3b_def-complexity"
+                                                      value=5>5</label>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="para-row">
+                                <td><p>${mt0_large}</p></td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="mt0_large-fluency" value=1>1</label>
+                                        <label><input type="radio" name="mt0_large-fluency" value=2>2</label>
+                                        <label><input type="radio" name="mt0_large-fluency" value=3>3</label>
+                                        <label><input type="radio" name="mt0_large-fluency" value=4>4</label>
+                                        <label><input type="radio" name="mt0_large-fluency" value=5>5</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="mt0_large-sensibility" value=1>1</label>
+                                        <label><input type="radio" name="mt0_large-sensibility" value=2>2</label>
+                                        <label><input type="radio" name="mt0_large-sensibility" value=3>3</label>
+                                        <label><input type="radio" name="mt0_large-sensibility" value=4>4</label>
+                                        <label><input type="radio" name="mt0_large-sensibility" value=5>5</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="mt0_large-complexity" value=1>1</label>
+                                        <label><input type="radio" name="mt0_large-complexity" value=2>2</label>
+                                        <label><input type="radio" name="mt0_large-complexity" value=3>3</label>
+                                        <label><input type="radio" name="mt0_large-complexity" value=4>4</label>
+                                        <label><input type="radio" name="mt0_large-complexity" value=5>5</label>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="para-row">
+                                <td><p>${mt0_base}</p></td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="mt0_base-fluency" value=1>1</label>
+                                        <label><input type="radio" name="mt0_base-fluency" value=2>2</label>
+                                        <label><input type="radio" name="mt0_base-fluency" value=3>3</label>
+                                        <label><input type="radio" name="mt0_base-fluency" value=4>4</label>
+                                        <label><input type="radio" name="mt0_base-fluency" value=5>5</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="mt0_base-sensibility" value=1>1</label>
+                                        <label><input type="radio" name="mt0_base-sensibility" value=2>2</label>
+                                        <label><input type="radio" name="mt0_base-sensibility" value=3>3</label>
+                                        <label><input type="radio" name="mt0_base-sensibility" value=4>4</label>
+                                        <label><input type="radio" name="mt0_base-sensibility" value=5>5</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="mt0_base-complexity" value=1>1</label>
+                                        <label><input type="radio" name="mt0_base-complexity" value=2>2</label>
+                                        <label><input type="radio" name="mt0_base-complexity" value=3>3</label>
+                                        <label><input type="radio" name="mt0_base-complexity" value=4>4</label>
+                                        <label><input type="radio" name="mt0_base-complexity" value=5>5</label>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="para-row">
+                                <td><p>${mt0_small}</p></td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="mt0_small-fluency" value=1>1</label>
+                                        <label><input type="radio" name="mt0_small-fluency" value=2>2</label>
+                                        <label><input type="radio" name="mt0_small-fluency" value=3>3</label>
+                                        <label><input type="radio" name="mt0_small-fluency" value=4>4</label>
+                                        <label><input type="radio" name="mt0_small-fluency" value=5>5</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="mt0_small-sensibility" value=1>1</label>
+                                        <label><input type="radio" name="mt0_small-sensibility" value=2>2</label>
+                                        <label><input type="radio" name="mt0_small-sensibility" value=3>3</label>
+                                        <label><input type="radio" name="mt0_small-sensibility" value=4>4</label>
+                                        <label><input type="radio" name="mt0_small-sensibility" value=5>5</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="mt0_small-complexity" value=1>1</label>
+                                        <label><input type="radio" name="mt0_small-complexity" value=2>2</label>
+                                        <label><input type="radio" name="mt0_small-complexity" value=3>3</label>
+                                        <label><input type="radio" name="mt0_small-complexity" value=4>4</label>
+                                        <label><input type="radio" name="mt0_small-complexity" value=5>5</label>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="para-row">
+                                <td><p>${mt0_xl}</p></td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="mt0_xl-fluency" value=1>1</label>
+                                        <label><input type="radio" name="mt0_xl-fluency" value=2>2</label>
+                                        <label><input type="radio" name="mt0_xl-fluency" value=3>3</label>
+                                        <label><input type="radio" name="mt0_xl-fluency" value=4>4</label>
+                                        <label><input type="radio" name="mt0_xl-fluency" value=5>5</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="mt0_xl-sensibility" value=1>1</label>
+                                        <label><input type="radio" name="mt0_xl-sensibility" value=2>2</label>
+                                        <label><input type="radio" name="mt0_xl-sensibility" value=3>3</label>
+                                        <label><input type="radio" name="mt0_xl-sensibility" value=4>4</label>
+                                        <label><input type="radio" name="mt0_xl-sensibility" value=5>5</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="mt0_xl-complexity" value=1>1</label>
+                                        <label><input type="radio" name="mt0_xl-complexity" value=2>2</label>
+                                        <label><input type="radio" name="mt0_xl-complexity" value=3>3</label>
+                                        <label><input type="radio" name="mt0_xl-complexity" value=4>4</label>
+                                        <label><input type="radio" name="mt0_xl-complexity" value=5>5</label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="para-row">
+                                <td><p>${complex}</p></td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="complex-fluency" value=1>1</label>
+                                        <label><input type="radio" name="complex-fluency" value=2>2</label>
+                                        <label><input type="radio" name="complex-fluency" value=3>3</label>
+                                        <label><input type="radio" name="complex-fluency" value=4>4</label>
+                                        <label><input type="radio" name="complex-fluency" value=5>5</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="complex-sensibility" value=1>1</label>
+                                        <label><input type="radio" name="complex-sensibility" value=2>2</label>
+                                        <label><input type="radio" name="complex-sensibility" value=3>3</label>
+                                        <label><input type="radio" name="complex-sensibility" value=4>4</label>
+                                        <label><input type="radio" name="complex-sensibility" value=5>5</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="complex-complexity" value=1>1</label>
+                                        <label><input type="radio" name="complex-complexity" value=2>2</label>
+                                        <label><input type="radio" name="complex-complexity" value=3>3</label>
+                                        <label><input type="radio" name="complex-complexity" value=4>4</label>
+                                        <label><input type="radio" name="complex-complexity" value=5>5</label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="para-row">
+                                <td><p>${simple}</p></td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="simple-fluency" value=1>1</label>
+                                        <label><input type="radio" name="simple-fluency" value=2>2</label>
+                                        <label><input type="radio" name="simple-fluency" value=3>3</label>
+                                        <label><input type="radio" name="simple-fluency" value=4>4</label>
+                                        <label><input type="radio" name="simple-fluency" value=5>5</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="simple-sensibility" value=1>1</label>
+                                        <label><input type="radio" name="simple-sensibility" value=2>2</label>
+                                        <label><input type="radio" name="simple-sensibility" value=3>3</label>
+                                        <label><input type="radio" name="simple-sensibility" value=4>4</label>
+                                        <label><input type="radio" name="simple-sensibility" value=5>5</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="simple-complexity" value=1>1</label>
+                                        <label><input type="radio" name="simple-complexity" value=2>2</label>
+                                        <label><input type="radio" name="simple-complexity" value=3>3</label>
+                                        <label><input type="radio" name="simple-complexity" value=4>4</label>
+                                        <label><input type="radio" name="simple-complexity" value=5>5</label>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="para-row">
+                                <td><p>${nonsense}</p></td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="nonsense-fluency" value=1>1</label>
+                                        <label><input type="radio" name="nonsense-fluency" value=2>2</label>
+                                        <label><input type="radio" name="nonsense-fluency" value=3>3</label>
+                                        <label><input type="radio" name="nonsense-fluency" value=4>4</label>
+                                        <label><input type="radio" name="nonsense-fluency" value=5>5</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="nonsense-sensibility" value=1>1</label>
+                                        <label><input type="radio" name="nonsense-sensibility" value=2>2</label>
+                                        <label><input type="radio" name="nonsense-sensibility" value=3>3</label>
+                                        <label><input type="radio" name="nonsense-sensibility" value=4>4</label>
+                                        <label><input type="radio" name="nonsense-sensibility" value=5>5</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="nonsense-complexity" value=1>1</label>
+                                        <label><input type="radio" name="nonsense-complexity" value=2>2</label>
+                                        <label><input type="radio" name="nonsense-complexity" value=3>3</label>
+                                        <label><input type="radio" name="nonsense-complexity" value=4>4</label>
+                                        <label><input type="radio" name="nonsense-complexity" value=5>5</label>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="para-row">
+                                <td><p>${grammar_error}</p></td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="grammar_error-fluency" value=1>1</label>
+                                        <label><input type="radio" name="grammar_error-fluency" value=2>2</label>
+                                        <label><input type="radio" name="grammar_error-fluency" value=3>3</label>
+                                        <label><input type="radio" name="grammar_error-fluency" value=4>4</label>
+                                        <label><input type="radio" name="grammar_error-fluency" value=5>5</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="grammar_error-sensibility" value=1>1</label>
+                                        <label><input type="radio" name="grammar_error-sensibility" value=2>2</label>
+                                        <label><input type="radio" name="grammar_error-sensibility" value=3>3</label>
+                                        <label><input type="radio" name="grammar_error-sensibility" value=4>4</label>
+                                        <label><input type="radio" name="grammar_error-sensibility" value=5>5</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="grammar_error-complexity" value=1>1</label>
+                                        <label><input type="radio" name="grammar_error-complexity" value=2>2</label>
+                                        <label><input type="radio" name="grammar_error-complexity" value=3>3</label>
+                                        <label><input type="radio" name="grammar_error-complexity" value=4>4</label>
+                                        <label><input type="radio" name="grammar_error-complexity" value=5>5</label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="para-row">
+                                <td><p>${chatgpt}</p></td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="chatgpt-fluency" value=1>1</label>
+                                        <label><input type="radio" name="chatgpt-fluency" value=2>2</label>
+                                        <label><input type="radio" name="chatgpt-fluency" value=3>3</label>
+                                        <label><input type="radio" name="chatgpt-fluency" value=4>4</label>
+                                        <label><input type="radio" name="chatgpt-fluency" value=5>5</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="chatgpt-sensibility" value=1>1</label>
+                                        <label><input type="radio" name="chatgpt-sensibility" value=2>2</label>
+                                        <label><input type="radio" name="chatgpt-sensibility" value=3>3</label>
+                                        <label><input type="radio" name="chatgpt-sensibility" value=4>4</label>
+                                        <label><input type="radio" name="chatgpt-sensibility" value=5>5</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <label><input type="radio" name="chatgpt-complexity" value=1>1</label>
+                                        <label><input type="radio" name="chatgpt-complexity" value=2>2</label>
+                                        <label><input type="radio" name="chatgpt-complexity" value=3>3</label>
+                                        <label><input type="radio" name="chatgpt-complexity" value=4>4</label>
+                                        <label><input type="radio" name="chatgpt-complexity" value=5>5</label>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+                <div>
+                    <input name="feedback" id="feedback" type="checkbox"/><i> Optional Feedback: </i> Something about
+                    the HIT is unclear/You have additional feedback:
+                </div>
+                <div id="feedback-text" style="display:none">
+                    <p style="font-size:8pt;color:grey;margin-left:20px">Your additional feedback:</p>
+                    <textarea cols="50" name="#feedback-text" rows="2"></textarea>
+                </div>
+                <br>
+
+            </crowd-form>
+        </div>
+    </fieldset>
+</section>
+
+<script>
+    function validateForm() {
+        var valid = true;
+        var radioGroups = document.querySelectorAll("crowd-radio-group");
+        for (var i = 0; i < radioGroups.length; i++) {
+            var validGroup = false;
+            var radioButtons = radioGroups[i].children;
+            for (var j = 0; j < radioButtons.length; j++) {
+                validGroup = validGroup || radioButtons[j].checked;
+            }
+            valid = valid && validGroup;
+        }
+        return valid;
+    }
+
+    window.onload = function () {
+        document.querySelector('crowd-form').onsubmit = function (e) {
+            if (!validateForm()) {
+                alert("Please answer all the questions in order to submit.");
+                e.preventDefault();
+            }
+        }
+    }
+
+    $(function () {
+        $("#feedback").change(function () {
+            $("#feedback-text").toggle();
+        });
+    });
+
+    $('label').tooltip({
+        "placement": 'top'
+    });
+    $('label').hover({
+        "background-color": '#545454' //desired color code
+    });
+</script>
+
+
+<style type="text/css">
+    th {
+        font-weight: normal;
+    }
+
+    fieldset {
+        padding: 10px;
+        background: #fbfbfb;
+        border-radius: 5px;
+        margin-bottom: 5px;
+    }
+
+    .columns {
+        list-style-type: none;
+        -webkit-columns: 2;
+        -moz-columns: 2;
+        columns: 2;
+        list-style-position: inside;
+    }
+
+    .unbulleted {
+        list-style-type: none;
+        padding: 7px;
+        margin: 0;
+    }
+
+    .story-excerpt {
+        margin: auto;
+        min-width: 500px;
+        background-color: #f2f2f2;
+        border: 2px solid #333333;
+        padding-right: 10px;
+        padding-left: 10px;
+        display: table;
+        border-radius: 15px;
+    }
+
+    table {
+        font-size: 10pt;
+    }
+
+    th {
+        text-align: left;
+        word-wrap: break-word;
+    }
+
+    td {
+        width: 100%;
+        word-wrap: break-word;
+        /*padding-left: 30px;*/
+        /*padding-right: 40px;*/
+    }
+
+    table, tbody, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+
+
+    /*.example-table td, .example-table th {*/
+    /*    border: 1px solid grey;*/
+    /*    text-align: left;*/
+    /*    font-size: 10pt;*/
+    /*}*/
+
+    /***********************************************
+   HIT CUSTOM GENERAL STYLING
+   ***********************************************/
+    div.card-header {
+        background-color: #06486F;
+    }
+
+    div.card-header h5 {
+        color: #fff !important;
+    }
+
+
+    .question-choice-container label.btn {
+        background-color: #eee;
+        border: #ccc 1px solid;
+        margin-left: 0 !important;
+        color: black;
+    }
+
+
+    .legend {
+        margin-top: .33rem;
+        font-weight: normal;
+        padding-left: 40px;
+    }
+
+    .legend .label {
+        font-style: italic;
+    }
+
+    .emphasize {
+        font-weight: bold;
+        color: black;
+        font-style: italic;
+    }
+
+    .btn-group-container {
+        align: left;
+        padding: 0;
+    }
+
+    .example {
+        pointer-events: none;
+    }
+
+    .title {
+        font-style: italic;
+    }
+
+    .entity {
+        color: blue;
+        font-weight: bold;
+    }
+
+    .use {
+        color: purple;
+        font-weight: bold;
+    }
+
+    .btn-group-xs > .btn, .btn-xs {
+        padding: .4rem .4rem;
+        font-size: .8rem;
+        line-height: 1.2;
+        border-radius: .2rem;
+    }
+
+    .card-body {
+        background-color: #fbfbfb;
+    }
+
+    .concept_a {
+        color: #0072B2;
+        font-weight: bold;
+        font-style: italic;
+    }
+
+    .concept_b {
+        color: #D55E00;
+        font-weight: bold;
+        font-style: italic;
+    }
+
+    .sm-bold {
+        font-weight: bold;
+        font-style: italic;
+        font-size: 80%;
+    }
+
+    input[type="radio"] {
+        margin-right: 10px;
+        margin-left: 10px;
+        vertical-align: middle;
+    }
+
+    /*input[type="text"]*/
+    /*{*/
+    /*    height:20px*/
+    /*}*/
+
+
+    table {
+        /* When set to 'fixed', all columns that do not have a width applied will get the remaining space divided between them equally */
+        table-layout: fixed;
+    }
+
+    .fixed-width {
+        width: 100px;
+    }
+
+    .col-12 {
+        width: 100%;
+    }
+
+    .col-11 {
+        width: 91.666666667%;
+    }
+
+    .col-10 {
+        width: 83.333333333%;
+    }
+
+    .col-9 {
+        width: 75%;
+    }
+
+    .col-8 {
+        width: 66.666666667%;
+    }
+
+    .col-7 {
+        width: 58.333333333%;
+    }
+
+    .col-6 {
+        width: 50%;
+    }
+
+    .col-5 {
+        width: 41.666666667%;
+    }
+
+    .col-4 {
+        width: 33.333333333%;
+    }
+
+    .col-3 {
+        width: 25%;
+    }
+
+    .col-2 {
+        width: 16.666666667%;
+    }
+
+    .col-1 {
+        width: 8.3333333333%;
+    }
+
+    /* Stylistic improvements from here */
+
+    .align-left {
+        text-align: left;
+    }
+
+    .align-right {
+        text-align: right;
+    }
+
+</style>

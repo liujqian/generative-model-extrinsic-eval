@@ -8,17 +8,17 @@ class CombinedCommongenValTest:
     cg = datasets.load_dataset('common_gen')
 
     def __iter__(self):
-        self.cur_dataset = "validation"
+        self.cur_dataset = "test"
         self.cur_index = 0
         return self
 
     def __next__(self):
         if self.cur_index >= len(self.cg[self.cur_dataset]):
-            if self.cur_dataset == "validation":
-                self.cur_dataset = "test"
-                self.cur_index = 0
-            else:
-                raise StopIteration
+            # if self.cur_dataset == "validation":
+            #     self.cur_dataset = "test"
+            #     self.cur_index = 0
+            # else:
+            raise StopIteration
         res = (self.cur_dataset, self.cur_index,)
         self.cur_index += 1
         return res
