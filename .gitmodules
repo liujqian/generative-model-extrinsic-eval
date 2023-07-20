@@ -1,0 +1,3 @@
+[submodule "mturk-qual-test"]
+	path = mturk-qual-test
+	url = https://github.com/ethanthoma/mturk-qual-test.git
