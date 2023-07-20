@@ -45,6 +45,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+<!--THIS BLOCK OF HTML GIVES THE INSTRUCTIONS-->
 <section class="container" id="SET1"
          style="padding: 10px; font-family: Verdana, Geneva, sans-serif; color:#333333; font-size:10pt;">
     <!-- Instructions -->
@@ -55,7 +56,8 @@
 
             <div class="panel-body">
                 <p>
-                    CommonGen is a set of tasks for which AI models need to generate a sentence using a set of
+                    We are evaluating AI models on a set of tasks for which AI models need to generate a sentence using
+                    a set of
                     words provided, and it is allowed to use different tenses or forms of the given words.
                     Sometimes the generated sentences from AI model may not cover all the
                     given words. We would like you to assess <b>how fluent</b>, <b>how sensible</b> and <b>how
@@ -67,7 +69,6 @@
                         sentence sounds <i>natural</i> to native speakers. Things that contribute to fluency include but
                         not limited to
                         <i>grammatical structure, word and phrase usage, and punctuations</i>. Note that the semantics
-                        of the sentence
                         of the sentences is not <i>NOT</i> evaluated for fluency here! For example, you should
                         <i>NOT</i> consider
                         if a sentence is logical or plausible when scoring for fluency. Please rate the generated
@@ -76,7 +77,8 @@
                     </li>
                     <li>
                         <b>How sensible are the generated sentences?</b> Being sensible means that the generated
-                        sentence makes sense to normal human beings living in modern society. Things that contribute to
+                        sentence makes sense to normal human beings living in the modern society. Things that contribute
+                        to
                         the level of sense making include but not limited to the <i>logics of the sentences, the
                         plausibility of the sentences and the
                         possibility of the event described by the sentence</i>. Please rate the generated sentences on
@@ -173,7 +175,7 @@
                         </table>
                         Explanation:
                         The sentence does not make much sense since rooms cannot take actions such as dancing. However,
-                        the sentence is grammatically correct and words used are also very common, so it is a very
+                        the sentence is grammatically correct and words used are also very common; so it is a very
                         fluent sentence. The sentence uses a which clause to modify the noun "room." While it does not
                         make much sense, the which clause does make the sentence more complex and contain more
                         information.
@@ -290,12 +292,13 @@
                                     subject-predicate form. </b></th>
                             </tr>
                             </thead>
+
                             <tbody>
                             <tr class="para-row">
                                 <td><p>${bloomz_1b1}</p></td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="bloomz_1b1-fluency" value=1>1</label>
+                                        <label><input type="radio" name="bloomz_1b1-fluency" value=1 required>1</label>
                                         <label><input type="radio" name="bloomz_1b1-fluency" value=2>2</label>
                                         <label><input type="radio" name="bloomz_1b1-fluency" value=3>3</label>
                                         <label><input type="radio" name="bloomz_1b1-fluency" value=4>4</label>
@@ -304,7 +307,8 @@
                                 </td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="bloomz_1b1-sensibility" value=1>1</label>
+                                        <label><input type="radio" name="bloomz_1b1-sensibility" value=1
+                                                      required>1</label>
                                         <label><input type="radio" name="bloomz_1b1-sensibility" value=2>2</label>
                                         <label><input type="radio" name="bloomz_1b1-sensibility" value=3>3</label>
                                         <label><input type="radio" name="bloomz_1b1-sensibility" value=4>4</label>
@@ -313,7 +317,8 @@
                                 </td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="bloomz_1b1-complexity" value=1>1</label>
+                                        <label><input type="radio" name="bloomz_1b1-complexity" value=1
+                                                      required>1</label>
                                         <label><input type="radio" name="bloomz_1b1-complexity" value=2>2</label>
                                         <label><input type="radio" name="bloomz_1b1-complexity" value=3>3</label>
                                         <label><input type="radio" name="bloomz_1b1-complexity" value=4>4</label>
@@ -326,7 +331,7 @@
                                 <td><p>${bloomz_1b7}</p></td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="bloomz_1b7-fluency" value=1>1</label>
+                                        <label><input type="radio" name="bloomz_1b7-fluency" value=1 required>1</label>
                                         <label><input type="radio" name="bloomz_1b7-fluency" value=2>2</label>
                                         <label><input type="radio" name="bloomz_1b7-fluency" value=3>3</label>
                                         <label><input type="radio" name="bloomz_1b7-fluency" value=4>4</label>
@@ -335,7 +340,8 @@
                                 </td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="bloomz_1b7-sensibility" value=1>1</label>
+                                        <label><input type="radio" name="bloomz_1b7-sensibility" value=1
+                                                      required>1</label>
                                         <label><input type="radio" name="bloomz_1b7-sensibility" value=2>2</label>
                                         <label><input type="radio" name="bloomz_1b7-sensibility" value=3>3</label>
                                         <label><input type="radio" name="bloomz_1b7-sensibility" value=4>4</label>
@@ -344,7 +350,8 @@
                                 </td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="bloomz_1b7-complexity" value=1>1</label>
+                                        <label><input type="radio" name="bloomz_1b7-complexity" value=1
+                                                      required>1</label>
                                         <label><input type="radio" name="bloomz_1b7-complexity" value=2>2</label>
                                         <label><input type="radio" name="bloomz_1b7-complexity" value=3>3</label>
                                         <label><input type="radio" name="bloomz_1b7-complexity" value=4>4</label>
@@ -357,7 +364,7 @@
                                 <td><p>${bloomz_3b}</p></td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="bloomz_3b-fluency" value=1>1</label>
+                                        <label><input type="radio" name="bloomz_3b-fluency" value=1 required>1</label>
                                         <label><input type="radio" name="bloomz_3b-fluency" value=2>2</label>
                                         <label><input type="radio" name="bloomz_3b-fluency" value=3>3</label>
                                         <label><input type="radio" name="bloomz_3b-fluency" value=4>4</label>
@@ -366,7 +373,8 @@
                                 </td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="bloomz_3b-sensibility" value=1>1</label>
+                                        <label><input type="radio" name="bloomz_3b-sensibility" value=1
+                                                      required>1</label>
                                         <label><input type="radio" name="bloomz_3b-sensibility" value=2>2</label>
                                         <label><input type="radio" name="bloomz_3b-sensibility" value=3>3</label>
                                         <label><input type="radio" name="bloomz_3b-sensibility" value=4>4</label>
@@ -375,7 +383,8 @@
                                 </td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="bloomz_3b-complexity" value=1>1</label>
+                                        <label><input type="radio" name="bloomz_3b-complexity" value=1
+                                                      required>1</label>
                                         <label><input type="radio" name="bloomz_3b-complexity" value=2>2</label>
                                         <label><input type="radio" name="bloomz_3b-complexity" value=3>3</label>
                                         <label><input type="radio" name="bloomz_3b-complexity" value=4>4</label>
@@ -388,7 +397,7 @@
                                 <td><p>${bloomz_560m}</p></td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="bloomz_560m-fluency" value=1>1</label>
+                                        <label><input type="radio" name="bloomz_560m-fluency" value=1 required>1</label>
                                         <label><input type="radio" name="bloomz_560m-fluency" value=2>2</label>
                                         <label><input type="radio" name="bloomz_560m-fluency" value=3>3</label>
                                         <label><input type="radio" name="bloomz_560m-fluency" value=4>4</label>
@@ -397,7 +406,8 @@
                                 </td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="bloomz_560m-sensibility" value=1>1</label>
+                                        <label><input type="radio" name="bloomz_560m-sensibility" value=1
+                                                      required>1</label>
                                         <label><input type="radio" name="bloomz_560m-sensibility" value=2>2</label>
                                         <label><input type="radio" name="bloomz_560m-sensibility" value=3>3</label>
                                         <label><input type="radio" name="bloomz_560m-sensibility" value=4>4</label>
@@ -406,7 +416,8 @@
                                 </td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="bloomz_560m-complexity" value=1>1</label>
+                                        <label><input type="radio" name="bloomz_560m-complexity" value=1
+                                                      required>1</label>
                                         <label><input type="radio" name="bloomz_560m-complexity" value=2>2</label>
                                         <label><input type="radio" name="bloomz_560m-complexity" value=3>3</label>
                                         <label><input type="radio" name="bloomz_560m-complexity" value=4>4</label>
@@ -419,7 +430,7 @@
                                 <td><p>${flan_t5_xl}</p></td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="flan_t5_xl-fluency" value=1>1</label>
+                                        <label><input type="radio" name="flan_t5_xl-fluency" value=1 required>1</label>
                                         <label><input type="radio" name="flan_t5_xl-fluency" value=2>2</label>
                                         <label><input type="radio" name="flan_t5_xl-fluency" value=3>3</label>
                                         <label><input type="radio" name="flan_t5_xl-fluency" value=4>4</label>
@@ -428,7 +439,8 @@
                                 </td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="flan_t5_xl-sensibility" value=1>1</label>
+                                        <label><input type="radio" name="flan_t5_xl-sensibility" value=1
+                                                      required>1</label>
                                         <label><input type="radio" name="flan_t5_xl-sensibility" value=2>2</label>
                                         <label><input type="radio" name="flan_t5_xl-sensibility" value=3>3</label>
                                         <label><input type="radio" name="flan_t5_xl-sensibility" value=4>4</label>
@@ -437,7 +449,8 @@
                                 </td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="flan_t5_xl-complexity" value=1>1</label>
+                                        <label><input type="radio" name="flan_t5_xl-complexity" value=1
+                                                      required>1</label>
                                         <label><input type="radio" name="flan_t5_xl-complexity" value=2>2</label>
                                         <label><input type="radio" name="flan_t5_xl-complexity" value=3>3</label>
                                         <label><input type="radio" name="flan_t5_xl-complexity" value=4>4</label>
@@ -450,7 +463,8 @@
                                 <td><p>${flan_t5_large}</p></td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="flan_t5_large-fluency" value=1>1</label>
+                                        <label><input type="radio" name="flan_t5_large-fluency" value=1
+                                                      required>1</label>
                                         <label><input type="radio" name="flan_t5_large-fluency" value=2>2</label>
                                         <label><input type="radio" name="flan_t5_large-fluency" value=3>3</label>
                                         <label><input type="radio" name="flan_t5_large-fluency" value=4>4</label>
@@ -459,7 +473,8 @@
                                 </td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="flan_t5_large-sensibility" value=1>1</label>
+                                        <label><input type="radio" name="flan_t5_large-sensibility" value=1
+                                                      required>1</label>
                                         <label><input type="radio" name="flan_t5_large-sensibility" value=2>2</label>
                                         <label><input type="radio" name="flan_t5_large-sensibility" value=3>3</label>
                                         <label><input type="radio" name="flan_t5_large-sensibility" value=4>4</label>
@@ -468,7 +483,8 @@
                                 </td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="flan_t5_large-complexity" value=1>1</label>
+                                        <label><input type="radio" name="flan_t5_large-complexity" value=1
+                                                      required>1</label>
                                         <label><input type="radio" name="flan_t5_large-complexity" value=2>2</label>
                                         <label><input type="radio" name="flan_t5_large-complexity" value=3>3</label>
                                         <label><input type="radio" name="flan_t5_large-complexity" value=4>4</label>
@@ -481,7 +497,7 @@
                                 <td><p>${t0_3b}</p></td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="t0_3b-fluency" value=1>1</label>
+                                        <label><input type="radio" name="t0_3b-fluency" value=1 required>1</label>
                                         <label><input type="radio" name="t0_3b-fluency" value=2>2</label>
                                         <label><input type="radio" name="t0_3b-fluency" value=3>3</label>
                                         <label><input type="radio" name="t0_3b-fluency" value=4>4</label>
@@ -490,7 +506,7 @@
                                 </td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="t0_3b-sensibility" value=1>1</label>
+                                        <label><input type="radio" name="t0_3b-sensibility" value=1 required>1</label>
                                         <label><input type="radio" name="t0_3b-sensibility" value=2>2</label>
                                         <label><input type="radio" name="t0_3b-sensibility" value=3>3</label>
                                         <label><input type="radio" name="t0_3b-sensibility" value=4>4</label>
@@ -499,7 +515,7 @@
                                 </td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="t0_3b-complexity" value=1>1</label>
+                                        <label><input type="radio" name="t0_3b-complexity" value=1 required>1</label>
                                         <label><input type="radio" name="t0_3b-complexity" value=2>2</label>
                                         <label><input type="radio" name="t0_3b-complexity" value=3>3</label>
                                         <label><input type="radio" name="t0_3b-complexity" value=4>4</label>
@@ -512,7 +528,7 @@
                                 <td><p>${tk_instruct_3b_def}</p></td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="tk_instruct_3b_def-fluency" value=1>1</label>
+                                        <label><input type="radio" name="tk_instruct_3b_def-fluency" value=1 required>1</label>
                                         <label><input type="radio" name="tk_instruct_3b_def-fluency" value=2>2</label>
                                         <label><input type="radio" name="tk_instruct_3b_def-fluency" value=3>3</label>
                                         <label><input type="radio" name="tk_instruct_3b_def-fluency" value=4>4</label>
@@ -522,7 +538,7 @@
                                 <td>
                                     <div>
                                         <label><input type="radio" name="tk_instruct_3b_def-sensibility"
-                                                      value=1>1</label>
+                                                      value=1 required>1</label>
                                         <label><input type="radio" name="tk_instruct_3b_def-sensibility"
                                                       value=2>2</label>
                                         <label><input type="radio" name="tk_instruct_3b_def-sensibility"
@@ -536,7 +552,7 @@
                                 <td>
                                     <div>
                                         <label><input type="radio" name="tk_instruct_3b_def-complexity"
-                                                      value=1>1</label>
+                                                      value=1 required>1</label>
                                         <label><input type="radio" name="tk_instruct_3b_def-complexity"
                                                       value=2>2</label>
                                         <label><input type="radio" name="tk_instruct_3b_def-complexity"
@@ -553,7 +569,7 @@
                                 <td><p>${mt0_large}</p></td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="mt0_large-fluency" value=1>1</label>
+                                        <label><input type="radio" name="mt0_large-fluency" value=1 required>1</label>
                                         <label><input type="radio" name="mt0_large-fluency" value=2>2</label>
                                         <label><input type="radio" name="mt0_large-fluency" value=3>3</label>
                                         <label><input type="radio" name="mt0_large-fluency" value=4>4</label>
@@ -562,7 +578,8 @@
                                 </td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="mt0_large-sensibility" value=1>1</label>
+                                        <label><input type="radio" name="mt0_large-sensibility" value=1
+                                                      required>1</label>
                                         <label><input type="radio" name="mt0_large-sensibility" value=2>2</label>
                                         <label><input type="radio" name="mt0_large-sensibility" value=3>3</label>
                                         <label><input type="radio" name="mt0_large-sensibility" value=4>4</label>
@@ -571,7 +588,8 @@
                                 </td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="mt0_large-complexity" value=1>1</label>
+                                        <label><input type="radio" name="mt0_large-complexity" value=1
+                                                      required>1</label>
                                         <label><input type="radio" name="mt0_large-complexity" value=2>2</label>
                                         <label><input type="radio" name="mt0_large-complexity" value=3>3</label>
                                         <label><input type="radio" name="mt0_large-complexity" value=4>4</label>
@@ -584,7 +602,7 @@
                                 <td><p>${mt0_base}</p></td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="mt0_base-fluency" value=1>1</label>
+                                        <label><input type="radio" name="mt0_base-fluency" value=1 required>1</label>
                                         <label><input type="radio" name="mt0_base-fluency" value=2>2</label>
                                         <label><input type="radio" name="mt0_base-fluency" value=3>3</label>
                                         <label><input type="radio" name="mt0_base-fluency" value=4>4</label>
@@ -593,7 +611,8 @@
                                 </td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="mt0_base-sensibility" value=1>1</label>
+                                        <label><input type="radio" name="mt0_base-sensibility" value=1
+                                                      required>1</label>
                                         <label><input type="radio" name="mt0_base-sensibility" value=2>2</label>
                                         <label><input type="radio" name="mt0_base-sensibility" value=3>3</label>
                                         <label><input type="radio" name="mt0_base-sensibility" value=4>4</label>
@@ -602,7 +621,7 @@
                                 </td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="mt0_base-complexity" value=1>1</label>
+                                        <label><input type="radio" name="mt0_base-complexity" value=1 required>1</label>
                                         <label><input type="radio" name="mt0_base-complexity" value=2>2</label>
                                         <label><input type="radio" name="mt0_base-complexity" value=3>3</label>
                                         <label><input type="radio" name="mt0_base-complexity" value=4>4</label>
@@ -615,7 +634,7 @@
                                 <td><p>${mt0_small}</p></td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="mt0_small-fluency" value=1>1</label>
+                                        <label><input type="radio" name="mt0_small-fluency" value=1 required>1</label>
                                         <label><input type="radio" name="mt0_small-fluency" value=2>2</label>
                                         <label><input type="radio" name="mt0_small-fluency" value=3>3</label>
                                         <label><input type="radio" name="mt0_small-fluency" value=4>4</label>
@@ -624,7 +643,8 @@
                                 </td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="mt0_small-sensibility" value=1>1</label>
+                                        <label><input type="radio" name="mt0_small-sensibility" value=1
+                                                      required>1</label>
                                         <label><input type="radio" name="mt0_small-sensibility" value=2>2</label>
                                         <label><input type="radio" name="mt0_small-sensibility" value=3>3</label>
                                         <label><input type="radio" name="mt0_small-sensibility" value=4>4</label>
@@ -633,7 +653,8 @@
                                 </td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="mt0_small-complexity" value=1>1</label>
+                                        <label><input type="radio" name="mt0_small-complexity" value=1
+                                                      required>1</label>
                                         <label><input type="radio" name="mt0_small-complexity" value=2>2</label>
                                         <label><input type="radio" name="mt0_small-complexity" value=3>3</label>
                                         <label><input type="radio" name="mt0_small-complexity" value=4>4</label>
@@ -646,7 +667,7 @@
                                 <td><p>${mt0_xl}</p></td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="mt0_xl-fluency" value=1>1</label>
+                                        <label><input type="radio" name="mt0_xl-fluency" value=1 required>1</label>
                                         <label><input type="radio" name="mt0_xl-fluency" value=2>2</label>
                                         <label><input type="radio" name="mt0_xl-fluency" value=3>3</label>
                                         <label><input type="radio" name="mt0_xl-fluency" value=4>4</label>
@@ -655,7 +676,7 @@
                                 </td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="mt0_xl-sensibility" value=1>1</label>
+                                        <label><input type="radio" name="mt0_xl-sensibility" value=1 required>1</label>
                                         <label><input type="radio" name="mt0_xl-sensibility" value=2>2</label>
                                         <label><input type="radio" name="mt0_xl-sensibility" value=3>3</label>
                                         <label><input type="radio" name="mt0_xl-sensibility" value=4>4</label>
@@ -664,7 +685,7 @@
                                 </td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="mt0_xl-complexity" value=1>1</label>
+                                        <label><input type="radio" name="mt0_xl-complexity" value=1 required>1</label>
                                         <label><input type="radio" name="mt0_xl-complexity" value=2>2</label>
                                         <label><input type="radio" name="mt0_xl-complexity" value=3>3</label>
                                         <label><input type="radio" name="mt0_xl-complexity" value=4>4</label>
@@ -676,7 +697,7 @@
                                 <td><p>${complex}</p></td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="complex-fluency" value=1>1</label>
+                                        <label><input type="radio" name="complex-fluency" value=1 required>1</label>
                                         <label><input type="radio" name="complex-fluency" value=2>2</label>
                                         <label><input type="radio" name="complex-fluency" value=3>3</label>
                                         <label><input type="radio" name="complex-fluency" value=4>4</label>
@@ -685,7 +706,7 @@
                                 </td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="complex-sensibility" value=1>1</label>
+                                        <label><input type="radio" name="complex-sensibility" value=1 required>1</label>
                                         <label><input type="radio" name="complex-sensibility" value=2>2</label>
                                         <label><input type="radio" name="complex-sensibility" value=3>3</label>
                                         <label><input type="radio" name="complex-sensibility" value=4>4</label>
@@ -694,7 +715,7 @@
                                 </td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="complex-complexity" value=1>1</label>
+                                        <label><input type="radio" name="complex-complexity" value=1 required>1</label>
                                         <label><input type="radio" name="complex-complexity" value=2>2</label>
                                         <label><input type="radio" name="complex-complexity" value=3>3</label>
                                         <label><input type="radio" name="complex-complexity" value=4>4</label>
@@ -706,7 +727,7 @@
                                 <td><p>${simple}</p></td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="simple-fluency" value=1>1</label>
+                                        <label><input type="radio" name="simple-fluency" value=1 required>1</label>
                                         <label><input type="radio" name="simple-fluency" value=2>2</label>
                                         <label><input type="radio" name="simple-fluency" value=3>3</label>
                                         <label><input type="radio" name="simple-fluency" value=4>4</label>
@@ -715,7 +736,7 @@
                                 </td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="simple-sensibility" value=1>1</label>
+                                        <label><input type="radio" name="simple-sensibility" value=1 required>1</label>
                                         <label><input type="radio" name="simple-sensibility" value=2>2</label>
                                         <label><input type="radio" name="simple-sensibility" value=3>3</label>
                                         <label><input type="radio" name="simple-sensibility" value=4>4</label>
@@ -724,7 +745,7 @@
                                 </td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="simple-complexity" value=1>1</label>
+                                        <label><input type="radio" name="simple-complexity" value=1 required>1</label>
                                         <label><input type="radio" name="simple-complexity" value=2>2</label>
                                         <label><input type="radio" name="simple-complexity" value=3>3</label>
                                         <label><input type="radio" name="simple-complexity" value=4>4</label>
@@ -737,7 +758,7 @@
                                 <td><p>${nonsense}</p></td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="nonsense-fluency" value=1>1</label>
+                                        <label><input type="radio" name="nonsense-fluency" value=1 required>1</label>
                                         <label><input type="radio" name="nonsense-fluency" value=2>2</label>
                                         <label><input type="radio" name="nonsense-fluency" value=3>3</label>
                                         <label><input type="radio" name="nonsense-fluency" value=4>4</label>
@@ -746,7 +767,8 @@
                                 </td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="nonsense-sensibility" value=1>1</label>
+                                        <label><input type="radio" name="nonsense-sensibility" value=1
+                                                      required>1</label>
                                         <label><input type="radio" name="nonsense-sensibility" value=2>2</label>
                                         <label><input type="radio" name="nonsense-sensibility" value=3>3</label>
                                         <label><input type="radio" name="nonsense-sensibility" value=4>4</label>
@@ -755,7 +777,7 @@
                                 </td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="nonsense-complexity" value=1>1</label>
+                                        <label><input type="radio" name="nonsense-complexity" value=1 required>1</label>
                                         <label><input type="radio" name="nonsense-complexity" value=2>2</label>
                                         <label><input type="radio" name="nonsense-complexity" value=3>3</label>
                                         <label><input type="radio" name="nonsense-complexity" value=4>4</label>
@@ -768,7 +790,8 @@
                                 <td><p>${grammar_error}</p></td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="grammar_error-fluency" value=1>1</label>
+                                        <label><input type="radio" name="grammar_error-fluency" value=1
+                                                      required>1</label>
                                         <label><input type="radio" name="grammar_error-fluency" value=2>2</label>
                                         <label><input type="radio" name="grammar_error-fluency" value=3>3</label>
                                         <label><input type="radio" name="grammar_error-fluency" value=4>4</label>
@@ -777,7 +800,8 @@
                                 </td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="grammar_error-sensibility" value=1>1</label>
+                                        <label><input type="radio" name="grammar_error-sensibility" value=1
+                                                      required>1</label>
                                         <label><input type="radio" name="grammar_error-sensibility" value=2>2</label>
                                         <label><input type="radio" name="grammar_error-sensibility" value=3>3</label>
                                         <label><input type="radio" name="grammar_error-sensibility" value=4>4</label>
@@ -786,7 +810,8 @@
                                 </td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="grammar_error-complexity" value=1>1</label>
+                                        <label><input type="radio" name="grammar_error-complexity" value=1
+                                                      required>1</label>
                                         <label><input type="radio" name="grammar_error-complexity" value=2>2</label>
                                         <label><input type="radio" name="grammar_error-complexity" value=3>3</label>
                                         <label><input type="radio" name="grammar_error-complexity" value=4>4</label>
@@ -798,7 +823,7 @@
                                 <td><p>${chatgpt}</p></td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="chatgpt-fluency" value=1>1</label>
+                                        <label><input type="radio" name="chatgpt-fluency" value=1 required>1</label>
                                         <label><input type="radio" name="chatgpt-fluency" value=2>2</label>
                                         <label><input type="radio" name="chatgpt-fluency" value=3>3</label>
                                         <label><input type="radio" name="chatgpt-fluency" value=4>4</label>
@@ -807,7 +832,7 @@
                                 </td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="chatgpt-sensibility" value=1>1</label>
+                                        <label><input type="radio" name="chatgpt-sensibility" value=1 required>1</label>
                                         <label><input type="radio" name="chatgpt-sensibility" value=2>2</label>
                                         <label><input type="radio" name="chatgpt-sensibility" value=3>3</label>
                                         <label><input type="radio" name="chatgpt-sensibility" value=4>4</label>
@@ -816,7 +841,7 @@
                                 </td>
                                 <td>
                                     <div>
-                                        <label><input type="radio" name="chatgpt-complexity" value=1>1</label>
+                                        <label><input type="radio" name="chatgpt-complexity" value=1 required>1</label>
                                         <label><input type="radio" name="chatgpt-complexity" value=2>2</label>
                                         <label><input type="radio" name="chatgpt-complexity" value=3>3</label>
                                         <label><input type="radio" name="chatgpt-complexity" value=4>4</label>

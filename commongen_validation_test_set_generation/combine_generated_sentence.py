@@ -62,8 +62,9 @@ def combine_generated_sentences(num_items: int = 500):
 def simple_combine_generations():
     confounding_types = get_confounding_types()
     lm_names = [
-        "bloomz_1b1", "bloomz_1b7", "bloomz_3b", "bloomz_560m", "flan_t5_xl", "flan_t5_large", "t0_3b",
-        "tk_instruct_3b_def", "mt0_large", "mt0_base", "mt0_small", "mt0_xl", "chatgpt"
+        # "bloomz_1b1", "bloomz_1b7", "bloomz_3b", "bloomz_560m", "flan_t5_xl", "flan_t5_large", "t0_3b",
+        # "tk_instruct_3b_def", "mt0_large", "mt0_base", "mt0_small", "mt0_xl", "chatgpt"
+        lm_name for lm_name in get_language_models()
     ]
     csv_header = [
                      "set_name",

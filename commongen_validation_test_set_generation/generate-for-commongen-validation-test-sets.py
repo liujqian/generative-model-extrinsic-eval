@@ -85,6 +85,8 @@ def generate_for_commongen(model, tokenizer, prompt_generator, result_separator,
 if __name__ == '__main__':
     commongen_full = datasets.load_dataset('common_gen')
     for model_name in get_language_models():
+        if model_name == "chatgpt":
+            continue
         model_func = get_language_models()[model_name]
         model_suite = model_func()
         if len(model_suite) == 3:

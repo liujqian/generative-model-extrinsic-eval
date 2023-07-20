@@ -30,7 +30,7 @@ def select_n_questions_maxing_diversity(n: int) -> list[dict[str, str]]:
     concepts_cnt = {}
     cur_minimum_repeat_target = 0
 
-    while len(selected) <= n:
+    while len(selected) < n:
         found = False
         for item in iter(CombinedCommongenValTest()):
             concepts = cg[item[0]][item[1]]["concepts"]
