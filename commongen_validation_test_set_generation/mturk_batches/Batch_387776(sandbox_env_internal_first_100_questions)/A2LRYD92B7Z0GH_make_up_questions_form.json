@@ -1,0 +1,228 @@
+[
+  {
+    "HITId": "n/a",
+    "WorkerId": "A2LRYD92B7Z0GH",
+    "AssignmentId": "n/a",
+    "AcceptTime": "n/a",
+    "SubmitTime": "n/a",
+    "SubsetName": "test",
+    "ConceptSetID": 848,
+    "Generations": [
+      {
+        "sentence": "A man feels pain in his ear after piercing it.",
+        "complexity": 4,
+        "fluency": 5,
+        "sensibility": 5
+      },
+      {
+        "sentence": "Someone feels pain in his ear when he pierces it.",
+        "complexity": 4,
+        "fluency": 5,
+        "sensibility": 5
+      },
+      {
+        "sentence": "Someone feels a sharp pain piercing her ear.",
+        "complexity": 4,
+        "fluency": 5,
+        "sensibility": 5
+      },
+      {
+        "sentence": "pain in the ear and piercing",
+        "complexity": 2,
+        "fluency": 1,
+        "sensibility": 2
+      },
+      {
+        "sentence": "piercing the ear can feel like a lot of pain.",
+        "complexity": 4,
+        "fluency": 4,
+        "sensibility": 4
+      },
+      {
+        "sentence": "i feel the pain in my ear pierced.",
+        "complexity": 3,
+        "fluency": 5,
+        "sensibility": 5
+      },
+      {
+        "sentence": "piercing the ear with a needle is a common way to feel pain.",
+        "complexity": 4,
+        "fluency": 5,
+        "sensibility": 4
+      },
+      {
+        "sentence": "The pierced ear hurts.",
+        "complexity": 2,
+        "fluency": 5,
+        "sensibility": 5
+      },
+      {
+        "sentence": "A man pierces his ear and feels pain.",
+        "complexity": 3,
+        "fluency": 5,
+        "sensibility": 5
+      },
+      {
+        "sentence": "A man feels pain in his ear.",
+        "complexity": 3,
+        "fluency": 5,
+        "sensibility": 5
+      },
+      {
+        "sentence": "A man feels pain in the pierce.",
+        "complexity": 3,
+        "fluency": 5,
+        "sensibility": 1
+      },
+      {
+        "sentence": "i feel pain when i pierce my ear.",
+        "complexity": 3,
+        "fluency": 5,
+        "sensibility": 5
+      },
+      {
+        "sentence": "I feel a sharp pain in my ear every time I try to pierce it.",
+        "complexity": 4,
+        "fluency": 5,
+        "sensibility": 3
+      },
+      {
+        "sentence": "Whenever loud sounds pierce my ear, I feel a sharp pain that can last for hours.",
+        "complexity": 5,
+        "fluency": 5,
+        "sensibility": 5
+      },
+      {
+        "sentence": "I feel pain in my ear after the piercing.",
+        "complexity": 4,
+        "fluency": 5,
+        "sensibility": 4
+      },
+      {
+        "sentence": "The pain felt in my ear was so intense that it pierced through the walls of reality, sending me hurtling through a portal to another dimension.",
+        "complexity": 5,
+        "fluency": 5,
+        "sensibility": 1
+      },
+      {
+        "sentence": "Me ear feel pain, like someone pierce it with hot needle.",
+        "complexity": 4,
+        "fluency": 2,
+        "sensibility": 5
+      }
+    ]
+  },
+  {
+    "HITId": "n/a",
+    "WorkerId": "A2LRYD92B7Z0GH",
+    "AssignmentId": "n/a",
+    "AcceptTime": "n/a",
+    "SubmitTime": "n/a",
+    "SubsetName": "test",
+    "ConceptSetID": 313,
+    "Generations": [
+      {
+        "sentence": "father and daughter plant a tree in the forest",
+        "complexity": 3,
+        "fluency": 4,
+        "sensibility": 5
+      },
+      {
+        "sentence": "father planting a tree with his daughter and son",
+        "complexity": 3,
+        "fluency": 3,
+        "sensibility": 4
+      },
+      {
+        "sentence": "father planting a tree for his daughter",
+        "complexity": 3,
+        "fluency": 4,
+        "sensibility": 4
+      },
+      {
+        "sentence": "father and daughter planting trees in the garden",
+        "complexity": 3,
+        "fluency": 4,
+        "sensibility": 5
+      },
+      {
+        "sentence": "father planting a tree with his daughter and son",
+        "complexity": 3,
+        "fluency": 3,
+        "sensibility": 4
+      },
+      {
+        "sentence": "father and daughter planting a tree in the garden",
+        "complexity": 3,
+        "fluency": 3,
+        "sensibility": 4
+      },
+      {
+        "sentence": "a father and his daughter planting a tree",
+        "complexity": 3,
+        "fluency": 4,
+        "sensibility": 5
+      },
+      {
+        "sentence": "The tree and the plant are my son and daughter.",
+        "complexity": 3,
+        "fluency": 5,
+        "sensibility": 2
+      },
+      {
+        "sentence": "mother and daughters planting a tree in the garden.",
+        "complexity": 3,
+        "fluency": 4,
+        "sensibility": 4
+      },
+      {
+        "sentence": "father and daughter growing on a tree.",
+        "complexity": 3,
+        "fluency": 3,
+        "sensibility": 1
+      },
+      {
+        "sentence": "a mother and daughter growing on a tree in a tree.",
+        "complexity": 4,
+        "fluency": 4,
+        "sensibility": 1
+      },
+      {
+        "sentence": "father and daughter planting a tree for their son.",
+        "complexity": 4,
+        "fluency": 3,
+        "sensibility": 1
+      },
+      {
+        "sentence": "The father planted a tree with his daughter and son.",
+        "complexity": 3,
+        "fluency": 5,
+        "sensibility": 5
+      },
+      {
+        "sentence": "The father, who loved nature, carefully planted a tree in the backyard, teaching his daughter and son about the importance of nurturing and caring for plants.",
+        "complexity": 5,
+        "fluency": 5,
+        "sensibility": 5
+      },
+      {
+        "sentence": "The father plants a tree with his daughter and son.",
+        "complexity": 3,
+        "fluency": 5,
+        "sensibility": 5
+      },
+      {
+        "sentence": "The plant's father tree son daughter.",
+        "complexity": 2,
+        "fluency": 1,
+        "sensibility": 1
+      },
+      {
+        "sentence": "The daughter she plant the tree father and the son do the watering.",
+        "complexity": 4,
+        "fluency": 2,
+        "sensibility": 3
+      }
+    ]
+  }
+]

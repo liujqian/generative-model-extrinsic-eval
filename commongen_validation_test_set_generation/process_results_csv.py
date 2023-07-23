@@ -76,28 +76,29 @@ def find_bad_responses(responses: list[dict]) -> list[dict]:
 
 
 if __name__ == '__main__':
-    name = "mturk_batches/Batch_5109423_batch_results_july_20_first_100"
+    name = "mturk_batches/Batch_387776(sandbox_env_internal_first_100_questions)/Batch_387776_batch_results"
     processed = process_csv(name + ".csv")
     with open(name + ".json", "w") as handle:
         json.dump(processed, handle)
-    bad_ones = find_bad_responses(processed)
-    with open(name + "_bad_ones.json", "w") as handle:
-        json.dump(bad_ones, handle)
-    print(f"Found {len(bad_ones)} bad responses.")
-    bad_assignment_ids = {bad_response["AssignmentId"] for bad_response in bad_ones}
-    good_ones = [response for response in processed if response["AssignmentId"] not in bad_assignment_ids]
-    with open(name + "_good_ones.json", "w") as handle:
-        json.dump(good_ones, handle)
-    print(f"Found {len(good_ones)} good responses.")
-
-    lm_names = get_language_models().keys()
-    lm_stats = {lm_name: {measure: [] for measure in measures} for lm_name in lm_names}
-    for response in processed:
-        for lm_name in lm_names:
-            for measure in measures:
-                lm_stats[lm_name][measure].append(response[lm_name][measure])
-    for lm_name in lm_names:
-        for measure in measures:
-            lm_stats[lm_name][measure] = sum(lm_stats[lm_name][measure]) / len(lm_stats[lm_name][measure])
-    with open(name + "_averaged_stats.json", 'w') as handle:
-        json.dump(lm_stats, handle)
+    #
+    # bad_ones = find_bad_responses(processed)
+    # with open(name + "_bad_ones.json", "w") as handle:
+    #     json.dump(bad_ones, handle)
+    # print(f"Found {len(bad_ones)} bad responses.")
+    # bad_assignment_ids = {bad_response["AssignmentId"] for bad_response in bad_ones}
+    # good_ones = [response for response in processed if response["AssignmentId"] not in bad_assignment_ids]
+    # with open(name + "_good_ones.json", "w") as handle:
+    #     json.dump(good_ones, handle)
+    # print(f"Found {len(good_ones)} good responses.")
+    #
+    # lm_names = get_language_models().keys()
+    # lm_stats = {lm_name: {measure: [] for measure in measures} for lm_name in lm_names}
+    # for response in processed:
+    #     for lm_name in lm_names:
+    #         for measure in measures:
+    #             lm_stats[lm_name][measure].append(response[lm_name][measure])
+    # for lm_name in lm_names:
+    #     for measure in measures:
+    #         lm_stats[lm_name][measure] = sum(lm_stats[lm_name][measure]) / len(lm_stats[lm_name][measure])
+    # with open(name + "_averaged_stats.json", 'w') as handle:
+    #     json.dump(lm_stats, handle)
