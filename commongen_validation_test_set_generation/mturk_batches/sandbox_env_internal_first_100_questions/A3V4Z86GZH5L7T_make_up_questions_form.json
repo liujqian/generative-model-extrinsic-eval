@@ -1,0 +1,793 @@
+[
+    {
+        "HITId": "n/a",
+        "WorkerId": "A3V4Z86GZH5L7T",
+        "AssignmentId": "n/a",
+        "AcceptTime": "n/a",
+        "SubmitTime": "n/a",
+        "SubsetName": "test",
+        "ConceptSetID": 15,
+        "Generations": [
+            {
+                "sentence": "A woman is talking about lipstick on her lips.",
+                "complexity": 4,
+                "fluency": 4,
+                "sensibility":5
+            },
+            {
+                "sentence": "The girl put on her lipstick and talked.",
+                "complexity": 4,
+                "fluency": 5,
+                "sensibility": 5
+            },
+            {
+                "sentence": "A woman is talking and putting lipstick on her lips.",
+                "complexity": 4,
+                "fluency": 5,
+                "sensibility": 5
+            },
+            {
+                "sentence": "The girl put lipstick on her lips.",
+                "complexity": 3,
+                "fluency": 5,
+                "sensibility": 5
+            },
+            {
+                "sentence": "A girl is putting lipstick on her lips while talking.",
+                "complexity": 4,
+                "fluency": 5,
+                "sensibility": 5
+            },
+            {
+                "sentence": "Someone puts lipstick on her lips and starts talking.",
+                "complexity": 4,
+                "fluency": 5,
+                "sensibility": 5
+            },
+            {
+                "sentence": "A woman puts lipstick on her lips and talks to the camera.",
+                "complexity": 4,
+                "fluency": 5,
+                "sensibility": 5
+            },
+            {
+                "sentence": "Put your lipstick on.",
+                "complexity": 2,
+                "fluency": 5,
+                "sensibility": 5
+            },
+            {
+                "sentence": "A woman puts lipstick on her lips.",
+                "complexity": 3,
+                "fluency": 5,
+                "sensibility": 5
+            },
+            {
+                "sentence": "A man puts lipstick on his lips.",
+                "complexity": 3,
+                "fluency": 5,
+                "sensibility": 5
+            },
+            {
+                "sentence": "A lipstick puts a lipstick on the lips.",
+                "complexity": 2,
+                "fluency": 5,
+                "sensibility": 1
+            },
+            {
+                "sentence": "A girl is talking to someone while putting lipstick on her lips.",
+                "complexity": 4,
+                "fluency": 5,
+                "sensibility": 5
+            },
+            {
+                "sentence": "She put on her lipstick and then began to talk.",
+                "complexity": 3,
+                "fluency": 4,
+                "sensibility": 5
+            },
+            {
+                "sentence": "She put on her favorite lipstick before going out to talk to her friends.",
+                "complexity": 5,
+                "fluency": 5,
+                "sensibility": 5
+            },
+            {
+                "sentence": "Put on your lipstick and let's talk.",
+                "complexity": 3,
+                "fluency": 5,
+                "sensibility": 5
+            },
+            {
+                "sentence": "The lip put lipstick on the talk.",
+                "complexity": 2,
+                "fluency": 3,
+                "sensibility": 1
+            },
+            {
+                "sentence": "I lip put on lipstick and talk like bad grammar good not is.",
+                "complexity": 4,
+                "fluency": 1,
+                "sensibility": 1
+            }
+        ]
+    },
+    {
+        "HITId": "n/a",
+        "WorkerId": "A3V4Z86GZH5L7T",
+        "AssignmentId": "n/a",
+        "AcceptTime": "n/a",
+        "SubmitTime": "n/a",
+        "SubsetName": "test",
+        "ConceptSetID": 76,
+        "Generations": [
+            {
+                "sentence": "A woman presses weights on a bench.",
+                "complexity": 3,
+                "fluency": 5,
+                "sensibility": 4
+            },
+            {
+                "sentence": "A man is pressing weights on a bench in a gym.",
+                "complexity": 4,
+                "fluency": 5,
+                "sensibility": 4
+            },
+            {
+                "sentence": "A man in a gym presses a weight on a bench.",
+                "complexity": 4,
+                "fluency": 5,
+                "sensibility": 4
+            },
+            {
+                "sentence": "A man is standing on a bench pressing weights on a gym.",
+                "complexity": 3,
+                "fluency": 4,
+                "sensibility": 2
+            },
+            {
+                "sentence": "A man is pressing weights on a bench in a gym.",
+                "complexity": 3,
+                "fluency": 4,
+                "sensibility": 4
+            },
+            {
+                "sentence": "A man is working out on a bench press at a gym.",
+                "complexity": 3,
+                "fluency": 4,
+                "sensibility": 4
+            },
+            {
+                "sentence": "A man is pressing weights on a bench in a gym.",
+                "complexity": 3,
+                "fluency": 4,
+                "sensibility": 4
+            },
+            {
+                "sentence": "The gym bench press is a great exercise.",
+                "complexity": 2,
+                "fluency": 5,
+                "sensibility": 5
+            },
+            {
+                "sentence": "A man is pressing his weight on a bench at a gym.",
+                "complexity": 3,
+                "fluency": 3,
+                "sensibility": 2
+            },
+            {
+                "sentence": "A man is pressing a bench on a gym bench.",
+                "complexity": 3,
+                "fluency": 3,
+                "sensibility": 4
+            },
+            {
+                "sentence": "a bench pressing weight on a bench.",
+                "complexity": 2,
+                "fluency": 3,
+                "sensibility": 1
+            },
+            {
+                "sentence": "A man is pressing weights on a bench in the gym.",
+                "complexity": 3,
+                "fluency": 3,
+                "sensibility": 4
+            },
+            {
+                "sentence": "I spotted a fellow gym-goer struggling to lift the heavy weight on the bench press.",
+                "complexity": 4,
+                "fluency": 5,
+                "sensibility": 5
+            },
+            {
+                "sentence": "After finishing his intense workout at the gym, he decided to press a hefty weight on the bench, but his muscles were already fatigued.",
+                "complexity": 5,
+                "fluency": 5,
+                "sensibility": 5
+            },
+            {
+                "sentence": "He presses the weight at the gym on the bench.",
+                "complexity": 3,
+                "fluency": 4,
+                "sensibility": 3
+            },
+            {
+                "sentence": "I pressed the gym bench with a weight made of marshmallows.",
+                "complexity": 4,
+                "fluency": 4,
+                "sensibility": 1
+            },
+            {
+                "sentence": "The gym press weight on the bench.",
+                "complexity": 2,
+                "fluency": 1,
+                "sensibility": 1
+            }
+        ]
+    },
+    {
+        "HITId": "n/a",
+        "WorkerId": "A3V4Z86GZH5L7T",
+        "AssignmentId": "n/a",
+        "AcceptTime": "n/a",
+        "SubmitTime": "n/a",
+        "SubsetName": "test",
+        "ConceptSetID": 121,
+        "Generations": [
+            {
+                "sentence": "A glass filled with beer and tap.",
+                "complexity": 2,
+                "fluency": 4,
+                "sensibility": 5
+            },
+            {
+                "sentence": "A man is filling a glass of beer with tap water.",
+                "complexity": 3,
+                "fluency": 5,
+                "sensibility": 5
+            },
+            {
+                "sentence": "A man fills a glass with beer at a tap.",
+                "complexity": 3,
+                "fluency": 4,
+                "sensibility": 3
+            },
+            {
+                "sentence": "A glass filled with beer and tap.",
+                "complexity": 2,
+                "fluency": 4,
+                "sensibility": 5
+            },
+            {
+                "sentence": "A man is filling a glass with beer from a tap.",
+                "complexity": 3,
+                "fluency": 4,
+                "sensibility": 5
+            },
+            {
+                "sentence": "A man is filling a glass with beer from a tap.",
+                "complexity": 3,
+                "fluency": 4,
+                "sensibility": 5
+            },
+            {
+                "sentence": "A man fills a glass with beer.",
+                "complexity": 2,
+                "fluency": 4,
+                "sensibility": 5
+            },
+            {
+                "sentence": "A beer glass is filled with beer.",
+                "complexity": 2,
+                "fluency": 4,
+                "sensibility": 5
+            },
+            {
+                "sentence": "A man fills a glass of beer in a tap.",
+                "complexity": 3,
+                "fluency": 4,
+                "sensibility": 5
+            },
+            {
+                "sentence": "A glass of beer filling a glass.",
+                "complexity": 2,
+                "fluency": 4,
+                "sensibility": 1
+            },
+            {
+                "sentence": "A glass of beer filled with beer.",
+                "complexity": 2,
+                "fluency": 4,
+                "sensibility": 3
+            },
+            {
+                "sentence": "A glass of beer is filled with beer on a tap.",
+                "complexity": 3,
+                "fluency": 4,
+                "sensibility": 3
+            },
+            {
+                "sentence": "I watched the bartender fill the glass with beer from the tap.",
+                "complexity": 4,
+                "fluency": 5,
+                "sensibility": 5
+            },
+            {
+                "sentence": "Standing at the bar, I watched as the bartender pulled the tap handle, filling the glass with ice-cold beer, which instantly quenched my thirst.",
+                "complexity":5,
+                "fluency": 5,
+                "sensibility": 5
+            },
+            {
+                "sentence": "The bartender used the tap to fill the glass with beer.",
+                "complexity": 4,
+                "fluency": 5,
+                "sensibility": 5
+            },
+            {
+                "sentence": "The glass was filled with beer by tapping on the tap, while the tap was filled with glass.",
+                "complexity": 4,
+                "fluency": 3,
+                "sensibility": 1
+            },
+            {
+                "sentence": "I fill the beer tap with glass, very bad grammar error and multiple grammar errors.",
+                "complexity": 3,
+                "fluency": 1,
+                "sensibility": 1
+            }
+        ]
+    },
+    {
+        "HITId": "n/a",
+        "WorkerId": "A3V4Z86GZH5L7T",
+        "AssignmentId": "n/a",
+        "AcceptTime": "n/a",
+        "SubmitTime": "n/a",
+        "SubsetName": "test",
+        "ConceptSetID": 152,
+        "Generations": [
+            {
+                "sentence": "vegetables and fruit are sold at a market.",
+                "complexity": 3,
+                "fluency": 4,
+                "sensibility": 5
+            },
+            {
+                "sentence": "fresh vegetables and fruit for sale in a market",
+                "complexity": 3,
+                "fluency": 4,
+                "sensibility": 5
+            },
+            {
+                "sentence": "fresh fruits and vegetables for sale in the market",
+                "complexity": 3,
+                "fluency": 4,
+                "sensibility": 5
+            },
+            {
+                "sentence": "fresh vegetables and fruits for sale in the market",
+                "complexity": 3,
+                "fluency":4,
+                "sensibility": 5
+            },
+            {
+                "sentence": "vegetables and fruit are sold in a market",
+                "complexity": 3,
+                "fluency": 4,
+                "sensibility": 5
+            },
+            {
+                "sentence": "vegetable and fruit are sold at the market",
+                "complexity": 3,
+                "fluency": 4,
+                "sensibility": 5
+            },
+            {
+                "sentence": "vegetables and fruit for sale at a market",
+                "complexity": 3,
+                "fluency": 3,
+                "sensibility": 5
+            },
+            {
+                "sentence": "I sell vegetables at the market.",
+                "complexity": 2,
+                "fluency": 5,
+                "sensibility": 5
+            },
+            {
+                "sentence": "vegetables and fruits for sale at a market",
+                "complexity": 3,
+                "fluency": 4,
+                "sensibility": 5
+            },
+            {
+                "sentence": "vegetables sold in the market.",
+                "complexity": 2,
+                "fluency": 4,
+                "sensibility": 5
+            },
+            {
+                "sentence": "vegetables sell vegetables in a market",
+                "complexity": 2,
+                "fluency": 4,
+                "sensibility": 1
+            },
+            {
+                "sentence": "vegetables and fruit are being sold at a market",
+                "complexity": 3,
+                "fluency": 4,
+                "sensibility": 5
+            },
+            {
+                "sentence": "At the bustling market, vendors sell a colorful array of fresh vegetables and juicy fruits.",
+                "complexity": 5,
+                "fluency": 5,
+                "sensibility": 5
+            },
+            {
+                "sentence": "The market is bustling with vendors selling fresh vegetables and a variety of fruits, enticing customers looking for healthy and flavorful produce.",
+                "complexity": 5,
+                "fluency": 5,
+                "sensibility": 5
+            },
+            {
+                "sentence": "The market sells fresh vegetables and fruits.",
+                "complexity": 3,
+                "fluency": 5,
+                "sensibility": 5
+            },
+            {
+                "sentence": "At the market, the vegetable was trying to sell fruit.",
+                "complexity": 4,
+                "fluency": 4,
+                "sensibility": 1
+            },
+            {
+                "sentence": "The market sells vegetables and fruit.",
+                "complexity": 3,
+                "fluency": 5,
+                "sensibility": 4
+            }
+        ]
+    },
+    {
+        "HITId": "n/a",
+        "WorkerId": "A3V4Z86GZH5L7T",
+        "AssignmentId": "n/a",
+        "AcceptTime": "n/a",
+        "SubmitTime": "n/a",
+        "SubsetName": "test",
+        "ConceptSetID": 1088,
+        "Generations": [
+            {
+                "sentence": "football player receives a joyful kick during a news conference.",
+                "complexity": 4,
+                "fluency": 4,
+                "sensibility":1
+            },
+            {
+                "sentence": "A man receives a kick to the heel from a news reporter.",
+                "complexity": 4,
+                "fluency": 5,
+                "sensibility": 4
+            },
+            {
+                "sentence": "A man kisses his girlfriend on the cheek as she kisses his heel and receives news.",
+                "complexity": 5,
+                "fluency": 5,
+                "sensibility": 1
+            },
+            {
+                "sentence": "A man is receiving news on the heels of a kick.",
+                "complexity": 4,
+                "fluency": 4,
+                "sensibility": 1
+            },
+            {
+                "sentence": "athlete receives the news with joy as he kicks the heel in celebration.",
+                "complexity": 5,
+                "fluency": 4,
+                "sensibility": 4
+            },
+            {
+                "sentence": "He receives the news and kicks his heels for joy.",
+                "complexity": 4,
+                "fluency": 4,
+                "sensibility": 1
+            },
+            {
+                "sentence": "a woman receives a kick to the heel from a man.",
+                "complexity": 4,
+                "fluency": 4,
+                "sensibility": 3
+            },
+            {
+                "sentence": "I received good news.",
+                "complexity": 2,
+                "fluency": 1,
+                "sensibility": 1
+            },
+            {
+                "sentence": "a man kicking a heel while receiving a news.",
+                "complexity": 3,
+                "fluency": 3,
+                "sensibility": 4
+            },
+            {
+                "sentence": "a young woman receives a kick from her heels.",
+                "complexity": 3,
+                "fluency": 4,
+                "sensibility": 1
+            },
+            {
+                "sentence": "The news receives joy and joy during the news.",
+                "complexity": 3,
+                "fluency": 3,
+                "sensibility": 1
+            },
+            {
+                "sentence": "i received the news with joy and kicked the heels.",
+                "complexity": 3,
+                "fluency": 4,
+                "sensibility": 3
+            },
+            {
+                "sentence": "I would receive news with joy from my doctor that I can kick up my heels and start exercising again.",
+                "complexity": 5,
+                "fluency": 5,
+                "sensibility": 5
+            },
+            {
+                "sentence": "While receiving the good news about her promotion, Maria couldn't help but feel a sudden surge of joy that made her want to kick up her heels and celebrate.",
+                "complexity": 5,
+                "fluency": 5,
+                "sensibility": 5
+            },
+            {
+                "sentence": "I received great news today, and it gave me such joy that I couldn't help but kick up my heel!",
+                "complexity": 5,
+                "fluency": 5,
+                "sensibility": 5
+            },
+            {
+                "sentence": "\"I received joy from kicking the news in the heel.\"",
+                "complexity": 3,
+                "fluency": 4,
+                "sensibility": 1
+            },
+            {
+                "sentence": "Me receive joy when kick heel with news.",
+                "complexity": 2,
+                "fluency": 1,
+                "sensibility": 1
+            }
+        ]
+    },
+    {
+        "HITId": "n/a",
+        "WorkerId": "A3V4Z86GZH5L7T",
+        "AssignmentId": "n/a",
+        "AcceptTime": "n/a",
+        "SubmitTime": "n/a",
+        "SubsetName": "test",
+        "ConceptSetID": 1157,
+        "Generations": [
+            {
+                "sentence": "A turker is invited to a photo contest.",
+                "complexity": 3,
+                "fluency": 5,
+                "sensibility": 4
+            },
+            {
+                "sentence": "a photo of a turkish man with a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat and a sore throat",
+                "complexity": 3,
+                "fluency": 1,
+                "sensibility": 1
+            },
+            {
+                "sentence": "turkers are invited to gripe about their photos on social media.",
+                "complexity": 4,
+                "fluency": 3,
+                "sensibility": 4
+            },
+            {
+                "sentence": "a turkish man invites a group of people to a photo shoot.",
+                "complexity": 4,
+                "fluency": 4,
+                "sensibility": 5
+            },
+            {
+                "sentence": "photo invites you to gripe about the problems with turks.",
+                "complexity": 4,
+                "fluency": 4,
+                "sensibility": 1
+            },
+            {
+                "sentence": "a photo of a turker with a problem and invites you to join in on the fun.",
+                "complexity": 5,
+                "fluency": 4,
+                "sensibility": 1
+            },
+            {
+                "sentence": "a turkish man invites a woman to his home to take a photo.",
+                "complexity": 3,
+                "fluency": 4,
+                "sensibility": 5
+            },
+            {
+                "sentence": "I'm having a problem with a turker.",
+                "complexity": 2,
+                "fluency": 4,
+                "sensibility": 5
+            },
+            {
+                "sentence": "A turker invites a photo of a problem.",
+                "complexity": 2,
+                "fluency": 4,
+                "sensibility": 1
+            },
+            {
+                "sentence": "a turkish photo of a problem with a gripe.",
+                "complexity": 3,
+                "fluency": 4,
+                "sensibility": 3
+            },
+            {
+                "sentence": "photo of a turker with a gripe and a gripe.",
+                "complexity": 3,
+                "fluency": 1,
+                "sensibility": 1
+            },
+            {
+                "sentence": "a turker is greeted with a photo of a turkey with a gripe and a problem.",
+                "complexity": 4,
+                "fluency": 4,
+                "sensibility": 3
+            },
+            {
+                "sentence": "I'm sorry but what does \"turker\" mean?",
+                "complexity": 3,
+                "fluency": 5,
+                "sensibility": 5
+            },
+            {
+                "sentence": "After I had solved the problem with the printer, I took a photo of my colleague's new desk to share with the team, but before uploading it to our group chat, I couldn't help but express my gripe about how tricky it was to fix; nevertheless, I still decided to invite our trusty IT \"turker\" to double check everything.",
+                "complexity": 5,
+                "fluency": 5,
+                "sensibility": 5
+            },
+            {
+                "sentence": "I can invite Turker to solve any problem or gripe while taking a photo.",
+                "complexity": 4,
+                "fluency": 4,
+                "sensibility": 3
+            },
+            {
+                "sentence": "I can't invite my friend to my party because the turker I hired to take a photo of us has a problem with his gripe.",
+                "complexity": 5,
+                "fluency": 5,
+                "sensibility": 3
+            },
+            {
+                "sentence": "Me have problem turker not want invite to photo, me gripe about this.",
+                "complexity": 3,
+                "fluency": 1,
+                "sensibility": 1
+            }
+        ]
+    },
+    {
+        "HITId": "n/a",
+        "WorkerId": "A3V4Z86GZH5L7T",
+        "AssignmentId": "n/a",
+        "AcceptTime": "n/a",
+        "SubmitTime": "n/a",
+        "SubsetName": "test",
+        "ConceptSetID": 313,
+        "Generations": [
+            {
+                "sentence": "father and daughter plant a tree in the forest",
+                "complexity": 3,
+                "fluency":3,
+                "sensibility": 4
+            },
+            {
+                "sentence": "father planting a tree with his daughter and son",
+                "complexity": 3,
+                "fluency": 4,
+                "sensibility": 5
+            },
+            {
+                "sentence": "father planting a tree for his daughter",
+                "complexity": 3,
+                "fluency": 4,
+                "sensibility": 5
+            },
+            {
+                "sentence": "father and daughter planting trees in the garden",
+                "complexity": 3,
+                "fluency": 4,
+                "sensibility": 5
+            },
+            {
+                "sentence": "father planting a tree with his daughter and son",
+                "complexity": 3,
+                "fluency": 4,
+                "sensibility": 5
+            },
+            {
+                "sentence": "father and daughter planting a tree in the garden",
+                "complexity": 3,
+                "fluency": 4,
+                "sensibility": 5
+            },
+            {
+                "sentence": "a father and his daughter planting a tree",
+                "complexity": 2,
+                "fluency": 4,
+                "sensibility": 5
+            },
+            {
+                "sentence": "The tree and the plant are my son and daughter.",
+                "complexity": 3,
+                "fluency": 5,
+                "sensibility": 1
+            },
+            {
+                "sentence": "mother and daughters planting a tree in the garden.",
+                "complexity": 3,
+                "fluency": 4,
+                "sensibility": 4
+            },
+            {
+                "sentence": "father and daughter growing on a tree.",
+                "complexity": 2,
+                "fluency": 4,
+                "sensibility": 1
+            },
+            {
+                "sentence": "a mother and daughter growing on a tree in a tree.",
+                "complexity": 3,
+                "fluency": 4,
+                "sensibility": 1
+            },
+            {
+                "sentence": "father and daughter planting a tree for their son.",
+                "complexity": 3,
+                "fluency": 4,
+                "sensibility": 1
+            },
+            {
+                "sentence": "The father planted a tree with his daughter and son.",
+                "complexity": 3,
+                "fluency": 5,
+                "sensibility": 5
+            },
+            {
+                "sentence": "The father, who loved nature, carefully planted a tree in the backyard, teaching his daughter and son about the importance of nurturing and caring for plants.",
+                "complexity": 5,
+                "fluency": 5,
+                "sensibility": 5
+            },
+            {
+                "sentence": "The father plants a tree with his daughter and son.",
+                "complexity": 3,
+                "fluency": 5,
+                "sensibility": 5
+            },
+            {
+                "sentence": "The plant's father tree son daughter.",
+                "complexity": 2,
+                "fluency": 1,
+                "sensibility": 1
+            },
+            {
+                "sentence": "The daughter she plant the tree father and the son do the watering.",
+                "complexity": 4,
+                "fluency": 3,
+                "sensibility": 4
+            }
+        ]
+    }
+]
