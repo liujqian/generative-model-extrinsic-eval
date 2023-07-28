@@ -1,5 +1,6 @@
 import json
 
+import pandas
 import spacy
 
 from commongen_validation_test_set_generation.language_models import get_language_models
@@ -35,7 +36,29 @@ def calculate_concept_coverage_and_update_json_files(model_name: str, subset_nam
         json.dump(generation_dict, handle)
 
 
+def calculate_batch_average_coverage(batch_input_csv_path: str, output_path: str):
+    batch = pandas.read_csv(batch_input_csv_path).to_dict(orient="records")
+    qids = {(question["set_name"], question["concept_set_id"]) for question in batch}
+    generation_coverage = {}
+    for lm_name in get_language_models():
+        generation_coverage[lm_name] = {}
+        for set_name in ["validation", "test"]:
+            handle = open(
+                f"generated_sentences/generated_sentences_with_coverage/{lm_name}-commongen-{set_name}-set-generation.json"
+            )
+            generation_coverage[lm_name][set_name] = json.load(handle)
+            handle.close()
+
+    lm_coverage = {lm_name: [] for lm_name in get_language_models()}
+    for set_name, csid in qids:
+        for lm_name in get_language_models():
+            lm_coverage[lm_name].append(generation_coverage[lm_name][set_name][str(csid)]["coverage"])
+    for lm_name in get_language_models():
+        lm_coverage[lm_name] = sum(lm_coverage[lm_name]) / len(lm_coverage[lm_name])
+    with open(output_path + "/language_model_coverages.json", "w") as handle:
+        json.dump(lm_coverage, handle)
+
+
 if __name__ == '__main__':
-    for language_model in get_language_models():
-        for subset_name in ["validation", "test"]:
-            calculate_concept_coverage_and_update_json_files(language_model, subset_name)
+    calculate_batch_average_coverage("generated_sentences/combined_generations_first_100.csv",
+                                     "mturk_batches/sandbox_env_internal_first_100_questions")

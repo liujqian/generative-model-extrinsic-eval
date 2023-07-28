@@ -23,4 +23,4 @@ def calculate_batch_stats(json_batch_results_path: str):
         json.dump(stats, handle)
 
 if __name__ == '__main__':
-    calculate_batch_stats("Batch_387776(sandbox_env_internal_first_100_questions)/Batch_387776_batch_results.json")
+    calculate_batch_stats("sandbox_env_internal_first_100_questions/Batch_387776_batch_results.json")

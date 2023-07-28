@@ -76,7 +76,7 @@ def find_bad_responses(responses: list[dict]) -> list[dict]:
 
 
 if __name__ == '__main__':
-    name = "mturk_batches/Batch_387776(sandbox_env_internal_first_100_questions)/Batch_387776_batch_results"
+    name = "mturk_batches/sandbox_env_internal_first_100_questions/Batch_387776_batch_results"
     processed = process_csv(name + ".csv")
     with open(name + ".json", "w") as handle:
         json.dump(processed, handle)

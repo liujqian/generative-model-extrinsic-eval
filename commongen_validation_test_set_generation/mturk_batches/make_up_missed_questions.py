@@ -72,7 +72,7 @@ def insert_back_made_up_answers(batch_input_path: str, jsoned_results_path: str,
 if __name__ == '__main__':
     worker_id = "A2LRYD92B7Z0GH"
     batch_input_path = "../generated_sentences/combined_generations_first_100.csv"
-    results_path = "Batch_387776(sandbox_env_internal_first_100_questions)/Batch_387776_batch_results.csv"
+    results_path = "sandbox_env_internal_first_100_questions/Batch_387776_batch_results.csv"
     insert_back_made_up_answers(batch_input_path,
-                                "Batch_387776(sandbox_env_internal_first_100_questions)/Batch_387776_batch_results.json",
-                                "Batch_387776(sandbox_env_internal_first_100_questions)/A2LRYD92B7Z0GH_make_up_questions_form.json")
+                                "sandbox_env_internal_first_100_questions/Batch_387776_batch_results.json",
+                                "sandbox_env_internal_first_100_questions/A2LRYD92B7Z0GH_make_up_questions_form.json")
