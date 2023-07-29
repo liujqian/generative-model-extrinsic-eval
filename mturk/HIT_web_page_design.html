@@ -6,33 +6,29 @@
 <link href="https://s3.amazonaws.com/mturk-public/bs30/css/bootstrap.min.css" rel="stylesheet"/>
 
 <script type="text/javascript">
-    function shuffle_order() {
-        var para_table = $("#para-table");
-        var paras = $("#para-table .para-row");
-        paras.remove();
+ function shuffle_order() {
+      var table = document.getElementById("para-table");
+      var header = table.rows[0];
+      var rows = Array.from(table.rows).slice(1);  // Exclude the first row
 
-        for (var i = paras.length - 1; i > 0; i--) {
-            var j = Math.floor(Math.random() * (i + 1));
-            var temp = paras[i];
-            paras[i] = paras[j];
-            paras[j] = temp;
-        }
+      // Shuffle array using Fisher-Yates algorithm
+      for (var i = rows.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        [rows[i], rows[j]] = [rows[j], rows[i]];
+      }
 
-        var seens = [];
-        paras.each(function (i) {
-            para_table.append(this);
-            para = $(this).find("p").text()
-            if (para === "") {
-                $(this).remove()
-            }
+      // Empty the table
+      while (table.firstChild) {
+        table.removeChild(table.firstChild);
+      }
 
-            if (seens.indexOf(para) !== -1) {
-                $(this).remove()
-            } else {
-                seens.push(para);
-            }
-        });
+      // Append header row first
+      table.appendChild(header);
 
+      // Append shuffled rows
+      for (var i = 0; i < rows.length; i++) {
+        table.appendChild(rows[i]);
+      }
     }
 
     $(document).ready(function () {

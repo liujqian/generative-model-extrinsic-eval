@@ -116,15 +116,11 @@ def find_bad_responses(responses: list[dict]) -> list[dict]:
 
 
 if __name__ == '__main__':
-    json_path = "mturk_batches/sandbox_env_internal_first_100_questions/Batch_387776_batch_results.json"
-    fixed_dict = fill_out_missing_values(json_path)
-    with open(json_path, "w") as handle:
-        json.dump(fixed_dict, handle)
-# name = "mturk_batches/sandbox_env_internal_first_100_questions/Batch_387776_batch_results"
-# processed = process_csv(name + ".csv")
-# with open(name + ".json", "w") as handle:
-#     json.dump(processed, handle)
-#
+    name = "mturk_batches/Batch_5109423(prod_env_first_100_questions)/Batch_5109423_batch_results"
+    processed = process_csv(name + ".csv")
+    with open(name + ".json", "w") as handle:
+        json.dump(processed, handle)
+
 # bad_ones = find_bad_responses(processed)
 # with open(name + "_bad_ones.json", "w") as handle:
 #     json.dump(bad_ones, handle)
