@@ -41,6 +41,10 @@ def lemmatize(s: str):
     return " ".join([x.lemma_ for x in doc])
 
 
+substring_check_mode = "use_in"
+print("The substring check mode used in this run is: " + substring_check_mode)
+
+
 def count_occurences(sentences: list[str], targets: list[str]) -> int:
     cnt = 0
     for target in targets:
@@ -50,7 +54,10 @@ def count_occurences(sentences: list[str], targets: list[str]) -> int:
         for sentence in sentences:
             truncated = sentence
             lemmatized_sentence = lemmatize(truncated).lower()
-            cnt += lemmatized_sentence.count(lemmatized_target)
+            if substring_check_mode == "use_in":
+                cnt += lemmatized_target in lemmatized_sentence
+            else:
+                cnt += lemmatized_sentence.count(lemmatized_target)
     return cnt
 
 
@@ -143,13 +150,15 @@ def analyze_with_choice_generations(model_name: str):
             update_subset_stats_for_with_choice_analysis(stats, choices_stats, idx_correct_choice)
         all_results[subset_name] = stats
 
-    total_inclusion = sum([all_results[subset_name]["correct_prediction_by_inclusion_count"] for subset_name in all_results])
-    total_score = sum([all_results[subset_name]["correct_prediction_by_sequences_score"] for subset_name in all_results])
+    total_inclusion = sum(
+        [all_results[subset_name]["correct_prediction_by_inclusion_count"] for subset_name in all_results])
+    total_score = sum(
+        [all_results[subset_name]["correct_prediction_by_sequences_score"] for subset_name in all_results])
     all_results["inclusion_accuracy"] = total_inclusion / total_questions
     all_results["score_accuracy"] = total_score / total_questions
     all_results["inclusion_correct_count"] = total_inclusion
     all_results["score_correct_count"] = total_score
-    with open(f"analysis-results/{model_name}-analysis-results-WITH-choice.json", "w") as file:
+    with open(f"analysis-results/use_in_check/{model_name}-analysis-results-WITH-choice.json", "w") as file:
         json.dump(all_results, file)
 
 
@@ -222,7 +231,7 @@ def analyze_without_choice_generations(model_name: str):
     total_correct = sum([all_results[subset_name]["correct_prediction"] for subset_name in all_results])
     all_results["accuracy"] = total_correct / total_questions
     all_results["correct_count"] = total_correct
-    with open(f"analysis-results/{model_name}-analysis-results-NO-choice.json", "w") as file:
+    with open(f"analysis-results/use_in_check/{model_name}-analysis-results-NO-choice.json", "w") as file:
         json.dump(all_results, file)
 
 
