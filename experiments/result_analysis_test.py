@@ -38,6 +38,7 @@ class TestResultAnalysis(unittest.TestCase):
         self.assertEqual(count_occurences(sentences, ["apple"]), 0)
         self.assertEqual(count_occurences(sentences, ["germany"]), 1)
         self.assertEqual(count_occurences(sentences, ["in", ""]), 1)
+        self.assertEqual(count_occurences(sentences, ["go", "hope", "Germany"]),4)
 
     def test_get_correct_idx(self):
         idx = get_correct_choice_idx(get_sample_question())
@@ -48,7 +49,7 @@ class TestResultAnalysis(unittest.TestCase):
             "I love radio shack.", "Radio shack loves me.", "I hate you.", "I play radio.",
             "I like substation.", "Eat.", "Sleep.", "Drink.",
             "Hit.", "Drive.", "Poop.", "Beat.",
-            "I watch television.", "I like televisions as a television makes me happy.", "I love televisions.", "I have a television.",
+            "I watch television.", "I like televisions as a television makes me happy.", "I love televisions.", "Televisions are what I have.",
             "I have a desk.", "I don't eat apples.", "I bought many desks.", "I slept."
         ]
         scores = [1, 1, 1, 1, 2, 2, 2, 2, 1, 2, 3, 4, 0, 0, 0, 0, -1, -2, -3, -4]
@@ -141,7 +142,7 @@ class TestResultAnalysis(unittest.TestCase):
             "correct_prediction": 5,
             "total_correct_choice_word_generated": 10,
         }
-        update_subset_stats_for_without_choice_analysis(stats,  [6, 6, 0, 3, 2], 1)
+        update_subset_stats_for_without_choice_analysis(stats, [6, 6, 0, 3, 2], 1)
         self.assertEqual(stats["total_examined"], 5)
         self.assertEqual(stats["correct_prediction"], 6)
         self.assertEqual(stats["total_correct_choice_word_generated"], 16)

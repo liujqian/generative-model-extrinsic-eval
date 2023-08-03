@@ -9,6 +9,7 @@ from datasets import load_dataset
 from commongen_validation_test_set_generation.language_models import get_language_models
 from experiments.utils import log_progress
 
+#######################################################  Utility Helper Functions.  #######################################################
 nlp = spacy.load("en_core_web_lg")
 language_models = {
     "gpt2-xl": "liujqian/gpt2-xl-finetuned-commongen",
@@ -53,6 +54,7 @@ def count_occurences(sentences: list[str], targets: list[str]) -> int:
     return cnt
 
 
+#######################################################  For With Choice Analysis.  #######################################################
 def get_current_question_choice_status_with_choice_analysis(question: dict, generations: dict) -> dict:
     choices_stats = {
         "inclusion_count": [],
@@ -151,6 +153,7 @@ def analyze_with_choice_generations(model_name: str):
         json.dump(all_results, file)
 
 
+#######################################################  For WithOUT Choice Analysis.  #######################################################
 def get_choice_mention_count(question: dict, question_generations: dict) -> list:
     # choice_content_words_stats = {}
     # for choice_idx in range(0, 5):
