@@ -1,0 +1,67 @@
+{
+  "bloomz_1b1": {
+    "complexity": 2.74,
+    "fluency": 4.6466666666666665,
+    "sensibility": 3.9166666666666665
+  },
+  "bloomz_1b7": {
+    "complexity": 3.0833333333333335,
+    "fluency": 4.626666666666667,
+    "sensibility": 3.9766666666666666
+  },
+  "bloomz_3b": {
+    "complexity": 3.1733333333333333,
+    "fluency": 4.653333333333333,
+    "sensibility": 4.166666666666667
+  },
+  "bloomz_560m": {
+    "complexity": 2.89,
+    "fluency": 4.516666666666667,
+    "sensibility": 3.79
+  },
+  "flan_t5_xl": {
+    "complexity": 3.216666666666667,
+    "fluency": 4.466666666666667,
+    "sensibility": 4.346666666666667
+  },
+  "flan_t5_large": {
+    "complexity": 3.17,
+    "fluency": 4.66,
+    "sensibility": 4.306666666666667
+  },
+  "t0_3b": {
+    "complexity": 3.0433333333333334,
+    "fluency": 4.576666666666667,
+    "sensibility": 4.336666666666667
+  },
+  "tk_instruct_3b_def": {
+    "complexity": 2.513333333333333,
+    "fluency": 4.6466666666666665,
+    "sensibility": 4.44
+  },
+  "mt0_large": {
+    "complexity": 2.7466666666666666,
+    "fluency": 4.406666666666666,
+    "sensibility": 3.3666666666666667
+  },
+  "mt0_base": {
+    "complexity": 2.5733333333333333,
+    "fluency": 4.373333333333333,
+    "sensibility": 3.256666666666667
+  },
+  "mt0_small": {
+    "complexity": 2.44,
+    "fluency": 3.85,
+    "sensibility": 2.006666666666667
+  },
+  "mt0_xl": {
+    "complexity": 2.9966666666666666,
+    "fluency": 4.58,
+    "sensibility": 3.7933333333333334
+  },
+  "chatgpt": {
+    "complexity": 3.94,
+    "fluency": 4.906666666666666,
+    "sensibility": 4.72
+  }
+}
