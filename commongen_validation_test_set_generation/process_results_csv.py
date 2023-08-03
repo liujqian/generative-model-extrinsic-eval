@@ -70,6 +70,20 @@ def fill_out_missing_values(json_results_path):
     return results_dict
 
 
+def check_sentences_belong_to_right_lm(json_results_path: str):
+    all_generations = "generated_sentences/combined_generations.csv"
+    generations_list = pandas.read_csv(all_generations).to_dict(orient="records")
+    generations_dict = {(g["set_name"], g["concept_set_id"]): g for g in generations_list}
+    with open(json_results_path, "r") as handle:
+        all_records = json.load(handle)
+    for record in all_records:
+        qid = (record["SubsetName"], record["ConceptSetID"])
+        for lm in get_language_models():
+            record_sentence = record[lm]["sentence"]
+            true_sentence = generations_dict[qid][lm]
+            assert record_sentence == true_sentence, f"{qid}'s {lm} has sentence that is different from the true generations."
+
+
 def fix_missing_value_records(record):
     cant_fix = 0
     lm_names = [lm_name for lm_name in list(get_language_models().keys()) + get_confounding_types()]
@@ -115,12 +129,30 @@ def find_bad_responses(responses: list[dict]) -> list[dict]:
     return bad_responses
 
 
-if __name__ == '__main__':
-    name = "mturk_batches/Batch_5109423(prod_env_first_100_questions)/Batch_5109423_batch_results"
-    processed = process_csv(name + ".csv")
-    with open(name + ".json", "w") as handle:
-        json.dump(processed, handle)
+def compute_averages(json_results_path: str):
+    with open(json_results_path, "r") as handle:
+        processed = json.load(handle)
+    lm_names = get_language_models().keys()
+    lm_stats = {lm_name: {measure: [] for measure in measures} for lm_name in lm_names}
+    for response in processed:
+        for lm_name in lm_names:
+            for measure in measures:
+                lm_stats[lm_name][measure].append(response[lm_name][measure])
+    for lm_name in lm_names:
+        for measure in measures:
+            lm_stats[lm_name][measure] = sum(lm_stats[lm_name][measure]) / len(lm_stats[lm_name][measure])
+    with open(name + "_averaged_stats.json", 'w') as handle:
+        json.dump(lm_stats, handle)
 
+
+if __name__ == '__main__':
+    name = "mturk_batches/test/Batch_388388_batch_results"
+    processed = process_csv(name + ".csv")
+    dump_json_processed_csv(processed, name + ".json")
+    # check_sentences_belong_to_right_lm(name + ".json")
+    # filled_out = fill_out_missing_values(name + ".json")
+    # dump_json_processed_csv(filled_out,name+".json")
+    # compute_averages(name+".json")
 # bad_ones = find_bad_responses(processed)
 # with open(name + "_bad_ones.json", "w") as handle:
 #     json.dump(bad_ones, handle)
@@ -131,14 +163,3 @@ if __name__ == '__main__':
 #     json.dump(good_ones, handle)
 # print(f"Found {len(good_ones)} good responses.")
 #
-# lm_names = get_language_models().keys()
-# lm_stats = {lm_name: {measure: [] for measure in measures} for lm_name in lm_names}
-# for response in processed:
-#     for lm_name in lm_names:
-#         for measure in measures:
-#             lm_stats[lm_name][measure].append(response[lm_name][measure])
-# for lm_name in lm_names:
-#     for measure in measures:
-#         lm_stats[lm_name][measure] = sum(lm_stats[lm_name][measure]) / len(lm_stats[lm_name][measure])
-# with open(name + "_averaged_stats.json", 'w') as handle:
-#     json.dump(lm_stats, handle)

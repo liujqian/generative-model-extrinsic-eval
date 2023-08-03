@@ -52,6 +52,7 @@ def count_occurences(sentences: list[str], targets: list[str]) -> int:
 
 def analyze_with_choice_generations(model_name: str):
     dataset = load_dataset("liujqian/commonsenseqa_with_content_words")
+    total_questions = len(dataset["train"]) + len(dataset["validation"])
     choice_idx_map = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4}
     all_results = {}
     for subset_name in file_postfix_without_choice:
@@ -122,12 +123,23 @@ def analyze_with_choice_generations(model_name: str):
                                                                                                      "total_examined"] + 1)
             stats["total_examined"] += 1
         all_results[subset_name] = stats
+    total_inclusion = sum(
+        [all_results[subset_name]["correct_prediction_by_inclusion_count"] for subset_name in
+         all_results])
+    total_score = sum(
+        [all_results[subset_name]["correct_prediction_by_sequences_score"] for subset_name in
+         all_results])
+    all_results["inclusion_accuracy"] = total_inclusion / total_questions
+    all_results["score_accuracy"] = total_score / total_questions
+    all_results["inclusion_correct_count"] = total_inclusion
+    all_results["score_correct_count"] = total_score
     with open(f"analysis-results/{model_name}-analysis-results-WITH-choice.json", "w") as file:
         json.dump(all_results, file)
 
 
 def analyze_without_choice_generations(model_name: str):
     dataset = load_dataset("liujqian/commonsenseqa_with_content_words")
+    total_questions = len(dataset["train"]) + len(dataset["validation"])
     choice_idx_map = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4}
     all_results = {}
     for subset_name in file_postfix_without_choice:
@@ -182,13 +194,18 @@ def analyze_without_choice_generations(model_name: str):
                                                                           choice_idx_map[letter_correct_choice]] > 0
             stats["total_questions_any_choice_word_generated"] += sum(choice_mention_count) > 0
         all_results[subset_name] = stats
+
+    total_correct = sum(
+        [all_results[subset_name]["correct_prediction"] for subset_name in all_results])
+    all_results["accuracy"] = total_correct / total_questions
+    all_results["correct_count"] = total_correct
     with open(f"analysis-results/{model_name}-analysis-results-NO-choice.json", "w") as file:
         json.dump(all_results, file)
 
 
 if __name__ == '__main__':
     for model_name in [
-        "chatgpt"
+        "bloomz_1b1"
     ]:
         analyze_with_choice_generations(model_name)
         analyze_without_choice_generations(model_name)
