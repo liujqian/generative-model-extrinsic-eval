@@ -191,7 +191,7 @@ def get_choice_mention_count(question: dict, question_generations: dict) -> list
 
 
 def check_no_choice_predict_correctness(choice_mention_count: list, idx_correct_choice: int):
-    predicted = choice_mention_count[idx_correct_choice] == max(choice_mention_count)
+    predicted = choice_mention_count[idx_correct_choice] == max(choice_mention_count) and max(choice_mention_count)!=0
     return predicted
 
 
