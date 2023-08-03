@@ -158,7 +158,8 @@ def analyze_with_choice_generations(model_name: str):
     all_results["score_accuracy"] = total_score / total_questions
     all_results["inclusion_correct_count"] = total_inclusion
     all_results["score_correct_count"] = total_score
-    with open(f"analysis-results/{model_name}-analysis-results-WITH-choice.json", "w") as file:
+    with open(f"analysis-results/{'use_in_check/' if substring_check_mode == 'use_in' else ''}{model_name}-analysis-results-WITH-choice.json",
+              "w") as file:
         json.dump(all_results, file)
 
 
@@ -231,7 +232,8 @@ def analyze_without_choice_generations(model_name: str):
     total_correct = sum([all_results[subset_name]["correct_prediction"] for subset_name in all_results])
     all_results["accuracy"] = total_correct / total_questions
     all_results["correct_count"] = total_correct
-    with open(f"analysis-results/{model_name}-analysis-results-NO-choice.json", "w") as file:
+    with open(f"analysis-results/{'use_in_check/' if substring_check_mode == 'use_in' else ''}{model_name}-analysis-results-NO-choice.json",
+              "w") as file:
         json.dump(all_results, file)
 
 
