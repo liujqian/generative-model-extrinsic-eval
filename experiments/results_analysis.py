@@ -158,8 +158,7 @@ def analyze_with_choice_generations(model_name: str):
     all_results["score_accuracy"] = total_score / total_questions
     all_results["inclusion_correct_count"] = total_inclusion
     all_results["score_correct_count"] = total_score
-    with open(f"analysis-results/{'use_in_check/' if substring_check_mode == 'use_in' else ''}{model_name}-analysis-results-WITH-choice.json",
-              "w") as file:
+    with open(f"analysis-results/{substring_check_mode}_check/{model_name}-analysis-results-WITH-choice.json", "w") as file:
         json.dump(all_results, file)
 
 
@@ -191,7 +190,7 @@ def get_choice_mention_count(question: dict, question_generations: dict) -> list
 
 
 def check_no_choice_predict_correctness(choice_mention_count: list, idx_correct_choice: int):
-    predicted = choice_mention_count[idx_correct_choice] == max(choice_mention_count) and max(choice_mention_count)!=0
+    predicted = choice_mention_count[idx_correct_choice] == max(choice_mention_count) and max(choice_mention_count) != 0
     return predicted
 
 
@@ -232,12 +231,12 @@ def analyze_without_choice_generations(model_name: str):
     total_correct = sum([all_results[subset_name]["correct_prediction"] for subset_name in all_results])
     all_results["accuracy"] = total_correct / total_questions
     all_results["correct_count"] = total_correct
-    with open(f"analysis-results/{'use_in_check/' if substring_check_mode == 'use_in' else ''}{model_name}-analysis-results-NO-choice.json",
-              "w") as file:
+    with open(f"analysis-results/{substring_check_mode}_check/{model_name}-analysis-results-NO-choice.json", "w") as file:
         json.dump(all_results, file)
 
 
 if __name__ == '__main__':
     for model_name in get_language_models():
         analyze_with_choice_generations(model_name)
+    for model_name in get_language_models():
         analyze_without_choice_generations(model_name)
