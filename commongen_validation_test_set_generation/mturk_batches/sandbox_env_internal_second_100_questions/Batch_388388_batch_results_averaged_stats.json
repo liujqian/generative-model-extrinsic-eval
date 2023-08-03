@@ -1,0 +1,67 @@
+{
+  "bloomz_1b1": {
+    "complexity": 2.25,
+    "fluency": 4.59,
+    "sensibility": 4.133333333333334
+  },
+  "bloomz_1b7": {
+    "complexity": 2.7266666666666666,
+    "fluency": 4.72,
+    "sensibility": 4.113333333333333
+  },
+  "bloomz_3b": {
+    "complexity": 2.73,
+    "fluency": 4.63,
+    "sensibility": 4.26
+  },
+  "bloomz_560m": {
+    "complexity": 2.38,
+    "fluency": 4.6033333333333335,
+    "sensibility": 3.8866666666666667
+  },
+  "flan_t5_xl": {
+    "complexity": 2.8033333333333332,
+    "fluency": 4.51,
+    "sensibility": 4.486666666666666
+  },
+  "flan_t5_large": {
+    "complexity": 2.8133333333333335,
+    "fluency": 4.7,
+    "sensibility": 4.326666666666667
+  },
+  "t0_3b": {
+    "complexity": 2.6466666666666665,
+    "fluency": 4.626666666666667,
+    "sensibility": 4.423333333333333
+  },
+  "tk_instruct_3b_def": {
+    "complexity": 2.1133333333333333,
+    "fluency": 4.576666666666667,
+    "sensibility": 4.47
+  },
+  "mt0_large": {
+    "complexity": 2.2733333333333334,
+    "fluency": 4.52,
+    "sensibility": 3.776666666666667
+  },
+  "mt0_base": {
+    "complexity": 2.1666666666666665,
+    "fluency": 4.5633333333333335,
+    "sensibility": 3.6466666666666665
+  },
+  "mt0_small": {
+    "complexity": 2.0566666666666666,
+    "fluency": 4.083333333333333,
+    "sensibility": 2.79
+  },
+  "mt0_xl": {
+    "complexity": 2.62,
+    "fluency": 4.446666666666666,
+    "sensibility": 4.04
+  },
+  "chatgpt": {
+    "complexity": 3.5633333333333335,
+    "fluency": 4.926666666666667,
+    "sensibility": 4.626666666666667
+  }
+}
