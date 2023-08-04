@@ -89,7 +89,7 @@ def get_correct_choice_idx(question: dict) -> int:
 
 def check_inclusion_scores_predict_correctness(idx_correct_choice: int, choices_stats: dict) -> (bool, bool):
     highest_inclusion_count = max(choices_stats["inclusion_count"])
-    inclusion_predict_correct = choices_stats["inclusion_count"][idx_correct_choice] == highest_inclusion_count
+    inclusion_predict_correct = choices_stats["inclusion_count"][idx_correct_choice] == highest_inclusion_count and highest_inclusion_count != 0
 
     highest_score = max(choices_stats["avg_sequences_scores"])
     score_predict_correct = math.isclose(choices_stats["avg_sequences_scores"][idx_correct_choice], highest_score)

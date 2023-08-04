@@ -1,0 +1,14 @@
+{
+  "train": {
+    "total_examined": 9741,
+    "correct_prediction": 1450,
+    "total_correct_choice_word_generated": 9311
+  },
+  "validation": {
+    "total_examined": 1221,
+    "correct_prediction": 177,
+    "total_correct_choice_word_generated": 1161
+  },
+  "accuracy": 0.14842182083561395,
+  "correct_count": 1627
+}

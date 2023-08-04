@@ -120,6 +120,17 @@ class TestResultAnalysis(unittest.TestCase):
         self.assertEqual(stats1["total_examined"], 6)
         self.assertEqual(stats1["correct_prediction_by_inclusion_count"], 80)
         self.assertEqual(stats1["correct_prediction_by_sequences_score"], 6)
+        update_subset_stats_for_with_choice_analysis(
+            stats=stats1,
+            choices_stats={
+                "inclusion_count": [0, 0, 0, 0, 0],
+                "avg_sequences_scores": [1, 2, 2.5, 2.5, -2.5]
+            },
+            idx_correct_choice=4
+        )
+        self.assertEqual(stats1["total_examined"], 7)
+        self.assertEqual(stats1["correct_prediction_by_inclusion_count"], 80)
+        self.assertEqual(stats1["correct_prediction_by_sequences_score"], 6)
 
     def test_get_choice_mention_count(self):
         question = get_sample_question()
