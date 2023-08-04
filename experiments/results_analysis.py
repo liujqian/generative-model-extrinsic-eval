@@ -237,7 +237,7 @@ def analyze_without_choice_generations(model_name: str):
 
 if __name__ == '__main__':
     model_names = [name for name in get_language_models()]
-    for model_name in model_names[7:]:
+    for model_name in model_names:
         analyze_with_choice_generations(model_name)
     for model_name in get_language_models():
         analyze_without_choice_generations(model_name)
