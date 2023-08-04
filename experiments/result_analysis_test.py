@@ -1,6 +1,7 @@
 import unittest
 
-from experiments.results_analysis import count_occurences, get_correct_choice_idx, get_current_question_choice_status_with_choice_analysis, \
+from experiments.results_analysis import count_occurences, get_correct_choice_idx, \
+    get_current_question_choice_status_with_choice_analysis, \
     check_inclusion_scores_predict_correctness, update_subset_stats_for_with_choice_analysis, get_choice_mention_count, \
     check_no_choice_predict_correctness, update_subset_stats_for_without_choice_analysis
 
@@ -38,7 +39,7 @@ class TestResultAnalysis(unittest.TestCase):
         self.assertEqual(count_occurences(sentences, ["apple"]), 0)
         self.assertEqual(count_occurences(sentences, ["germany"]), 1)
         self.assertEqual(count_occurences(sentences, ["in", ""]), 1)
-        self.assertEqual(count_occurences(sentences, ["go", "hope", "Germany"]),4)
+        self.assertEqual(count_occurences(sentences, ["go", "hope", "Germany"]), 4)
 
     def test_get_correct_idx(self):
         idx = get_correct_choice_idx(get_sample_question())
@@ -49,7 +50,8 @@ class TestResultAnalysis(unittest.TestCase):
             "I love radio shack.", "Radio shack loves me.", "I hate you.", "I play radio.",
             "I like substation.", "Eat.", "Sleep.", "Drink.",
             "Hit.", "Drive.", "Poop.", "Beat.",
-            "I watch television.", "I like televisions as a television makes me happy.", "I love televisions.", "Televisions are what I have.",
+            "I watch television.", "I like televisions as a television makes me happy.", "I love televisions.",
+            "Televisions are what I have.",
             "I have a desk.", "I don't eat apples.", "I bought many desks.", "I slept."
         ]
         scores = [1, 1, 1, 1, 2, 2, 2, 2, 1, 2, 3, 4, 0, 0, 0, 0, -1, -2, -3, -4]
@@ -63,9 +65,12 @@ class TestResultAnalysis(unittest.TestCase):
             "inclusion_count": [5, 0, 0, 5, 2],
             "avg_sequences_scores": [1, 2, 2.5, 2.5, -2.5]
         }
-        self.assertEqual(check_inclusion_scores_predict_correctness(idx_correct_choice=0, choices_stats=stats), (True, False))
-        self.assertEqual(check_inclusion_scores_predict_correctness(idx_correct_choice=3, choices_stats=stats), (True, True))
-        self.assertEqual(check_inclusion_scores_predict_correctness(idx_correct_choice=4, choices_stats=stats), (False, False))
+        self.assertEqual(check_inclusion_scores_predict_correctness(idx_correct_choice=0, choices_stats=stats),
+                         (True, False))
+        self.assertEqual(check_inclusion_scores_predict_correctness(idx_correct_choice=3, choices_stats=stats),
+                         (True, True))
+        self.assertEqual(check_inclusion_scores_predict_correctness(idx_correct_choice=4, choices_stats=stats),
+                         (False, False))
 
     def test_update_subset_stats_for_with_choice_analysis(self):
         stats1 = {
@@ -118,8 +123,10 @@ class TestResultAnalysis(unittest.TestCase):
     def test_get_choice_mention_count(self):
         question = get_sample_question()
         generations = [
-            "I love radio stations.", "I eat shake shack.", 'I have a net', "I have televisions.", "My box is on my desk.",
-            "I have a radio shack.", "I have a radio on my bed.", "My television is in my room.", "I sleep on my television on my desk.",
+            "I love radio stations.", "I eat shake shack.", 'I have a net', "I have televisions.",
+            "My box is on my desk.",
+            "I have a radio shack.", "I have a radio on my bed.", "My television is in my room.",
+            "I sleep on my television on my desk.",
             "I have a shack.",
             "Sleep.", "Eat", "Hit.", "I love!", "I eat apples.",
             "Play.", "Drive.", "Sing.", "Smile.", "Take it!"
@@ -148,5 +155,9 @@ class TestResultAnalysis(unittest.TestCase):
         self.assertEqual(stats["total_correct_choice_word_generated"], 16)
         update_subset_stats_for_without_choice_analysis(stats, [6, 6, 0, 3, 2], 4)
         self.assertEqual(stats["total_examined"], 6)
+        self.assertEqual(stats["correct_prediction"], 6)
+        self.assertEqual(stats["total_correct_choice_word_generated"], 18)
+        update_subset_stats_for_without_choice_analysis(stats, [0, 0, 0, 0, 0], 4)
+        self.assertEqual(stats["total_examined"], 7)
         self.assertEqual(stats["correct_prediction"], 6)
         self.assertEqual(stats["total_correct_choice_word_generated"], 18)
