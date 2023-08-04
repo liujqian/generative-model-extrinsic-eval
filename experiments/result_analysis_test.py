@@ -3,7 +3,7 @@ import unittest
 from experiments.results_analysis import count_occurences, get_correct_choice_idx, \
     get_current_question_choice_status_with_choice_analysis, \
     check_inclusion_scores_predict_correctness, update_subset_stats_for_with_choice_analysis, get_choice_mention_count, \
-    check_no_choice_predict_correctness, update_subset_stats_for_without_choice_analysis
+    check_no_choice_predict_correctness, update_subset_stats_for_without_choice_analysis, substring_check_mode
 
 
 def get_sample_question() -> dict:
@@ -54,11 +54,12 @@ class TestResultAnalysis(unittest.TestCase):
             "Televisions are what I have.",
             "I have a desk.", "I don't eat apples.", "I bought many desks.", "I slept."
         ]
-        scores = [1, 1, 1, 1, 2, 2, 2, 2, 1, 2, 3, 4, 0, 0, 0, 0, -1, -2, -3, -4]
+        scores = [1, 1, 1, 1, -2, -3, 4, 5, 1, 2, 3, 4, 0, 0, 0, 0, -1, -2, -3, -4]
         g = {"sentences": generations, "sequences_scores": scores, "id": 1}
         results = get_current_question_choice_status_with_choice_analysis(question=get_sample_question(), generations=g)
-        self.assertEqual(results["inclusion_count"], [5, 0, 0, 5, 2])
-        self.assertEqual(results["avg_sequences_scores"], [1, 2, 2.5, 0, -2.5])
+        self.assertEqual(results["inclusion_count"],
+                         [5, 0, 0, 4, 2] if substring_check_mode == "use_in" else [5, 0, 0, 5, 2])
+        self.assertEqual(results["avg_sequences_scores"], [1, 1, 2.5, 0, -2.5])
 
     def test_check_inclusion_scores_predict_correctness(self):
         stats = {
