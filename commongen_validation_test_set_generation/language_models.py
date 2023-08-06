@@ -1,4 +1,5 @@
-from experiments.models import bloomz, flan_t5_large, flan_t5_xl, t0_3b, tk_instruct_3b_def, mt0
+from experiments.models import bloomz, flan_t5_large, flan_t5_xl, t0_3b, tk_instruct_3b_def, mt0, \
+    redpajama_incite_instruct_3b_v1, stablelm_tuned_alpha_3b
 
 
 def get_language_models():
@@ -15,5 +16,7 @@ def get_language_models():
         "mt0_base": lambda: mt0("mt0-base"),
         "mt0_small": lambda: mt0("mt0-small"),
         "mt0_xl": lambda: mt0("mt0-xl"),
-        "chatgpt": None
+        "chatgpt": None,
+        "redpajama_incite_instruct_3b_v1":redpajama_incite_instruct_3b_v1,
+        "stablelm_tuned_alpha_3b":stablelm_tuned_alpha_3b
     }

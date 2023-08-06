@@ -1,8 +1,9 @@
 import json
 
 import datasets
+from transformers import StoppingCriteriaList
 
-from models import mt0
+from models import mt0, stablelm_tuned_alpha_3b, redpajama_incite_instruct_3b_v1
 from utils import log_progress
 
 language_models = {
@@ -29,6 +30,7 @@ def generate_without_choice_content_words(
         tokenizer,
         prompt_generator,
         result_separator,
+        stop_criteria,
         set_name: str,
         examples: datasets.Dataset
 ):
@@ -55,6 +57,7 @@ def generate_without_choice_content_words(
             max_new_tokens=256,
             return_dict_in_generate=True,
             output_scores=True,
+            stopping_criteria=StoppingCriteriaList([stop_criteria] if stop_criteria is not None else [])
         )
         sentences = []
         for output in outputs.sequences:
@@ -67,24 +70,42 @@ def generate_without_choice_content_words(
 
 
 if __name__ == '__main__':
-    model, tokenizer, prompt_generator = mt0("mt0-large")
-    model_name = "mt0-large"
-    for subset_name in ["train", "validation"]:
-        new_ds = datasets.load_dataset("liujqian/commonsenseqa_with_content_words")
-        generations = generate_without_choice_content_words(
-            model,
-            tokenizer,
-            prompt_generator,
-            None,
-            subset_name,
-            new_ds[subset_name]
-        )
-        print(f"Trying to dump the generations to a file!")
-        file = open(
-            f'generated_sentences/{model_name}-{subset_name}-WITHOUT-choicewords-noquestionwordlimit.json',
-            'w'
-        )
-        json.dump(generations, file)
-        # close the file
-        file.close()
-        print("Finished dumping the generations to a file!")
+    model_funcs = {
+        "stablelm_tuned_alpha_3b": stablelm_tuned_alpha_3b,
+        "redpajama_incite_instruct_3b_v1": redpajama_incite_instruct_3b_v1
+    }
+    for name, func in model_funcs.items():
+        model_utils = func()
+        model_name = name
+        if len(model_utils) == 3:
+            (model, tokenizer, prompt_generator) = model_utils
+            result_seperator = None
+            stop_criteria = None
+        elif len(model_utils) == 4:
+            (model, tokenizer, prompt_generator, result_seperator) = model_utils
+            stop_criteria = None
+        elif len(model_utils) == 5:
+            (model, tokenizer, prompt_generator, result_seperator, stop_criteria) = model_utils
+        else:
+            raise ValueError(f"The model func of {name} gives {len(model_utils)} returns.")
+
+        for subset_name in ["train", "validation"]:
+            new_ds = datasets.load_dataset("liujqian/commonsenseqa_with_content_words")
+            generations = generate_without_choice_content_words(
+                model,
+                tokenizer,
+                prompt_generator,
+                result_seperator,
+                stop_criteria,
+                subset_name,
+                new_ds[subset_name]
+            )
+            print(f"Trying to dump the generations to a file!")
+            file = open(
+                f'generated_sentences/{model_name}-{subset_name}-WITHOUT-choicewords-noquestionwordlimit.json',
+                'w'
+            )
+            json.dump(generations, file)
+            # close the file
+            file.close()
+            print("Finished dumping the generations to a file!")
