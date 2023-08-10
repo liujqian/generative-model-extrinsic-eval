@@ -17,6 +17,6 @@ def get_language_models():
         "mt0_small": lambda: mt0("mt0-small"),
         "mt0_xl": lambda: mt0("mt0-xl"),
         "chatgpt": None,
-        "redpajama_incite_instruct_3b_v1":redpajama_incite_instruct_3b_v1,
-        "stablelm_tuned_alpha_3b":stablelm_tuned_alpha_3b
+        # "redpajama_incite_instruct_3b_v1":redpajama_incite_instruct_3b_v1,
+        # "stablelm_tuned_alpha_3b":stablelm_tuned_alpha_3b
     }

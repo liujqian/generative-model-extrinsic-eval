@@ -60,6 +60,26 @@ def count_occurences(sentences: list[str], targets: list[str]) -> int:
 
 
 #######################################################  For With Choice Analysis.  #######################################################
+
+def get_avg_differece_scores_first_second_highest(lm_name: str) -> float:
+    total_diff = 0
+    total_cnt = 0
+    for subset_name in file_postfix_without_choice:
+        with open(f"generated_sentences/{model_name}{file_postfix_with_choice[subset_name]}", "r", ) as file:
+            model_generations = json.load(file)
+        total_cnt += len(model_generations)
+        for idx, record in model_generations.items():
+            scores = record["sequences_scores"] if "sequences_scores" in record else [0] * 20
+            choice_avg_scores = []
+            for choice_idx in range(0, 5):
+                choice_scores = scores[choice_idx * 4:choice_idx * 4 + 4]
+                choice_avg_scores.append(sum(choice_scores) / len(choice_scores))
+            choice_avg_scores.sort()
+            diff = choice_avg_scores[-1] - choice_avg_scores[-2]
+            total_diff += diff
+    return total_diff / total_cnt
+
+
 def get_current_question_choice_status_with_choice_analysis(question: dict, generations: dict) -> dict:
     choices_stats = {
         "inclusion_count": [],
@@ -236,6 +256,5 @@ def analyze_without_choice_generations(model_name: str):
 if __name__ == '__main__':
     model_names = [name for name in get_language_models()]
     for model_name in model_names:
-        analyze_with_choice_generations(model_name)
-    for model_name in get_language_models():
-        analyze_without_choice_generations(model_name)
+        print(
+            f"The average difference between the highest confidence score and the second highest sequence score for model {model_name} is {get_avg_differece_scores_first_second_highest(model_name)}")
