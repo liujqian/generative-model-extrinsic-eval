@@ -24,7 +24,15 @@ def calculate_kendall_w(submissions: dict):
             n = len(get_language_models())
             numerator = sum([objects_rank_map[qid][measure][lm] for lm in get_language_models()]) * 12 - 3 * 9 * n * ((n + 1) ** 2)
             denominator = 9 * n * (n * n - 1) - 3 * objects_rank_map[qid][measure]["total_correction_factor"]
-            W = numerator / denominator
+            if denominator == 0:
+                assert numerator == 0
+                q_subs = [s for s in submissions if (s["SubsetName"], s["ConceptSetID"]) == qid]
+                for lm in get_language_models():
+                    assert q_subs[0][lm][f"{measure}_rank"] == q_subs[1][lm][f"{measure}_rank"] and q_subs[0][lm][f"{measure}_rank"] == q_subs[2][lm][
+                        f"{measure}_rank"]
+                W = 1
+            else:
+                W = numerator / denominator
             objects_rank_map[qid][measure]["W"] = W
     total_W = 0
     for qid in qids:
@@ -45,7 +53,7 @@ def calculate_ranks_for_submission(submission: dict):
         correction_factor = 0
         for rate in range(5, 0, -1):
             count = ratings.count(rate)
-            group_correction_factor = (count ** 3) - 1
+            group_correction_factor = (count ** 3) - count
             correction_factor += group_correction_factor
             if count == 0:
                 continue
@@ -65,8 +73,18 @@ if __name__ == '__main__':
     batch_1 = "sandbox_env_internal_first_100_questions/Batch_387776_batch_results_with_ranking"
     with open(batch_1 + ".json", "r") as handle:
         submissions1 = json.load(handle)
+    # for submission in submissions1:
+    #     calculate_ranks_for_submission(submission)
+    # with open(batch_1 + ".json", "w") as handle:
+    #     json.dump(submissions1, handle)
+
     batch_2 = "sandbox_env_internal_second_100_questions/Batch_388388_batch_results_with_ranking"
     with open(batch_2 + ".json", "r") as handle:
         submissions2 = json.load(handle)
+    # for submission in submissions2:
+    #     calculate_ranks_for_submission(submission)
+    # with open(batch_2 + ".json", "w") as handle:
+    #     json.dump(submissions2, handle)
+
     calculate_kendall_w(submissions1)
     calculate_kendall_w(submissions2)
