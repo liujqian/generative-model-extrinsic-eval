@@ -59,6 +59,16 @@ def count_occurences(sentences: list[str], targets: list[str]) -> int:
     return cnt
 
 
+def count_concepts_coverage(sentence: str, concepts: list[str]) -> float:
+    count = 0
+    lemmatized_sentence = lemmatize(sentence).lower()
+    for concept in concepts:
+        lemmatized_concept = lemmatize(concept).lower()
+        if lemmatized_concept in lemmatized_sentence:
+            count += 1
+    return count / len(concepts)
+
+
 #######################################################  For With Choice Analysis.  #######################################################
 
 def get_avg_differece_scores_first_second_highest(lm_name: str) -> float:
@@ -137,6 +147,34 @@ def update_subset_stats_for_with_choice_analysis(
         wrong_sequence_scores) / len(wrong_sequence_scores)) / (stats["total_examined"] + 1)
 
     stats["total_examined"] += 1
+
+
+def count_correct_choice_coverage(model_name: str) -> float:
+    dataset = load_dataset("liujqian/commonsenseqa_with_content_words")
+    total_questions = len(dataset["train"]) + len(dataset["validation"])
+    all_sets_total_cov = 0
+    for subset_name in file_postfix_without_choice:
+        with open(f"generated_sentences/{model_name}{file_postfix_with_choice[subset_name]}", "r", ) as file:
+            model_generations = json.load(file)
+        subset = dataset[subset_name]
+        for i in range(len(subset["id"])):
+            if i % 200 == 0:
+                additional_info = f"Analyzing the results of {model_name} on the {subset_name} set. This is WITH choices' content words."
+                log_progress(i, len(subset["id"]), 10, additional_info)
+            question_generations = model_generations[str(i)]
+            question = subset[i]
+            idx_correct_choice = get_correct_choice_idx(question)
+            choice_content_words = question[f"choice_{idx_correct_choice}_content_words"]
+            question_content_words = question["question_content_words"]
+            all_content_words = question_content_words + choice_content_words
+            choice_generations = question_generations["sentences"][idx_correct_choice * 4:idx_correct_choice * 4 + 4]
+            total_cov = 0
+            for generation in choice_generations:
+                total_cov += count_concepts_coverage(generation, all_content_words)
+            task_avg_conv = total_cov / len(choice_generations)
+            all_sets_total_cov += task_avg_conv
+    model_avg_conv = all_sets_total_cov / total_questions
+    return model_avg_conv
 
 
 def analyze_with_choice_generations(model_name: str):
@@ -255,6 +293,8 @@ def analyze_without_choice_generations(model_name: str):
 
 if __name__ == '__main__':
     model_names = [name for name in get_language_models()]
+    all_models_cov = {}
     for model_name in model_names:
-        print(
-            f"The average difference between the highest confidence score and the second highest sequence score for model {model_name} is {get_avg_differece_scores_first_second_highest(model_name)}")
+        all_models_cov[model_name] = count_correct_choice_coverage(model_name)
+    with open("analysis-results/all_models_correct_choice_coverage.json", "w") as handle:
+        json.dump(all_models_cov, handle)
