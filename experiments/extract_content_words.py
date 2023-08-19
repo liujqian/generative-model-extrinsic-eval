@@ -58,9 +58,19 @@ def extract_and_upload():
     new_ds.push_to_hub("liujqian/commonsenseqa_with_content_words")
 
 
+def count_average_number_concepts_per_prompt() -> float:
+    dataset = datasets.load_dataset("liujqian/commonsenseqa_with_content_words")
+    sets = ["train", "validation"]
+    num_concepts = []
+    for set in sets:
+        for i in range(len(dataset[set])):
+            num_question_concepts = len(dataset[set][i]['question_content_words'])
+            for choice in range(5):
+                num_choice_concepts = len(dataset[set][i][f"choice_{choice}_content_words"])
+                num_concepts.append(num_choice_concepts + num_question_concepts)
+    return sum(num_concepts) / len(num_concepts)
+
+
 if __name__ == '__main__':
-    ds = datasets.load_dataset("commonsense_qa")["train"][2]
-    a = extract_content_words(ds["question"])
-    for i in range(5):
-        a += extract_content_words(ds["choices"]["text"][i])
-    print(a)
+    avg_concepts = count_average_number_concepts_per_prompt()
+    print(avg_concepts)
