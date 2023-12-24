@@ -51,8 +51,9 @@ def generate_for_commongen(model, tokenizer, prompt_generator, result_separator,
     dataset_length = len(commongen["concepts"])
     results = {}
     for idx in range(0, dataset_length):
-        log_progress(idx, dataset_length, f"Generating for CommonGen {ds_name} set. The model name is {model_name}.")
         concept_set_idx = commongen[idx]["concept_set_idx"]
+        log_progress(idx, dataset_length, 1,
+                     f"Generating for concept set {concept_set_idx} of CommonGen {ds_name} set. The model name is {model_name}.")
         if concept_set_idx in results:
             continue
         results[concept_set_idx] = {}

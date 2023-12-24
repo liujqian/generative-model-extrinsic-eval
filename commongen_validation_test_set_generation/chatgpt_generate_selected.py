@@ -57,7 +57,7 @@ def chatgpt_make_up():
     commongen_sets = {"validation": validation_json, "test": test_json}
     cg = datasets.load_dataset('common_gen')
 
-    new_selected = open("generated_sentences/new_selected_commongen_tasks_greedy_diversity.json", "r")
+    new_selected = open("generated_sentences/all_commongen_tasks_validation.json", "r")
     new_selected_json = json.load(new_selected)
     new_selected.close()
 

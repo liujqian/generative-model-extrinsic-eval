@@ -152,5 +152,22 @@ def generate_test_reference_coco():
         json.dump(m, file)
 
 
+def generate_coco_formated_generations(model_name: str, subset_name: str,
+                                       dump_directory: str = "commongen-validation-test-generation/coco-annotations"):
+    generation_file = f"{model_name}-commongen-{subset_name}-set-generation.json"
+    with open(f"generated_sentences/{generation_file}", "r") as handle:
+        generations: dict = json.load(handle)
+    entries = []
+    for concept_set_idx, generation in generations.items():
+        entries.append(
+            {
+                "image_id": int(concept_set_idx),
+                "caption": generation["sentences"]
+            }
+        )
+    with open(f"{dump_directory}/commongen-{subset_name}-{model_name}-generations.json",
+              "w") as file:
+        json.dump(entries, file)
+
 if __name__ == '__main__':
     generate_validation_generation_coco_gpt()

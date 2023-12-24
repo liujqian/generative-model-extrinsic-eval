@@ -39,7 +39,7 @@ def make_request_get_all(prompt: str, n_generation: int) -> list | None:
         openai.api_key = read_openai_api_key()
         openai.organization = "org-Z6lli0WO1awNKqRJjTToCxj4"
     try:
-        completion = openai.ChatCompletion.create(
+        completion = openai.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
                 {"role": "system",
@@ -49,10 +49,11 @@ def make_request_get_all(prompt: str, n_generation: int) -> list | None:
             n=n_generation
         )
         results = []
-        for choice in completion["choices"]:
-            results.append(choice["message"]["content"].replace("\n", ""))
+        for choice in completion.choices:
+            results.append(choice.message.content.replace("\n", ""))
         return results
-    except:
+    except Exception as e:
+        print(e)
         return None
 
 

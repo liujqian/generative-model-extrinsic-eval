@@ -36,7 +36,8 @@ def calculate_concept_coverage_and_update_json_files(model_name: str, subset_nam
         json.dump(generation_dict, handle)
 
 
-def calculate_batch_average_coverage(batch_input_csv_path: str, output_path: str):
+def calculate_batch_average_coverage(batch_input_csv_path: str = "generated_sentences/combined_generations_first_100.csv",
+                                     output_path: str = "mturk_batches/sandbox_env_internal_first_100_questions"):
     batch = pandas.read_csv(batch_input_csv_path).to_dict(orient="records")
     qids = {(question["set_name"], question["concept_set_id"]) for question in batch}
     generation_coverage = {}
