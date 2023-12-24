@@ -3,6 +3,8 @@ import pickle
 
 import datasets, pandas
 
+from commongen_validation_test_set_generation.language_models import get_language_models
+
 
 def generate_validation_reference_coco():
     subset_name = "validation"
@@ -153,7 +155,7 @@ def generate_test_reference_coco():
 
 
 def generate_coco_formated_generations(model_name: str, subset_name: str,
-                                       dump_directory: str = "commongen-validation-test-generation/coco-annotations"):
+                                       dump_directory: str = "coco-annotations"):
     generation_file = f"{model_name}-commongen-{subset_name}-set-generation.json"
     with open(f"generated_sentences/{generation_file}", "r") as handle:
         generations: dict = json.load(handle)
@@ -165,9 +167,10 @@ def generate_coco_formated_generations(model_name: str, subset_name: str,
                 "caption": generation["sentences"]
             }
         )
-    with open(f"{dump_directory}/commongen-{subset_name}-{model_name}-generations.json",
-              "w") as file:
+    with open(f"{dump_directory}/commongen-{subset_name}-{model_name}-generations.json", "w") as file:
         json.dump(entries, file)
 
+
 if __name__ == '__main__':
-    generate_validation_generation_coco_gpt()
+    for lm in get_language_models():
+        generate_coco_formated_generations(lm, "validation")

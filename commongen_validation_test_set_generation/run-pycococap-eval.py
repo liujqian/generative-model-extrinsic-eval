@@ -3,32 +3,35 @@ import json
 from pycocotools.coco import COCO
 from pycocoevalcap.eval import COCOEvalCap
 
-for model_name in ["chatgpt"]:
-    for subset_name in [
-        "validation",
-    ]:
-        print(f"Evalutating {model_name} on the performance of {subset_name}")
-        results_file = f'coco-annotations\\commongen-{model_name}-{subset_name}-model-generations.json'
-        annotation_file = 'coco-annotations/commongen-validation-gold-references.json' if subset_name == "validation" else "coco-annotations/commongen-test-silver-references.json"
+from commongen_validation_test_set_generation.language_models import get_language_models
 
-        # create coco object and coco_result object
-        coco = COCO(annotation_file)
-        coco_result = coco.loadRes(results_file)
+if __name__ == '__main__':
+    for model_name in get_language_models():
+        for subset_name in [
+            "validation",
+        ]:
+            print(f"Evalutating {model_name} on the performance of {subset_name}")
+            results_file = f'coco-annotations/commongen-{subset_name}-{model_name}-generations.json'
+            annotation_file = 'coco-annotations/commongen-validation-gold-references.json' if subset_name == "validation" else "coco-annotations/commongen-test-silver-references.json"
 
-        # create coco_eval object by taking coco and coco_result
-        coco_eval = COCOEvalCap(coco, coco_result)
+            # create coco object and coco_result object
+            coco = COCO(annotation_file)
+            coco_result = coco.loadRes(results_file)
 
-        # evaluate on a subset of images by setting
-        # coco_eval.params['image_id'] = coco_result.getImgIds()
-        # please remove this line when evaluating the full validation set
-        coco_eval.params['image_id'] = coco_result.getImgIds()
+            # create coco_eval object by taking coco and coco_result
+            coco_eval = COCOEvalCap(coco, coco_result)
 
-        # evaluate results
-        # SPICE will take a few minutes the first time, but speeds up due to caching
-        coco_eval.evaluate()
+            # evaluate on a subset of images by setting
+            # coco_eval.params['image_id'] = coco_result.getImgIds()
+            # please remove this line when evaluating the full validation set
+            coco_eval.params['image_id'] = coco_result.getImgIds()
 
-        # print output evaluation scores
-        # for metric, score in coco_eval.eval.items():
-        #     print(f'{metric}: {score:.3f}')
-        with open(f"pycocoevalcap-results/{model_name}-commongen-{subset_name}-autoeval.json", "w") as file:
-            json.dump(coco_eval.eval, file)
+            # evaluate results
+            # SPICE will take a few minutes the first time, but speeds up due to caching
+            coco_eval.evaluate()
+
+            # print output evaluation scores
+            # for metric, score in coco_eval.eval.items():
+            #     print(f'{metric}: {score:.3f}')
+            with open(f"pycocoevalcap-results/{model_name}-commongen-{subset_name}-autoeval.json", "w") as file:
+                json.dump(coco_eval.eval, file)
