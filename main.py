@@ -1,56 +1,55 @@
-import re
-
-import torch
-from transformers import AutoTokenizer, AutoModelForCausalLM, StoppingCriteria, StoppingCriteriaList
+import rouge
 
 if __name__ == '__main__':
-    checkpoint = "stabilityai/stablelm-tuned-alpha-3b"
-    system_prompt = """<|SYSTEM|># StableLM Tuned (Alpha version)
-- StableLM is a helpful and harmless open-source AI language model developed by StabilityAI.
-- StableLM is excited to be able to help the user, but will refuse to do anything that could be considered harmful to the user.
-- StableLM is more than just an information source, StableLM is also able to write poetry, short stories, and make jokes.
-- StableLM will refuse to participate in anything that could harm a human.
-"""
+    from rouge_score import rouge_scorer
 
-
-    class StopOnTokens(StoppingCriteria):
-        def __call__(self, input_ids: torch.LongTensor, scores: torch.FloatTensor, **kwargs) -> bool:
-            stop_ids = [50278, 50279, 50277, 1, 0]
-            for stop_id in stop_ids:
-                if input_ids[0][-1] == stop_id:
-                    return True
-            return False
-
-
-    tokenizer = AutoTokenizer.from_pretrained(checkpoint)
-    model = AutoModelForCausalLM.from_pretrained(checkpoint, torch_dtype="auto", device_map="auto")
-
-
-    def prompt_generator(l):
-        prompt = f"{system_prompt}<|USER|>Create a sentence using the following words: {', '.join(l)}.<|ASSISTANT|>"
-        return prompt
-
-
-    def result_separator(s):
-        all_found = re.findall(r"Create a sentence using the following words: [^.]*.([^.?!]*)", s)
-        return all_found[0] if len(all_found) != 0 else ""
-
-
-    inputs = tokenizer(prompt_generator(["mountain", "ski", "snow"]), return_tensors="pt").to("cuda")
-    outputs = model.generate(
-        **inputs,
-        num_beams=4,
-        num_beam_groups=4,
-        num_return_sequences=4,
-        diversity_penalty=100.0,
-        remove_invalid_values=True,
-        temperature=1.0,
-        max_new_tokens=128,
-        return_dict_in_generate=True,
-        output_scores=True,
-        stopping_criteria=StoppingCriteriaList([StopOnTokens()])
-    )
-    for output in outputs.sequences:
-        sentence = tokenizer.decode(output, skip_special_tokens=True)
-        print(result_separator(sentence))
-        print("****")
+    scorer = rouge_scorer.RougeScorer(['rougeL'], use_stemmer=True)
+    scores = scorer.score("The player stood in the field looking at the batter.",
+                          'A man stands in a field looking at a field.')
+    print(scores)
+    # def prepare_results(m, p, r, f):
+    #     return '\t{}:\t{}: {:5.2f}\t{}: {:5.2f}\t{}: {:5.2f}'.format(m, 'P', 100.0 * p, 'R', 100.0 * r, 'F1', 100.0 * f)
+    #
+    #
+    # for aggregator in ['Avg', 'Best', 'Individual']:
+    #     print('Evaluation with {}'.format(aggregator))
+    #     apply_avg = aggregator == 'Avg'
+    #     apply_best = aggregator == 'Best'
+    #
+    #     evaluator = rouge.Rouge(
+    #         metrics=['rouge-l', ],
+    #         max_n=4,
+    #         limit_length=True,
+    #         length_limit=100,
+    #         length_limit_type='words',
+    #         apply_avg=apply_avg,
+    #         apply_best=apply_best,
+    #         alpha=0.5,  # Default F1_score
+    #         weight_factor=1.2,
+    #         stemming=True
+    #     )
+    #
+    #     hypothesis_1 = "A man is standing in a field looking at the camera."
+    #     references_1 = [
+    #         "The player stood in the field looking at the batter.",
+    #         # "The coach stands along the field, looking at the goalkeeper.",
+    #         # "I stood and looked across the field, peacefully.",
+    #         # "Someone stands, looking around the empty field."
+    #     ]
+    #     all_hypothesis = [hypothesis_1]
+    #     all_references = [references_1]
+    #
+    #     scores = evaluator.get_scores(all_hypothesis, all_references)
+    #
+    #     for metric, results in sorted(scores.items(), key=lambda x: x[0]):
+    #         if not apply_avg and not apply_best:  # value is a type of list as we evaluate each summary vs each reference
+    #             for hypothesis_id, results_per_ref in enumerate(results):
+    #                 nb_references = len(results_per_ref['p'])
+    #                 for reference_id in range(nb_references):
+    #                     print('\tHypothesis #{} & Reference #{}: '.format(hypothesis_id, reference_id))
+    #                     print('\t' + prepare_results(metric, results_per_ref['p'][reference_id], results_per_ref['r'][reference_id],
+    #                                                  results_per_ref['f'][reference_id]))
+    #             print()
+    #         else:
+    #             print(prepare_results(metric, results['p'], results['r'], results['f']))
+    #     print()
