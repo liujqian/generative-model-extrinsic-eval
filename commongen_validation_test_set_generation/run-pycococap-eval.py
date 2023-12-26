@@ -1,14 +1,42 @@
 import json
 
-from pycocotools.coco import COCO
 from pycocoevalcap.eval import COCOEvalCap
-from rouge import Rouge
+from pycocoevalcap.tokenizer.ptbtokenizer import PTBTokenizer
+from pycocotools.coco import COCO
 from rouge_score import rouge_scorer
 
 from commongen_validation_test_set_generation.language_models import get_language_models
+from commongen_validation_test_set_generation.original_CIDEr.CIDEr import Cider
 
 
-def calculate_rouge(rouge_type: str) -> dict:
+def calculate_original_cider():
+    for model_name in get_language_models():
+        for subset_name in ["validation"]:
+            print(f"Evalutating {model_name} on the performance of {subset_name}")
+            results_file = f'coco-annotations/commongen-{subset_name}-{model_name}-generations.json'
+            annotation_file = 'coco-annotations/commongen-validation-gold-references.json' if subset_name == "validation" else "coco-annotations/commongen-test-silver-references.json"
+            # create coco object and coco_result object
+            coco = COCO(annotation_file)
+            coco_result = coco.loadRes(results_file)
+            imgIds = coco_result.getImgIds()
+            gts = {}
+            res = {}
+            for imgId in imgIds:
+                gts[imgId] = coco.imgToAnns[imgId]
+                res[imgId] = coco_result.imgToAnns[imgId]
+            print('tokenization...')
+            tokenizer = PTBTokenizer()
+            gts = tokenizer.tokenize(gts)
+            res = tokenizer.tokenize(res)
+            score, scores = Cider().compute_score(gts, res)
+            with open(f"pycocoevalcap-results/{model_name}-commongen-{subset_name}-autoeval.json", "r") as file:
+                original_json = json.load(file)
+            original_json["original_CIDEr"] = score
+            with open(f"pycocoevalcap-results/{model_name}-commongen-{subset_name}-autoeval.json", "w") as file:
+                json.dump(original_json, file)
+
+
+def calculate_rouge(rouge_type: str):
     if rouge_type not in {"rouge2", "rougeL"}:
         raise Exception("Invalid rouge type")
     scorer = rouge_scorer.RougeScorer([rouge_type], use_stemmer=True)
@@ -77,11 +105,11 @@ def run_overall_pycoco_eval():
             # print output evaluation scores
             # for metric, score in coco_eval.eval.items():
             #     print(f'{metric}: {score:.3f}')
-            with open(f"pycocoevalcap-results/{model_name}-commongen-{subset_name}-autoeval.json", "w") as file:
-                json.dump(coco_eval.eval, file)
+            # with open(f"pycocoevalcap-results/{model_name}-commongen-{subset_name}-autoeval.json", "w") as file:
+            #     json.dump(coco_eval.eval, file)
 
 
 if __name__ == '__main__':
-    for rouge_type in {"rougeL", "rouge2"}:
-        calculate_rouge(rouge_type)
-    # run_overall_pycoco_eval()
+    # for rouge_type in {"rougeL", "rouge2"}:
+    #     # calculate_rouge(rouge_type)
+    run_overall_pycoco_eval()
