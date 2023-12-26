@@ -10,7 +10,7 @@
 # Authors: Ramakrishna Vedantam <vrama91@vt.edu> and
 # Tsung-Yi Lin <tl483@cornell.edu>
 
-from cider_scorer import CiderScorer
+from .cider_scorer import CiderScorer
 
 
 class Cider:
@@ -18,6 +18,7 @@ class Cider:
     Main Class to compute the CIDEr metric
 
     """
+
     def __init__(self, n=4, df="corpus"):
         """
         Initialize the CIDEr scoring function
@@ -39,17 +40,15 @@ class Cider:
         """
 
         cider_scorer = CiderScorer(n=self._n)
-
-        for res_id in res:
-
-            hypo = res_id['caption']
-            ref = gts[res_id['image_id']]
-
+        imgIds = gts.keys()
+        for id in imgIds:
+            hypo = res[id]
+            ref = gts[id]
             # Sanity check.
-            assert(type(hypo) is list)
-            assert(len(hypo) == 1)
-            assert(type(ref) is list)
-            assert(len(ref) > 0)
+            assert (type(hypo) is list)
+            assert (len(hypo) == 1)
+            assert (type(ref) is list)
+            assert (len(ref) > 0)
             cider_scorer += (hypo[0], ref)
 
         (score, scores) = cider_scorer.compute_score(self._df)

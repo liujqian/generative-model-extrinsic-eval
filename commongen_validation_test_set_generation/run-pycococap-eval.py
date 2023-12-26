@@ -112,4 +112,4 @@ def run_overall_pycoco_eval():
 if __name__ == '__main__':
     # for rouge_type in {"rougeL", "rouge2"}:
     #     # calculate_rouge(rouge_type)
-    run_overall_pycoco_eval()
+    calculate_original_cider()
